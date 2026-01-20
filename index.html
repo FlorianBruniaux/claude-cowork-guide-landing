@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Claude Cowork Guide: 5 Workflows & 67 Prompts - Free</title>
+    <title>Claude Cowork Guide: 5 Workflows & 70 Prompts - Free</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Master Claude Cowork with 5 step-by-step workflows and 67 ready-to-use prompts. Free guide for desktop file automation, document creation, and OCR. Get started →">
+    <meta name="description" content="Master Claude Cowork with 5 step-by-step workflows and 70 ready-to-use prompts. Free guide for desktop file automation, document creation, and OCR. Get started →">
     <meta name="keywords" content="Claude Cowork, Anthropic, Claude Desktop, file automation, document creation, knowledge worker AI, OCR, Claude Pro, Claude Max, agentic AI">
     <meta name="author" content="Florian BRUNIAUX">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
@@ -20,16 +20,16 @@
     <link rel="dns-prefetch" href="https://img.shields.io">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Claude Cowork Guide: 5 Workflows, 67 Prompts - Free">
-    <meta property="og:description" content="Free, open-source guide for Claude Cowork. 5 workflows, 67 prompts, security best practices. Master desktop AI automation.">
+    <meta property="og:title" content="Claude Cowork Guide: 5 Workflows, 70 Prompts - Free">
+    <meta property="og:description" content="Free, open-source guide for Claude Cowork. 5 workflows, 70 prompts, security best practices. Master desktop AI automation.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://florianbruniaux.github.io/claude-cowork-guide-landing">
     <meta property="og:image" content="https://florianbruniaux.github.io/claude-cowork-guide-landing/og-image.png">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Claude Cowork Guide: 5 Workflows, 67 Prompts - Free">
-    <meta name="twitter:description" content="67 ready-to-use prompts, 5 workflows, security guide. Master Claude's desktop AI assistant.">
+    <meta name="twitter:title" content="Claude Cowork Guide: 5 Workflows, 70 Prompts - Free">
+    <meta name="twitter:description" content="70 ready-to-use prompts, 5 workflows, security guide. Master Claude's desktop AI assistant.">
     <meta name="twitter:image" content="https://florianbruniaux.github.io/claude-cowork-guide-landing/og-image.png">
 
     <!-- Favicon -->
@@ -44,7 +44,7 @@
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "Claude Cowork Guide",
-        "description": "Free guide for Claude Cowork with 67 prompts and 5 workflows",
+        "description": "Free guide for Claude Cowork with 70 prompts and 5 workflows",
         "url": "https://florianbruniaux.github.io/claude-cowork-guide-landing/",
         "author": {
             "@type": "Person",
@@ -142,7 +142,7 @@
                 "name": "Is this guide official?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "No, this is a community resource. It reflects personal experience, not official Anthropic documentation."
+                    "text": "No, this is exploratory research. Cowork is brand new (launched January 2026). This guide reflects personal experimentation and current understanding—both will evolve rapidly as the product matures. Expect content changes, corrections, and pivots. Not affiliated with Anthropic."
                 }
             },
             {
@@ -150,7 +150,7 @@
                 "name": "Who is behind this guide?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Created by Florian BRUNIAUX, a developer using Claude daily. Feedback and contributions welcome!"
+                    "text": "Created by Florian BRUNIAUX, a developer experimenting with Cowork since its recent launch. This is a living document—learning in real-time and documenting findings as they evolve. Feedback and corrections essential!"
                 }
             },
             {
@@ -185,14 +185,13 @@
                 <a href="#prompts">Prompts</a>
                 <a href="#comparison">Compare</a>
                 <a href="#faq">FAQ</a>
-                <button class="search-trigger" aria-label="Open search">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-                    <span class="search-kbd">Cmd+K</span>
-                </button>
-                <a href="https://florianbruniaux.github.io/claude-code-ultimate-guide-landing/" class="nav-crosslink" target="_blank" rel="noopener">
-                    <span class="nav-crosslink-label">Dev?</span> Claude Code →
-                </a>
-                <a href="https://github.com/FlorianBruniaux/claude-cowork-guide" class="btn btn-secondary" target="_blank" rel="noopener">View Guide</a>
+                <div class="nav-actions">
+                    <button class="search-trigger" aria-label="Open search">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                        <span class="search-kbd">Cmd+K</span>
+                    </button>
+                    <a href="https://github.com/FlorianBruniaux/claude-cowork-guide" class="btn btn-primary" target="_blank" rel="noopener">Read Guide</a>
+                </div>
             </div>
             <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -203,8 +202,8 @@
     <!-- Research Preview Banner -->
     <div class="preview-banner">
         <div class="container">
-            <span class="preview-badge">Research Preview</span>
-            <span class="preview-text">Cowork is in early access. macOS only, Pro/Max subscription required.</span>
+            <span class="preview-badge">Exploratory Guide</span>
+            <span class="preview-text">⚠️ Cowork is brand new and evolving rapidly. This guide reflects my current understanding and will change as I learn. Expect instability and frequent updates.</span>
         </div>
     </div>
 
@@ -214,7 +213,7 @@
             <div class="container hero-content">
                 <h1 class="hero-title">Master Claude Cowork</h1>
                 <p class="hero-tagline">The complete guide for Claude's desktop AI assistant</p>
-                <p class="hero-stats">5 workflows | 67 prompts | Security best practices</p>
+                <p class="hero-stats">25 workflows | 70 prompts | Security best practices</p>
 
                 <div class="hero-ctas">
                     <a href="https://github.com/FlorianBruniaux/claude-cowork-guide" class="btn btn-primary" target="_blank" rel="noopener">
@@ -226,10 +225,10 @@
                 </div>
 
                 <div class="hero-badges">
-                    <img src="https://img.shields.io/badge/Prompts-67-6366f1?style=flat-square" alt="67 Prompts">
-                    <img src="https://img.shields.io/badge/Workflows-5-6366f1?style=flat-square" alt="5 Workflows">
+                    <img src="https://img.shields.io/badge/Prompts-70-6366f1?style=flat-square" alt="70 Prompts">
+                    <img src="https://img.shields.io/badge/Workflows-25-6366f1?style=flat-square" alt="25 Workflows">
                     <img src="https://img.shields.io/badge/License-CC%20BY--SA%204.0-green?style=flat-square" alt="CC BY-SA 4.0">
-                    <img src="https://img.shields.io/badge/Status-Research%20Preview-fbbf24?style=flat-square" alt="Research Preview">
+                    <img src="https://img.shields.io/badge/Status-Exploratory-fbbf24?style=flat-square" alt="Exploratory Guide">
                 </div>
 
                 <p class="hero-crosslink">Developer? <a href="https://florianbruniaux.github.io/claude-code-ultimate-guide-landing/">Claude Code</a> is for terminal-based AI coding.</p>
@@ -259,7 +258,7 @@
                             </tr>
                             <tr>
                                 <td>Status</td>
-                                <td>Research Preview (expect bugs)</td>
+                                <td>Early Access (unstable, rapidly evolving)</td>
                             </tr>
                             <tr>
                                 <td>Best For</td>
@@ -279,7 +278,7 @@
         <section class="section">
             <div class="container">
                 <h2 class="section-title">Why This Guide?</h2>
-                <p class="section-subtitle">The difference between trial-and-error and mastery</p>
+                <p class="section-subtitle">Stop wasting time on setup issues. Start with proven workflows.</p>
 
                 <div class="comparison-cards">
                     <div class="comparison-card comparison-without">
@@ -288,12 +287,12 @@
                             <h3>Without the Guide</h3>
                         </div>
                         <ul class="comparison-list">
-                            <li><span class="status-icon bad">✗</span> VPN breaks Cowork (most common issue)</li>
-                            <li><span class="status-icon bad">✗</span> Accidentally expose sensitive files</li>
-                            <li><span class="status-icon bad">✗</span> Quota exhausted in 1 hour</li>
-                            <li><span class="status-icon bad">✗</span> Prompt injection via malicious PDFs</li>
-                            <li><span class="status-icon bad">✗</span> Re-invent prompts from scratch</li>
-                            <li><span class="status-icon bad">✗</span> No backup before destructive ops</li>
+                            <li><span class="status-icon bad">✗</span> Hours wasted on setup and troubleshooting</li>
+                            <li><span class="status-icon bad">✗</span> Start from scratch every single time</li>
+                            <li><span class="status-icon bad">✗</span> Fear of breaking something important</li>
+                            <li><span class="status-icon bad">✗</span> No idea what tasks will actually work</li>
+                            <li><span class="status-icon bad">✗</span> Repetitive work eating your day</li>
+                            <li><span class="status-icon bad">✗</span> Risk losing files you can't replace</li>
                         </ul>
                     </div>
                     <div class="comparison-card comparison-with">
@@ -302,12 +301,12 @@
                             <h3>With the Guide</h3>
                         </div>
                         <ul class="comparison-list">
-                            <li><span class="status-icon good">✓</span> VPN checklist: disconnect before starting</li>
-                            <li><span class="status-icon good">✓</span> Sandbox workflow isolates sensitive files</li>
-                            <li><span class="status-icon good">✓</span> Token budgeting extends usage 3-4x</li>
-                            <li><span class="status-icon good">✓</span> PDF sanitization steps prevent injection</li>
-                            <li><span class="status-icon good">✓</span> 67 copy-paste prompts ready</li>
-                            <li><span class="status-icon good">✓</span> Pre-operation backup checklist included</li>
+                            <li><span class="status-icon good">✓</span> Working in 15 minutes with zero setup pain</li>
+                            <li><span class="status-icon good">✓</span> 70 copy-paste prompts that actually work</li>
+                            <li><span class="status-icon good">✓</span> Safe workflows with foolproof guardrails</li>
+                            <li><span class="status-icon good">✓</span> Know what's possible before you start</li>
+                            <li><span class="status-icon good">✓</span> Automate hours of manual work instantly</li>
+                            <li><span class="status-icon good">✓</span> Built-in backups protect your files</li>
                         </ul>
                     </div>
                 </div>
@@ -332,7 +331,7 @@
                     <a href="https://github.com/FlorianBruniaux/claude-cowork-guide/tree/main/prompts" class="feature-card feature-card-link featured" target="_blank" rel="noopener">
                         <span class="card-badge">Popular</span>
                         <span class="feature-icon">💬</span>
-                        <h3>67 Ready-to-Use Prompts</h3>
+                        <h3>70 Ready-to-Use Prompts</h3>
                         <p>Copy-paste prompts for file ops, document creation, data extraction, and web research.</p>
                         <span class="feature-meta">4 categories</span>
                     </a>
@@ -372,43 +371,184 @@
         <section class="section" id="workflows">
             <div class="container">
                 <span class="section-badge">Step-by-Step</span>
-                <h2 class="section-title">5 Complete Workflows</h2>
-                <p class="section-subtitle">From beginner to advanced, with real-world examples</p>
+                <h2 class="section-title">25 Complete Workflows</h2>
+                <p class="section-subtitle">Organized by task type - Administrative, Commercial, Production, Communication, Organization</p>
+
+                <!-- Category Tabs -->
+                <div class="workflow-tabs" role="tablist" aria-label="Workflow categories">
+                    <button class="workflow-tab active" data-category="all" role="tab" aria-selected="true">All (25)</button>
+                    <button class="workflow-tab" data-category="administratif" role="tab" aria-selected="false">📋 Admin (6)</button>
+                    <button class="workflow-tab" data-category="commercial" role="tab" aria-selected="false">💼 Commercial (5)</button>
+                    <button class="workflow-tab" data-category="production" role="tab" aria-selected="false">🔧 Production (5)</button>
+                    <button class="workflow-tab" data-category="communication" role="tab" aria-selected="false">📣 Communication (4)</button>
+                    <button class="workflow-tab" data-category="organisation" role="tab" aria-selected="false">🗂️ Organization (4)</button>
+                </div>
 
                 <div class="workflows-grid">
-                    <a href="https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/workflows/file-organization.md" class="workflow-card" target="_blank" rel="noopener">
-                        <span class="workflow-icon">📁</span>
-                        <h3>File Organization</h3>
-                        <p>Downloads folder to structured folders. Automatic categorization and renaming.</p>
+                    <!-- Administratif (6) -->
+                    <a href="https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/workflows/invoice-generation.md" class="workflow-card" data-category="administratif" target="_blank" rel="noopener">
+                        <span class="workflow-icon">📄</span>
+                        <h3>Invoice/Quote Generation</h3>
+                        <p>Create invoices from templates. VAT calculations, legal mentions.</p>
                         <span class="workflow-complexity complexity-beginner">Beginner</span>
                     </a>
 
-                    <a href="https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/workflows/expense-tracking.md" class="workflow-card" target="_blank" rel="noopener">
+                    <a href="https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/workflows/quote-to-invoice.md" class="workflow-card" data-category="administratif" target="_blank" rel="noopener">
+                        <span class="workflow-icon">🔄</span>
+                        <h3>Quote → Invoice</h3>
+                        <p>Automatically convert accepted quotes to invoices.</p>
+                        <span class="workflow-complexity complexity-beginner">Beginner</span>
+                    </a>
+
+                    <a href="https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/workflows/payment-reminders.md" class="workflow-card" data-category="administratif" target="_blank" rel="noopener">
+                        <span class="workflow-icon">⏰</span>
+                        <h3>Payment Reminders</h3>
+                        <p>Generate escalating reminders (R1, R2, R3, formal notice).</p>
+                        <span class="workflow-complexity complexity-intermediate">Intermediate</span>
+                    </a>
+
+                    <a href="https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/workflows/compliance-checklist.md" class="workflow-card" data-category="administratif" target="_blank" rel="noopener">
+                        <span class="workflow-icon">✅</span>
+                        <h3>Compliance Verification</h3>
+                        <p>Check mandatory documents (certifications, insurance).</p>
+                        <span class="workflow-complexity complexity-intermediate">Intermediate</span>
+                    </a>
+
+                    <a href="https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/workflows/client-followup-tracker.md" class="workflow-card" data-category="administratif" target="_blank" rel="noopener">
+                        <span class="workflow-icon">📊</span>
+                        <h3>Client Follow-up Tracker</h3>
+                        <p>Excel dashboard with statuses and next actions.</p>
+                        <span class="workflow-complexity complexity-beginner">Beginner</span>
+                    </a>
+
+                    <a href="https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/workflows/price-comparison.md" class="workflow-card" data-category="administratif" target="_blank" rel="noopener">
+                        <span class="workflow-icon">💰</span>
+                        <h3>Supplier Price Comparison</h3>
+                        <p>Multi-quote analysis with weighted scoring.</p>
+                        <span class="workflow-complexity complexity-beginner">Beginner</span>
+                    </a>
+
+                    <!-- Commercial (5) -->
+                    <a href="https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/workflows/prospect-research.md" class="workflow-card" data-category="commercial" target="_blank" rel="noopener">
+                        <span class="workflow-icon">🔍</span>
+                        <h3>Prospect Research</h3>
+                        <p>Company investigation (ID, revenue, financial health, decision-makers).</p>
+                        <span class="workflow-complexity complexity-intermediate">Intermediate</span>
+                    </a>
+
+                    <a href="https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/workflows/quote-creation.md" class="workflow-card" data-category="commercial" target="_blank" rel="noopener">
+                        <span class="workflow-icon">📝</span>
+                        <h3>Detailed Quote Creation</h3>
+                        <p>Professional quotes with pricing and variants.</p>
+                        <span class="workflow-complexity complexity-intermediate">Intermediate</span>
+                    </a>
+
+                    <a href="https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/workflows/competitor-analysis.md" class="workflow-card" data-category="commercial" target="_blank" rel="noopener">
+                        <span class="workflow-icon">📈</span>
+                        <h3>Competitor Analysis</h3>
+                        <p>Local benchmarking (pricing, offers, reviews).</p>
+                        <span class="workflow-complexity complexity-intermediate">Intermediate</span>
+                    </a>
+
+                    <a href="https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/workflows/presentation-slides.md" class="workflow-card" data-category="commercial" target="_blank" rel="noopener">
+                        <span class="workflow-icon">📊</span>
+                        <h3>Commercial Presentations</h3>
+                        <p>Structured PowerPoint/Keynote for clients.</p>
+                        <span class="workflow-complexity complexity-intermediate">Intermediate</span>
+                    </a>
+
+                    <a href="https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/workflows/newsletter-creation.md" class="workflow-card" data-category="commercial" target="_blank" rel="noopener">
+                        <span class="workflow-icon">📧</span>
+                        <h3>Client Newsletters</h3>
+                        <p>Create regular responsive HTML newsletters.</p>
+                        <span class="workflow-complexity complexity-intermediate">Intermediate</span>
+                    </a>
+
+                    <!-- Production (5) -->
+                    <a href="https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/workflows/project-planning.md" class="workflow-card" data-category="production" target="_blank" rel="noopener">
+                        <span class="workflow-icon">📅</span>
+                        <h3>Project/Site Planning</h3>
+                        <p>Gantt planning with milestones and dependencies.</p>
+                        <span class="workflow-complexity complexity-intermediate">Intermediate</span>
+                    </a>
+
+                    <a href="https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/workflows/inventory-tracking.md" class="workflow-card" data-category="production" target="_blank" rel="noopener">
+                        <span class="workflow-icon">📦</span>
+                        <h3>Inventory Tracking</h3>
+                        <p>Inventory with reorder alerts and valuation.</p>
+                        <span class="workflow-complexity complexity-intermediate">Intermediate</span>
+                    </a>
+
+                    <a href="https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/workflows/work-log.md" class="workflow-card" data-category="production" target="_blank" rel="noopener">
+                        <span class="workflow-icon">📓</span>
+                        <h3>Work Log</h3>
+                        <p>Daily activity report compliant with regulations.</p>
+                        <span class="workflow-complexity complexity-beginner">Beginner</span>
+                    </a>
+
+                    <a href="https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/workflows/quality-checklist.md" class="workflow-card" data-category="production" target="_blank" rel="noopener">
+                        <span class="workflow-icon">✓</span>
+                        <h3>Quality Control</h3>
+                        <p>Standardized verification checklists by trade.</p>
+                        <span class="workflow-complexity complexity-beginner">Beginner</span>
+                    </a>
+
+                    <a href="https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/workflows/supplier-order.md" class="workflow-card" data-category="production" target="_blank" rel="noopener">
+                        <span class="workflow-icon">🛒</span>
+                        <h3>Supplier Orders</h3>
+                        <p>Optimized purchase order preparation.</p>
+                        <span class="workflow-complexity complexity-intermediate">Intermediate</span>
+                    </a>
+
+                    <!-- Communication (4) -->
+                    <a href="https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/workflows/social-media-posts.md" class="workflow-card" data-category="communication" target="_blank" rel="noopener">
+                        <span class="workflow-icon">📱</span>
+                        <h3>Social Media Posts</h3>
+                        <p>LinkedIn/Facebook/Instagram with calendar.</p>
+                        <span class="workflow-complexity complexity-beginner">Beginner</span>
+                    </a>
+
+                    <a href="https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/workflows/email-templates.md" class="workflow-card" data-category="communication" target="_blank" rel="noopener">
+                        <span class="workflow-icon">✉️</span>
+                        <h3>Email Templates</h3>
+                        <p>Reusable professional email library.</p>
+                        <span class="workflow-complexity complexity-beginner">Beginner</span>
+                    </a>
+
+                    <a href="https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/workflows/review-response.md" class="workflow-card" data-category="communication" target="_blank" rel="noopener">
+                        <span class="workflow-icon">⭐</span>
+                        <h3>Review Responses</h3>
+                        <p>Manage Google/Facebook reviews with response strategies.</p>
+                        <span class="workflow-complexity complexity-beginner">Beginner</span>
+                    </a>
+
+                    <a href="https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/workflows/knowledge-transfer.md" class="workflow-card" data-category="communication" target="_blank" rel="noopener">
+                        <span class="workflow-icon">🎓</span>
+                        <h3>Knowledge Transfer</h3>
+                        <p>Training documentation for apprentices and succession.</p>
+                        <span class="workflow-complexity complexity-advanced">Advanced</span>
+                    </a>
+
+                    <!-- Organisation (4) -->
+                    <a href="https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/workflows/file-organization.md" class="workflow-card" data-category="organisation" target="_blank" rel="noopener">
+                        <span class="workflow-icon">📁</span>
+                        <h3>File Organization</h3>
+                        <p>Automatic folder sorting by type and date.</p>
+                        <span class="workflow-complexity complexity-beginner">Beginner</span>
+                    </a>
+
+                    <a href="https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/workflows/expense-tracking.md" class="workflow-card" data-category="organisation" target="_blank" rel="noopener">
                         <span class="workflow-icon">🧾</span>
                         <h3>Expense Tracking</h3>
-                        <p>Receipts to Excel report. OCR extraction with categorization and totals.</p>
+                        <p>Receipts to Excel accounting with OCR.</p>
                         <span class="workflow-complexity complexity-intermediate">Intermediate</span>
                     </a>
 
-                    <a href="https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/workflows/report-synthesis.md" class="workflow-card" target="_blank" rel="noopener">
-                        <span class="workflow-icon">📊</span>
-                        <h3>Report Synthesis</h3>
-                        <p>Multiple documents to executive summary. Cross-reference and key findings.</p>
-                        <span class="workflow-complexity complexity-intermediate">Intermediate</span>
-                    </a>
-
-                    <a href="https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/workflows/meeting-prep.md" class="workflow-card" target="_blank" rel="noopener">
+                    <a href="https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/workflows/meeting-prep.md" class="workflow-card" data-category="organisation" target="_blank" rel="noopener">
                         <span class="workflow-icon">📝</span>
-                        <h3>Meeting Prep</h3>
-                        <p>Web research to briefing document. Attendee backgrounds and agenda items.</p>
+                        <h3>Meeting Preparation</h3>
+                        <p>Structured client/supplier briefings.</p>
                         <span class="workflow-complexity complexity-intermediate">Intermediate</span>
-                    </a>
-
-                    <a href="https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/workflows/team-handoff.md" class="workflow-card" target="_blank" rel="noopener">
-                        <span class="workflow-icon">🤝</span>
-                        <h3>Team Handoff</h3>
-                        <p>Dev ↔ Non-dev collaboration patterns. Shared workspace and file formats.</p>
-                        <span class="workflow-complexity complexity-advanced">Advanced</span>
                     </a>
                 </div>
             </div>
@@ -418,7 +558,7 @@
         <section class="section" id="prompts">
             <div class="container">
                 <span class="section-badge">Copy & Paste</span>
-                <h2 class="section-title">67 Ready-to-Use Prompts</h2>
+                <h2 class="section-title">70 Ready-to-Use Prompts</h2>
                 <p class="section-subtitle">Organized by category, tested and refined</p>
 
                 <div class="prompts-grid">
@@ -433,14 +573,14 @@
                         <span class="prompt-icon">📄</span>
                         <h3>Document Creation</h3>
                         <p>Reports, summaries, presentations, Excel</p>
-                        <span class="prompt-count">15 prompts</span>
+                        <span class="prompt-count">16 prompts</span>
                     </a>
 
                     <a href="https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/prompts/data-extraction.md" class="prompt-category" target="_blank" rel="noopener">
                         <span class="prompt-icon">🔍</span>
                         <h3>Data Extraction</h3>
                         <p>Images → data, PDF parsing, OCR</p>
-                        <span class="prompt-count">15 prompts</span>
+                        <span class="prompt-count">17 prompts</span>
                     </a>
 
                     <a href="https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/prompts/research.md" class="prompt-category" target="_blank" rel="noopener">
@@ -706,12 +846,12 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
 
                     <details class="faq-item">
                         <summary>Is this guide official?</summary>
-                        <p>No, this is a community resource. It reflects personal experience, not official Anthropic documentation.</p>
+                        <p><strong>No, this is exploratory research.</strong> Cowork is brand new (launched January 2026). This guide reflects my personal experimentation and current understanding—both will evolve rapidly as the product matures and I discover what works. Expect content changes, corrections, and pivots. Not affiliated with Anthropic.</p>
                     </details>
 
                     <details class="faq-item">
                         <summary>Who is behind this guide?</summary>
-                        <p>Created by <a href="https://github.com/FlorianBruniaux" target="_blank" rel="noopener">Florian BRUNIAUX</a>, a developer using Claude daily. Feedback and contributions welcome!</p>
+                        <p>Created by <a href="https://github.com/FlorianBruniaux" target="_blank" rel="noopener">Florian BRUNIAUX</a>, a developer experimenting with Cowork since its recent launch. This is a living document—I'm learning in real-time and documenting my findings as they evolve. Feedback, corrections, and reality checks are essential!</p>
                     </details>
 
                     <details class="faq-item">
@@ -730,7 +870,7 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
             <!-- Footer CTA -->
             <div class="footer-cta">
                 <h3>Ready to master Claude Cowork?</h3>
-                <p>67 prompts and 5 workflows to transform your desktop workflow.</p>
+                <p>70 prompts and 5 workflows to transform your desktop workflow.</p>
                 <a href="https://github.com/FlorianBruniaux/claude-cowork-guide" class="btn btn-primary" target="_blank" rel="noopener">Read the Guide →</a>
             </div>
 
@@ -835,6 +975,31 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
                         btn.textContent = 'Copy';
                     }, 2000);
                 }
+            });
+        });
+
+        // Workflow category filtering
+        document.querySelectorAll('.workflow-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                const category = tab.dataset.category;
+
+                // Update active tab
+                document.querySelectorAll('.workflow-tab').forEach(t => {
+                    t.classList.remove('active');
+                    t.setAttribute('aria-selected', 'false');
+                });
+                tab.classList.add('active');
+                tab.setAttribute('aria-selected', 'true');
+
+                // Filter workflow cards
+                const cards = document.querySelectorAll('.workflow-card');
+                cards.forEach(card => {
+                    if (category === 'all' || card.dataset.category === category) {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
             });
         });
     </script>

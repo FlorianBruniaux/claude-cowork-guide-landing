@@ -43,46 +43,198 @@ window.SEARCH_GUIDE = [
         url: GUIDE_BASE + 'guide/04-troubleshooting.md'
     },
 
-    // Workflows
+    // Workflows - Organisation (4)
     {
         id: 'workflow-expense',
         type: 'workflow',
-        title: 'Expense Tracking Workflow',
-        content: 'receipts expenses tracking spreadsheet excel money budget finance invoices',
-        category: 'Beginner',
+        title: 'Suivi Dépenses (Expense Tracking)',
+        content: 'receipts expenses tracking spreadsheet excel money budget finance invoices tickets dépenses suivi',
+        category: 'Intermédiaire',
         url: GUIDE_BASE + 'workflows/expense-tracking.md'
     },
     {
         id: 'workflow-file-org',
         type: 'workflow',
-        title: 'File Organization Workflow',
-        content: 'organize files folders cleanup sort rename downloads documents structure',
-        category: 'Beginner',
+        title: 'Organisation Fichiers (File Organization)',
+        content: 'organize files folders cleanup sort rename downloads documents structure organisation fichiers rangement',
+        category: 'Débutant',
         url: GUIDE_BASE + 'workflows/file-organization.md'
     },
     {
-        id: 'workflow-research',
+        id: 'workflow-meeting-prep',
         type: 'workflow',
-        title: 'Research Synthesis Workflow',
-        content: 'research analysis synthesis competitive market study report summary',
-        category: 'Intermediate',
-        url: GUIDE_BASE + 'workflows/research-synthesis.md'
+        title: 'Préparation Réunions (Meeting Prep)',
+        content: 'meeting preparation briefing research agenda notes réunion préparation ordre du jour',
+        category: 'Intermédiaire',
+        url: GUIDE_BASE + 'workflows/meeting-prep.md'
     },
     {
-        id: 'workflow-document',
+        id: 'workflow-knowledge-transfer',
         type: 'workflow',
-        title: 'Document Creation Workflow',
-        content: 'create documents reports presentations word powerpoint writing drafting',
-        category: 'Intermediate',
-        url: GUIDE_BASE + 'workflows/document-creation.md'
+        title: 'Transmission Savoir-Faire',
+        content: 'knowledge transfer succession training apprentice artisan savoir-faire transmission formation apprenti procédures',
+        category: 'Avancé',
+        url: GUIDE_BASE + 'workflows/knowledge-transfer.md'
+    },
+
+    // Workflows - Administratif (6)
+    {
+        id: 'workflow-invoice-generation',
+        type: 'workflow',
+        title: 'Génération Factures/Devis',
+        content: 'invoice quote generation devis facture template billing facturation auto-entrepreneur TVA',
+        category: 'Débutant',
+        url: GUIDE_BASE + 'workflows/invoice-generation.md'
     },
     {
-        id: 'workflow-multi-step',
+        id: 'workflow-quote-to-invoice',
         type: 'workflow',
-        title: 'Multi-Step Complex Workflow',
-        content: 'complex advanced multi-step pipeline automation chain batch',
-        category: 'Advanced',
-        url: GUIDE_BASE + 'workflows/multi-step-complex.md'
+        title: 'Devis vers Facture',
+        content: 'quote to invoice conversion devis facture transformation acceptation validation',
+        category: 'Débutant',
+        url: GUIDE_BASE + 'workflows/quote-to-invoice.md'
+    },
+    {
+        id: 'workflow-payment-reminders',
+        type: 'workflow',
+        title: 'Relances Impayés',
+        content: 'payment reminder late invoice collection relance impayé recouvrement mise en demeure',
+        category: 'Intermédiaire',
+        url: GUIDE_BASE + 'workflows/payment-reminders.md'
+    },
+    {
+        id: 'workflow-compliance-checklist',
+        type: 'workflow',
+        title: 'Vérification Conformité',
+        content: 'compliance checklist verification documents obligatoires assurance Qualibat URSSAF',
+        category: 'Intermédiaire',
+        url: GUIDE_BASE + 'workflows/compliance-checklist.md'
+    },
+    {
+        id: 'workflow-client-followup',
+        type: 'workflow',
+        title: 'Suivi Relances Clients',
+        content: 'client followup tracking crm dashboard excel suivi relance pipeline commercial',
+        category: 'Débutant',
+        url: GUIDE_BASE + 'workflows/client-followup-tracker.md'
+    },
+    {
+        id: 'workflow-price-comparison',
+        type: 'workflow',
+        title: 'Comparatif Prix Fournisseurs',
+        content: 'price comparison supplier pricing scoring fournisseurs comparatif tarifs achat',
+        category: 'Débutant',
+        url: GUIDE_BASE + 'workflows/price-comparison.md'
+    },
+
+    // Workflows - Commercial (5)
+    {
+        id: 'workflow-prospect-research',
+        type: 'workflow',
+        title: 'Recherche Prospect',
+        content: 'prospect research investigation SIREN company data prospection recherche entreprise Infogreffe',
+        category: 'Intermédiaire',
+        url: GUIDE_BASE + 'workflows/prospect-research.md'
+    },
+    {
+        id: 'workflow-quote-creation',
+        type: 'workflow',
+        title: 'Création Devis Détaillé',
+        content: 'quote creation detailed estimate pricing devis chiffrage variantes options',
+        category: 'Intermédiaire',
+        url: GUIDE_BASE + 'workflows/quote-creation.md'
+    },
+    {
+        id: 'workflow-competitor-analysis',
+        type: 'workflow',
+        title: 'Analyse Concurrence',
+        content: 'competitor analysis competitive pricing reviews avis concurrence analyse marché local',
+        category: 'Intermédiaire',
+        url: GUIDE_BASE + 'workflows/competitor-analysis.md'
+    },
+    {
+        id: 'workflow-presentation-slides',
+        type: 'workflow',
+        title: 'Présentations Commerciales',
+        content: 'presentation slides powerpoint keynote commercial pitch deck présentation client',
+        category: 'Intermédiaire',
+        url: GUIDE_BASE + 'workflows/presentation-slides.md'
+    },
+    {
+        id: 'workflow-newsletter',
+        type: 'workflow',
+        title: 'Newsletter Clients',
+        content: 'newsletter email html responsive mailchimp sendinblue communication clients actualités',
+        category: 'Intermédiaire',
+        url: GUIDE_BASE + 'workflows/newsletter-creation.md'
+    },
+
+    // Workflows - Production (5)
+    {
+        id: 'workflow-project-planning',
+        type: 'workflow',
+        title: 'Planning Chantier/Projet',
+        content: 'project planning gantt schedule dependencies chantier planning jalons tâches BTP',
+        category: 'Intermédiaire',
+        url: GUIDE_BASE + 'workflows/project-planning.md'
+    },
+    {
+        id: 'workflow-inventory-tracking',
+        type: 'workflow',
+        title: 'Suivi Stock',
+        content: 'inventory tracking stock alerts reorder point suivi stock réapprovisionnement valorisation',
+        category: 'Intermédiaire',
+        url: GUIDE_BASE + 'workflows/inventory-tracking.md'
+    },
+    {
+        id: 'workflow-work-log',
+        type: 'workflow',
+        title: 'Journal de Chantier',
+        content: 'work log daily report construction site journal chantier quotidien BTP réglementation',
+        category: 'Débutant',
+        url: GUIDE_BASE + 'workflows/work-log.md'
+    },
+    {
+        id: 'workflow-quality-checklist',
+        type: 'workflow',
+        title: 'Contrôle Qualité',
+        content: 'quality checklist inspection verification contrôle qualité norme NF DTU réception',
+        category: 'Débutant',
+        url: GUIDE_BASE + 'workflows/quality-checklist.md'
+    },
+    {
+        id: 'workflow-supplier-order',
+        type: 'workflow',
+        title: 'Commandes Fournisseurs',
+        content: 'supplier order purchase procurement commande fournisseur achat approvisionnement',
+        category: 'Intermédiaire',
+        url: GUIDE_BASE + 'workflows/supplier-order.md'
+    },
+
+    // Workflows - Communication (4)
+    {
+        id: 'workflow-social-media',
+        type: 'workflow',
+        title: 'Posts Réseaux Sociaux',
+        content: 'social media posts linkedin facebook instagram content calendar réseaux sociaux publication',
+        category: 'Débutant',
+        url: GUIDE_BASE + 'workflows/social-media-posts.md'
+    },
+    {
+        id: 'workflow-email-templates',
+        type: 'workflow',
+        title: 'Templates Emails Pro',
+        content: 'email templates professional library reusable emails modèles bibliothèque professionnels',
+        category: 'Débutant',
+        url: GUIDE_BASE + 'workflows/email-templates.md'
+    },
+    {
+        id: 'workflow-review-response',
+        type: 'workflow',
+        title: 'Réponses Avis Clients',
+        content: 'review response google facebook ratings avis clients réponse gestion e-réputation',
+        category: 'Débutant',
+        url: GUIDE_BASE + 'workflows/review-response.md'
     },
 
     // Reference
