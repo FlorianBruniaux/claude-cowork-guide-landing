@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://florianbruniaux.github.io/claude-cowork-guide-landing/sitemap.xml
