@@ -14,6 +14,11 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://florianbruniaux.github.io/claude-cowork-guide-landing/">
 
+    <!-- Preconnect for external resources -->
+    <link rel="preconnect" href="https://img.shields.io" crossorigin>
+    <link rel="preconnect" href="https://github.com" crossorigin>
+    <link rel="dns-prefetch" href="https://img.shields.io">
+
     <!-- Open Graph -->
     <meta property="og:title" content="Claude Cowork Guide: 5 Workflows, 67 Prompts - Free">
     <meta property="og:description" content="Free, open-source guide for Claude Cowork. 5 workflows, 67 prompts, security best practices. Master desktop AI automation.">
@@ -450,7 +455,7 @@
                 <div class="prompt-example">
                     <div class="prompt-example-header">
                         <span class="prompt-example-title">Example: Expense Receipt Extraction</span>
-                        <button class="copy-btn" data-copy="prompt-example">Copy</button>
+                        <button class="copy-btn" data-copy="prompt-example" aria-label="Copy prompt to clipboard">Copy</button>
                     </div>
                     <pre><code id="prompt-example">Analyze all receipt images in ~/Cowork-Workspace/input/receipts/
 
@@ -479,11 +484,11 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
                     <table class="comparison-feature-table">
                         <thead>
                             <tr>
-                                <th>Feature</th>
-                                <th>Cowork</th>
-                                <th>Claude Code</th>
-                                <th>Copilot</th>
-                                <th>ChatGPT</th>
+                                <th scope="col">Feature</th>
+                                <th scope="col">Cowork</th>
+                                <th scope="col">Claude Code</th>
+                                <th scope="col">Copilot</th>
+                                <th scope="col">ChatGPT</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -722,6 +727,13 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
+            <!-- Footer CTA -->
+            <div class="footer-cta">
+                <h3>Ready to master Claude Cowork?</h3>
+                <p>67 prompts and 5 workflows to transform your desktop workflow.</p>
+                <a href="https://github.com/FlorianBruniaux/claude-cowork-guide" class="btn btn-primary" target="_blank" rel="noopener">Read the Guide →</a>
+            </div>
+
             <div class="footer-grid">
                 <div class="footer-section">
                     <h4>Guide</h4>

@@ -10,8 +10,8 @@
     --bg-secondary: #161b22;
     --bg-tertiary: #21262d;
     --text-primary: #c9d1d9;
-    --text-secondary: #8b949e;
-    --text-muted: #8b949e;
+    --text-secondary: #9ca3af;  /* WCAG AA compliant (4.8:1 contrast) */
+    --text-muted: #9ca3af;
 
     /* Indigo accent for Cowork (vs blue for Code) */
     --accent: #6366f1;
@@ -807,6 +807,8 @@ kbd {
     cursor: pointer;
     font-size: 0.8rem;
     transition: all var(--transition-fast);
+    min-height: 44px;  /* WCAG touch target */
+    min-width: 44px;
 }
 
 .copy-btn:hover {
@@ -1163,6 +1165,26 @@ details[open] > *:not(summary) {
     background-color: var(--bg-secondary);
     border-top: 1px solid var(--border);
     padding: var(--space-3xl) 0 var(--space-xl);
+}
+
+.footer-cta {
+    text-align: center;
+    padding: var(--space-2xl) var(--space-xl);
+    margin-bottom: var(--space-2xl);
+    background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--border);
+}
+
+.footer-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-sm);
+    color: var(--text-primary);
+}
+
+.footer-cta p {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-lg);
 }
 
 .footer-grid {
@@ -1578,6 +1600,7 @@ a:not(.btn):not(.feature-card-link):not(.workflow-card):not(.prompt-category):ho
     cursor: pointer;
     transition: border-color 0.2s ease, color 0.2s ease;
     font-size: 0.875rem;
+    min-height: 44px;  /* WCAG touch target */
 }
 
 .search-trigger:hover {
