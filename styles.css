@@ -397,7 +397,10 @@ kbd {
 }
 
 .section-badge {
-    display: inline-block;
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
     padding: var(--space-xs) var(--space-md);
     background: linear-gradient(135deg, var(--accent-secondary) 0%, var(--accent) 100%);
     color: #ffffff;
