@@ -29,10 +29,12 @@
 ## Source de vérité
 
 **Ce site est SECONDAIRE**. La source de vérité est le guide principal:
-`/Users/florianbruniaux/Sites/perso/claude-code-ultimate-guide/cowork/`
+`/Users/florianbruniaux/Sites/perso/claude-cowork-guide/`
+
+**GitHub Repo**: https://github.com/FlorianBruniaux/claude-cowork-guide
 
 **Workflow obligatoire**:
-1. Modifier d'abord le guide principal (cowork/)
+1. Modifier d'abord le guide principal (claude-cowork-guide/)
 2. Puis synchroniser ici
 
 Ne JAMAIS modifier les stats ou le contenu ici sans avoir d'abord mis à jour le guide principal.
@@ -41,12 +43,12 @@ Ne JAMAIS modifier les stats ou le contenu ici sans avoir d'abord mis à jour le
 
 | Élément | Source (guide) | Fichiers landing |
 |---------|----------------|------------------|
-| Workflows count | `cowork/workflows/*.md` | index.html (hero stats, badges) |
-| Prompts count | `cowork/prompts/*.md` | index.html (hero stats, section) |
-| Golden Rules | `cowork/guide/03-security.md` | index.html section |
-| FAQ | `cowork/reference/faq.md` | index.html (schema + HTML) |
-| **Guide search index** | `cowork/**/*.md` headings | `cowork-data.js` (25 entrées) |
-| **Prompts search index** | `cowork/prompts/*.md` | `prompts-data.js` (70 entrées) |
+| Workflows count | `workflows/*.md` | index.html (hero stats, badges) |
+| Prompts count | `prompts/*.md` | index.html (hero stats, section) |
+| Golden Rules | `guide/03-security.md` | index.html section |
+| FAQ | `reference/faq.md` | index.html (schema + HTML) |
+| **Guide search index** | `**/*.md` headings | `cowork-data.js` (25 entrées) |
+| **Prompts search index** | `prompts/*.md` | `prompts-data.js` (70 entrées) |
 
 ## Valeurs actuelles (à maintenir synchronisées)
 
