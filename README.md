@@ -85,6 +85,16 @@ Open http://localhost:8080
 - [Claude Code Guide](https://github.com/FlorianBruniaux/claude-code-ultimate-guide) - For developers
 - [Claude Code Landing](https://github.com/FlorianBruniaux/claude-code-ultimate-guide-landing) - Code guide landing
 
+## Recent Changes
+
+See [CHANGELOG.md](CHANGELOG.md) for detailed version history.
+
+**Latest updates**:
+- Rewrote "Why This Guide?" section for non-technical audience
+- Added exploratory guide messaging throughout
+- Updated metrics: 25 workflows, 70 prompts
+- Fixed UI spacing issues in navigation and workflow tabs
+
 ## License
 
 CC BY-SA 4.0 - Same as the main guide.

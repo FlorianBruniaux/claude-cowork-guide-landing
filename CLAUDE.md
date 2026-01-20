@@ -1,5 +1,18 @@
 # Landing Site - Claude Cowork Guide
 
+## 📋 Changements récents
+
+**Janvier 2026 - v1.1.0 Landing Update**
+- ✅ Section "Why This Guide?" réécrite pour audience non-tech (impacts métier vs jargon technique)
+- ✅ Messaging exploratoire ajouté (banner, badge, FAQ, TL;DR)
+- ✅ Métriques mises à jour : 25 workflows, 70 prompts
+- ✅ Corrections UI : espacement navigation + tabs workflows
+- ✅ CHANGELOG.md créé pour traçabilité
+
+**Voir [CHANGELOG.md](CHANGELOG.md) pour l'historique complet.**
+
+---
+
 ## URLs
 
 | Environnement | URL |
