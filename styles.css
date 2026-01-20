@@ -238,8 +238,9 @@ kbd {
 .nav-actions {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.25rem;
     padding-left: 1.5rem;
+    margin-left: 1rem;
     border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -664,7 +665,7 @@ kbd {
    ============================================ */
 .workflow-tabs {
     display: flex;
-    gap: var(--space-sm);
+    gap: var(--space-md);
     flex-wrap: wrap;
     margin-bottom: var(--space-xl);
     padding-bottom: var(--space-lg);
