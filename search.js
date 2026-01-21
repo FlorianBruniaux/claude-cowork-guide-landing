@@ -31,28 +31,35 @@
 
     /**
      * Build search index from available sources
+     * Detects language from <html lang="..."> and uses appropriate data
      */
     function buildIndex() {
         const items = [];
+        const lang = document.documentElement.lang || 'en';
+        const isFrench = lang === 'fr';
 
-        // Guide content from cowork-data.js
-        if (window.SEARCH_GUIDE) {
-            items.push(...window.SEARCH_GUIDE);
+        // Guide content from cowork-data.js or cowork-data.fr.js
+        const guideData = isFrench ? window.SEARCH_GUIDE_FR : window.SEARCH_GUIDE;
+        if (guideData) {
+            items.push(...guideData);
         }
 
-        // Prompts from prompts-data.js
-        if (window.SEARCH_PROMPTS) {
-            items.push(...window.SEARCH_PROMPTS);
+        // Prompts from prompts-data.js or prompts-data.fr.js
+        const promptsData = isFrench ? window.SEARCH_PROMPTS_FR : window.SEARCH_PROMPTS;
+        if (promptsData) {
+            items.push(...promptsData);
         }
 
-        // FAQ from search-data.js
-        if (window.SEARCH_FAQ) {
-            items.push(...window.SEARCH_FAQ);
+        // FAQ from search-data.js or search-data.fr.js
+        const faqData = isFrench ? window.SEARCH_FAQ_FR : window.SEARCH_FAQ;
+        if (faqData) {
+            items.push(...faqData);
         }
 
-        // Golden Rules from search-data.js
-        if (window.SEARCH_RULES) {
-            items.push(...window.SEARCH_RULES);
+        // Golden Rules from search-data.js or search-data.fr.js
+        const rulesData = isFrench ? window.SEARCH_RULES_FR : window.SEARCH_RULES;
+        if (rulesData) {
+            items.push(...rulesData);
         }
 
         return items;

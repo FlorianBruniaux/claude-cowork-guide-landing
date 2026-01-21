@@ -244,6 +244,28 @@ kbd {
     border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Language switcher */
+.lang-switcher {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 0.75rem;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 0.875rem;
+    transition: all var(--transition-fast);
+    min-height: 44px;  /* WCAG touch target */
+    text-decoration: none;
+}
+
+.lang-switcher:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: var(--bg-tertiary);
+    text-decoration: none;
+}
+
 /* Cross-link to sibling guide */
 .nav-crosslink {
     color: var(--text-secondary);
