@@ -721,6 +721,9 @@ kbd {
    ============================================ */
 .getting-started {
     background: var(--bg-primary);
+}
+
+.getting-started .container {
     text-align: center;
 }
 
@@ -735,11 +738,6 @@ kbd {
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-bottom: var(--space-md);
-}
-
-.getting-started .section-title,
-.getting-started .section-subtitle {
-    text-align: center;
 }
 
 .setup-steps {
