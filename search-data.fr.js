@@ -42,8 +42,8 @@ window.SEARCH_FAQ_FR = [
     {
         id: 'faq-6',
         type: 'faq',
-        title: 'Quelles sont les limites de tokens ?',
-        content: 'La formule Pro a environ 30M de tokens par fenêtre de 5 heures. La formule Max a des limites plus élevées. Les opérations sur fichiers volumineux consomment rapidement des tokens.',
+        title: 'Quelles sont les limites de capacité ?',
+        content: 'La formule Pro a environ 30M d\'unités de texte (tokens) par fenêtre de 5 heures. La formule Max a des limites plus élevées. Les opérations sur fichiers volumineux consomment rapidement la capacité.',
         url: '#faq'
     },
     {
@@ -57,7 +57,7 @@ window.SEARCH_FAQ_FR = [
         id: 'faq-8',
         type: 'faq',
         title: 'Pourquoi ma tâche a-t-elle échoué en cours de route ?',
-        content: 'Causes courantes : limite de tokens atteinte, permission refusée, fichier verrouillé, ou timeout réseau. Consultez le guide de dépannage pour les erreurs spécifiques.',
+        content: 'Causes courantes : limite de capacité (tokens) atteinte, permission refusée, fichier verrouillé, ou timeout réseau. Consultez le guide de dépannage pour les erreurs spécifiques.',
         url: '#faq'
     },
     {
@@ -95,7 +95,7 @@ window.SEARCH_RULES_FR = [
         id: 'rule-3',
         type: 'rule',
         title: 'Ne jamais partager d\'identifiants ou mots de passe',
-        content: 'Ne collez pas de mots de passe, clés API, tokens ou tout identifiant dans Cowork. Il n\'en a pas besoin pour les opérations sur fichiers.',
+        content: 'Ne collez pas de mots de passe, clés API, codes d\'accès ou tout identifiant dans Cowork. Il n\'en a pas besoin pour les opérations sur fichiers.',
         url: '#golden-rules'
     },
     {
@@ -122,8 +122,8 @@ window.SEARCH_RULES_FR = [
     {
         id: 'rule-7',
         type: 'rule',
-        title: 'Surveiller l\'utilisation des tokens pour les grandes tâches',
-        content: 'Les opérations sur fichiers volumineux consomment rapidement des tokens. Planifiez les lots en conséquence et utilisez des points de contrôle pour la reprise.',
+        title: 'Surveiller la capacité utilisée pour les grandes tâches',
+        content: 'Les opérations sur fichiers volumineux consomment rapidement la capacité (tokens). Planifiez les lots en conséquence et utilisez des points de contrôle pour la reprise.',
         url: '#golden-rules'
     }
 ];

@@ -69,7 +69,7 @@
                 "name": "Qu'est-ce que Cowork ?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Cowork est la fonctionnalité agentique desktop de Claude qui manipule les fichiers locaux, crée des documents et organise votre espace de travail—sans écrire de code. Pensez-y comme Claude Code pour les knowledge workers."
+                    "text": "Cowork est la fonctionnalité autonome (agentique) de Claude qui manipule les fichiers locaux, crée des documents et organise votre espace de travail—sans écrire de code. Pensez-y comme Claude Code pour les professionnels non-développeurs."
                 }
             },
             {
@@ -85,7 +85,7 @@
                 "name": "Cowork fonctionne-t-il sur Windows ou Linux ?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Pas encore (janvier 2026). macOS uniquement. Windows est sur la roadmap d'Anthropic mais sans ETA. Linux n'a pas d'annonce officielle. Utilisez Claude Code pour les capacités agentiques sur Linux."
+                    "text": "Pas encore (janvier 2026). macOS uniquement. Windows est sur la roadmap d'Anthropic mais sans ETA. Linux n'a pas d'annonce officielle. Utilisez Claude Code pour les capacités autonomes (agentiques) sur Linux."
                 }
             },
             {
@@ -117,7 +117,7 @@
                 "name": "Quand utiliser Chat vs Cowork ?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Chat (80%) : raisonnement, écriture, codage, tâches exploratoires. Cowork (20%) : opérations fichiers en lot, création de documents, automatisation navigateur. Ensemble, ils permettent des workflows impossibles avec l'un ou l'autre seul."
+                    "text": "Chat (80%) : raisonnement, écriture, codage, tâches exploratoires. Cowork (20%) : opérations fichiers en lot, création de documents, automatisation navigateur. Ensemble, ils permettent des procédures guidées (workflows) impossibles avec l'un ou l'autre seul."
                 }
             },
             {
@@ -125,7 +125,7 @@
                 "name": "Quelle est la différence avec Claude Code ?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Claude Code : interface terminal, accès shell complet, pour développeurs. Cowork : app desktop, accès fichiers uniquement, pour knowledge workers. Ils partagent l'architecture mais diffèrent en capacités."
+                    "text": "Claude Code : interface terminal, accès shell complet, pour développeurs. Cowork : app desktop, accès fichiers uniquement, pour professionnels non-développeurs. Ils partagent l'architecture mais diffèrent en capacités."
                 }
             },
             {
@@ -133,7 +133,7 @@
                 "name": "Cowork peut-il créer des formules Excel ?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Oui ! Cowork peut créer des fichiers Excel avec formules fonctionnelles, feuilles multiples et mise en forme. Spécifiez votre réglage régional (virgule US vs point-virgule EU) dans votre prompt."
+                    "text": "Oui ! Cowork peut créer des fichiers Excel avec formules fonctionnelles, feuilles multiples et mise en forme. Spécifiez votre réglage régional (virgule US vs point-virgule EU) dans votre instruction (prompt)."
                 }
             },
             {
@@ -141,7 +141,7 @@
                 "name": "Quelles sont les limites d'utilisation ?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "L'utilisation se réinitialise toutes les 5 heures (pas quotidien/mensuel). Tier Pro : ~45 messages courts par reset (~1-1,5h utilisation intensive). Tier Max : 5x-20x plus. Le traitement de fichiers consomme les tokens rapidement."
+                    "text": "L'utilisation se réinitialise toutes les 5 heures (pas quotidien/mensuel). Tier Pro : ~45 messages courts par reset (~1-1,5h utilisation intensive). Tier Max : 5x-20x plus. Le traitement de fichiers consomme la capacité (tokens) rapidement."
                 }
             },
             {
@@ -165,7 +165,7 @@
                 "name": "Puis-je contribuer au guide ?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Oui ! Le dépôt du guide est open-source. Trouvé une erreur ? Vous avez un meilleur prompt ? Les contributions sont bienvenues sur GitHub."
+                    "text": "Oui ! Le dépôt du guide est open-source. Trouvé une erreur ? Vous avez une meilleure instruction (prompt) ? Les contributions sont bienvenues sur GitHub."
                 }
             }
         ]
@@ -266,7 +266,7 @@
                         <tbody>
                             <tr>
                                 <td>Public cible</td>
-                                <td>Knowledge workers (non-développeurs)</td>
+                                <td>Professionnels non-développeurs (chefs de projet, consultants, analystes...)</td>
                             </tr>
                             <tr>
                                 <td>Plateforme</td>
@@ -278,15 +278,15 @@
                             </tr>
                             <tr>
                                 <td>Statut</td>
-                                <td>Accès anticipé (instable, évolution rapide)</td>
+                                <td>Version test (instable, évolution rapide)</td>
                             </tr>
                             <tr>
                                 <td>Idéal pour</td>
-                                <td>Organisation fichiers, création documents, OCR</td>
+                                <td>Organisation fichiers, création documents, lecture de photos/scans</td>
                             </tr>
                             <tr>
                                 <td>Pas pour</td>
-                                <td>Exécution code, appels API, cloud storage</td>
+                                <td>Exécution de code, appels automatiques sur Internet, fichiers cloud</td>
                             </tr>
                         </tbody>
                     </table>
@@ -359,7 +359,7 @@
                     <a href="https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/guide/03-security.fr.md" class="feature-card feature-card-link" target="_blank" rel="noopener">
                         <span class="feature-icon">🛡️</span>
                         <h3>Guide de Sécurité</h3>
-                        <p>Défense contre l'injection de prompts, isolation workspace, gestion permissions navigateur, réponse aux incidents.</p>
+                        <p>Défense contre les fichiers pièges (injection de prompts), atelier isolé (workspace), gestion permissions navigateur, réponse aux incidents.</p>
                         <span class="feature-meta">12 min lecture</span>
                     </a>
 
@@ -753,7 +753,7 @@ Crée un fichier Excel à ~/Cowork-Workspace/output/depenses.xlsx avec :
                         <span class="rule-number">4</span>
                         <div class="rule-content">
                             <h3>Vérifier les sources de fichiers</h3>
-                            <p>Risque d'injection de prompt dans les fichiers non fiables. Les PDF malveillants peuvent manipuler le comportement de Cowork.</p>
+                            <p>Risque de fichiers pièges (injection de prompt) dans les fichiers non fiables. Les PDF malveillants peuvent manipuler le comportement de Cowork.</p>
                         </div>
                     </div>
 
@@ -816,7 +816,7 @@ Crée un fichier Excel à ~/Cowork-Workspace/output/depenses.xlsx avec :
                 <div class="faq-list">
                     <details class="faq-item">
                         <summary>Qu'est-ce que Cowork ?</summary>
-                        <p>Cowork est la fonctionnalité agentique desktop de Claude qui manipule les fichiers locaux, crée des documents et organise votre espace de travail—sans écrire de code. Pensez-y comme Claude Code pour les knowledge workers.</p>
+                        <p>Cowork est la fonctionnalité autonome (agentique) de Claude qui manipule les fichiers locaux, crée des documents et organise votre espace de travail—sans écrire de code. Pensez-y comme Claude Code pour les professionnels non-développeurs.</p>
                     </details>
 
                     <details class="faq-item">
@@ -826,7 +826,7 @@ Crée un fichier Excel à ~/Cowork-Workspace/output/depenses.xlsx avec :
 
                     <details class="faq-item">
                         <summary>Cowork fonctionne-t-il sur Windows ou Linux ?</summary>
-                        <p>Pas encore (janvier 2026). macOS uniquement. Windows est sur la roadmap d'Anthropic mais sans ETA. Linux n'a pas d'annonce officielle. Utilisez Claude Code pour les capacités agentiques sur Linux.</p>
+                        <p>Pas encore (janvier 2026). macOS uniquement. Windows est sur la roadmap d'Anthropic mais sans ETA. Linux n'a pas d'annonce officielle. Utilisez Claude Code pour les capacités autonomes (agentiques) sur Linux.</p>
                     </details>
 
                     <details class="faq-item">
@@ -836,7 +836,7 @@ Crée un fichier Excel à ~/Cowork-Workspace/output/depenses.xlsx avec :
 
                     <details class="faq-item">
                         <summary>Cowork est-il sécurisé ?</summary>
-                        <p>Il n'y a pas encore de documentation de sécurité officielle (preview recherche). Bonnes pratiques : utilisez un dossier workspace dédié, vérifiez chaque plan, gardez les identifiants dehors, vérifiez les sources de fichiers.</p>
+                        <p>Il n'y a pas encore de documentation de sécurité officielle (version test). Bonnes pratiques : utilisez un dossier séparé dédié (atelier isolé), vérifiez chaque plan d'action, gardez vos codes d'accès dehors, vérifiez les sources de fichiers.</p>
                     </details>
 
                     <details class="faq-item">
@@ -846,22 +846,22 @@ Crée un fichier Excel à ~/Cowork-Workspace/output/depenses.xlsx avec :
 
                     <details class="faq-item">
                         <summary>Quand utiliser Chat vs Cowork ?</summary>
-                        <p>Chat (80%) : raisonnement, écriture, codage, tâches exploratoires. Cowork (20%) : opérations fichiers en lot, création de documents, automatisation navigateur. Ensemble, ils permettent des workflows impossibles avec l'un ou l'autre seul.</p>
+                        <p>Chat (80%) : raisonnement, écriture, codage, tâches exploratoires. Cowork (20%) : opérations fichiers en lot, création de documents, automatisation navigateur. Ensemble, ils permettent des procédures guidées (workflows) impossibles avec l'un ou l'autre seul.</p>
                     </details>
 
                     <details class="faq-item">
                         <summary>Quelle est la différence avec Claude Code ?</summary>
-                        <p>Claude Code : interface terminal, accès shell complet, pour développeurs. Cowork : app desktop, accès fichiers uniquement, pour knowledge workers. Ils partagent l'architecture mais diffèrent en capacités.</p>
+                        <p>Claude Code : interface terminal, accès shell complet, pour développeurs. Cowork : app desktop, accès fichiers uniquement, pour professionnels non-développeurs. Ils partagent l'architecture mais diffèrent en capacités.</p>
                     </details>
 
                     <details class="faq-item">
                         <summary>Cowork peut-il créer des formules Excel ?</summary>
-                        <p>Oui ! Cowork peut créer des fichiers Excel avec formules fonctionnelles, feuilles multiples et mise en forme. Spécifiez votre réglage régional (virgule US vs point-virgule EU) dans votre prompt.</p>
+                        <p>Oui ! Cowork peut créer des fichiers Excel avec formules fonctionnelles, feuilles multiples et mise en forme. Spécifiez votre réglage régional (virgule US vs point-virgule EU) dans votre instruction (prompt).</p>
                     </details>
 
                     <details class="faq-item">
                         <summary>Quelles sont les limites d'utilisation ?</summary>
-                        <p>L'utilisation se réinitialise toutes les 5 heures (pas quotidien/mensuel). Tier Pro : ~45 messages courts par reset (~1-1,5h utilisation intensive). Tier Max : 5x-20x plus. Le traitement de fichiers consomme les tokens rapidement.</p>
+                        <p>L'utilisation se réinitialise toutes les 5 heures (pas quotidien/mensuel). Tier Pro : ~45 messages courts par reset (~1-1,5h utilisation intensive). Tier Max : 5x-20x plus. Le traitement de fichiers consomme la capacité (tokens) rapidement.</p>
                     </details>
 
                     <details class="faq-item">
@@ -876,7 +876,7 @@ Crée un fichier Excel à ~/Cowork-Workspace/output/depenses.xlsx avec :
 
                     <details class="faq-item">
                         <summary>Puis-je contribuer au guide ?</summary>
-                        <p>Oui ! Le <a href="https://github.com/FlorianBruniaux/claude-cowork-guide" target="_blank" rel="noopener">dépôt du guide</a> est open-source. Trouvé une erreur ? Vous avez un meilleur prompt ? Les contributions sont bienvenues sur GitHub.</p>
+                        <p>Oui ! Le <a href="https://github.com/FlorianBruniaux/claude-cowork-guide" target="_blank" rel="noopener">dépôt du guide</a> est open-source. Trouvé une erreur ? Vous avez une meilleure instruction (prompt) ? Les contributions sont bienvenues sur GitHub.</p>
                     </details>
                 </div>
             </div>
