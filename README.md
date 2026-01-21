@@ -4,14 +4,17 @@ Landing site for the [Claude Cowork Guide](https://github.com/FlorianBruniaux/cl
 
 ## Live Site
 
-**URL**: [florianbruniaux.github.io/claude-cowork-guide-landing](https://florianbruniaux.github.io/claude-cowork-guide-landing)
+- 🇬🇧 **English**: [florianbruniaux.github.io/claude-cowork-guide-landing](https://florianbruniaux.github.io/claude-cowork-guide-landing)
+- 🇫🇷 **French**: [florianbruniaux.github.io/claude-cowork-guide-landing/index.fr.html](https://florianbruniaux.github.io/claude-cowork-guide-landing/index.fr.html)
 
 ## Features
 
-- **Global Search** (Cmd+K / Ctrl+K) - Fuzzy search across prompts, workflows, FAQ, and guide sections
+- **Bilingual** (🇬🇧 English / 🇫🇷 French) - Complete translations with language switcher
+- **Global Search** (Cmd+K / Ctrl+K) - Language-aware fuzzy search across prompts, workflows, FAQ, and guide sections
 - **Prompt Library** - 70 ready-to-use prompts across 4 categories
 - **Workflow Gallery** - 25 complete workflows organized by category (Admin, Commercial, Production, Communication, Organization)
 - **Golden Rules** - Security and best practices for non-technical users
+- **Social Sharing** - X (Twitter) and LinkedIn share buttons in hero and footer
 - **Cross-linking** - Integrated navigation to Claude Code Guide for developers
 - **Mobile Responsive** - Hamburger menu for tablet/mobile (< 768px)
 - **Exploratory Badge** - Clear messaging that Cowork and this guide are evolving rapidly
@@ -20,12 +23,16 @@ Landing site for the [Claude Cowork Guide](https://github.com/FlorianBruniaux/cl
 
 ```
 claude-cowork-guide-landing/
-├── index.html           # Main landing page
+├── index.html           # English landing page
+├── index.fr.html        # French landing page
 ├── styles.css           # Shared styles (indigo accent)
-├── search.js            # Search engine (MiniSearch)
-├── search-data.js       # FAQ + Golden Rules data
-├── cowork-data.js       # Guide sections index
-├── prompts-data.js      # Prompts library index
+├── search.js            # Language-aware search engine (MiniSearch)
+├── search-data.js       # EN: FAQ + Golden Rules data
+├── search-data.fr.js    # FR: FAQ + Golden Rules data
+├── cowork-data.js       # EN: Guide sections index
+├── cowork-data.fr.js    # FR: Guide sections index
+├── prompts-data.js      # EN: Prompts library index
+├── prompts-data.fr.js   # FR: Prompts library index
 ├── favicon.svg          # Indigo favicon
 └── .github/workflows/   # GitHub Pages deployment
 ```
@@ -45,10 +52,44 @@ This site is **secondary** to the main guide. Stats must be synced manually.
 
 ### Files to Update on Sync
 
-1. **index.html** - Version, prompt count, workflow count in meta tags and badges
-2. **prompts-data.js** - Prompt definitions
-3. **cowork-data.js** - Guide section index
-4. **search-data.js** - FAQ and Golden Rules
+1. **index.html** + **index.fr.html** - Version, prompt count, workflow count in meta tags and badges
+2. **prompts-data.js** + **prompts-data.fr.js** - Prompt definitions
+3. **cowork-data.js** + **cowork-data.fr.js** - Guide section index
+4. **search-data.js** + **search-data.fr.js** - FAQ and Golden Rules
+
+## Internationalization (i18n)
+
+The landing page is fully bilingual with complete English and French versions.
+
+### Language Detection
+
+- `search.js` detects language from `<html lang="">` attribute
+- Automatically loads appropriate data files (*.fr.js for French)
+- Each page has its own search index (112 entries per language)
+
+### Translation Coverage
+
+| Component | English | French |
+|-----------|---------|--------|
+| Landing page | index.html | index.fr.html |
+| Guide index | cowork-data.js (25) | cowork-data.fr.js (25) |
+| Prompts | prompts-data.js (70) | prompts-data.fr.js (70) |
+| FAQ + Rules | search-data.js (17) | search-data.fr.js (17) |
+| **Total search entries** | **112** | **112** |
+
+### Language Switcher
+
+- Located in navigation bar (🌐 FR / 🌐 EN)
+- Styled with hover effects and WCAG touch targets (44px)
+- Hreflang tags for SEO optimization
+
+### Social Sharing
+
+Both language versions include X (Twitter) and LinkedIn share buttons:
+- **Hero section**: Visual buttons with icons (𝕏, in)
+- **Footer section**: Text links ("Share on X", "Share on LinkedIn")
+- Language-specific URLs and share text
+- GDPR-friendly (intent URLs, no third-party tracking)
 
 ## Development
 
@@ -89,7 +130,11 @@ Open http://localhost:8080
 
 See [CHANGELOG.md](CHANGELOG.md) for detailed version history.
 
-**Latest updates**:
+**Latest updates** (v1.2.0 - January 2026):
+- 🌐 **Full French translation** - Complete bilingual support with index.fr.html
+- 🔍 **Language-aware search** - Automatic detection and French search index (112 entries)
+- 🌍 **Language switcher** - Navigation toggle between EN/FR with hreflang SEO tags
+- 🔗 **Social sharing** - X (Twitter) and LinkedIn buttons in hero and footer
 - Rewrote "Why This Guide?" section for non-technical audience
 - Added exploratory guide messaging throughout
 - Updated metrics: 25 workflows, 70 prompts
