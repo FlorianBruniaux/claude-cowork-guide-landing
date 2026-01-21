@@ -717,6 +717,91 @@ kbd {
 }
 
 /* ============================================
+   Getting Started Section
+   ============================================ */
+.getting-started {
+    background: var(--bg-primary);
+}
+
+.getting-started-badge {
+    display: inline-block;
+    background: var(--accent-secondary);
+    color: white;
+    padding: 0.35rem 0.9rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-md);
+}
+
+.setup-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-xl);
+    margin-top: var(--space-2xl);
+}
+
+.setup-step {
+    position: relative;
+    padding: var(--space-xl);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius-lg);
+    transition: all var(--transition-normal);
+}
+
+.setup-step:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.15);
+}
+
+.step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: var(--accent);
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 700;
+    border-radius: 50%;
+    margin-bottom: var(--space-md);
+}
+
+.setup-step h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-sm);
+    color: var(--text-primary);
+}
+
+.setup-step p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.setup-step a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.setup-step a:hover {
+    color: var(--accent-hover);
+}
+
+/* Responsive: stack on mobile */
+@media (max-width: 768px) {
+    .setup-steps {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+}
+
+/* ============================================
    Workflows Section
    ============================================ */
 .workflow-tabs {
@@ -1148,7 +1233,7 @@ details[open] > *:not(summary) {
    Cross-Link Section (Cowork <-> Code)
    ============================================ */
 
-/* Hero crosslink subtitle */
+/* Hero crosslink subtitle - DEPRECATED, use hero-code-box instead */
 .hero-crosslink {
     font-size: 0.95rem;
     color: var(--text-secondary);
@@ -1163,6 +1248,67 @@ details[open] > *:not(summary) {
 
 .hero-crosslink a:hover {
     color: var(--accent-hover);
+}
+
+/* Hero Code Box - Styled cross-sell (Claude Code on Cowork landing) */
+.hero-code-box {
+    max-width: 600px;
+    margin: var(--space-xl) auto 0;
+    padding: var(--space-lg);
+    background: var(--bg-secondary);
+    border: 2px solid var(--border);
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+}
+
+.hero-code-lead {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+    line-height: 1.5;
+}
+
+.hero-code-lead strong {
+    color: var(--accent);
+}
+
+.hero-code-prereq {
+    display: flex;
+    gap: var(--space-sm);
+    justify-content: center;
+    margin-bottom: var(--space-lg);
+}
+
+.prereq-tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: var(--bg-tertiary);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    border-radius: var(--border-radius);
+    font-family: var(--font-mono);
+}
+
+.btn-code {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all var(--transition-normal);
+    cursor: pointer;
+}
+
+.btn-code:hover {
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
 }
 
 /* Crosslink section background */

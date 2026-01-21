@@ -6,6 +6,27 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added
+- 🚀 **Getting Started section** - 3-step installation guide after TL;DR section
+  - Step 1: Install Claude Desktop (direct link to claude.ai/download)
+  - Step 2: Follow Security Setup (link to Getting Started guide)
+  - Step 3: Copy Your First Prompt (anchor to #prompts)
+  - Responsive grid (3 columns → 1 column mobile)
+  - Numbered circular badges with indigo accent
+  - Hover effects (border accent, translateY, shadow)
+  - Fully translated in both EN and FR versions
+- 🎨 **Styled cross-sell box** - Hero section promotion for Claude Code
+  - Replaced simple text link with styled box
+  - Prerequisites badges: "All platforms" + "Free tier available"
+  - Call-to-action button with hover effects
+  - Consistent indigo accent design (#6366f1)
+  - Fully translated in both EN and FR versions
+
+### Changed
+- Hero cross-link (text) → Styled hero-code-box with badges and button
+- Added `.hero-code-box`, `.hero-code-lead`, `.hero-code-prereq`, `.prereq-tag`, `.btn-code` CSS classes
+- Added `.getting-started`, `.getting-started-badge`, `.setup-steps`, `.setup-step`, `.step-num` CSS classes
+
 ## [1.2.0] - 2026-01-21
 
 ### Added

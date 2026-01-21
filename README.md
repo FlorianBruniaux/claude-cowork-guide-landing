@@ -11,6 +11,8 @@ Landing site for the [Claude Cowork Guide](https://github.com/FlorianBruniaux/cl
 
 - **Bilingual** (🇬🇧 English / 🇫🇷 French) - Complete translations with language switcher
 - **Global Search** (Cmd+K / Ctrl+K) - Language-aware fuzzy search across prompts, workflows, FAQ, and guide sections
+- **Getting Started Section** - 3-step installation guide with direct links to Claude Desktop download
+- **Styled Cross-Sell Box** - Hero section box promoting Claude Code for developers with badges and CTA button
 - **Prompt Library** - 70 ready-to-use prompts across 4 categories
 - **Workflow Gallery** - 25 complete workflows organized by category (Admin, Commercial, Production, Communication, Organization)
 - **Golden Rules** - Security and best practices for non-technical users
