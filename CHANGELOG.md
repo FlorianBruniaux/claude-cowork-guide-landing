@@ -33,6 +33,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Hero cross-link (text) → Styled hero-code-box with badges and button
 - Added `.hero-code-box`, `.hero-code-lead`, `.hero-code-prereq`, `.prereq-tag`, `.btn-code` CSS classes
 - Added `.getting-started`, `.getting-started-badge`, `.setup-steps`, `.setup-step`, `.step-num` CSS classes
+- Added `.key-terms`, `.terms-grid`, `.term-card`, `.term-title`, `.term-definition`, `.terms-footer` CSS classes
+
+### Fixed
+- Glossary links now point to correct files: `glossary.md` (EN) and `glossary.fr.md` (FR)
+- Previous EN link pointed to non-existent `glossary.en.md`
+- Previous FR link pointed to EN glossary instead of `glossary.fr.md`
 
 ## [1.2.0] - 2026-01-21
 
