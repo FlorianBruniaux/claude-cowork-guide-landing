@@ -721,6 +721,7 @@ kbd {
    ============================================ */
 .getting-started {
     background: var(--bg-primary);
+    text-align: center;
 }
 
 .getting-started-badge {
@@ -734,6 +735,11 @@ kbd {
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-bottom: var(--space-md);
+}
+
+.getting-started .section-title,
+.getting-started .section-subtitle {
+    text-align: center;
 }
 
 .setup-steps {
@@ -750,6 +756,7 @@ kbd {
     border: 1px solid var(--border);
     border-radius: var(--border-radius-lg);
     transition: all var(--transition-normal);
+    text-align: left;
 }
 
 .setup-step:hover {
