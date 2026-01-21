@@ -7,6 +7,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Added
+- 📖 **Key Terms section** - Glossary with 8 essential terms before Golden Rules
+  - Terms: Workspace, Prompt, Workflow, Token, Context, Sandbox, OCR, Artifact
+  - Grid layout (2 columns desktop → 1 column mobile)
+  - Indigo accent titles with hover effects
+  - Link to complete glossary in main guide (30+ terms)
+  - Indexed in search (Cmd+K) with 8 new searchable entries
+  - Fully translated in both EN and FR versions
 - 🚀 **Getting Started section** - 3-step installation guide after TL;DR section
   - Step 1: Install Claude Desktop (direct link to claude.ai/download)
   - Step 2: Follow Security Setup (link to Getting Started guide)

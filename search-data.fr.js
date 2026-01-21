@@ -125,5 +125,70 @@ window.SEARCH_RULES_FR = [
         title: 'Surveiller la capacité utilisée pour les grandes tâches',
         content: 'Les opérations sur fichiers volumineux consomment rapidement la capacité (tokens). Planifiez les lots en conséquence et utilisez des points de contrôle pour la reprise.',
         url: '#golden-rules'
+    },
+    // Termes Clés
+    {
+        id: 'term-workspace',
+        type: 'term',
+        title: 'Espace de travail',
+        content: 'espace travail dossier macos lire écrire fichiers configurer séparer personnel isolation sécurité',
+        category: 'Termes Clés',
+        url: '#terms'
+    },
+    {
+        id: 'term-prompt',
+        type: 'term',
+        title: 'Prompt',
+        content: 'prompt instructions donner claude simple complexe workflows étapes multiples organiser fichiers traiter',
+        category: 'Termes Clés',
+        url: '#terms'
+    },
+    {
+        id: 'term-workflow',
+        type: 'term',
+        title: 'Workflow',
+        content: 'workflow séquence actions répétable lire fichiers traiter créer résultat recette réutiliser automation',
+        category: 'Termes Clés',
+        url: '#terms'
+    },
+    {
+        id: 'term-token',
+        type: 'term',
+        title: 'Jeton (Token)',
+        content: 'jeton token unité mesure texte traité claude caractères pro plan 5m mois quota capacité',
+        category: 'Termes Clés',
+        url: '#terms'
+    },
+    {
+        id: 'term-context',
+        type: 'term',
+        title: 'Contexte',
+        content: 'contexte information mémoriser conversation mémoire limitée puissante court terme',
+        category: 'Termes Clés',
+        url: '#terms'
+    },
+    {
+        id: 'term-sandbox',
+        type: 'term',
+        title: 'Bac à sable',
+        content: 'bac sable sandbox zone test isolée expérimenter sécurité sans affecter fichiers réels données',
+        category: 'Termes Clés',
+        url: '#terms'
+    },
+    {
+        id: 'term-ocr',
+        type: 'term',
+        title: 'OCR',
+        content: 'ocr reconnaissance optique caractères lire texte photos scans convertir modifiable',
+        category: 'Termes Clés',
+        url: '#terms'
+    },
+    {
+        id: 'term-artifact',
+        type: 'term',
+        title: 'Artefact',
+        content: 'artefact artifact fichier créé claude document tableur interface aperçu téléchargement sortie',
+        category: 'Termes Clés',
+        url: '#terms'
     }
 ];

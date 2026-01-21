@@ -125,5 +125,70 @@ window.SEARCH_RULES = [
         title: 'Monitor token usage for large tasks',
         content: 'Large file operations consume tokens rapidly. Plan batches accordingly and use checkpoints for resumability.',
         url: '#golden-rules'
+    },
+    // Key Terms
+    {
+        id: 'term-workspace',
+        type: 'term',
+        title: 'Workspace',
+        content: 'workspace folder macos read write files work separate personal setup configure isolation',
+        category: 'Key Terms',
+        url: '#terms'
+    },
+    {
+        id: 'term-prompt',
+        type: 'term',
+        title: 'Prompt',
+        content: 'prompt instructions give claude simple complex workflows multiple steps organize files process',
+        category: 'Key Terms',
+        url: '#terms'
+    },
+    {
+        id: 'term-workflow',
+        type: 'term',
+        title: 'Workflow',
+        content: 'workflow repeatable sequence actions read files process create output recipe reuse automation',
+        category: 'Key Terms',
+        url: '#terms'
+    },
+    {
+        id: 'term-token',
+        type: 'term',
+        title: 'Token',
+        content: 'token unit measure text processed claude characters pro plan 5m month quota',
+        category: 'Key Terms',
+        url: '#terms'
+    },
+    {
+        id: 'term-context',
+        type: 'term',
+        title: 'Context',
+        content: 'context information remember conversation memory limited powerful short-term',
+        category: 'Key Terms',
+        url: '#terms'
+    },
+    {
+        id: 'term-sandbox',
+        type: 'term',
+        title: 'Sandbox',
+        content: 'sandbox isolated testing area experiment safely without affecting real files data',
+        category: 'Key Terms',
+        url: '#terms'
+    },
+    {
+        id: 'term-ocr',
+        type: 'term',
+        title: 'OCR',
+        content: 'ocr optical character recognition read text photos scans convert editable',
+        category: 'Key Terms',
+        url: '#terms'
+    },
+    {
+        id: 'term-artifact',
+        type: 'term',
+        title: 'Artifact',
+        content: 'artifact file created claude document spreadsheet interface preview download output',
+        category: 'Key Terms',
+        url: '#terms'
     }
 ];

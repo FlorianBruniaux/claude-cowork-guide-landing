@@ -2,6 +2,15 @@
 
 ## 📋 Changements récents
 
+**Janvier 2026 - v1.3.0 Key Terms & Getting Started**
+- ✅ Section "Key Terms" ajoutée (8 termes essentiels : Workspace, Prompt, Workflow, Token, Context, Sandbox, OCR, Artifact)
+- ✅ Section "Getting Started" ajoutée (3 étapes : Install, Security Setup, First Prompt)
+- ✅ Bloc cross-sell stylé (Claude Code) dans Hero avec badges et bouton CTA
+- ✅ Termes indexés dans recherche Cmd+K (8 nouvelles entrées EN/FR)
+- ⚠️ **TODO**: Créer fichiers glossary complets dans le guide principal
+  - `reference/glossary.en.md` (30+ termes EN)
+  - `reference/glossary.md` (30+ termes FR)
+
 **Janvier 2026 - v1.1.0 Landing Update**
 - ✅ Section "Why This Guide?" réécrite pour audience non-tech (impacts métier vs jargon technique)
 - ✅ Messaging exploratoire ajouté (banner, badge, FAQ, TL;DR)
