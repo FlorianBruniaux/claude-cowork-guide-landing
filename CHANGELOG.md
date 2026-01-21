@@ -6,18 +6,33 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
-### Changed
-- Rewrote "Why This Guide?" section for non-technical audience with business impact focus
-- Replaced technical jargon (VPN conflicts, token budgeting, prompt injection) with concrete impacts (blocked from working, quota exhausted, passwords exposed)
-- Grouped technical security aspects into 2 user-friendly points
-- Updated subtitle: "Stop wasting hours. Start working safely and efficiently from day one."
+## [1.2.0] - 2026-01-21
 
 ### Added
+- 🌐 **Full French translation** - Complete bilingual support with `index.fr.html`
+  - 112 French search index entries (25 guide + 70 prompts + 17 FAQ/rules)
+  - `cowork-data.fr.js`, `prompts-data.fr.js`, `search-data.fr.js`
+  - Language-specific URLs and share text for social buttons
+- 🌍 **Language switcher** - Navigation toggle (🌐 FR / 🌐 EN)
+  - Styled with hover effects and WCAG touch targets (44px)
+  - Hreflang tags for SEO optimization
+- 🔗 **Social sharing buttons** - X (Twitter) and LinkedIn
+  - Hero section: Visual buttons with icons (𝕏, in)
+  - Footer section: Text links ("Share on X", "Share on LinkedIn")
+  - GDPR-friendly intent URLs (no third-party tracking)
+- 🔍 **Language-aware search** - Automatic detection from `<html lang="">`
+  - Loads appropriate data files (*.fr.js for French)
 - Exploratory guide messaging throughout the landing page
 - Warning banner: "Cowork is brand new and evolving rapidly"
 - Status badge: "Exploratory" to set proper expectations
 - FAQ updates emphasizing experimental nature of guide
 - TL;DR status: "Early Access (unstable, rapidly evolving)"
+
+### Changed
+- Rewrote "Why This Guide?" section for non-technical audience with business impact focus
+- Replaced technical jargon (VPN conflicts, token budgeting, prompt injection) with concrete impacts (blocked from working, quota exhausted, passwords exposed)
+- Grouped technical security aspects into 2 user-friendly points
+- Updated subtitle: "Stop wasting hours. Start working safely and efficiently from day one."
 
 ### Updated
 - Workflow count: 5 → 25 workflows
@@ -29,6 +44,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Header navigation spacing: Cmd+K button no longer overlaps "Read Guide" button
 - Workflow tabs spacing: increased gap from 0.5rem to 1rem for better readability
 - `.nav-actions`: gap 0.75rem → 1.25rem, added margin-left: 1rem
+- French search data files now correctly load on `index.fr.html`
 
 ## [1.0.0] - 2026-01-XX
 
