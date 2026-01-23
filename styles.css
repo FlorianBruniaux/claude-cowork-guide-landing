@@ -1125,7 +1125,10 @@ kbd {
 }
 
 .key-terms .section-badge {
-    display: inline-block;
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
     background: var(--preview-bg);
     color: var(--preview-text);
     padding: 0.35rem 0.9rem;
