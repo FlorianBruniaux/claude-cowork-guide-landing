@@ -42,6 +42,20 @@ window.SEARCH_GUIDE_FR = [
         content: 'dépannage problèmes erreurs correction debug aide ne fonctionne pas',
         url: GUIDE_BASE + 'guide/04-troubleshooting.fr.md'
     },
+    {
+        id: 'guide-profile-personalization',
+        type: 'guide',
+        title: 'Personnalisation du Profil',
+        content: 'profil personnalisation voix style persona ton préférences paramètres mon-profil.md',
+        url: GUIDE_BASE + 'guide/01-getting-started.fr.md#étape-6--personnaliser-votre-profil-optionnel'
+    },
+    {
+        id: 'guide-model-selection',
+        type: 'guide',
+        title: 'Sélection du Modèle (Sonnet vs Opus)',
+        content: 'sélection modèle sonnet opus choisir modèle performance coût vitesse compromis quel modèle',
+        url: GUIDE_BASE + 'guide/02-capabilities.fr.md#sélection-du-modèle'
+    },
 
     // Workflows - Organisation (4)
     {

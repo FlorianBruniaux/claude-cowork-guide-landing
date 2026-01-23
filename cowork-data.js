@@ -42,6 +42,20 @@ window.SEARCH_GUIDE = [
         content: 'troubleshoot problems issues errors fix debug help not working',
         url: GUIDE_BASE + 'guide/04-troubleshooting.md'
     },
+    {
+        id: 'guide-profile-personalization',
+        type: 'guide',
+        title: 'Profile Personalization',
+        content: 'profile personalization voice style persona tone preferences custom settings my-profile.md',
+        url: GUIDE_BASE + 'guide/01-getting-started.md#step-6-personalize-your-profile-optional'
+    },
+    {
+        id: 'guide-model-selection',
+        type: 'guide',
+        title: 'Model Selection (Sonnet vs Opus)',
+        content: 'model selection sonnet opus choose model performance cost speed tradeoffs which model',
+        url: GUIDE_BASE + 'guide/02-capabilities.md#model-selection'
+    },
 
     // Workflows - Organisation (4)
     {
