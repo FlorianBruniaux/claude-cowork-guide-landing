@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [1.3.0] - 2026-01-23
+
+### Changed
+- **Workflow count update**: 25 → 26 workflows
+  - Updated in: titles, meta tags, OG tags, Twitter cards, hero stats, badges, section titles, footer
+  - Both EN (`index.html`) and FR (`index.fr.html`) versions updated
+  - Synced with main guide v1.2.0
+
 ### Added
 - 📖 **Key Terms section** - Glossary with 8 essential terms before Golden Rules
   - Terms: Workspace, Prompt, Workflow, Token, Context, Sandbox, OCR, Artifact
