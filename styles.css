@@ -160,7 +160,7 @@ kbd {
 
 .btn-primary {
     background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-    color: #ffffff;
+    color: #ffffff !important;
     font-weight: 600;
     padding: 1rem 2rem;
     font-size: 1.05rem;
@@ -172,7 +172,7 @@ kbd {
 
 .btn-primary:hover {
     background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-    color: #ffffff;
+    color: #ffffff !important;
     transform: translateY(-3px) scale(1.02);
     box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
 }
@@ -266,7 +266,7 @@ kbd {
     gap: 1.25rem;
     padding-left: 1.5rem;
     margin-left: 1rem;
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 1px solid var(--border-light);
 }
 
 /* Language switcher */
