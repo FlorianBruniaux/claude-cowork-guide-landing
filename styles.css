@@ -5,26 +5,32 @@
 
 /* CSS Custom Properties */
 :root {
-    /* Colors - GitHub Dark Theme + Indigo Accent */
-    --bg-primary: #0d1117;
-    --bg-secondary: #161b22;
-    --bg-tertiary: #21262d;
-    --text-primary: #c9d1d9;
-    --text-secondary: #9ca3af;  /* WCAG AA compliant (4.8:1 contrast) */
-    --text-muted: #9ca3af;
+    /* ===== LIGHT MODE (default) ===== */
+    --bg-primary: #f8fafc;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #f1f5f9;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --text-muted: #94a3b8;
+    --border: #e2e8f0;
+    --border-light: #f1f5f9;
 
-    /* Indigo accent for Cowork (vs blue for Code) */
+    /* Header backdrop */
+    --header-bg: rgba(248, 250, 252, 0.95);
+
+    /* Code blocks */
+    --code-bg: #f1f5f9;
+    --code-text: #1e293b;
+
+    /* Indigo accent (unchanged) */
     --accent: #6366f1;
     --accent-hover: #818cf8;
     --accent-secondary: #4f46e5;
     --accent-secondary-hover: #6366f1;
 
-    /* Research Preview badge */
+    /* Preview badge */
     --preview-bg: #fbbf24;
     --preview-text: #78350f;
-
-    --border: #30363d;
-    --border-light: #21262d;
 
     /* Typography */
     --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
@@ -49,6 +55,23 @@
     --transition-fast: 150ms ease;
     --transition-normal: 250ms ease;
     --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ===== DARK MODE (toggle only) ===== */
+[data-theme="dark"] {
+    --bg-primary: #0d1117;
+    --bg-secondary: #161b22;
+    --bg-tertiary: #21262d;
+    --text-primary: #c9d1d9;
+    --text-secondary: #9ca3af;
+    --text-muted: #9ca3af;
+    --border: #30363d;
+    --border-light: #21262d;
+
+    --header-bg: rgba(13, 17, 23, 0.95);
+
+    --code-bg: #21262d;
+    --code-text: #c9d1d9;
 }
 
 /* Reset & Base */
@@ -99,7 +122,8 @@ a:hover {
 
 code {
     font-family: var(--font-mono);
-    background-color: var(--bg-tertiary);
+    background-color: var(--code-bg);
+    color: var(--code-text);
     padding: 0.15em 0.4em;
     border-radius: 4px;
     font-size: 0.9em;
@@ -135,21 +159,22 @@ kbd {
 }
 
 .btn-primary {
-    background-color: var(--accent-secondary);
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
     color: #ffffff;
     font-weight: 600;
-    padding: 0.875rem 1.75rem;
+    padding: 1rem 2rem;
+    font-size: 1.05rem;
     border: none;
-    filter: drop-shadow(0 4px 12px rgba(99, 102, 241, 0.3));
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
     transition: transform 0.2s var(--ease-out-back),
-                filter 0.2s ease;
+                box-shadow 0.2s ease;
 }
 
 .btn-primary:hover {
-    background-color: var(--accent-secondary-hover);
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
     color: #ffffff;
-    transform: translateY(-2px) scale(1.02);
-    filter: drop-shadow(0 6px 20px rgba(99, 102, 241, 0.4));
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
 }
 
 .btn-primary:active {
@@ -186,7 +211,7 @@ kbd {
     position: sticky;
     top: 0;
     z-index: 100;
-    background-color: rgba(13, 17, 23, 0.95);
+    background-color: var(--header-bg);
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--border);
@@ -266,6 +291,61 @@ kbd {
     text-decoration: none;
 }
 
+/* Theme Toggle */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: all var(--transition-fast);
+    position: relative;
+    overflow: hidden;
+}
+
+.theme-toggle:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.theme-toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Animations between icons */
+.theme-toggle svg {
+    position: absolute;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Light mode: show moon, hide sun */
+.theme-toggle .icon-sun {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0);
+}
+
+.theme-toggle .icon-moon {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+}
+
+/* Dark mode: show sun, hide moon */
+[data-theme="dark"] .theme-toggle .icon-sun {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+}
+
+[data-theme="dark"] .theme-toggle .icon-moon {
+    opacity: 0;
+    transform: rotate(90deg) scale(0);
+}
+
 /* Cross-link to sibling guide */
 .nav-crosslink {
     color: var(--text-secondary);
@@ -302,9 +382,9 @@ kbd {
    Research Preview Banner
    ============================================ */
 .preview-banner {
-    background: linear-gradient(90deg, rgba(251, 191, 36, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%);
-    border-bottom: 1px solid var(--border);
-    padding: var(--space-sm) 0;
+    background: linear-gradient(90deg, #f59e0b 0%, #fbbf24 100%);
+    border-bottom: none;
+    padding: 0.75rem 0;
 }
 
 .preview-banner .container {
@@ -319,8 +399,8 @@ kbd {
     display: inline-flex;
     align-items: center;
     gap: var(--space-xs);
-    background: var(--preview-bg);
-    color: var(--preview-text);
+    background: #78350f;
+    color: #fbbf24;
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -330,7 +410,8 @@ kbd {
 }
 
 .preview-text {
-    color: var(--text-secondary);
+    color: #78350f;
+    font-weight: 500;
     font-size: 0.875rem;
 }
 
@@ -340,7 +421,7 @@ kbd {
 .hero {
     padding: var(--space-4xl) 0;
     text-align: center;
-    background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    background: linear-gradient(180deg, var(--bg-tertiary) 0%, var(--bg-primary) 100%);
 }
 
 .hero-content {
@@ -460,8 +541,27 @@ kbd {
     padding: var(--space-4xl) 0;
 }
 
+.section.section-minor {
+    padding: var(--space-2xl) 0;
+}
+
+/* Alternance des backgrounds pour rythme visuel */
+.section:nth-child(odd) {
+    background-color: var(--bg-primary);
+}
+
 .section:nth-child(even) {
     background-color: var(--bg-secondary);
+}
+
+/* Dark mode : utiliser bg-tertiary pour plus de contraste */
+[data-theme="dark"] .section:nth-child(even) {
+    background-color: var(--bg-tertiary);
+}
+
+/* Bordure subtile entre sections pour séparation claire */
+.section + .section {
+    border-top: 1px solid var(--border-light);
 }
 
 .section-title {
@@ -848,7 +948,9 @@ kbd {
 
 .workflows-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    max-width: 1100px;
+    margin: 0 auto;
     gap: var(--space-lg);
 }
 
@@ -1600,6 +1702,11 @@ details[open] > *:not(summary) {
         order: 3;
     }
 
+    /* Theme toggle visible before hamburger on mobile */
+    .theme-toggle {
+        order: 2;
+    }
+
     .nav-links {
         display: none;
         position: fixed;
@@ -1801,6 +1908,49 @@ a:not(.btn):not(.feature-card-link):not(.workflow-card):not(.prompt-category):ho
     .section {
         opacity: 1;
         transform: none;
+    }
+}
+
+/* ============================================
+   Light/Dark Mode Shadows & Transitions
+   ============================================ */
+
+/* Cards in light mode need more shadow for depth */
+.feature-card,
+.workflow-card,
+.prompt-category,
+.term-card,
+.setup-step,
+.rule {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card:hover,
+.workflow-card:hover,
+.prompt-category:hover,
+.term-card:hover,
+.setup-step:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark mode: no shadow, border is enough */
+[data-theme="dark"] .feature-card,
+[data-theme="dark"] .workflow-card,
+[data-theme="dark"] .prompt-category,
+[data-theme="dark"] .term-card,
+[data-theme="dark"] .setup-step,
+[data-theme="dark"] .rule {
+    box-shadow: none;
+}
+
+/* Smooth theme transitions */
+@media (prefers-reduced-motion: no-preference) {
+    body,
+    .header,
+    .feature-card,
+    .workflow-card,
+    .search-modal-content {
+        transition: background-color 0.3s ease, border-color 0.3s ease;
     }
 }
 

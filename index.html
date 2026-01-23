@@ -40,6 +40,16 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
+    <!-- Anti-FOUC: Apply theme BEFORE CSS renders -->
+    <script>
+      (function() {
+        var stored = localStorage.getItem('theme');
+        // Force light mode by default, ignore system preferences
+        var theme = stored || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
 
@@ -212,6 +222,22 @@
                         <span class="search-kbd">Cmd+K</span>
                     </button>
                     <a href="index.fr.html" class="lang-switcher" title="Version française">🌐 FR</a>
+                    <button class="theme-toggle" id="theme-toggle" role="switch" aria-checked="false" aria-label="Dark mode">
+                        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <circle cx="12" cy="12" r="5"/>
+                            <line x1="12" y1="1" x2="12" y2="3"/>
+                            <line x1="12" y1="21" x2="12" y2="23"/>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                            <line x1="1" y1="12" x2="3" y2="12"/>
+                            <line x1="21" y1="12" x2="23" y2="12"/>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                        </svg>
+                        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                        </svg>
+                    </button>
                     <a href="https://github.com/FlorianBruniaux/claude-cowork-guide" class="btn btn-primary" target="_blank" rel="noopener">Read Guide</a>
                 </div>
             </div>
@@ -245,42 +271,11 @@
                         Browse Workflows
                     </a>
                 </div>
-
-                <div class="hero-badges">
-                    <img src="https://img.shields.io/badge/Prompts-70-6366f1?style=flat-square" alt="70 Prompts">
-                    <img src="https://img.shields.io/badge/Workflows-26-6366f1?style=flat-square" alt="26 Workflows">
-                    <img src="https://img.shields.io/badge/License-CC%20BY--SA%204.0-green?style=flat-square" alt="CC BY-SA 4.0">
-                    <img src="https://img.shields.io/badge/Status-Exploratory-fbbf24?style=flat-square" alt="Exploratory Guide">
-                </div>
-
-                <div class="hero-share">
-                    <span class="share-label">Share:</span>
-                    <a href="https://twitter.com/intent/tweet?url=https://florianbruniaux.github.io/claude-cowork-guide-landing/&text=Claude%20Cowork%20Guide%20-%20Le%20guide%20pratique%20pour%20travailler%20avec%20Claude"
-                       class="share-btn" target="_blank" rel="noopener" aria-label="Share on X">
-                        𝕏
-                    </a>
-                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://florianbruniaux.github.io/claude-cowork-guide-landing/"
-                       class="share-btn" target="_blank" rel="noopener" aria-label="Share on LinkedIn">
-                        in
-                    </a>
-                </div>
-
-                <div class="hero-code-box">
-                    <p class="hero-code-lead">Developer? <strong>Claude Code</strong> is for terminal-based AI coding.</p>
-                    <div class="hero-code-prereq">
-                        <span class="prereq-tag">All platforms</span>
-                        <span class="prereq-tag">Free tier available</span>
-                    </div>
-                    <a href="https://florianbruniaux.github.io/claude-code-ultimate-guide-landing/"
-                       class="btn btn-code" target="_blank" rel="noopener">
-                        Get Started with Claude Code →
-                    </a>
-                </div>
             </div>
         </section>
 
         <!-- TL;DR Section -->
-        <section class="section" id="tldr">
+        <section class="section section-minor" id="tldr">
             <div class="container">
                 <h2 class="section-title">TL;DR</h2>
                 <p class="section-subtitle">What you need to know in 30 seconds</p>
@@ -784,7 +779,7 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
         </section>
 
         <!-- Key Terms Section -->
-        <section class="section key-terms" id="terms">
+        <section class="section section-minor key-terms" id="terms">
             <div class="container">
                 <span class="section-badge">Glossary</span>
                 <h2 class="section-title">Key Terms</h2>
@@ -832,7 +827,7 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
         </section>
 
         <!-- Golden Rules Section -->
-        <section class="section golden-rules" id="rules">
+        <section class="section section-minor golden-rules" id="rules">
             <div class="container">
                 <h2 class="section-title">7 Golden Rules</h2>
                 <p class="section-subtitle">Follow these to avoid the most common mistakes</p>
@@ -1142,6 +1137,31 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
                 });
             });
         });
+
+        // Theme toggle (anti-FOUC script already applied initial theme)
+        const themeToggle = document.getElementById('theme-toggle');
+
+        function applyTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            if (themeToggle) {
+                themeToggle.setAttribute('aria-checked', theme === 'dark');
+            }
+        }
+
+        // Set initial aria-checked based on current theme
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        if (themeToggle) {
+            themeToggle.setAttribute('aria-checked', currentTheme === 'dark');
+        }
+
+        // Toggle on click
+        themeToggle?.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            applyTheme(current === 'dark' ? 'light' : 'dark');
+        });
+
+        // System preference listener removed - light mode forced by default
     </script>
 </body>
 </html>
