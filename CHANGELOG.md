@@ -6,6 +6,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [1.3.1] - 2026-01-27
+
+### Changed
+- **Workflow descriptions updated** - Synced with main guide v1.2.1
+  - EN: "From file organization to team handoffs" → "From invoicing to project planning" (reflects SME/artisan focus)
+  - FR: "De l'organisation de fichiers aux passations d'équipe" → "De la facturation à la planification de projets"
+  - Updated "5 Step-by-Step Workflows" → "26 Step-by-Step Workflows" in EN version (line 404)
+  - FR version already correct at "26 Workflows Pas à Pas"
+
+### Guide Sync (v1.2.1)
+Main guide enriched with two new workflow sections:
+- **Recurring Reporting**: Weekly/monthly progress reports for long projects (work-log.md)
+- **Client Onboarding**: Standardized checklist for new client process (client-followup-tracker.md)
+- Total: 26 workflows with enhanced practical value for SMEs/artisans
+
 ## [1.3.0] - 2026-01-23
 
 ### Changed
