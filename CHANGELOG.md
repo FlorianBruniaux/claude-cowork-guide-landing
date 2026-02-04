@@ -16,7 +16,24 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Fixed
 - **Copilot disambiguation**: Clarified "Copilot (MS)" refers to Microsoft 365 Copilot (Office integration), not GitHub Copilot (developer tool)
-  - Updated in comparison sections to prevent confusion between two distinct Microsoft products
+  - Updated comparison table in both EN and FR versions to prevent confusion between two distinct Microsoft products
+
+  **Detailed changes to comparison table:**
+
+  1. **Table header**:
+     - `<th scope="col">Copilot</th>` → `<th scope="col">M365 Copilot</th>`
+
+  2. **Target User row**:
+     - EN: `<td>Office users</td>` → `<td>M365 users</td>`
+     - FR: `<td>Utilisateurs Office</td>` → `<td>Utilisateurs M365</td>`
+
+  3. **Local File Access row**:
+     - EN: `<td class="feature-partial">Office only</td>` → `<td class="feature-partial">Office files only*</td>`
+     - FR: `<td class="feature-partial">Office uniquement</td>` → `<td class="feature-partial">Fichiers Office uniquement*</td>`
+
+  4. **Explanatory note added** (below comparison table):
+     - EN: *"M365 Copilot refers to Microsoft 365 Copilot (Word/Excel/PowerPoint integration), not GitHub Copilot (developer tool with full file system access)."*
+     - FR: *"M365 Copilot désigne Microsoft 365 Copilot (intégration Word/Excel/PowerPoint), pas GitHub Copilot (outil développeur avec accès complet au système de fichiers)."*
 
 ### Guide Sync (v1.3.0)
 Main guide corrections and updates:
