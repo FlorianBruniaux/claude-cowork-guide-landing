@@ -6,6 +6,25 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [1.3.2] - 2026-02-04
+
+### Changed
+- **Workflow count correction**: 26 → 24 workflows
+  - Updated in: titles, meta tags, OG tags, Twitter cards, hero stats, badges, section titles, footer
+  - Both EN (`index.html`) and FR (`index.fr.html`) versions updated
+  - Synced with main guide v1.3.0
+
+### Fixed
+- **Copilot disambiguation**: Clarified "Copilot (MS)" refers to Microsoft 365 Copilot (Office integration), not GitHub Copilot (developer tool)
+  - Updated in comparison sections to prevent confusion between two distinct Microsoft products
+
+### Guide Sync (v1.3.0)
+Main guide corrections and updates:
+- **Workflow cleanup**: Removed 2 deprecated workflows (report-synthesis, team-handoff)
+- **Recategorization**: Fixed 5 misclassified workflows to match their metadata
+- **Documentation**: Added Haiku model, clarified Opus versions, updated macOS terminology (System Settings)
+- Final count: 24 active workflows properly organized across 5 categories
+
 ## [1.3.1] - 2026-01-27
 
 ### Changed
