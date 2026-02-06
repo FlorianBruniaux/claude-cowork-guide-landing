@@ -56,6 +56,14 @@ window.SEARCH_GUIDE_FR = [
         content: 'sélection modèle sonnet opus choisir modèle performance coût vitesse compromis quel modèle',
         url: GUIDE_BASE + 'guide/02-capabilities.fr.md#sélection-du-modèle'
     },
+    {
+        id: 'guide-claude-legal',
+        type: 'guide',
+        title: 'Extension Claude Legal',
+        content: 'claude legal extension plugin revue contrats détection risques conformité nda triage documents juridiques analyse automatisée',
+        category: 'Fév 2026',
+        url: GUIDE_BASE + 'guide/02-capabilities.fr.md#extensions--plugins'
+    },
 
     // Workflows - Organisation (4)
     {

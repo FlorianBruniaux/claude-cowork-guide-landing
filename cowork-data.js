@@ -56,6 +56,14 @@ window.SEARCH_GUIDE = [
         content: 'model selection sonnet opus choose model performance cost speed tradeoffs which model',
         url: GUIDE_BASE + 'guide/02-capabilities.md#model-selection'
     },
+    {
+        id: 'guide-claude-legal',
+        type: 'guide',
+        title: 'Claude Legal Extension',
+        content: 'claude legal extension plugin contract review risk detection compliance nda triage legal documents automated analysis',
+        category: 'Feb 2026',
+        url: GUIDE_BASE + 'guide/02-capabilities.md#extensions--plugins'
+    },
 
     // Workflows - Organisation (4)
     {
