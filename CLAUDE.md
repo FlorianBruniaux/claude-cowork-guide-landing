@@ -76,7 +76,7 @@ Ne JAMAIS modifier les stats ou le contenu ici sans avoir d'abord mis à jour le
 
 | Métrique | Valeur | Source |
 |----------|--------|--------|
-| Workflows | `25` | workflows/ directory (23 actifs + 2 dépréciés) |
+| Workflows | `28` | workflows/ directory (28 actifs) |
 | Prompts | `70` | prompts/*.md (20 file-ops + 16 docs + 17 data + 17 research) |
 | FAQ questions | `13` | reference/faq.md |
 | Golden Rules | `7` | guide/03-security.md |
