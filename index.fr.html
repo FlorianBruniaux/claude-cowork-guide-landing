@@ -197,6 +197,15 @@
         ]
     }
     </script>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WH1C8CM79E"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-WH1C8CM79E');
+    </script>
 </head>
 <body>
     <!-- Skip Link for Accessibility -->
@@ -240,7 +249,7 @@
                             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
                         </svg>
                     </button>
-                    <a href="https://github.com/FlorianBruniaux/claude-cowork-guide" class="btn btn-primary" target="_blank" rel="noopener">Lire le Guide</a>
+                    <a href="https://github.com/FlorianBruniaux/claude-cowork-guide" class="btn btn-primary" target="_blank" rel="noopener" onclick="gtag('event', 'github_click', {'project': 'cowork', 'link_type': 'nav_cta', 'language': 'fr'})">Lire le Guide</a>
                 </div>
             </div>
             <button class="menu-toggle" aria-label="Basculer le menu" aria-expanded="false">
@@ -266,7 +275,7 @@
                 <p class="hero-stats">28 workflows | 70 prompts | Bonnes pratiques de sécurité</p>
 
                 <div class="hero-ctas">
-                    <a href="https://github.com/FlorianBruniaux/claude-cowork-guide" class="btn btn-primary" target="_blank" rel="noopener">
+                    <a href="https://github.com/FlorianBruniaux/claude-cowork-guide" class="btn btn-primary" target="_blank" rel="noopener" onclick="gtag('event', 'github_click', {'project': 'cowork', 'link_type': 'hero_cta', 'language': 'fr'})">
                         Lire le Guide
                     </a>
                     <a href="#workflows" class="btn btn-secondary">
