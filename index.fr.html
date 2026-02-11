@@ -30,6 +30,8 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://florianbruniaux.github.io/claude-cowork-guide-landing/index.fr.html">
     <meta property="og:image" content="https://florianbruniaux.github.io/claude-cowork-guide-landing/og-image.png">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:locale:alternate" content="en_US">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
@@ -57,142 +59,196 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Guide Claude Cowork",
-        "description": "Guide gratuit pour Claude Cowork avec 70 prompts et 28 workflows",
-        "url": "https://florianbruniaux.github.io/claude-cowork-guide-landing/index.fr.html",
-        "inLanguage": "fr",
-        "author": {
-            "@type": "Person",
-            "name": "Florian BRUNIAUX"
-        }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "inLanguage": "fr",
-        "mainEntity": [
+        "@graph": [
             {
-                "@type": "Question",
-                "name": "Qu'est-ce que Cowork ?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Cowork est la fonctionnalité autonome (agentique) de Claude qui manipule les fichiers locaux, crée des documents et organise votre espace de travail—sans écrire de code. Pensez-y comme Claude Code pour les professionnels non-développeurs."
+                "@type": "WebSite",
+                "name": "Guide Claude Cowork",
+                "description": "Guide gratuit pour Claude Cowork avec 70 prompts et 28 workflows",
+                "url": "https://florianbruniaux.github.io/claude-cowork-guide-landing/index.fr.html",
+                "inLanguage": "fr",
+                "datePublished": "2026-01-15",
+                "dateModified": "2026-02-11",
+                "author": {
+                    "@type": "Person",
+                    "name": "Florian BRUNIAUX",
+                    "url": "https://www.linkedin.com/in/florian-bruniaux-43408b83/",
+                    "sameAs": [
+                        "https://github.com/FlorianBruniaux",
+                        "https://www.linkedin.com/in/florian-bruniaux-43408b83/"
+                    ]
+                },
+                "publisher": {
+                    "@type": "Person",
+                    "name": "Florian BRUNIAUX",
+                    "url": "https://www.linkedin.com/in/florian-bruniaux-43408b83/",
+                    "sameAs": [
+                        "https://github.com/FlorianBruniaux",
+                        "https://www.linkedin.com/in/florian-bruniaux-43408b83/"
+                    ]
                 }
             },
             {
-                "@type": "Question",
-                "name": "Combien coûte Cowork ?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Cowork nécessite un abonnement Pro (20$/mois) ou Max (100-200$/mois). Pro est recommandé uniquement pour une utilisation légère—le quota s'épuise en ~1-1,5 heures d'utilisation intensive."
+                "@type": "WebPage",
+                "@id": "https://florianbruniaux.github.io/claude-cowork-guide-landing/index.fr.html",
+                "url": "https://florianbruniaux.github.io/claude-cowork-guide-landing/index.fr.html",
+                "name": "Guide Claude Cowork : 28 workflows & 70 Prompts - Gratuit",
+                "isPartOf": {
+                    "@type": "WebSite",
+                    "url": "https://florianbruniaux.github.io/claude-cowork-guide-landing/index.fr.html"
+                },
+                "speakable": {
+                    "@type": "SpeakableSpecification",
+                    "cssSelector": ["h1", ".hero-tagline", ".hero-stats", "#faq h2", "#faq .faq-item summary", "#faq .faq-item p"]
+                },
+                "inLanguage": "fr"
+            },
+            {
+                "@type": "Course",
+                "name": "Guide Claude Cowork",
+                "description": "Guide gratuit et open-source pour maîtriser Claude Cowork avec 28 workflows détaillés et 70 prompts prêts à l'emploi pour l'automatisation IA sur desktop.",
+                "url": "https://github.com/FlorianBruniaux/claude-cowork-guide",
+                "provider": {
+                    "@type": "Person",
+                    "name": "Florian BRUNIAUX",
+                    "sameAs": [
+                        "https://github.com/FlorianBruniaux",
+                        "https://www.linkedin.com/in/florian-bruniaux-43408b83/"
+                    ]
+                },
+                "inLanguage": ["en", "fr"],
+                "isAccessibleForFree": true,
+                "numberOfCredits": 0,
+                "hasCourseInstance": {
+                    "@type": "CourseInstance",
+                    "courseMode": "online",
+                    "courseWorkload": "PT2H"
                 }
             },
             {
-                "@type": "Question",
-                "name": "Cowork fonctionne-t-il sur Windows ou Linux ?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Pas encore (janvier 2026). macOS uniquement. Windows est sur la roadmap d'Anthropic mais sans ETA. Linux n'a pas d'annonce officielle. Utilisez Claude Code pour les capacités autonomes (agentiques) sur Linux."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Puis-je utiliser Cowork avec un VPN ?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Non. Les logiciels VPN créent des conflits de routage avec le réseau VM interne de Cowork. C'est le problème n°1 rapporté. Déconnectez complètement votre VPN avant d'utiliser Cowork."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Cowork est-il sécurisé ?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Il n'y a pas encore de documentation de sécurité officielle (preview recherche). Bonnes pratiques : utilisez un dossier workspace dédié, vérifiez chaque plan, gardez les identifiants dehors, vérifiez les sources de fichiers."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Que ne peut PAS faire Cowork ?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Cowork ne peut pas : exécuter du code/scripts, faire des appels API, accéder directement au cloud storage (Google Drive, Dropbox), traiter l'audio/vidéo, déchiffrer des fichiers cryptés."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Quand utiliser Chat vs Cowork ?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Chat (80%) : raisonnement, écriture, codage, tâches exploratoires. Cowork (20%) : opérations fichiers en lot, création de documents, automatisation navigateur. Ensemble, ils permettent des procédures guidées (workflows) impossibles avec l'un ou l'autre seul."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Quelle est la différence avec Claude Code ?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Claude Code : interface terminal, accès shell complet, pour développeurs. Cowork : app desktop, accès fichiers uniquement, pour professionnels non-développeurs. Ils partagent l'architecture mais diffèrent en capacités."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Cowork peut-il créer des formules Excel ?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Oui ! Cowork peut créer des fichiers Excel avec formules fonctionnelles, feuilles multiples et mise en forme. Spécifiez votre réglage régional (virgule US vs point-virgule EU) dans votre instruction (prompt)."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Quelles sont les limites d'utilisation ?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "L'utilisation se réinitialise toutes les 5 heures (pas quotidien/mensuel). Tier Pro : ~45 messages courts par reset (~1-1,5h utilisation intensive). Tier Max : 5x-20x plus. Le traitement de fichiers consomme la capacité (tokens) rapidement."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Ce guide est-il officiel ?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Non, il s'agit de recherche exploratoire. Cowork est tout nouveau (lancé janvier 2026). Ce guide reflète mon expérimentation personnelle et ma compréhension actuelle—tous deux vont évoluer rapidement à mesure que le produit mûrit. Attendez-vous à des changements de contenu, corrections et pivots. Pas affilié à Anthropic."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Qui est derrière ce guide ?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Créé par Florian BRUNIAUX, un développeur expérimentant Cowork depuis son lancement récent. C'est un document vivant—j'apprends en temps réel et documente mes découvertes au fur et à mesure qu'elles évoluent. Les retours et corrections sont essentiels !"
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Puis-je contribuer au guide ?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Oui ! Le dépôt du guide est open-source. Trouvé une erreur ? Vous avez une meilleure instruction (prompt) ? Les contributions sont bienvenues sur GitHub."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Puis-je personnaliser la voix et le style de Claude ?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Oui ! Créez un fichier de profil personnel (.md) avec votre ton, vos préférences de style et ce que vous ne voulez jamais que Claude fasse. Commencez chaque conversation par 'Lis mon-profil.md d'abord' pour appliquer vos paramètres."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Quel modèle choisir : Sonnet ou Opus ?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Commencez par Sonnet—c'est plus rapide et suffisant pour 80% des tâches (emails, organisation fichiers, extraction données). Passez à Opus pour les analyses complexes, synthèses multi-documents, ou quand les résultats manquent de profondeur. Opus consomme le quota plus rapidement."
-                }
+                "@type": "FAQPage",
+                "inLanguage": "fr",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Qu'est-ce que Cowork ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Cowork est la fonctionnalité autonome (agentique) de Claude qui manipule les fichiers locaux, crée des documents et organise votre espace de travail—sans écrire de code. Pensez-y comme Claude Code pour les professionnels non-développeurs."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Combien coûte Cowork ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Cowork nécessite un abonnement Pro (20$/mois) ou Max (100-200$/mois). Pro est recommandé uniquement pour une utilisation légère—le quota s'épuise en ~1-1,5 heures d'utilisation intensive."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Cowork fonctionne-t-il sur Windows ou Linux ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Pas encore (janvier 2026). macOS uniquement. Windows est sur la roadmap d'Anthropic mais sans ETA. Linux n'a pas d'annonce officielle. Utilisez Claude Code pour les capacités autonomes (agentiques) sur Linux."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Puis-je utiliser Cowork avec un VPN ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Non. Les logiciels VPN créent des conflits de routage avec le réseau VM interne de Cowork. C'est le problème n°1 rapporté. Déconnectez complètement votre VPN avant d'utiliser Cowork."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Cowork est-il sécurisé ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Il n'y a pas encore de documentation de sécurité officielle (preview recherche). Bonnes pratiques : utilisez un dossier workspace dédié, vérifiez chaque plan, gardez les identifiants dehors, vérifiez les sources de fichiers."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Que ne peut PAS faire Cowork ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Cowork ne peut pas : exécuter du code/scripts, faire des appels API, accéder directement au cloud storage (Google Drive, Dropbox), traiter l'audio/vidéo, déchiffrer des fichiers cryptés."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Quand utiliser Chat vs Cowork ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Chat (80%) : raisonnement, écriture, codage, tâches exploratoires. Cowork (20%) : opérations fichiers en lot, création de documents, automatisation navigateur. Ensemble, ils permettent des procédures guidées (workflows) impossibles avec l'un ou l'autre seul."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Quelle est la différence avec Claude Code ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Claude Code : interface terminal, accès shell complet, pour développeurs. Cowork : app desktop, accès fichiers uniquement, pour professionnels non-développeurs. Ils partagent l'architecture mais diffèrent en capacités."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Cowork peut-il créer des formules Excel ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Oui ! Cowork peut créer des fichiers Excel avec formules fonctionnelles, feuilles multiples et mise en forme. Spécifiez votre réglage régional (virgule US vs point-virgule EU) dans votre instruction (prompt)."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Quelles sont les limites d'utilisation ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "L'utilisation se réinitialise toutes les 5 heures (pas quotidien/mensuel). Tier Pro : ~45 messages courts par reset (~1-1,5h utilisation intensive). Tier Max : 5x-20x plus. Le traitement de fichiers consomme la capacité (tokens) rapidement."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Ce guide est-il officiel ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Non, il s'agit de recherche exploratoire. Cowork est tout nouveau (lancé janvier 2026). Ce guide reflète mon expérimentation personnelle et ma compréhension actuelle—tous deux vont évoluer rapidement à mesure que le produit mûrit. Attendez-vous à des changements de contenu, corrections et pivots. Pas affilié à Anthropic."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Qui est derrière ce guide ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Créé par Florian BRUNIAUX, un développeur expérimentant Cowork depuis son lancement récent. C'est un document vivant—j'apprends en temps réel et documente mes découvertes au fur et à mesure qu'elles évoluent. Les retours et corrections sont essentiels !"
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Puis-je contribuer au guide ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Oui ! Le dépôt du guide est open-source. Trouvé une erreur ? Vous avez une meilleure instruction (prompt) ? Les contributions sont bienvenues sur GitHub."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Puis-je personnaliser la voix et le style de Claude ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Oui ! Créez un fichier de profil personnel (.md) avec votre ton, vos préférences de style et ce que vous ne voulez jamais que Claude fasse. Commencez chaque conversation par 'Lis mon-profil.md d'abord' pour appliquer vos paramètres."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Quel modèle choisir : Sonnet ou Opus ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Commencez par Sonnet—c'est plus rapide et suffisant pour 80% des tâches (emails, organisation fichiers, extraction données). Passez à Opus pour les analyses complexes, synthèses multi-documents, ou quand les résultats manquent de profondeur. Opus consomme le quota plus rapidement."
+                        }
+                    }
+                ]
             }
         ]
     }
