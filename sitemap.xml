@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://florianbruniaux.github.io/claude-cowork-guide-landing/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://florianbruniaux.github.io/claude-cowork-guide-landing/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://florianbruniaux.github.io/claude-cowork-guide-landing/index.fr.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://florianbruniaux.github.io/claude-cowork-guide-landing/" />
+    <loc>https://cowork.bruniaux.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cowork.bruniaux.com/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://cowork.bruniaux.com/index.fr.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cowork.bruniaux.com/" />
     <lastmod>2026-02-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://florianbruniaux.github.io/claude-cowork-guide-landing/index.fr.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://florianbruniaux.github.io/claude-cowork-guide-landing/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://florianbruniaux.github.io/claude-cowork-guide-landing/index.fr.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://florianbruniaux.github.io/claude-cowork-guide-landing/" />
+    <loc>https://cowork.bruniaux.com/index.fr.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cowork.bruniaux.com/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://cowork.bruniaux.com/index.fr.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cowork.bruniaux.com/" />
     <lastmod>2026-02-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>

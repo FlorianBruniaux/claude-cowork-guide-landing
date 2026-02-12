@@ -4,8 +4,8 @@ Landing site for the [Claude Cowork Guide](https://github.com/FlorianBruniaux/cl
 
 ## Live Site
 
-- 🇬🇧 **English**: [florianbruniaux.github.io/claude-cowork-guide-landing](https://florianbruniaux.github.io/claude-cowork-guide-landing)
-- 🇫🇷 **French**: [florianbruniaux.github.io/claude-cowork-guide-landing/index.fr.html](https://florianbruniaux.github.io/claude-cowork-guide-landing/index.fr.html)
+- 🇬🇧 **English**: [cowork.bruniaux.com](https://cowork.bruniaux.com)
+- 🇫🇷 **French**: [cowork.bruniaux.com/index.fr.html](https://cowork.bruniaux.com/index.fr.html)
 
 ## Features
 

@@ -26,7 +26,7 @@
 
 | Environnement | URL |
 |---------------|-----|
-| **Production** | https://florianbruniaux.github.io/claude-cowork-guide-landing/ |
+| **Production** | https://cowork.bruniaux.com/ |
 | **Custom Domain** | https://cowork.bruniaux.com (à configurer) |
 | **GitHub Repo** | https://github.com/FlorianBruniaux/claude-cowork-guide-landing |
 
