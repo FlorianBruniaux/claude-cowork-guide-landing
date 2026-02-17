@@ -1,0 +1,48 @@
+---
+import type { Lang } from '../../data/i18n'
+import { t } from '../../data/i18n'
+
+interface Props { lang: Lang }
+const s = t(Astro.props.lang)
+---
+
+<div class="preview-banner">
+  <div class="container">
+    <span class="preview-badge">{s.previewBadge}</span>
+    <span class="preview-text">{s.previewText}</span>
+  </div>
+</div>
+
+<style>
+  .preview-banner {
+    background: var(--bg-secondary);
+    border-bottom: 2px solid var(--accent);
+    padding: var(--space-sm) 0;
+  }
+
+  .preview-banner .container {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+  }
+
+  .preview-badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    background: var(--accent);
+    color: var(--bg-primary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+  }
+
+  .preview-text {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+  }
+</style>

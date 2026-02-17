@@ -1,0 +1,113 @@
+---
+import type { Lang } from '../../data/i18n'
+import { t } from '../../data/i18n'
+
+interface Props { lang: Lang }
+const s = t(Astro.props.lang)
+---
+
+<section class="section section--compact crosslink">
+  <div class="container">
+    <div class="crosslink-inner">
+      <h2>{s.crosslinkTitle}</h2>
+      <p class="crosslink-subtitle">{s.crosslinkSubtitle}</p>
+
+      <ul class="crosslink-signals">
+        {s.crosslinkSignals.map((signal) => (
+          <li><span class="signal-check">&#x2713;</span> {signal}</li>
+        ))}
+      </ul>
+
+      <div class="crosslink-card">
+        <div class="crosslink-card-content">
+          <h3>{s.crosslinkCardTitle}</h3>
+          <p class="crosslink-stats">{s.crosslinkCardStats}</p>
+        </div>
+        <a href="https://cc.bruniaux.com/" target="_blank" rel="noopener" class="btn btn-primary">
+          {s.crosslinkCardCta}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .crosslink {
+    background: var(--bg-secondary);
+    border-top: 2px solid var(--accent);
+    border-bottom: 2px solid var(--accent);
+  }
+
+  .crosslink-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .crosslink-inner h2 {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .crosslink-subtitle {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-lg);
+  }
+
+  .crosslink-signals {
+    list-style: none;
+    padding: 0;
+    display: inline-flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    text-align: left;
+    margin-bottom: var(--space-lg);
+  }
+
+  .crosslink-signals li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+  }
+
+  .signal-check {
+    color: var(--status-success);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .crosslink-card {
+    background: var(--surface-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius-lg);
+    padding: var(--space-lg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  .crosslink-card-content { text-align: left; }
+
+  .crosslink-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-xs);
+  }
+
+  .crosslink-stats {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin: 0;
+  }
+
+  @media (max-width: 600px) {
+    .crosslink-card {
+      flex-direction: column;
+      text-align: center;
+    }
+    .crosslink-card-content { text-align: center; }
+  }
+</style>

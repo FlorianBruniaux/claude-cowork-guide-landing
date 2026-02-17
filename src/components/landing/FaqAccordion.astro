@@ -1,0 +1,78 @@
+---
+import type { Lang } from '../../data/i18n'
+import { t } from '../../data/i18n'
+
+interface Props { lang: Lang }
+const s = t(Astro.props.lang)
+---
+
+<section class="section" id="faq">
+  <div class="container">
+    <h2 class="section-title">{s.faqTitle}</h2>
+    <p class="section-subtitle">{s.faqSubtitle}</p>
+
+    <div class="faq-list">
+      {s.faqItems.map((item) => (
+        <details class="faq-item">
+          <summary>{item.q}</summary>
+          <p set:html={item.a} />
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .faq-item summary {
+    padding: var(--space-md) 0;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-primary);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+  }
+
+  .faq-item summary::after {
+    content: '+';
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+
+  .faq-item[open] summary::after {
+    content: '\2212';
+  }
+
+  .faq-item summary::-webkit-details-marker { display: none; }
+
+  .faq-item p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    padding-bottom: var(--space-md);
+    line-height: 1.6;
+  }
+
+  .faq-item :global(a) {
+    color: var(--accent);
+    text-decoration: underline;
+  }
+
+  .faq-item :global(strong) {
+    color: var(--text-primary);
+  }
+</style>

@@ -1,0 +1,92 @@
+---
+import type { Lang } from '../../data/i18n'
+import { t } from '../../data/i18n'
+
+interface Props { lang: Lang }
+const s = t(Astro.props.lang)
+---
+
+<section class="section" id="features">
+  <div class="container">
+    <span class="section-badge">{s.featuresBadge}</span>
+    <h2 class="section-title">{s.featuresTitle}</h2>
+    <p class="section-subtitle">{s.featuresSubtitle}</p>
+    <div class="features-grid">
+      {s.features.map((f) => (
+        <a href={f.url} target="_blank" rel="noopener" class:list={['feature-card', { featured: f.featured }]}>
+          {f.badge && <span class="feature-badge">{f.badge}</span>}
+          <span class="feature-icon">{f.icon}</span>
+          <h3>{f.title}</h3>
+          <p>{f.desc}</p>
+          <span class="feature-meta">{f.meta}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .feature-card {
+    background: var(--surface-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius-lg);
+    padding: var(--space-xl);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s, border-color 0.2s;
+    position: relative;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+  }
+
+  .feature-card.featured {
+    border-color: var(--accent);
+    background: var(--surface-elevated);
+  }
+
+  .feature-badge {
+    position: absolute;
+    top: var(--space-sm);
+    right: var(--space-sm);
+    background: var(--accent);
+    color: var(--bg-primary);
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.15rem 0.5rem;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .feature-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: var(--space-sm);
+  }
+
+  .feature-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-xs);
+  }
+
+  .feature-card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .feature-meta {
+    font-size: 0.8rem;
+    color: var(--accent);
+    font-weight: 600;
+  }
+</style>

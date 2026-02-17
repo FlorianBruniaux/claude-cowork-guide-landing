@@ -1,0 +1,44 @@
+---
+import type { Lang } from '../../data/i18n'
+import { t } from '../../data/i18n'
+
+interface Props { lang: Lang }
+const s = t(Astro.props.lang)
+---
+
+<section class="section section--compact whats-new">
+  <div class="container">
+    <div class="whats-new-inner">
+      <span class="section-badge">{s.whatsNewBadge}</span>
+      <h3>{s.whatsNewTitle}</h3>
+      <p>{s.whatsNewText} <strong>{s.whatsNewWarning}</strong></p>
+      <a href={s.whatsNewUrl} class="btn btn-secondary" target="_blank" rel="noopener" style="font-size: 0.9rem;">
+        {s.whatsNewCta}
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .whats-new {
+    background: var(--bg-secondary);
+    border-top: 2px solid var(--accent);
+    border-bottom: 2px solid var(--accent);
+  }
+
+  .whats-new-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .whats-new-inner h3 {
+    margin: var(--space-md) 0 var(--space-sm);
+    font-size: 1.25rem;
+  }
+
+  .whats-new-inner p {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+  }
+</style>

@@ -1,0 +1,63 @@
+---
+import type { Lang } from '../../data/i18n'
+import { t } from '../../data/i18n'
+
+interface Props { lang: Lang }
+const s = t(Astro.props.lang)
+---
+
+<section class="section section--compact">
+  <div class="container">
+    <h2 class="section-title">{s.relatedTitle}</h2>
+
+    <div class="related-grid">
+      {s.relatedProjects.map((project) => (
+        <a href={project.url} target="_blank" rel="noopener" class="related-card">
+          <span class="related-icon">{project.icon}</span>
+          <h3>{project.title}</h3>
+          <p>{project.desc}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .related-card {
+    background: var(--surface-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius-lg);
+    padding: var(--space-lg);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+
+  .related-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+  }
+
+  .related-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: var(--space-sm);
+  }
+
+  .related-card h3 {
+    font-size: 1rem;
+    margin-bottom: var(--space-xs);
+  }
+
+  .related-card p {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin: 0;
+  }
+</style>

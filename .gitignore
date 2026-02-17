@@ -15,6 +15,9 @@ node_modules/
 # Build outputs
 dist/
 build/
+.astro/
+.next/
+next-env.d.ts
 
 # Local development
 .env

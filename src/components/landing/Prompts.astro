@@ -1,0 +1,147 @@
+---
+import type { Lang } from '../../data/i18n'
+import { t } from '../../data/i18n'
+
+interface Props { lang: Lang }
+const s = t(Astro.props.lang)
+---
+
+<section class="section" id="prompts">
+  <div class="container">
+    <span class="section-badge">{s.promptsBadge}</span>
+    <h2 class="section-title">{s.promptsTitle}</h2>
+    <p class="section-subtitle">{s.promptsSubtitle}</p>
+
+    <div class="prompt-categories">
+      {s.promptCategories.map((cat) => (
+        <a href={cat.url} target="_blank" rel="noopener" class="prompt-category-card">
+          <span class="prompt-cat-icon">{cat.icon}</span>
+          <h3>{cat.title}</h3>
+          <p>{cat.desc}</p>
+          <span class="prompt-count">{cat.count}</span>
+        </a>
+      ))}
+    </div>
+
+    <div class="prompt-example">
+      <div class="prompt-example-header">
+        <h3>{s.promptExampleTitle}</h3>
+        <button class="btn-copy" data-copy-target="prompt-code" aria-label={s.promptExampleCopy}>
+          {s.promptExampleCopy}
+        </button>
+      </div>
+      <pre id="prompt-code"><code>{s.promptExampleCode}</code></pre>
+    </div>
+  </div>
+</section>
+
+<style>
+  .prompt-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+  }
+
+  .prompt-category-card {
+    background: var(--surface-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius-lg);
+    padding: var(--space-lg);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+
+  .prompt-category-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+  }
+
+  .prompt-cat-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: var(--space-sm);
+  }
+
+  .prompt-category-card h3 {
+    font-size: 1rem;
+    margin-bottom: var(--space-xs);
+  }
+
+  .prompt-category-card p {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .prompt-count {
+    font-size: 0.8rem;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .prompt-example {
+    background: var(--surface-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+  }
+
+  .prompt-example-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-md) var(--space-lg);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .prompt-example-header h3 {
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  .btn-copy {
+    background: var(--accent);
+    color: var(--bg-primary);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 0.3rem 0.8rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .btn-copy:hover { opacity: 0.85; }
+
+  .prompt-example pre {
+    padding: var(--space-lg);
+    margin: 0;
+    overflow-x: auto;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+
+  .prompt-example code {
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.btn-copy').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = (btn as HTMLElement).dataset.copyTarget
+      if (!targetId) return
+      const codeEl = document.getElementById(targetId)
+      if (!codeEl) return
+      const text = codeEl.textContent || ''
+      navigator.clipboard.writeText(text).then(() => {
+        const original = btn.textContent
+        btn.textContent = '\u2713'
+        setTimeout(() => { btn.textContent = original }, 2000)
+      })
+    })
+  })
+</script>

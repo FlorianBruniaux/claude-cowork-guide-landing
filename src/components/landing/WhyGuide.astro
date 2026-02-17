@@ -1,0 +1,91 @@
+---
+import type { Lang } from '../../data/i18n'
+import { t } from '../../data/i18n'
+
+interface Props { lang: Lang }
+const s = t(Astro.props.lang)
+---
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">{s.whyTitle}</h2>
+    <p class="section-subtitle">{s.whySubtitle}</p>
+    <div class="comparison-cards">
+      <div class="comparison-card comparison-without">
+        <div class="comparison-header">
+          <span class="comparison-icon">{s.withoutIcon}</span>
+          <h3>{s.withoutTitle}</h3>
+        </div>
+        <ul class="comparison-list">
+          {s.withoutItems.map((item) => (
+            <li><span class="status-icon bad">✗</span> {item}</li>
+          ))}
+        </ul>
+      </div>
+      <div class="comparison-card comparison-with">
+        <div class="comparison-header">
+          <span class="comparison-icon">{s.withIcon}</span>
+          <h3>{s.withTitle}</h3>
+        </div>
+        <ul class="comparison-list">
+          {s.withItems.map((item) => (
+            <li><span class="status-icon good">✓</span> {item}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .comparison-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .comparison-card {
+    background: var(--surface-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius-lg);
+    padding: var(--space-xl);
+  }
+
+  .comparison-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+  }
+
+  .comparison-icon { font-size: 1.5rem; }
+
+  .comparison-header h3 { font-size: 1.2rem; }
+
+  .comparison-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .comparison-list li {
+    padding: var(--space-sm) 0;
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+  }
+
+  .status-icon {
+    flex-shrink: 0;
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .status-icon.bad { color: var(--status-danger); }
+  .status-icon.good { color: var(--status-success); }
+
+  .comparison-without { border-top: 3px solid var(--status-danger); }
+  .comparison-with { border-top: 3px solid var(--status-success); }
+</style>

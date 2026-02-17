@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#818cf8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6366f1;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Background circle -->
+  <circle cx="50" cy="50" r="48" fill="url(#grad)"/>
+  <!-- C letter representing Claude/Cowork -->
+  <path d="M65 35
+           A25 25 0 1 0 65 65
+           L65 55
+           A15 15 0 1 1 65 45
+           Z"
+        fill="white"/>
+  <!-- Small indicator dot for "Cowork" distinction -->
+  <circle cx="72" cy="50" r="6" fill="white" opacity="0.9"/>
+</svg>

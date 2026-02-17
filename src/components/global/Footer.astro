@@ -1,0 +1,126 @@
+---
+import type { Lang } from '../../data/i18n'
+import { t } from '../../data/i18n'
+
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
+const s = t(lang)
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-cta">
+      <h3>{s.footerCtaTitle}</h3>
+      <p>{s.footerCtaText}</p>
+      <a href="https://github.com/FlorianBruniaux/claude-cowork-guide" class="btn btn-primary" target="_blank" rel="noopener">{s.footerCtaCta}</a>
+    </div>
+
+    <div class="footer-grid">
+      {s.footerSections.map((section) => (
+        <div class="footer-section">
+          <h4>{section.title}</h4>
+          <ul>
+            {section.links.map((link) => (
+              <li><a href={link.url} target="_blank" rel="noopener">{link.text}</a></li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <div class="footer-bottom">
+      <p set:html={s.footerMadeBy} />
+      <p class="version">v1.3.2</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border);
+    padding: var(--space-3xl) 0 var(--space-xl);
+  }
+
+  .footer-cta {
+    text-align: center;
+    padding: var(--space-2xl);
+    background: var(--bg-tertiary);
+    border-radius: var(--border-radius-lg);
+    margin-bottom: var(--space-3xl);
+  }
+
+  .footer-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .footer-cta p {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-lg);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-xl);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .footer-section h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: var(--space-md);
+    color: var(--text-primary);
+  }
+
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-section li {
+    margin-bottom: var(--space-sm);
+  }
+
+  .footer-section a {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    text-decoration: none;
+  }
+
+  .footer-section a:hover {
+    color: var(--accent);
+  }
+
+  .footer-bottom {
+    text-align: center;
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+
+  .version {
+    margin-top: var(--space-sm);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 768px) {
+    .footer-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

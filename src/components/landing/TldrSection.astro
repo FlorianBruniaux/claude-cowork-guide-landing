@@ -1,0 +1,53 @@
+---
+import type { Lang } from '../../data/i18n'
+import { t } from '../../data/i18n'
+
+interface Props { lang: Lang }
+const s = t(Astro.props.lang)
+---
+
+<section class="section section--compact" id="tldr">
+  <div class="container">
+    <h2 class="section-title">{s.tldrTitle}</h2>
+    <p class="section-subtitle">{s.tldrSubtitle}</p>
+    <div class="tldr-table-wrapper">
+      <table class="tldr-table">
+        <tbody>
+          {s.tldrRows.map(([label, value]) => (
+            <tr>
+              <td>{label}</td>
+              <td>{value}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<style>
+  .tldr-table-wrapper { overflow-x: auto; }
+
+  .tldr-table {
+    width: 100%;
+    max-width: 700px;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+
+  .tldr-table td {
+    padding: var(--space-sm) var(--space-md);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .tldr-table td:first-child {
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+    width: 35%;
+  }
+
+  .tldr-table td:last-child {
+    color: var(--text-secondary);
+  }
+</style>

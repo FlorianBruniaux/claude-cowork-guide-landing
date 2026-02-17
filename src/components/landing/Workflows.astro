@@ -1,0 +1,160 @@
+---
+import type { Lang } from '../../data/i18n'
+import { t } from '../../data/i18n'
+import { getWorkflows } from '../../data/workflows'
+
+interface Props { lang: Lang }
+const lang = Astro.props.lang
+const s = t(lang)
+const workflows = getWorkflows(lang)
+
+const tabs = [
+  { id: 'all', label: s.workflowTabAll },
+  { id: 'administratif', label: s.workflowTabAdmin },
+  { id: 'commercial', label: s.workflowTabCommercial },
+  { id: 'production', label: s.workflowTabProduction },
+  { id: 'communication', label: s.workflowTabCommunication },
+  { id: 'organisation', label: s.workflowTabOrganisation },
+]
+---
+
+<section class="section" id="workflows">
+  <div class="container">
+    <span class="section-badge">{s.workflowsBadge}</span>
+    <h2 class="section-title">{s.workflowsTitle}</h2>
+    <p class="section-subtitle">{s.workflowsSubtitle}</p>
+
+    <div class="workflow-tabs" role="tablist">
+      {tabs.map((tab, i) => (
+        <button
+          role="tab"
+          class:list={['workflow-tab', { active: i === 0 }]}
+          data-category={tab.id}
+          aria-selected={i === 0 ? 'true' : 'false'}
+        >
+          {tab.label}
+        </button>
+      ))}
+    </div>
+
+    <div class="workflow-grid">
+      {workflows.map((w) => (
+        <a href={w.url} target="_blank" rel="noopener" class="workflow-card" data-category={w.category}>
+          <div class="workflow-header">
+            <span class="workflow-icon">{w.icon}</span>
+            <span class:list={['complexity-badge', w.complexityClass]}>{w.complexity}</span>
+          </div>
+          <h3>{w.title}</h3>
+          <p>{w.desc}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .workflow-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-lg);
+    justify-content: center;
+  }
+
+  .workflow-tab {
+    background: var(--surface-elevated);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 0.4rem 1rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .workflow-tab:hover,
+  .workflow-tab.active {
+    background: var(--accent);
+    color: var(--bg-primary);
+    border-color: var(--accent);
+  }
+
+  .workflow-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .workflow-card {
+    background: var(--surface-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius-lg);
+    padding: var(--space-lg);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+
+  .workflow-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+  }
+
+  .workflow-card[hidden] { display: none; }
+
+  .workflow-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-sm);
+  }
+
+  .workflow-icon { font-size: 1.5rem; }
+
+  .complexity-badge {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .complexity-beginner { background: rgba(34, 197, 94, 0.15); color: var(--status-success); }
+  .complexity-intermediate { background: rgba(234, 179, 8, 0.15); color: var(--status-warning); }
+  .complexity-advanced { background: rgba(239, 68, 68, 0.15); color: var(--status-danger); }
+
+  .workflow-card h3 {
+    font-size: 1rem;
+    margin-bottom: var(--space-xs);
+  }
+
+  .workflow-card p {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin: 0;
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.workflow-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const category = (tab as HTMLElement).dataset.category
+      document.querySelectorAll('.workflow-tab').forEach(t => {
+        t.classList.remove('active')
+        t.setAttribute('aria-selected', 'false')
+      })
+      tab.classList.add('active')
+      tab.setAttribute('aria-selected', 'true')
+
+      document.querySelectorAll('.workflow-card').forEach(card => {
+        const el = card as HTMLElement
+        if (category === 'all' || el.dataset.category === category) {
+          el.removeAttribute('hidden')
+        } else {
+          el.setAttribute('hidden', '')
+        }
+      })
+    })
+  })
+</script>

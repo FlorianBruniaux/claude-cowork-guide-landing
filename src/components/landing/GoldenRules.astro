@@ -1,0 +1,72 @@
+---
+import type { Lang } from '../../data/i18n'
+import { t } from '../../data/i18n'
+
+interface Props { lang: Lang }
+const s = t(Astro.props.lang)
+---
+
+<section class="section" id="rules">
+  <div class="container">
+    <h2 class="section-title">{s.rulesTitle}</h2>
+    <p class="section-subtitle">{s.rulesSubtitle}</p>
+
+    <div class="rules-grid">
+      {s.rules.map((rule, i) => (
+        <div class="rule-card">
+          <span class="rule-number">{i + 1}</span>
+          <h3>{rule.title}</h3>
+          <p set:html={rule.desc} />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .rule-card {
+    background: var(--surface-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius-lg);
+    padding: var(--space-xl);
+    position: relative;
+  }
+
+  .rule-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    background: var(--accent);
+    color: var(--bg-primary);
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 50%;
+    margin-bottom: var(--space-sm);
+  }
+
+  .rule-card h3 {
+    font-size: 1rem;
+    margin-bottom: var(--space-xs);
+  }
+
+  .rule-card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  .rule-card :global(code) {
+    background: var(--bg-secondary);
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+  }
+</style>

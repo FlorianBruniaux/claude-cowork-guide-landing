@@ -1,0 +1,135 @@
+---
+import type { Lang } from '../../data/i18n'
+import { t } from '../../data/i18n'
+
+interface Props { lang: Lang }
+const s = t(Astro.props.lang)
+---
+
+<section class="hero">
+  <div class="container hero-content">
+    <h1 class="hero-title">{s.heroTitle}</h1>
+    <p class="hero-tagline">{s.heroTagline}</p>
+    <p class="hero-stats">{s.heroStats}</p>
+
+    <div class="hero-ctas">
+      <a href="https://github.com/FlorianBruniaux/claude-cowork-guide" class="btn btn-primary" target="_blank" rel="noopener">
+        {s.heroCta}
+      </a>
+      <a href="#workflows" class="btn btn-secondary">
+        {s.heroCtaSecondary}
+      </a>
+    </div>
+
+    <div class="hero-code-box">
+      <p class="hero-code-lead" set:html={s.heroCodeLead} />
+      <div class="hero-code-prereq">
+        <span class="prereq-tag">{s.heroCodePrereq1}</span>
+        <span class="prereq-tag">{s.heroCodePrereq2}</span>
+      </div>
+      <a href="https://cc.bruniaux.com/" class="btn btn-code" target="_blank" rel="noopener">
+        {s.heroCodeCta}
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding: var(--space-4xl) 0 var(--space-3xl);
+    background: var(--bg-primary);
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: var(--space-md);
+    color: var(--text-primary);
+  }
+
+  .hero-tagline {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .hero-stats {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    color: var(--accent);
+    margin-bottom: var(--space-xl);
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .hero-code-box {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius-lg);
+    padding: var(--space-lg);
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .hero-code-lead {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .hero-code-prereq {
+    display: flex;
+    gap: var(--space-sm);
+    justify-content: center;
+    margin-bottom: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  .prereq-tag {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.6rem;
+    background: var(--bg-tertiary);
+    border-radius: 4px;
+    color: var(--text-muted);
+  }
+
+  .btn-code {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.6rem 1.25rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: transparent;
+    border: 1px solid var(--accent);
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+  }
+
+  .btn-code:hover {
+    background: var(--accent);
+    color: var(--bg-primary);
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    .hero { padding: var(--space-3xl) 0 var(--space-2xl); }
+    .hero-title { font-size: clamp(2rem, 8vw, 3rem); }
+  }
+</style>

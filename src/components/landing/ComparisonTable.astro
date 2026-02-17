@@ -1,0 +1,108 @@
+---
+import type { Lang } from '../../data/i18n'
+import { t } from '../../data/i18n'
+
+interface Props { lang: Lang }
+const s = t(Astro.props.lang)
+---
+
+<section class="section" id="compare">
+  <div class="container">
+    <h2 class="section-title">{s.comparisonTitle}</h2>
+    <p class="section-subtitle">{s.comparisonSubtitle}</p>
+
+    <div class="comparison-table-wrapper">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            {s.comparisonHeaders.map((h) => (
+              <th>{h}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {s.comparisonRows.map((row) => (
+            <tr>
+              <td class="row-label">{row.label}</td>
+              {row.values.map((val, i) => (
+                <td class={row.classes[i]}>{val}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="comparison-notes">
+      <p set:html={s.comparisonNote} />
+      <p class="footnote" set:html={s.comparisonFootnote} />
+    </div>
+  </div>
+</section>
+
+<style>
+  .comparison-table-wrapper {
+    overflow-x: auto;
+    margin-bottom: var(--space-lg);
+  }
+
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    min-width: 600px;
+  }
+
+  .comparison-table th {
+    background: var(--surface-elevated);
+    padding: var(--space-md);
+    text-align: left;
+    font-weight: 700;
+    font-size: 0.85rem;
+    border-bottom: 2px solid var(--border);
+    white-space: nowrap;
+  }
+
+  .comparison-table th:first-child {
+    border-top-left-radius: var(--border-radius);
+  }
+
+  .comparison-table th:last-child {
+    border-top-right-radius: var(--border-radius);
+  }
+
+  .comparison-table td {
+    padding: var(--space-sm) var(--space-md);
+    border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+  }
+
+  .row-label {
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+  }
+
+  .feature-yes { color: var(--status-success); font-weight: 600; }
+  .feature-no { color: var(--status-danger); }
+  .feature-partial { color: var(--status-warning); }
+
+  .comparison-notes {
+    background: var(--surface-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius-lg);
+    padding: var(--space-lg);
+  }
+
+  .comparison-notes p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  .comparison-notes .footnote {
+    margin-top: var(--space-sm);
+    font-size: 0.8rem;
+    opacity: 0.8;
+  }
+</style>

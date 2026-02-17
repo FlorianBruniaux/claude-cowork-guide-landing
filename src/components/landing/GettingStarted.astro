@@ -1,0 +1,85 @@
+---
+import type { Lang } from '../../data/i18n'
+import { t } from '../../data/i18n'
+
+interface Props { lang: Lang }
+const s = t(Astro.props.lang)
+---
+
+<section class="section getting-started">
+  <div class="container">
+    <div class="getting-started-badge">{s.gettingStartedBadge}</div>
+    <h2 class="section-title">{s.gettingStartedTitle}</h2>
+    <p class="section-subtitle">{s.gettingStartedSubtitle}</p>
+    <div class="setup-steps">
+      <div class="setup-step">
+        <span class="step-num">1</span>
+        <h3>{s.step1Title}</h3>
+        <p set:html={s.step1Text} />
+      </div>
+      <div class="setup-step">
+        <span class="step-num">2</span>
+        <h3>{s.step2Title}</h3>
+        <p set:html={s.step2Text} />
+      </div>
+      <div class="setup-step">
+        <span class="step-num">3</span>
+        <h3>{s.step3Title}</h3>
+        <p set:html={s.step3Text} />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .getting-started-badge {
+    display: inline-block;
+    padding: var(--space-xs) var(--space-md);
+    background: var(--accent);
+    color: var(--bg-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 20px;
+    margin-bottom: var(--space-md);
+  }
+
+  .setup-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .setup-step {
+    background: var(--surface-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius-lg);
+    padding: var(--space-xl);
+    position: relative;
+  }
+
+  .step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: var(--accent);
+    color: var(--bg-primary);
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 50%;
+    margin-bottom: var(--space-md);
+  }
+
+  .setup-step h3 {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .setup-step p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+  }
+</style>
