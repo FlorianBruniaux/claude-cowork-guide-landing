@@ -1,0 +1,350 @@
+---
+import Layout from '../../layouts/Layout.astro'
+
+const title = 'Claude Cowork FAQ: Pricing, Security, Limits & More'
+const description = '13 answers about Claude Cowork: pricing, platform compatibility, security, usage limits, Excel support, VPN issues and more. From real daily use since launch.'
+
+const jsonLd = [
+  {
+    "@type": "WebPage",
+    "name": "Claude Cowork FAQ: Pricing, Security, Limits & More",
+    "description": "13 answers about Claude Cowork: pricing, platform compatibility, security, usage limits, Excel support, VPN issues and more.",
+    "url": "https://cowork.bruniaux.com/faq/",
+    "datePublished": "2026-01-01",
+    "dateModified": "2026-02-17",
+    "inLanguage": "en",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Claude Cowork Guide",
+      "url": "https://cowork.bruniaux.com/"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Florian Bruniaux",
+      "url": "https://github.com/FlorianBruniaux"
+    }
+  },
+  {
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Cowork?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cowork is Claude's agentic desktop feature that manipulates local files, creates documents, and organizes your workspace, without writing code. Think of it as Claude Code for knowledge workers: same AI model, different interface designed for non-developers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What can Cowork NOT do?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cowork cannot: execute code or scripts, make API calls, access cloud storage directly (Google Drive, Dropbox), process audio or video, decrypt encrypted files."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When should I use Chat vs Cowork?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Chat (80%): reasoning, writing, coding, exploratory tasks. Cowork (20%): batch file operations, document creation, browser automation. Together they enable workflows impossible with either alone."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the difference from Claude Code?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Claude Code: terminal interface, full shell access, for developers. Cowork: desktop app, file-only access, for knowledge workers. They share architecture but differ in capabilities."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does Cowork cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cowork requires a Pro ($20/month) or Max ($100-200/month) subscription. Pro is recommended for light use only — quota exhausts in ~1-1.5 hours of intensive use."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the usage limits?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Usage resets every 5 hours (not daily or monthly). Pro tier: ~45 short messages per reset (~1-1.5h intensive use). Max tier: 5x-20x more. File processing consumes tokens rapidly."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Cowork work on Windows or Linux?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not yet (January 2026). macOS only. Windows is on Anthropic's roadmap but has no ETA. Linux has no official announcement. Use Claude Code for Linux agentic capabilities."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use Cowork with a VPN?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. VPN software creates routing conflicts with Cowork's internal VM networking. This is the #1 reported issue. Disconnect VPN completely before using Cowork."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Cowork secure?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "There's no official security documentation yet (research preview). Best practices: use dedicated workspace folder, review every plan, keep credentials out, verify file sources. Your files are sent to Anthropic servers for processing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can Cowork create Excel formulas?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! Cowork can create Excel files with working formulas, multiple sheets, and formatting. Specify your regional setting (US comma vs EU semicolon) in your prompt."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this guide official?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. This is exploratory research. Cowork is brand new (launched January 2026). This guide reflects personal experimentation and current understanding. Not affiliated with Anthropic."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who is behind this guide?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Florian Bruniaux, a developer experimenting with Cowork since its recent launch. This is a living document. Feedback, corrections, and reality checks are welcome."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I contribute to the guide?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! The guide repository is open-source. Found an error? Have a better prompt? Contributions welcome on GitHub."
+        }
+      }
+    ]
+  }
+]
+---
+
+<Layout lang="en" title={title} description={description} jsonLd={jsonLd}>
+  <header class="page-hero">
+    <div class="container">
+      <a href="/" class="back-link">← Claude Cowork Guide</a>
+      <h1>Claude Cowork FAQ</h1>
+      <p class="tagline">13 answers from daily use since launch: pricing, limits, security, compatibility and more.</p>
+    </div>
+  </header>
+
+  <div class="container faq-page">
+
+    <!-- Getting Started -->
+    <section class="faq-section">
+      <h2 class="faq-section-title">Getting Started</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>What is Cowork?</summary>
+          <p>Cowork is Claude's agentic desktop feature that manipulates local files, creates documents, and organizes your workspace — without writing code. Think of it as Claude Code for knowledge workers: same AI model, different interface designed for non-developers.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What can Cowork NOT do?</summary>
+          <p>Cowork cannot: execute code or scripts, make API calls, access cloud storage directly (Google Drive, Dropbox), process audio or video, decrypt encrypted files. Stick to file operations, document creation, and browser automation.</p>
+        </details>
+        <details class="faq-item">
+          <summary>When should I use Chat vs Cowork?</summary>
+          <p><strong>Chat (80%):</strong> reasoning, writing, coding, exploratory tasks. <strong>Cowork (20%):</strong> batch file operations, document creation, browser automation. Together they enable workflows impossible with either alone.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What's the difference from Claude Code?</summary>
+          <p><strong>Claude Code:</strong> terminal interface, full shell access, for developers. <strong>Cowork:</strong> desktop app, file-only access, for knowledge workers. They share architecture but differ in capabilities — see our <a href="/#compare">comparison table</a> for details.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Pricing & Limits -->
+    <section class="faq-section">
+      <h2 class="faq-section-title">Pricing & Limits</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>How much does Cowork cost?</summary>
+          <p>Cowork requires a <strong>Pro ($20/month)</strong> or <strong>Max ($100-200/month)</strong> subscription. Pro is recommended for light use only — quota exhausts in ~1-1.5 hours of intensive use. Max gives 5x-20x more capacity.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What are the usage limits?</summary>
+          <p>Usage resets every <strong>5 hours</strong> (not daily or monthly). Pro tier: ~45 short messages per reset (~1-1.5h intensive use). Max tier: 5x-20x more. File processing consumes tokens rapidly — a single large PDF can cost 10+ messages.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Platform & Compatibility -->
+    <section class="faq-section">
+      <h2 class="faq-section-title">Platform & Compatibility</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Does Cowork work on Windows or Linux?</summary>
+          <p>Not yet (January 2026). <strong>macOS only.</strong> Windows is on Anthropic's roadmap but has no ETA. Linux has no official announcement. Use <a href="https://cc.bruniaux.com/" target="_blank" rel="noopener">Claude Code</a> for Linux agentic capabilities.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I use Cowork with a VPN?</summary>
+          <p><strong>No.</strong> VPN software creates routing conflicts with Cowork's internal VM networking. This is the #1 reported issue. Disconnect VPN completely before using Cowork. Split-tunnel configurations may also cause problems.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="faq-section">
+      <h2 class="faq-section-title">Features</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Is Cowork secure?</summary>
+          <p>There's no official security documentation yet (research preview). Best practices: use a <strong>dedicated workspace folder</strong>, review every execution plan before approving, keep credentials out of the workspace, verify file sources. Your files are sent to Anthropic servers for processing — treat the workspace accordingly.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can Cowork create Excel formulas?</summary>
+          <p>Yes! Cowork can create Excel files with working formulas, multiple sheets, and formatting. <strong>Specify your regional setting</strong> (US comma <code>,</code> vs EU semicolon <code>;</code>) in your prompt to avoid formula errors. See our <a href="/#prompts">prompt library</a> for templates.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- About the Guide -->
+    <section class="faq-section">
+      <h2 class="faq-section-title">About the Guide</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Is this guide official?</summary>
+          <p><strong>No, this is exploratory research.</strong> Cowork is brand new (launched January 2026). This guide reflects personal experimentation and current understanding — both will evolve rapidly. Not affiliated with Anthropic. For official information, visit <a href="https://www.anthropic.com/claude" target="_blank" rel="noopener">anthropic.com</a>.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Who is behind this guide?</summary>
+          <p><a href="https://github.com/FlorianBruniaux" target="_blank" rel="noopener">Florian Bruniaux</a>, a developer experimenting with Cowork since its recent launch. This is a living document — learning in real-time and documenting findings as they evolve. Feedback, corrections, and reality checks are essential!</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I contribute to the guide?</summary>
+          <p>Yes! The <a href="https://github.com/FlorianBruniaux/claude-cowork-guide" target="_blank" rel="noopener">guide repository</a> is open-source. Found an error? Have a better prompt? Contributions are welcome on GitHub.</p>
+        </details>
+      </div>
+    </section>
+
+  </div>
+
+  <style>
+    .page-hero {
+      background: linear-gradient(135deg, var(--surface-elevated) 0%, var(--bg-primary) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: calc(var(--space-3xl) + 3.5rem) var(--space-lg) var(--space-2xl);
+    }
+
+    .back-link {
+      display: inline-block;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.875rem;
+      margin-bottom: var(--space-md);
+      transition: color var(--transition-fast);
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: var(--space-md);
+    }
+
+    .tagline {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      max-width: 600px;
+    }
+
+    .faq-page {
+      padding: var(--space-xl) var(--space-lg);
+    }
+
+    .faq-section {
+      margin-bottom: var(--space-2xl);
+    }
+
+    .faq-section-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: var(--space-lg);
+      padding-bottom: var(--space-sm);
+      border-bottom: 2px solid var(--border);
+    }
+
+    .faq-item {
+      background-color: var(--surface-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--border-radius);
+      margin-bottom: var(--space-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .faq-item[open] {
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent);
+    }
+
+    .faq-item summary {
+      padding: var(--space-lg);
+      cursor: pointer;
+      font-weight: 500;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-item summary::-webkit-details-marker { display: none; }
+
+    .faq-item summary::after {
+      content: '+';
+      font-size: 1.5rem;
+      color: var(--text-secondary);
+      flex-shrink: 0;
+      transition: transform var(--transition-fast);
+    }
+
+    .faq-item[open] summary::after { content: '−'; }
+    .faq-item[open] summary { border-bottom: 1px solid var(--border); }
+
+    .faq-item p {
+      padding: var(--space-lg);
+      color: var(--text-secondary);
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    .faq-item a {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .faq-item strong {
+      color: var(--text-primary);
+    }
+
+    .faq-item code {
+      font-family: var(--font-mono);
+      font-size: 0.875em;
+      background: var(--bg-secondary);
+      padding: 0.1em 0.4em;
+      border-radius: 3px;
+    }
+  </style>
+</Layout>
