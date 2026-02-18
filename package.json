@@ -18,9 +18,7 @@
   },
   "dependencies": {
     "@astrojs/partytown": "^2.1.4",
-    "astro": "^5.17.1"
-  },
-  "dependencies": {
+    "astro": "^5.17.1",
     "js-yaml": "^4.1.0"
   },
   "devDependencies": {
