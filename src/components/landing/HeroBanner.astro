@@ -38,12 +38,9 @@ const s = t(Astro.props.lang)
   .hero {
     padding: var(--space-4xl) 0 var(--space-3xl);
     background: var(--bg-primary);
-    text-align: center;
   }
 
   .hero-content {
-    max-width: 800px;
-    margin: 0 auto;
   }
 
   .hero-title {
@@ -71,7 +68,7 @@ const s = t(Astro.props.lang)
   .hero-ctas {
     display: flex;
     gap: var(--space-md);
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
     margin-bottom: var(--space-2xl);
   }
@@ -82,8 +79,7 @@ const s = t(Astro.props.lang)
     border-radius: var(--border-radius-lg);
     padding: var(--space-lg);
     max-width: 500px;
-    margin: 0 auto;
-    text-align: center;
+    text-align: left;
   }
 
   .hero-code-lead {
@@ -95,7 +91,7 @@ const s = t(Astro.props.lang)
   .hero-code-prereq {
     display: flex;
     gap: var(--space-sm);
-    justify-content: center;
+    justify-content: flex-start;
     margin-bottom: var(--space-md);
     flex-wrap: wrap;
   }

@@ -291,7 +291,6 @@ kbd {
 
 /* CLAUDE.md Collapsible */
 .claude-md-details {
-    max-width: 700px;
     margin: var(--space-xl) 0 0;
     background-color: var(--bg-tertiary);
     border: 1px solid var(--border);
