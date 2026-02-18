@@ -22,3 +22,6 @@ next-env.d.ts
 # Local development
 .env
 .env.local
+
+# Claude local settings (machine-specific)
+.claude/settings.local.json
