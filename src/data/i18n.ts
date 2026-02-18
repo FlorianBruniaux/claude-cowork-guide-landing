@@ -260,12 +260,13 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
         ],
       },
       {
-        title: 'Resources',
+        title: 'Ecosystem',
         links: [
-          { text: 'GitHub', url: 'https://github.com/FlorianBruniaux/claude-cowork-guide' },
           { text: 'Claude Code Guide', url: 'https://cc.bruniaux.com/' },
+          { text: 'ccboard', url: 'https://ccboard.bruniaux.com/' },
+          { text: 'cc-copilot-bridge', url: 'https://ccbridge.bruniaux.com/' },
+          { text: 'GitHub', url: 'https://github.com/FlorianBruniaux/claude-cowork-guide' },
           { text: 'Anthropic', url: 'https://www.anthropic.com/claude' },
-          { text: 'Author', url: 'https://www.linkedin.com/in/florian-bruniaux-43408b83/' },
         ],
       },
       {
@@ -538,12 +539,13 @@ Crée un fichier Excel à ~/Cowork-Workspace/output/depenses.xlsx avec :
         ],
       },
       {
-        title: 'Ressources',
+        title: 'Écosystème',
         links: [
-          { text: 'GitHub', url: 'https://github.com/FlorianBruniaux/claude-cowork-guide' },
           { text: 'Guide Claude Code', url: 'https://cc.bruniaux.com/' },
+          { text: 'ccboard', url: 'https://ccboard.bruniaux.com/' },
+          { text: 'cc-copilot-bridge', url: 'https://ccbridge.bruniaux.com/' },
+          { text: 'GitHub', url: 'https://github.com/FlorianBruniaux/claude-cowork-guide' },
           { text: 'Anthropic', url: 'https://www.anthropic.com/claude' },
-          { text: 'Auteur', url: 'https://www.linkedin.com/in/florian-bruniaux-43408b83/' },
         ],
       },
       {
