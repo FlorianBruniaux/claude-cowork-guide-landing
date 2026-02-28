@@ -45,18 +45,18 @@ export const UI_STRINGS = {
 
     // What's New
     whatsNewBadge: 'Feb 2026',
-    whatsNewTitle: 'Claude Legal Extension Documented',
-    whatsNewText: 'First official Cowork plugin for automated legal document review. Contract analysis, risk detection, NDA triage.',
-    whatsNewWarning: 'Does not provide legal advice.',
-    whatsNewCta: 'View Documentation →',
-    whatsNewUrl: GUIDE_BASE + 'guide/02-capabilities.md#extensions--plugins',
+    whatsNewTitle: 'v1.5.0: Customize Tab, Skills & Desktop Commander',
+    whatsNewText: 'Major update: Skills system (slash commands), MCP Connectors, cross-session Memory via memory.md, Desktop Commander, Sonnet 4.6 as default model, 2 new workflows.',
+    whatsNewWarning: 'Windows support added February 10, 2026.',
+    whatsNewCta: 'View Capabilities →',
+    whatsNewUrl: GUIDE_BASE + 'guide/02-capabilities.md#customize-cowork',
 
     // TL;DR
     tldrTitle: 'TL;DR',
     tldrSubtitle: 'What you need to know in 30 seconds',
     tldrRows: [
       ['Target Audience', 'Knowledge workers (non-developers)'],
-      ['Platform', 'macOS only (Windows planned)'],
+      ['Platform', 'macOS + Windows (Linux: no)'],
       ['Cost', 'Pro $20/mo or Max $100-200/mo'],
       ['Status', 'Early Access (unstable, rapidly evolving)'],
       ['Best For', 'File organization, document creation, OCR'],
@@ -112,18 +112,21 @@ export const UI_STRINGS = {
       { icon: '🎨', title: 'Profile Personalization', desc: 'Create a personal .md profile to set Claude\'s voice, tone, and style. Template included.', meta: 'New', url: GUIDE_BASE + 'guide/01-getting-started.md#step-6-personalize-your-profile-optional' },
       { icon: '⚙️', title: 'Model Selection', desc: 'Sonnet vs Opus: when to use each model. Speed, cost, and capability trade-offs.', meta: 'New', url: GUIDE_BASE + 'guide/02-capabilities.md#model-selection' },
       { icon: '⚖️', title: 'Claude Legal Extension', desc: 'First official Cowork plugin. Automated contract review, risk detection, compliance tracking. Documentation only.', meta: 'Does not provide legal advice', url: GUIDE_BASE + 'guide/02-capabilities.md#extensions--plugins', badge: 'Feb 2026' },
+      { icon: '⚡', title: 'Customize Tab & Skills', desc: 'Skills system (slash commands like /pdf /xlsx), MCP connectors, community skills. No coding required.', meta: 'New v1.5.0', url: GUIDE_BASE + 'guide/02-capabilities.md#customize-cowork' },
+      { icon: '🧠', title: 'Cross-Session Memory', desc: 'Persist context between sessions with Desktop Commander and a memory.md file. Never repeat yourself.', meta: 'New v1.5.0', url: GUIDE_BASE + 'workflows/memory-setup.en.md' },
+      { icon: '🕐', title: 'Scheduled Automation', desc: 'Daily briefs, weekly reports, monthly dashboards — set once, runs automatically. Recurring or on-demand.', meta: 'New v1.5.0', url: GUIDE_BASE + 'workflows/scheduled-automation.en.md' },
     ],
 
     // Workflows
     workflowsBadge: 'Step-by-Step',
-    workflowsTitle: '25 Complete Workflows',
+    workflowsTitle: '28 Complete Workflows',
     workflowsSubtitle: 'Organized by task type - Administrative, Commercial, Production, Communication, Organization',
-    workflowTabAll: 'All (25)',
+    workflowTabAll: 'All (28)',
     workflowTabAdmin: 'Admin (6)',
     workflowTabCommercial: 'Commercial (5)',
     workflowTabProduction: 'Production (5)',
     workflowTabCommunication: 'Communication (4)',
-    workflowTabOrganisation: 'Organization (4)',
+    workflowTabOrganisation: 'Organization (6)',
 
     // Prompts
     promptsBadge: 'Copy & Paste',
@@ -162,7 +165,7 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
       { label: 'Create Office Docs', values: ['Native', 'Via scripts', 'Native', 'No'], classes: ['feature-yes', 'feature-partial', 'feature-yes', 'feature-no'] },
       { label: 'Browser Automation', values: ['Chrome', 'Via tools', 'No', 'Operator beta'], classes: ['feature-yes', 'feature-yes', 'feature-no', 'feature-partial'] },
       { label: 'Multi-step Planning', values: ['Yes', 'Yes', 'Limited', 'GPTs only'], classes: ['feature-yes', 'feature-yes', 'feature-partial', 'feature-partial'] },
-      { label: 'Platform', values: ['macOS only', 'All', 'Windows/Mac', 'All'], classes: ['', '', '', ''] },
+      { label: 'Platform', values: ['macOS + Windows', 'All', 'Windows/Mac', 'All'], classes: ['', '', '', ''] },
       { label: 'Status', values: ['Preview', 'Production', 'Production', 'Production'], classes: ['feature-partial', 'feature-yes', 'feature-yes', 'feature-yes'] },
     ],
     comparisonNote: '<strong>Rule of thumb:</strong> Use Chat (80%) for thinking/writing/coding. Use Cowork (20%) for batch files and automation.',
@@ -215,7 +218,7 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
     faqItems: [
       { q: 'What is Cowork?', a: 'Cowork is Claude\'s agentic desktop feature that manipulates local files, creates documents, and organizes your workspace, without writing code. Think of it as Claude Code for knowledge workers.' },
       { q: 'How much does Cowork cost?', a: 'Cowork requires a Pro ($20/month) or Max ($100-200/month) subscription. Pro is recommended for light use only (quota exhausts in ~1-1.5 hours of intensive use).' },
-      { q: 'Does Cowork work on Windows or Linux?', a: 'Not yet (January 2026). macOS only. Windows is on Anthropic\'s roadmap but has no ETA. Linux has no official announcement. Use Claude Code for Linux agentic capabilities.' },
+      { q: 'Does Cowork work on Windows or Linux?', a: 'Windows support was added on February 10, 2026. Both macOS and Windows are supported. Linux has no official announcement — use Claude Code for Linux agentic capabilities.' },
       { q: 'Can I use Cowork with a VPN?', a: 'No. VPN software creates routing conflicts with Cowork\'s internal VM networking. This is the #1 reported issue. Disconnect VPN completely before using Cowork.' },
       { q: 'Is Cowork secure?', a: 'There\'s no official security documentation yet (research preview). Best practices: use dedicated workspace folder, review every plan, keep credentials out, verify file sources.' },
       { q: 'What can Cowork NOT do?', a: 'Cowork cannot: execute code/scripts, make API calls, access cloud storage directly (Google Drive, Dropbox), process audio/video, decrypt encrypted files.' },
@@ -324,18 +327,18 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
 
     // What's New
     whatsNewBadge: 'Fév 2026',
-    whatsNewTitle: 'Extension Claude Legal documentée',
-    whatsNewText: 'Premier plugin officiel Cowork pour la revue automatisée de documents juridiques. Analyse de contrats, détection de risques, triage de NDA.',
-    whatsNewWarning: 'Ne fournit pas de conseil juridique.',
-    whatsNewCta: 'Voir la documentation →',
-    whatsNewUrl: GUIDE_BASE + 'guide/02-capabilities.fr.md#extensions--plugins',
+    whatsNewTitle: 'v1.5.0 : Onglet Personnaliser, Skills & Desktop Commander',
+    whatsNewText: 'Mise à jour majeure : Skills (commandes /pdf /xlsx), connecteurs MCP, mémoire inter-sessions via memory.md, Desktop Commander, Sonnet 4.6 comme modèle par défaut, 2 nouveaux workflows.',
+    whatsNewWarning: 'Support Windows ajouté le 10 février 2026.',
+    whatsNewCta: 'Voir les fonctionnalités →',
+    whatsNewUrl: GUIDE_BASE + 'guide/02-capabilities.fr.md#personnaliser-cowork',
 
     // TL;DR
     tldrTitle: 'TL;DR',
     tldrSubtitle: 'Ce que vous devez savoir en 30 secondes',
     tldrRows: [
       ['Public cible', 'Professionnels non-développeurs (chefs de projet, consultants, analystes...)'],
-      ['Plateforme', 'macOS uniquement (Windows prévu)'],
+      ['Plateforme', 'macOS + Windows (Linux : non)'],
       ['Coût', 'Pro 20$/mois ou Max 100-200$/mois'],
       ['Statut', 'Version test (instable, évolution rapide)'],
       ['Idéal pour', 'Organisation fichiers, création documents, lecture de photos/scans'],
@@ -391,18 +394,21 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
       { icon: '🎨', title: 'Personnalisation du Profil', desc: 'Créez un fichier .md personnel pour définir la voix, le ton et le style de Claude. Template inclus.', meta: 'Nouveau', url: GUIDE_BASE + 'guide/01-getting-started.fr.md#étape-6--personnaliser-votre-profil-optionnel' },
       { icon: '⚙️', title: 'Sélection du Modèle', desc: 'Sonnet vs Opus : quand utiliser chaque modèle. Compromis vitesse, coût et capacités.', meta: 'Nouveau', url: GUIDE_BASE + 'guide/02-capabilities.fr.md#sélection-du-modèle' },
       { icon: '⚖️', title: 'Extension Claude Legal', desc: 'Premier plugin officiel Cowork. Revue automatisée de contrats, détection de risques, suivi de conformité. Documentation uniquement.', meta: 'Ne fournit pas de conseil juridique', url: GUIDE_BASE + 'guide/02-capabilities.fr.md#extensions--plugins', badge: 'Fév 2026' },
+      { icon: '⚡', title: 'Onglet Personnaliser & Skills', desc: 'Système de Skills (commandes /pdf /xlsx), connecteurs MCP, skills communautaires. Sans code.', meta: 'Nouveau v1.5.0', url: GUIDE_BASE + 'guide/02-capabilities.fr.md#personnaliser-cowork' },
+      { icon: '🧠', title: 'Mémoire Inter-Sessions', desc: 'Persistez le contexte entre sessions avec Desktop Commander et un fichier memory.md. Ne vous répétez plus.', meta: 'Nouveau v1.5.0', url: GUIDE_BASE + 'workflows/memory-setup.md' },
+      { icon: '🕐', title: 'Automatisation Planifiée', desc: 'Briefs quotidiens, rapports hebdo, dashboards mensuels — configurez une fois, exécutez automatiquement. Récurrent ou à la demande.', meta: 'Nouveau v1.5.0', url: GUIDE_BASE + 'workflows/scheduled-automation.md' },
     ],
 
     // Workflows
     workflowsBadge: 'Pas à Pas',
     workflowsTitle: '28 workflows Complets',
     workflowsSubtitle: 'Organisés par type de tâche - Administratif, Commercial, Production, Communication, Organisation',
-    workflowTabAll: 'Tous (25)',
+    workflowTabAll: 'Tous (28)',
     workflowTabAdmin: 'Admin (6)',
     workflowTabCommercial: 'Commercial (5)',
     workflowTabProduction: 'Production (5)',
     workflowTabCommunication: 'Communication (4)',
-    workflowTabOrganisation: 'Organisation (4)',
+    workflowTabOrganisation: 'Organisation (6)',
 
     // Prompts
     promptsBadge: 'Copier & Coller',
@@ -441,7 +447,7 @@ Crée un fichier Excel à ~/Cowork-Workspace/output/depenses.xlsx avec :
       { label: 'Créer docs Office', values: ['Natif', 'Via scripts', 'Natif', 'Non'], classes: ['feature-yes', 'feature-partial', 'feature-yes', 'feature-no'] },
       { label: 'Automatisation navigateur', values: ['Chrome', 'Via outils', 'Non', 'Operator beta'], classes: ['feature-yes', 'feature-yes', 'feature-no', 'feature-partial'] },
       { label: 'Planification multi-étapes', values: ['Oui', 'Oui', 'Limité', 'GPTs seulement'], classes: ['feature-yes', 'feature-yes', 'feature-partial', 'feature-partial'] },
-      { label: 'Plateforme', values: ['macOS uniquement', 'Tous', 'Windows/Mac', 'Tous'], classes: ['', '', '', ''] },
+      { label: 'Plateforme', values: ['macOS + Windows', 'Tous', 'Windows/Mac', 'Tous'], classes: ['', '', '', ''] },
       { label: 'Statut', values: ['Preview', 'Production', 'Production', 'Production'], classes: ['feature-partial', 'feature-yes', 'feature-yes', 'feature-yes'] },
     ],
     comparisonNote: '<strong>Règle d\'or :</strong> Utilisez Chat (80%) pour réflexion/écriture/codage. Utilisez Cowork (20%) pour fichiers en lot et automatisation.',
@@ -494,7 +500,7 @@ Crée un fichier Excel à ~/Cowork-Workspace/output/depenses.xlsx avec :
     faqItems: [
       { q: 'Qu\'est-ce que Cowork ?', a: 'Cowork est la fonctionnalité autonome (agentique) de Claude qui manipule les fichiers locaux, crée des documents et organise votre espace de travail, sans écrire de code. Pensez-y comme Claude Code pour les professionnels non-développeurs.' },
       { q: 'Combien coûte Cowork ?', a: 'Cowork nécessite un abonnement Pro (20$/mois) ou Max (100-200$/mois). Pro est recommandé uniquement pour une utilisation légère (le quota s\'épuise en ~1-1,5 heures d\'utilisation intensive).' },
-      { q: 'Cowork fonctionne-t-il sur Windows ou Linux ?', a: 'Pas encore (janvier 2026). macOS uniquement. Windows est sur la roadmap d\'Anthropic mais sans ETA. Linux n\'a pas d\'annonce officielle. Utilisez Claude Code pour les capacités autonomes (agentiques) sur Linux.' },
+      { q: 'Cowork fonctionne-t-il sur Windows ou Linux ?', a: 'Le support Windows a été ajouté le 10 février 2026. macOS et Windows sont tous les deux supportés. Linux n\'a pas d\'annonce officielle. Utilisez Claude Code pour les capacités autonomes (agentiques) sur Linux.' },
       { q: 'Puis-je utiliser Cowork avec un VPN ?', a: 'Non. Les logiciels VPN créent des conflits de routage avec le réseau VM interne de Cowork. C\'est le problème n°1 rapporté. Déconnectez complètement votre VPN avant d\'utiliser Cowork.' },
       { q: 'Cowork est-il sécurisé ?', a: 'Il n\'y a pas encore de documentation de sécurité officielle (version test). Bonnes pratiques : utilisez un dossier séparé dédié (atelier isolé), vérifiez chaque plan d\'action, gardez vos codes d\'accès dehors, vérifiez les sources de fichiers.' },
       { q: 'Que ne peut PAS faire Cowork ?', a: 'Cowork ne peut pas : exécuter du code/scripts, faire des appels API, accéder directement au cloud storage (Google Drive, Dropbox), traiter l\'audio/vidéo, déchiffrer des fichiers cryptés.' },

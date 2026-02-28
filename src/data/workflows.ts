@@ -37,10 +37,12 @@ const WORKFLOWS_EN: Workflow[] = [
   { icon: '✉️', title: 'Email Templates', desc: 'Reusable professional email library.', complexity: 'Beginner', complexityClass: 'complexity-beginner', category: 'communication', url: GUIDE_BASE + 'workflows/email-templates.en.md' },
   { icon: '⭐', title: 'Review Responses', desc: 'Manage Google/Facebook reviews with response strategies.', complexity: 'Beginner', complexityClass: 'complexity-beginner', category: 'communication', url: GUIDE_BASE + 'workflows/review-response.en.md' },
   { icon: '🎓', title: 'Knowledge Transfer', desc: 'Training documentation for apprentices and succession.', complexity: 'Advanced', complexityClass: 'complexity-advanced', category: 'communication', url: GUIDE_BASE + 'workflows/knowledge-transfer.en.md' },
-  // Organisation (4)
+  // Organisation (6)
   { icon: '📁', title: 'File Organization', desc: 'Automatic folder sorting by type and date.', complexity: 'Beginner', complexityClass: 'complexity-beginner', category: 'organisation', url: GUIDE_BASE + 'workflows/file-organization.en.md' },
   { icon: '🧾', title: 'Expense Tracking', desc: 'Receipts to Excel accounting with OCR.', complexity: 'Intermediate', complexityClass: 'complexity-intermediate', category: 'organisation', url: GUIDE_BASE + 'workflows/expense-tracking.en.md' },
   { icon: '📝', title: 'Meeting Preparation', desc: 'Structured client/supplier briefings.', complexity: 'Intermediate', complexityClass: 'complexity-intermediate', category: 'organisation', url: GUIDE_BASE + 'workflows/meeting-prep.en.md' },
+  { icon: '📅', title: 'Scheduled Automation', desc: 'Daily briefs, weekly reports, monthly dashboards — set once, run automatically.', complexity: 'Intermediate', complexityClass: 'complexity-intermediate', category: 'organisation', url: GUIDE_BASE + 'workflows/scheduled-automation.en.md' },
+  { icon: '🧠', title: 'Cross-Session Memory', desc: 'Persist context between Cowork sessions with Desktop Commander and a memory.md file.', complexity: 'Beginner', complexityClass: 'complexity-beginner', category: 'organisation', url: GUIDE_BASE + 'workflows/memory-setup.en.md' },
 ]
 
 const WORKFLOWS_FR: Workflow[] = [
@@ -68,10 +70,12 @@ const WORKFLOWS_FR: Workflow[] = [
   { icon: '✉️', title: 'Modèles d\'Emails', desc: 'Bibliothèque d\'emails professionnels réutilisables.', complexity: 'Débutant', complexityClass: 'complexity-beginner', category: 'communication', url: GUIDE_BASE + 'workflows/email-templates.md' },
   { icon: '⭐', title: 'Réponses aux Avis', desc: 'Gérer les avis Google/Facebook avec stratégies de réponse.', complexity: 'Débutant', complexityClass: 'complexity-beginner', category: 'communication', url: GUIDE_BASE + 'workflows/review-response.md' },
   { icon: '🎓', title: 'Transmission Savoir', desc: 'Documentation de formation pour apprentis et succession.', complexity: 'Avancé', complexityClass: 'complexity-advanced', category: 'communication', url: GUIDE_BASE + 'workflows/knowledge-transfer.md' },
-  // Organisation (4)
+  // Organisation (6)
   { icon: '📁', title: 'Organisation Fichiers', desc: 'Tri automatique dossiers par type et date.', complexity: 'Débutant', complexityClass: 'complexity-beginner', category: 'organisation', url: GUIDE_BASE + 'workflows/file-organization.md' },
   { icon: '🧾', title: 'Suivi Dépenses', desc: 'Tickets de caisse vers comptabilité Excel avec OCR.', complexity: 'Intermédiaire', complexityClass: 'complexity-intermediate', category: 'organisation', url: GUIDE_BASE + 'workflows/expense-tracking.md' },
   { icon: '📝', title: 'Préparation Réunions', desc: 'Briefings structurés client/fournisseur.', complexity: 'Intermédiaire', complexityClass: 'complexity-intermediate', category: 'organisation', url: GUIDE_BASE + 'workflows/meeting-prep.md' },
+  { icon: '📅', title: 'Automatisation Planifiée', desc: 'Briefs quotidiens, rapports hebdo, dashboards mensuels — configurez une fois, exécutez automatiquement.', complexity: 'Intermédiaire', complexityClass: 'complexity-intermediate', category: 'organisation', url: GUIDE_BASE + 'workflows/scheduled-automation.md' },
+  { icon: '🧠', title: 'Mémoire Inter-Sessions', desc: 'Persistez le contexte entre sessions Cowork avec Desktop Commander et un fichier memory.md.', complexity: 'Débutant', complexityClass: 'complexity-beginner', category: 'organisation', url: GUIDE_BASE + 'workflows/memory-setup.md' },
 ]
 
 export function getWorkflows(lang: Lang): Workflow[] {

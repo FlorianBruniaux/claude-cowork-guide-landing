@@ -330,6 +330,46 @@ export const GUIDE_ENTRIES_EN: GuideSearchEntry[] = [
     "category": "Workflows",
     "url": "https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/workflows/work-log.md",
     "source": "guide"
+  },
+  {
+    "id": "guide-workflows-scheduled-automation",
+    "title": "Scheduled Automation",
+    "keywords": "scheduled automation daily brief weekly report monthly dashboard recurring on-demand planned tasks",
+    "category": "Workflows",
+    "url": "https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/workflows/scheduled-automation.en.md",
+    "source": "guide"
+  },
+  {
+    "id": "guide-workflows-memory-setup",
+    "title": "Cross-Session Memory",
+    "keywords": "memory session persistence memory.md desktop commander context cross-session",
+    "category": "Workflows",
+    "url": "https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/workflows/memory-setup.en.md",
+    "source": "guide"
+  },
+  {
+    "id": "guide-capabilities-customize-tab",
+    "title": "Customize Tab & Skills",
+    "keywords": "customize tab skills slash commands pdf xlsx docx mcp connector plugins personalization",
+    "category": "Guide",
+    "url": "https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/guide/02-capabilities.md#customize-cowork",
+    "source": "guide"
+  },
+  {
+    "id": "guide-capabilities-desktop-commander",
+    "title": "Desktop Commander",
+    "keywords": "desktop commander extension file access memory mcp server install one-click",
+    "category": "Guide",
+    "url": "https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/guide/01-getting-started.md#step-8-install-desktop-commander-recommended",
+    "source": "guide"
+  },
+  {
+    "id": "guide-capabilities-sonnet-model",
+    "title": "Model Selection (Sonnet 4.6)",
+    "keywords": "model selection sonnet opus agentic cost performance osworld benchmark",
+    "category": "Guide",
+    "url": "https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/guide/02-capabilities.md#model-selection",
+    "source": "guide"
   }
 ]
 
@@ -652,6 +692,46 @@ export const GUIDE_ENTRIES_FR: GuideSearchEntry[] = [
     "keywords": "work log workflows workflows work log",
     "category": "Workflows",
     "url": "https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/workflows/work-log.md",
+    "source": "guide"
+  },
+  {
+    "id": "guide-workflows-scheduled-automation-fr",
+    "title": "Automatisation Planifiée",
+    "keywords": "automatisation planifiée brief quotidien rapport hebdomadaire dashboard mensuel récurrent à la demande tâches planifiées",
+    "category": "Workflows",
+    "url": "https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/workflows/scheduled-automation.md",
+    "source": "guide"
+  },
+  {
+    "id": "guide-workflows-memory-setup-fr",
+    "title": "Mémoire Inter-Sessions",
+    "keywords": "mémoire sessions persistance memory.md desktop commander contexte inter-sessions",
+    "category": "Workflows",
+    "url": "https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/workflows/memory-setup.md",
+    "source": "guide"
+  },
+  {
+    "id": "guide-capabilities-customize-tab-fr",
+    "title": "Onglet Personnaliser & Skills",
+    "keywords": "personnaliser onglet skills commandes slash pdf xlsx docx connecteur mcp plugins",
+    "category": "Guide",
+    "url": "https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/guide/02-capabilities.fr.md#personnaliser-cowork",
+    "source": "guide"
+  },
+  {
+    "id": "guide-capabilities-desktop-commander-fr",
+    "title": "Desktop Commander",
+    "keywords": "desktop commander extension accès fichiers mémoire serveur mcp installation",
+    "category": "Guide",
+    "url": "https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/guide/01-getting-started.fr.md#étape-8--installer-desktop-commander-recommandé",
+    "source": "guide"
+  },
+  {
+    "id": "guide-capabilities-sonnet-model-fr",
+    "title": "Sélection du Modèle (Sonnet 4.6)",
+    "keywords": "modèle sélection sonnet opus agentique coût performance benchmark par défaut",
+    "category": "Guide",
+    "url": "https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/guide/02-capabilities.fr.md#sélection-du-modèle",
     "source": "guide"
   }
 ]
