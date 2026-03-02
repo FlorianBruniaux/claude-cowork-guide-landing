@@ -12,6 +12,8 @@ export const UI_STRINGS = {
 
     // Header
     logoText: 'Claude Cowork Guide',
+    navGuide: 'Guide',
+    navGuideUrl: '/guide/',
     navFeatures: 'Features',
     navWorkflows: 'Workflows',
     navPrompts: 'Prompts',
@@ -294,6 +296,8 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
 
     // Header
     logoText: 'Guide Claude Cowork',
+    navGuide: 'Guide',
+    navGuideUrl: '/guide/',
     navFeatures: 'Fonctionnalités',
     navWorkflows: 'Workflows',
     navPrompts: 'Prompts',

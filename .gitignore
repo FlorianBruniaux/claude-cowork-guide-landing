@@ -25,3 +25,8 @@ next-env.d.ts
 
 # Claude local settings (machine-specific)
 .claude/settings.local.json
+
+# Generated guide content (built from ../claude-cowork-guide/ at build time)
+src/content/docs/guide/
+src/content/docs/fr/
+src/data/guide-content-entries.ts

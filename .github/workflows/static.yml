@@ -21,6 +21,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Clone guide repo
+        run: git clone --depth 1 https://github.com/FlorianBruniaux/claude-cowork-guide.git ../claude-cowork-guide
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
@@ -35,8 +38,14 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Prepare guide content
+        run: node scripts/prepare-guide-content.mjs
+
+      - name: Build guide content search index
+        run: node scripts/build-guide-content-index.mjs
+
       - name: Build
-        run: pnpm build
+        run: pnpm astro build
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

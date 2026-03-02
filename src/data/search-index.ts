@@ -1,6 +1,7 @@
 import type { SearchEntry } from '../scripts/search'
 import type { Lang } from './i18n'
 import { GUIDE_ENTRIES_EN, GUIDE_ENTRIES_FR } from './guide-search-entries'
+import { GUIDE_CONTENT_ENTRIES } from './guide-content-entries'
 
 const LANDING_ENTRIES_EN: SearchEntry[] = [
   // Landing pages
@@ -28,7 +29,7 @@ const LANDING_ENTRIES_FR: SearchEntry[] = [
 
 export function getSearchIndex(lang: Lang): SearchEntry[] {
   if (lang === 'fr') {
-    return [...LANDING_ENTRIES_FR, ...GUIDE_ENTRIES_FR] as SearchEntry[]
+    return [...LANDING_ENTRIES_FR, ...GUIDE_ENTRIES_FR, ...GUIDE_CONTENT_ENTRIES] as SearchEntry[]
   }
-  return [...LANDING_ENTRIES_EN, ...GUIDE_ENTRIES_EN] as SearchEntry[]
+  return [...LANDING_ENTRIES_EN, ...GUIDE_ENTRIES_EN, ...GUIDE_CONTENT_ENTRIES] as SearchEntry[]
 }

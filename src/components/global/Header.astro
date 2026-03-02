@@ -8,6 +8,15 @@ interface Props {
 
 const { lang } = Astro.props
 const s = t(lang)
+
+// Compute dynamic language switch URL from current path
+const currentPath = Astro.url.pathname
+let langSwitchUrl: string
+if (lang === 'en') {
+  langSwitchUrl = '/fr' + currentPath
+} else {
+  langSwitchUrl = currentPath.replace(/^\/fr/, '') || '/'
+}
 ---
 
 <header class="header">
@@ -17,6 +26,7 @@ const s = t(lang)
       <span class="logo-text">{s.logoText}</span>
     </a>
     <div class="nav-links">
+      <a href={s.navGuideUrl}>{s.navGuide}</a>
       <a href="#features">{s.navFeatures}</a>
       <a href="#workflows">{s.navWorkflows}</a>
       <a href="#prompts">{s.navPrompts}</a>
@@ -27,9 +37,9 @@ const s = t(lang)
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
           <span class="search-kbd">Cmd+K</span>
         </button>
-        <a href={s.langSwitchUrl} class="lang-switcher" title={s.langSwitchLabel}>🌐 {s.langSwitchText}</a>
+        <a href={langSwitchUrl} class="lang-switcher" title={s.langSwitchLabel}>🌐 {s.langSwitchText}</a>
         <button class="theme-toggle" id="theme-toggle" role="switch" aria-checked="false" aria-label={s.themeLabel}>
-          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="display:none">
             <circle cx="12" cy="12" r="5"/>
             <line x1="12" y1="1" x2="12" y2="3"/>
             <line x1="12" y1="21" x2="12" y2="23"/>
@@ -40,7 +50,7 @@ const s = t(lang)
             <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
           </svg>
-          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="display:none">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
           </svg>
         </button>
@@ -63,17 +73,33 @@ const s = t(lang)
   })
 
   // Theme toggle
-  const themeToggle = document.getElementById('theme-toggle')
-  function applyTheme(theme: string) {
-    document.documentElement.setAttribute('data-theme', theme)
-    localStorage.setItem('theme', theme)
-    themeToggle?.setAttribute('aria-checked', String(theme === 'dark'))
+  function updateThemeIcon() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark'
+    const toggle = document.getElementById('theme-toggle')
+    const sunIcon = document.getElementById('theme-icon-sun')
+    const moonIcon = document.getElementById('theme-icon-moon')
+    if (sunIcon && moonIcon) {
+      sunIcon.style.display = isDark ? 'block' : 'none'
+      moonIcon.style.display = isDark ? 'none' : 'block'
+    }
+    if (toggle) {
+      toggle.setAttribute('aria-checked', String(isDark))
+      toggle.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme')
+    }
   }
-  const currentTheme = document.documentElement.getAttribute('data-theme')
-  themeToggle?.setAttribute('aria-checked', String(currentTheme === 'dark'))
-  themeToggle?.addEventListener('click', () => {
-    const current = document.documentElement.getAttribute('data-theme')
-    applyTheme(current === 'dark' ? 'light' : 'dark')
+
+  updateThemeIcon()
+
+  document.getElementById('theme-toggle')?.addEventListener('click', () => {
+    const root = document.documentElement
+    root.classList.add('disable-transitions')
+    void root.offsetWidth
+    const newTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
+    root.setAttribute('data-theme', newTheme)
+    localStorage.setItem('theme', newTheme)
+    localStorage.setItem('starlight-theme', newTheme)
+    requestAnimationFrame(() => root.classList.remove('disable-transitions'))
+    updateThemeIcon()
   })
 </script>
 
@@ -169,14 +195,11 @@ const s = t(lang)
     justify-content: center;
   }
 
-  .theme-toggle:hover { color: var(--accent); }
-
-  [data-theme="dark"] .icon-sun { display: none; }
-  [data-theme="dark"] .icon-moon { display: block; }
-  [data-theme="light"] .icon-sun,
-  :root:not([data-theme]) .icon-sun { display: block; }
-  [data-theme="light"] .icon-moon,
-  :root:not([data-theme]) .icon-moon { display: none; }
+  .theme-toggle:hover {
+    color: var(--accent);
+    background: var(--bg-secondary);
+    border-radius: 0.5rem;
+  }
 
   .menu-toggle {
     display: none;
