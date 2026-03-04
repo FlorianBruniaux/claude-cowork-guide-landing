@@ -1,0 +1,106 @@
+export interface Release {
+  version: string
+  date: string
+  highlights: string[]
+  breaking?: string[]
+  latest?: boolean
+  initiallyVisible?: boolean
+  featured?: boolean
+  featuredLabel?: string
+}
+
+export interface BreakingChange {
+  badge: string
+  description: string
+}
+
+export const releases: Release[] = [
+  {
+    version: 'v1.5.1',
+    date: 'Mar 4, 2026',
+    highlights: [
+      'New <code>audit-prompt.md</code> for French linguistic accessibility auditing',
+      'Translated ~70 prompts EN→FR across file-ops, document-creation, research, data-extraction',
+      'Docs: terminology corrections — anglicismes replaced throughout overview',
+    ],
+    latest: true,
+    initiallyVisible: true,
+  },
+  {
+    version: 'v1.5.0',
+    date: 'Feb 28, 2026',
+    highlights: [
+      '⭐ <strong>Desktop Commander</strong> — Step 8 in Getting Started with cross-session memory via <code>memory.md</code>',
+      '⭐ <strong>Customize Tab</strong> — full documentation: Skills, Connectors, permissions system',
+      '⭐ <strong>Skills system</strong> — slash commands (<code>/pdf</code>, <code>/docx</code>, <code>/xlsx</code>), skill chaining, community registries',
+      '⭐ <strong>MCP Connectors</strong> — 3 types (web, desktop, custom JSON) with per-tool permissions',
+      '12 new MCP connectors: Google Calendar, Gmail, DocuSign, WordPress, Apollo, Clay, Outreach, Similarweb, Harvey, LegalZoom + finance',
+      '<strong>Sonnet 4.6</strong> as recommended default model (replaces Opus for agentic tasks)',
+      'New workflows: Scheduled Automation + Memory Setup (FR + EN) — workflow count 26 → 28',
+    ],
+    initiallyVisible: true,
+    featured: true,
+    featuredLabel: '⭐ Desktop Commander + Skills',
+  },
+  {
+    version: 'v1.4.0',
+    date: 'Feb 18, 2026',
+    highlights: [
+      '⭐ <strong>Windows support</strong> — Claude Cowork now available on macOS and Windows',
+      '⭐ <strong>11 official Plugins</strong> — Asana, Canva, Cloudflare, Figma, GitHub, Google Drive, Jira, Linear, Notion, Sentry, Slack',
+      '⭐ <strong>Scheduled tasks</strong> — automate recurring Claude tasks',
+      '⭐ <strong>Agent Teams</strong> (research preview) — coordinate multiple Claude agents',
+      '<strong>Opus 4.6</strong>: 1M token context (beta), 128K output tokens, adaptive thinking',
+      'Context compaction (beta): automatic conversation history compression',
+    ],
+    initiallyVisible: true,
+    featured: true,
+    featuredLabel: '⭐ Windows + 11 Plugins',
+  },
+  {
+    version: 'v1.3.1',
+    date: 'Feb 6, 2026',
+    highlights: [
+      '⭐ <strong>Claude Legal Extension</strong> — first official Plugin: contract review, risk detection, NDA triage, compliance tracking',
+      'Capabilities section: new Extensions & Plugins documentation (EN + FR)',
+      'FAQ: new "What is Claude Legal?" Q&A entry',
+    ],
+    initiallyVisible: true,
+    featured: true,
+    featuredLabel: '⭐ Claude Legal Extension',
+  },
+  {
+    version: 'v1.3.0',
+    date: 'Feb 3, 2026',
+    highlights: [
+      'Model tables: Haiku added, Opus 4.5 clarification (4.0/4.1 retired from selector)',
+      'macOS terminology: System Preferences → System Settings (Ventura+)',
+      'Docs: Cloud Connectors status clarified, workflow categorization fixed',
+      'Removed deprecated workflows: report-synthesis, team-handoff',
+    ],
+    initiallyVisible: false,
+  },
+  {
+    version: 'v1.2.1',
+    date: 'Jan 27, 2026',
+    highlights: [
+      'Work Log workflow: Weekly/Monthly Progress Reporting section',
+      'Client Follow-up Tracker: Client Onboarding Checklist section',
+    ],
+    initiallyVisible: false,
+  },
+  {
+    version: 'v1.2.0',
+    date: 'Jan 23, 2026',
+    highlights: [
+      '⭐ <strong>New workflow: Website Audit</strong> — 25-point evaluation grid, competitive benchmark',
+      'Email Sequences: 2 complete automated sequences (Relance Devis, Réactivation)',
+      'Local Visibility Audit: Google My Business comparison section',
+    ],
+    initiallyVisible: true,
+    featured: true,
+    featuredLabel: '⭐ Website Audit workflow',
+  },
+]
+
+export const breakingChanges: BreakingChange[] = []
