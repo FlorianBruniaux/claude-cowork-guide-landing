@@ -16,6 +16,23 @@ export interface BreakingChange {
 
 export const releases: Release[] = [
   {
+    version: 'v1.6.0',
+    date: 'Mar 4, 2026',
+    highlights: [
+      '⭐ <strong>Claude in Chrome</strong> (bêta) — extension Chrome pour tous plans payants : multi-onglets, tâches navigateur planifiées, <code>/slash commands</code>',
+      '⭐ <strong>Import Memory</strong> — migration depuis ChatGPT/Gemini/Copilot via prompt Anthropic dédié',
+      '⭐ <strong>Acquisition Vercept</strong> — Computer Use benchmark OSWorld 72.5% (vs 15% fin 2024)',
+      '<strong>Instructions globales et par dossier</strong> dans Cowork (complément aux tâches planifiées)',
+      '<strong>Desktop Extensions</strong> — interface graphique d\'installation MCP (accessible non-développeurs)',
+      'Changed: <strong>Memory</strong> désormais disponible pour tous y compris tier gratuit',
+      'Changed: <strong>Claude in Excel × PowerPoint</strong> — workflows cross-app dans le même contexte',
+    ],
+    latest: true,
+    initiallyVisible: true,
+    featured: true,
+    featuredLabel: '⭐ Claude in Chrome + Import Memory',
+  },
+  {
     version: 'v1.5.1',
     date: 'Mar 4, 2026',
     highlights: [
@@ -23,7 +40,6 @@ export const releases: Release[] = [
       'Translated ~70 prompts EN→FR across file-ops, document-creation, research, data-extraction',
       'Docs: terminology corrections — anglicismes replaced throughout overview',
     ],
-    latest: true,
     initiallyVisible: true,
   },
   {
