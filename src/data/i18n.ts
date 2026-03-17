@@ -46,12 +46,12 @@ export const UI_STRINGS = {
     heroCodeCta: 'Get Started with Claude Code →',
 
     // What's New
-    whatsNewBadge: 'Feb 2026',
-    whatsNewTitle: 'v1.5.0: Customize Tab, Skills & Desktop Commander',
-    whatsNewText: 'Major update: Skills system (slash commands), MCP Connectors, cross-session Memory via memory.md, Desktop Commander, Sonnet 4.6 as default model, 2 new workflows.',
-    whatsNewWarning: 'Windows support added February 10, 2026.',
+    whatsNewBadge: 'Mar 2026',
+    whatsNewTitle: 'v1.6.1: Reusable PPTX Templates, Interactive Visuals & Excel×PowerPoint',
+    whatsNewText: 'New: generate a reusable branded PPTX template from any existing company file in 3 steps. Plus: interactive charts/calculators directly in chat (beta), and Excel × PowerPoint cross-app context sharing.',
+    whatsNewWarning: 'Usage limits doubled off-peak through March 27, 2026.',
     whatsNewCta: 'View Capabilities →',
-    whatsNewUrl: GUIDE_BASE + 'guide/02-capabilities.md#customize-cowork',
+    whatsNewUrl: GUIDE_BASE + 'guide/02-capabilities.md#direct-excel-and-powerpoint-integrations',
 
     // TL;DR
     tldrTitle: 'TL;DR',
@@ -330,12 +330,12 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
     heroCodeCta: 'Commencer avec Claude Code →',
 
     // What's New
-    whatsNewBadge: 'Fév 2026',
-    whatsNewTitle: 'v1.5.0 : Onglet Personnaliser, Skills & Desktop Commander',
-    whatsNewText: 'Mise à jour majeure : Skills (commandes /pdf /xlsx), connecteurs MCP, mémoire inter-sessions via memory.md, Desktop Commander, Sonnet 4.6 comme modèle par défaut, 2 nouveaux workflows.',
-    whatsNewWarning: 'Support Windows ajouté le 10 février 2026.',
+    whatsNewBadge: 'Mar 2026',
+    whatsNewTitle: 'v1.6.1 : Templates PPTX réutilisables, Visuels Interactifs & Excel×PowerPoint',
+    whatsNewText: 'Nouveau : générez un template PPTX aux couleurs de votre entreprise depuis n\'importe quel fichier existant en 3 étapes. Plus : graphiques et calculateurs interactifs directement dans le chat (bêta), et partage de contexte Excel × PowerPoint.',
+    whatsNewWarning: 'Limites d\'utilisation doublées hors heures de pointe jusqu\'au 27 mars 2026.',
     whatsNewCta: 'Voir les fonctionnalités →',
-    whatsNewUrl: GUIDE_BASE + 'guide/02-capabilities.fr.md#personnaliser-cowork',
+    whatsNewUrl: GUIDE_BASE + 'guide/02-capabilities.fr.md#integrations-excel-et-powerpoint',
 
     // TL;DR
     tldrTitle: 'TL;DR',

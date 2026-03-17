@@ -30,3 +30,6 @@ next-env.d.ts
 src/content/docs/guide/
 src/content/docs/fr/
 src/data/guide-content-entries.ts
+
+# Vitals provenance data
+.vitals/
