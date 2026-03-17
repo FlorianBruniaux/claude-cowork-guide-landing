@@ -16,6 +16,19 @@ export interface BreakingChange {
 
 export const releases: Release[] = [
   {
+    version: 'v1.6.1',
+    date: 'Mar 17, 2026',
+    highlights: [
+      '⭐ <strong>Visuels interactifs</strong> (bêta) — graphiques, diagrammes et mini-apps HTML/JS directement dans le chat : sliders, arbres de décision, météo, recettes, inputs à choix multiples',
+      '<strong>Excel × PowerPoint Skills</strong> — slash commands dans les add-ins (<code>/quarterly-update</code>) + contexte complet partagé entre les deux apps',
+      'Promotion: limites d\'utilisation doublées hors heures de pointe jusqu\'au 27 mars (tous plans sauf Enterprise)',
+    ],
+    latest: true,
+    initiallyVisible: true,
+    featured: true,
+    featuredLabel: '⭐ Visuels interactifs',
+  },
+  {
     version: 'v1.6.0',
     date: 'Mar 4, 2026',
     highlights: [
@@ -27,7 +40,6 @@ export const releases: Release[] = [
       'Changed: <strong>Memory</strong> désormais disponible pour tous y compris tier gratuit',
       'Changed: <strong>Claude in Excel × PowerPoint</strong> — workflows cross-app dans le même contexte',
     ],
-    latest: true,
     initiallyVisible: true,
     featured: true,
     featuredLabel: '⭐ Claude in Chrome + Import Memory',
