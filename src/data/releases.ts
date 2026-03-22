@@ -16,6 +16,20 @@ export interface BreakingChange {
 
 export const releases: Release[] = [
   {
+    version: 'v1.7.0',
+    date: 'Mar 22, 2026',
+    highlights: [
+      '⭐ <strong>Claude Dispatch</strong> (research preview Max → Pro) — contrôler Cowork depuis son smartphone : tâches envoyées du mobile, exécutées sur desktop, fichiers locaux, sandbox, approbation requise',
+      '⭐ <strong>Projects dans Cowork</strong> — workspaces persistants par zone de travail : fichiers, contexte, instructions et mémoire associés. Import en 1 clic ou départ de zéro',
+      'New workflow: <strong>PPTX reusable template</strong> — variation "Reusable template from existing file" (3 étapes, prompts copy-paste)',
+      'Changed: <strong>LLM Gateway</strong> pour add-ins Excel × PowerPoint — Amazon Bedrock, Google Cloud Vertex AI, Microsoft Foundry',
+    ],
+    latest: true,
+    initiallyVisible: true,
+    featured: true,
+    featuredLabel: '⭐ Claude Dispatch + Projects',
+  },
+  {
     version: 'v1.6.1',
     date: 'Mar 17, 2026',
     highlights: [
@@ -23,7 +37,6 @@ export const releases: Release[] = [
       '<strong>Excel × PowerPoint Skills</strong> — slash commands dans les add-ins (<code>/quarterly-update</code>) + contexte complet partagé entre les deux apps',
       'Promotion: limites d\'utilisation doublées hors heures de pointe jusqu\'au 27 mars (tous plans sauf Enterprise)',
     ],
-    latest: true,
     initiallyVisible: true,
     featured: true,
     featuredLabel: '⭐ Visuels interactifs',
