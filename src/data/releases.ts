@@ -16,6 +16,21 @@ export interface BreakingChange {
 
 export const releases: Release[] = [
   {
+    version: 'v1.8.0',
+    date: 'Mar 27, 2026',
+    highlights: [
+      '⭐ <strong>Computer Use</strong> (research preview, Pro et Max, macOS) — Claude contrôle directement le bureau : ouvrir des apps, cliquer, remplir des formulaires, naviguer. Setup Step 9 documenté avec permissions macOS + QR code Dispatch',
+      '⭐ <strong>Applications interactives sur iOS et Android</strong> — graphiques live, croquis et contenu partageable dans l\'app mobile (extension des visuels interactifs desktop v1.6.1)',
+      'Changed: <strong>Dispatch</strong> — détails QR code pairing + limitations (thread unique, apps natives Mac non supportées)',
+      'Changed: Cowork disponible sur <strong>Team et Enterprise</strong> — availability matrix corrigée',
+      'Fixed: <strong>Audit Logs / Compliance API</strong> ne capturent pas l\'activité Cowork — avertissement secteurs réglementés (finance, santé, légal) ajouté dans le Security guide',
+    ],
+    latest: true,
+    initiallyVisible: true,
+    featured: true,
+    featuredLabel: '⭐ Computer Use dans Cowork',
+  },
+  {
     version: 'v1.7.0',
     date: 'Mar 22, 2026',
     highlights: [
@@ -24,7 +39,6 @@ export const releases: Release[] = [
       'New workflow: <strong>PPTX reusable template</strong> — variation "Reusable template from existing file" (3 étapes, prompts copy-paste)',
       'Changed: <strong>LLM Gateway</strong> pour add-ins Excel × PowerPoint — Amazon Bedrock, Google Cloud Vertex AI, Microsoft Foundry',
     ],
-    latest: true,
     initiallyVisible: true,
     featured: true,
     featuredLabel: '⭐ Claude Dispatch + Projects',
