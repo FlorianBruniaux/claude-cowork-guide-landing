@@ -2,6 +2,16 @@
 
 Landing site for the [Claude Cowork Guide](https://github.com/FlorianBruniaux/claude-cowork-guide).
 
+## StarMapper
+
+<a href="https://starmapper.bruniaux.com/FlorianBruniaux/claude-cowork-guide-landing">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://starmapper.bruniaux.com/api/map-image/FlorianBruniaux/claude-cowork-guide-landing?theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://starmapper.bruniaux.com/api/map-image/FlorianBruniaux/claude-cowork-guide-landing?theme=light" />
+    <img alt="StarMapper — see who stars this repo on a world map" src="https://starmapper.bruniaux.com/api/map-image/FlorianBruniaux/claude-cowork-guide-landing" />
+  </picture>
+</a>
+
 ## Live Site
 
 - 🇬🇧 **English**: [cowork.bruniaux.com](https://cowork.bruniaux.com)
