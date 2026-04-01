@@ -16,6 +16,20 @@ export interface BreakingChange {
 
 export const releases: Release[] = [
   {
+    version: 'v1.8.1',
+    date: 'Apr 1, 2026',
+    highlights: [
+      '⭐ <strong>Computer Use — hiérarchie d\'accès documentée</strong> — tableau 3 niveaux : connectors → Chrome → contrôle écran direct, avec implications de performance',
+      'Security: <strong>warnings officiels Anthropic</strong> pour Computer Use — interdiction santé, finance, données personnelles. Nouvelle section Security Guide avec tableau de risques par catégorie d\'app',
+      'Docs: <strong>Computer Use hors VM</strong> — précision critique : le contrôle écran opère sur votre bureau réel, pas dans la VM isolée',
+      'FAQ: <strong>Dispatch vs Channels</strong> — clarifie la confusion Telegram/Discord (Channels = Claude Code CLI, pas Cowork)',
+    ],
+    latest: true,
+    initiallyVisible: true,
+    featured: true,
+    featuredLabel: '⭐ Computer Use — sécurité & hiérarchie',
+  },
+  {
     version: 'v1.8.0',
     date: 'Mar 27, 2026',
     highlights: [
@@ -25,7 +39,6 @@ export const releases: Release[] = [
       'Changed: Cowork disponible sur <strong>Team et Enterprise</strong> — availability matrix corrigée',
       'Fixed: <strong>Audit Logs / Compliance API</strong> ne capturent pas l\'activité Cowork — avertissement secteurs réglementés (finance, santé, légal) ajouté dans le Security guide',
     ],
-    latest: true,
     initiallyVisible: true,
     featured: true,
     featuredLabel: '⭐ Computer Use dans Cowork',
