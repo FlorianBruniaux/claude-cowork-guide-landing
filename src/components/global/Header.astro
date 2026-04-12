@@ -18,6 +18,27 @@ if (lang === 'en') {
 } else {
   langSwitchUrl = currentPath.replace(/^\/fr/, '') || '/'
 }
+
+const mainLinks = [
+  { label: s.navGuide, url: s.navGuideUrl },
+  { label: s.navWorkflows, url: '#workflows' },
+  { label: s.navPrompts, url: '#prompts' },
+  { label: s.navReleases, url: s.navReleasesUrl },
+  { label: s.navFaq, url: s.navFaqUrl },
+]
+
+const moreLinks = [
+  { label: s.navWhitepapers, url: s.navWhitepapersUrl },
+  { label: s.navCompare, url: '#compare' },
+  { label: s.navKeyTerms, url: '#key-terms' },
+]
+
+function isActiveLink(url: string): boolean {
+  if (url.startsWith('#')) return false
+  return currentPath.startsWith(url)
+}
+
+const isMoreActive = moreLinks.some((link) => isActiveLink(link.url))
 ---
 
 <header class="header">
@@ -26,40 +47,189 @@ if (lang === 'en') {
       <span class="logo-icon">&gt;_</span>
       <span class="logo-text">{s.logoText}</span>
     </a>
-    <div class="nav-links">
-      <a href={s.navGuideUrl}>{s.navGuide}</a>
-      <a href="#features">{s.navFeatures}</a>
-      <a href="#workflows">{s.navWorkflows}</a>
-      <a href="#prompts">{s.navPrompts}</a>
-      <a href="#compare">{s.navCompare}</a>
-      <a href={s.navFaqUrl}>{s.navFaq}</a>
-      <a href={s.navWhitepapersUrl}>{s.navWhitepapers}</a>
-      <div class="nav-actions">
-        <button id="search-trigger" class="search-trigger" aria-label={s.searchLabel}>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-          <span class="search-kbd">Cmd+K</span>
+
+    <div class="nav-links" id="nav-links-drawer">
+      <button class="drawer-close" id="drawer-close" aria-label="Close menu">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+
+      {mainLinks.map((link) => (
+        <a
+          href={link.url}
+          class:list={['nav-link', { active: isActiveLink(link.url) }]}
+          aria-current={isActiveLink(link.url) ? 'page' : undefined}
+        >
+          {link.label}
+        </a>
+      ))}
+
+      <div class="nav-more" id="nav-more-dropdown">
+        <button
+          class:list={['nav-more-trigger', { active: isMoreActive }]}
+          aria-haspopup="true"
+          aria-expanded="false"
+          id="more-btn"
+        >
+          {s.navMore}
+          <svg class="more-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
         </button>
-        <a href={langSwitchUrl} class="lang-switcher" title={s.langSwitchLabel}>🌐 {s.langSwitchText}</a>
-        <ThemeToggle />
-        <a href="https://github.com/FlorianBruniaux/claude-cowork-guide" class="btn btn-primary" target="_blank" rel="noopener">{s.readGuide}</a>
+        <div class="nav-more-menu" role="menu" aria-labelledby="more-btn">
+          {moreLinks.map((link) => (
+            <a
+              href={link.url}
+              role="menuitem"
+              class:list={{ active: isActiveLink(link.url) }}
+              aria-current={isActiveLink(link.url) ? 'page' : undefined}
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
       </div>
     </div>
-    <button class="menu-toggle" aria-label={s.menuToggle} aria-expanded="false">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+
+    <div class="nav-actions">
+      <button id="search-trigger" class="search-trigger" aria-label={s.searchLabel}>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"
+          aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <kbd class="search-kbd">⌘K</kbd>
+      </button>
+
+      <a href={langSwitchUrl} class="lang-switcher" title={s.langSwitchLabel}>
+        🌐 {s.langSwitchText}
+      </a>
+
+      <ThemeToggle />
+
+      <a
+        href="https://github.com/FlorianBruniaux/claude-cowork-guide"
+        class="btn btn-outline btn-icon"
+        target="_blank"
+        rel="noopener"
+        aria-label={s.navGithub}
+      >
+        <svg viewBox="0 0 16 16" fill="currentColor" width="16" height="16" aria-hidden="true">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
+            0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13
+            -.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66
+            .07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
+            -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0
+            1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82
+            1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01
+            1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+        </svg>
+      </a>
+
+      <a href="/guide/" class="btn btn-primary">{s.readGuide}</a>
+    </div>
+
+    <button class="menu-toggle" id="menu-toggle" aria-label={s.menuToggle} aria-expanded="false"
+      aria-controls="nav-links-drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"
+        aria-hidden="true">
+        <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
     </button>
   </nav>
 </header>
 
 <script>
-  // Mobile menu toggle
-  document.querySelector('.menu-toggle')?.addEventListener('click', function(this: HTMLElement) {
-    const navLinks = document.querySelector('.nav-links')
-    if (!navLinks) return
-    const isActive = navLinks.classList.toggle('active')
-    this.setAttribute('aria-expanded', String(isActive))
+  // ── More dropdown ──────────────────────────────────────────────────────────
+  const moreBtn = document.getElementById('more-btn') as HTMLButtonElement | null
+  const moreMenu = document.querySelector('.nav-more-menu') as HTMLElement | null
+
+  function openMore() {
+    moreMenu?.classList.add('open')
+    moreBtn?.setAttribute('aria-expanded', 'true')
+  }
+
+  function closeMore() {
+    moreMenu?.classList.remove('open')
+    moreBtn?.setAttribute('aria-expanded', 'false')
+  }
+
+  moreBtn?.addEventListener('click', (e) => {
+    e.stopPropagation()
+    moreMenu?.classList.contains('open') ? closeMore() : openMore()
   })
 
-  // Theme toggle is handled by ThemeToggle.astro component
+  document.addEventListener('click', (e) => {
+    const target = e.target as Element
+    if (!target.closest('#nav-more-dropdown')) {
+      closeMore()
+    }
+  })
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeMore()
+      moreBtn?.focus()
+    }
+  })
+
+  // ── Mobile drawer ──────────────────────────────────────────────────────────
+  const menuToggle = document.getElementById('menu-toggle') as HTMLButtonElement | null
+  const drawer = document.getElementById('nav-links-drawer') as HTMLElement | null
+  const drawerClose = document.getElementById('drawer-close') as HTMLButtonElement | null
+
+  function openDrawer() {
+    drawer?.classList.add('active')
+    menuToggle?.setAttribute('aria-expanded', 'true')
+    document.body.style.overflow = 'hidden'
+    drawerClose?.focus()
+  }
+
+  function closeDrawer() {
+    drawer?.classList.remove('active')
+    menuToggle?.setAttribute('aria-expanded', 'false')
+    document.body.style.overflow = ''
+    menuToggle?.focus()
+  }
+
+  menuToggle?.addEventListener('click', openDrawer)
+  drawerClose?.addEventListener('click', closeDrawer)
+
+  // Close on nav link click (anchors close the drawer)
+  drawer?.querySelectorAll('a[href]').forEach((link) => {
+    link.addEventListener('click', () => {
+      if (drawer.classList.contains('active')) closeDrawer()
+    })
+  })
+
+  // Escape closes drawer
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && drawer?.classList.contains('active')) closeDrawer()
+  })
+
+  // Basic focus trap: Tab on last focusable goes back to first, Shift+Tab on first goes to last
+  drawer?.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab') return
+    const focusable = Array.from(
+      drawer.querySelectorAll<HTMLElement>('a[href], button:not([disabled])')
+    )
+    const first = focusable[0]
+    const last = focusable[focusable.length - 1]
+
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault()
+      last.focus()
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault()
+      first.focus()
+    }
+  })
 </script>
 
 <style>
@@ -103,28 +273,143 @@ if (lang === 'en') {
     font-weight: 700;
   }
 
+  /* ── Nav links ──────────────────────────────────────────────────────────── */
+
   .nav-links {
     display: flex;
     align-items: center;
     gap: 1.5rem;
+    flex: 1;
+    justify-content: center;
   }
 
-  .nav-links a:not(.btn):not(.lang-switcher) {
+  .nav-link {
     color: var(--text-secondary);
     text-decoration: none;
     font-size: 0.9rem;
     transition: color var(--transition-fast);
+    position: relative;
+    padding-bottom: 2px;
   }
 
-  .nav-links a:not(.btn):not(.lang-switcher):hover {
+  .nav-link:hover {
     color: var(--accent);
     text-decoration: none;
   }
+
+  .nav-link.active {
+    color: var(--accent);
+    border-bottom: 2px solid var(--accent);
+  }
+
+  /* ── More dropdown ──────────────────────────────────────────────────────── */
+
+  .nav-more {
+    position: relative;
+  }
+
+  .nav-more-trigger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    transition: color var(--transition-fast);
+    padding: 0;
+    font-family: inherit;
+  }
+
+  .nav-more-trigger:hover,
+  .nav-more-trigger.active {
+    color: var(--accent);
+  }
+
+  .more-chevron {
+    width: 12px;
+    height: 12px;
+    transition: transform 0.2s;
+  }
+
+  .nav-more-trigger[aria-expanded="true"] .more-chevron {
+    transform: rotate(180deg);
+  }
+
+  .nav-more-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    background: var(--surface-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius-lg);
+    padding: 0.5rem;
+    min-width: 160px;
+    box-shadow: var(--shadow-lg);
+    z-index: 200;
+  }
+
+  .nav-more-menu.open {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-more-menu a {
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--border-radius);
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: background var(--transition-fast), color var(--transition-fast);
+  }
+
+  .nav-more-menu a:hover,
+  .nav-more-menu a.active {
+    background: var(--bg-tertiary);
+    color: var(--accent);
+  }
+
+  /* ── Nav actions ────────────────────────────────────────────────────────── */
 
   .nav-actions {
     display: flex;
     align-items: center;
     gap: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .search-trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    padding: 0.35rem 0.6rem;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: border-color var(--transition-fast), color var(--transition-fast);
+  }
+
+  .search-trigger:hover {
+    border-color: var(--accent);
+    color: var(--text-secondary);
+  }
+
+  .search-kbd {
+    font-size: 0.7rem;
+    padding: 0.1rem 0.35rem;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 1024px) {
+    .search-kbd { display: none; }
   }
 
   .lang-switcher {
@@ -134,12 +419,24 @@ if (lang === 'en') {
     padding: 0.25rem 0.5rem;
     border-radius: 4px;
     transition: color var(--transition-fast);
+    white-space: nowrap;
   }
 
   .lang-switcher:hover {
     color: var(--accent);
     text-decoration: none;
   }
+
+  .btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+  }
+
+  /* ── Mobile toggle ──────────────────────────────────────────────────────── */
 
   .menu-toggle {
     display: none;
@@ -150,29 +447,107 @@ if (lang === 'en') {
     color: var(--text-primary);
     min-height: 44px;
     min-width: 44px;
+    align-items: center;
+    justify-content: center;
   }
 
-  .menu-toggle svg {
-    width: 24px;
-    height: 24px;
+  /* ── Drawer close button (hidden on desktop) ────────────────────────────── */
+
+  .drawer-close {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-secondary);
+    padding: 0.25rem;
+    border-radius: var(--border-radius);
+    align-self: flex-end;
+    min-height: 44px;
+    min-width: 44px;
+    align-items: center;
+    justify-content: center;
   }
+
+  .drawer-close:hover {
+    color: var(--accent);
+  }
+
+  /* ── Responsive ─────────────────────────────────────────────────────────── */
 
   @media (max-width: 900px) {
-    .nav-links { display: none; }
-    .nav-links.active {
-      display: flex;
+    .nav-links {
+      display: none;
       flex-direction: column;
-      position: absolute;
-      top: 3.5rem;
+      align-items: flex-start;
+      position: fixed;
+      top: 0;
       left: 0;
       right: 0;
+      bottom: 0;
       background: var(--bg-primary);
       border-bottom: 1px solid var(--border);
-      padding: 1rem var(--space-lg);
-      gap: 1rem;
+      padding: var(--space-lg);
+      gap: 0.5rem;
       z-index: 99;
+      overflow-y: auto;
     }
-    .nav-actions { flex-wrap: wrap; }
-    .menu-toggle { display: flex; align-items: center; justify-content: center; }
+
+    .nav-links.active {
+      display: flex;
+    }
+
+    .drawer-close {
+      display: flex;
+    }
+
+    .nav-link {
+      font-size: 1rem;
+      padding: 0.5rem 0;
+      width: 100%;
+    }
+
+    .nav-more {
+      width: 100%;
+    }
+
+    .nav-more-trigger {
+      font-size: 1rem;
+      padding: 0.5rem 0;
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .nav-more-menu {
+      position: static;
+      box-shadow: none;
+      border: none;
+      border-radius: 0;
+      padding: 0 0 0 1rem;
+      min-width: unset;
+      background: transparent;
+    }
+
+    .nav-more-menu.open {
+      display: flex;
+    }
+
+    .nav-more-menu a {
+      font-size: 0.95rem;
+      padding: 0.4rem 0;
+    }
+
+    .menu-toggle {
+      display: flex;
+    }
+
+    .lang-switcher { display: none; }
+
+    .nav-actions {
+      gap: 0.5rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .btn-icon { display: none; }
   }
 </style>

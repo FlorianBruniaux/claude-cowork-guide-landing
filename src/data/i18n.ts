@@ -20,6 +20,13 @@ export const UI_STRINGS = {
     navCompare: 'Compare',
     navFaq: 'FAQ',
     navFaqUrl: '/faq/',
+    navWhitepapers: 'Whitepapers',
+    navWhitepapersUrl: '/whitepapers/',
+    navMore: 'More',
+    navReleases: 'Releases',
+    navReleasesUrl: '/releases/',
+    navKeyTerms: 'Key Terms',
+    navGithub: 'GitHub',
     searchPlaceholder: 'Search guide, prompts, FAQ...',
     searchLabel: 'Open search',
     langSwitchUrl: '/fr/',
@@ -37,13 +44,14 @@ export const UI_STRINGS = {
     // Hero
     heroTitle: 'Master Claude Cowork',
     heroTagline: 'The complete guide for Claude\'s desktop AI assistant',
-    heroStats: '28 workflows | 70 prompts | Security best practices',
+    heroBadgeLabelWorkflows: 'workflows',
+    heroBadgeWorkflows: '28',
+    heroBadgeLabelPrompts: 'prompts',
+    heroBadgePrompts: '70',
+    heroBadgeLabelRules: 'golden rules',
+    heroBadgeRules: '7',
     heroCta: 'Read the Guide',
     heroCtaSecondary: 'Browse Workflows',
-    heroCodeLead: 'Developer? <strong>Claude Code</strong> is for terminal-based AI coding.',
-    heroCodePrereq1: 'All platforms',
-    heroCodePrereq2: 'Free tier available',
-    heroCodeCta: 'Get Started with Claude Code →',
 
     // What's New
     whatsNewBadge: 'Mar 2026',
@@ -236,6 +244,7 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
     // Related Projects
     relatedTitle: 'Related Projects',
     relatedProjects: [
+      { icon: '>_', title: 'Claude Code', desc: 'Terminal-based AI coding assistant. For developers who want to automate their workflow.', url: 'https://cc.bruniaux.com/', badge: 'Developers' },
       { icon: '📖', title: 'Claude Code Ultimate Guide', desc: 'Complete documentation, tips, and best practices for Claude Code CLI.', url: 'https://cc.bruniaux.com/' },
       { icon: '📊', title: 'ccboard', desc: 'TUI/Web dashboard for Claude Code session management and analytics.', url: 'https://ccboard.bruniaux.com/' },
       { icon: '🔌', title: 'cc-copilot-bridge', desc: 'Multi-provider router for Claude Code. Switch between Anthropic, Copilot, or Ollama.', url: 'https://ccbridge.bruniaux.com/' },
@@ -262,6 +271,15 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
           { text: 'Comparison', url: GUIDE_BASE + 'reference/comparison.md' },
           { text: 'FAQ', url: GUIDE_BASE + 'reference/faq.md' },
           { text: 'Glossary', url: GUIDE_BASE + 'reference/glossary.md' },
+        ],
+      },
+      {
+        title: 'Whitepapers',
+        links: [
+          { text: 'All whitepapers', url: '/whitepapers/' },
+          { text: 'WP-00 — From Zero to Productive', url: '/whitepapers/#wp-00' },
+          { text: 'WP-09 — Security & Privacy', url: '/whitepapers/#wp-09' },
+          { text: 'WP-11 — ROI & Deployment', url: '/whitepapers/#wp-11' },
         ],
       },
       {
@@ -304,6 +322,13 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
     navCompare: 'Comparer',
     navFaq: 'FAQ',
     navFaqUrl: '/fr/faq/',
+    navWhitepapers: 'Livres blancs',
+    navWhitepapersUrl: '/whitepapers/',
+    navMore: 'Plus',
+    navReleases: 'Releases',
+    navReleasesUrl: '/releases/',
+    navKeyTerms: 'Termes clés',
+    navGithub: 'GitHub',
     searchPlaceholder: 'Rechercher guide, prompts, FAQ...',
     searchLabel: 'Ouvrir la recherche',
     langSwitchUrl: '/',
@@ -321,13 +346,14 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
     // Hero
     heroTitle: 'Maîtrisez Claude Cowork',
     heroTagline: 'Le guide complet pour l\'assistant IA desktop de Claude',
-    heroStats: '28 workflows | 70 prompts | Bonnes pratiques de sécurité',
+    heroBadgeLabelWorkflows: 'workflows',
+    heroBadgeWorkflows: '28',
+    heroBadgeLabelPrompts: 'prompts',
+    heroBadgePrompts: '70',
+    heroBadgeLabelRules: 'règles d\'or',
+    heroBadgeRules: '7',
     heroCta: 'Lire le Guide',
     heroCtaSecondary: 'Parcourir les Workflows',
-    heroCodeLead: 'Développeur ? <strong>Claude Code</strong> est fait pour le coding IA en terminal.',
-    heroCodePrereq1: 'Toutes plateformes',
-    heroCodePrereq2: 'Version gratuite disponible',
-    heroCodeCta: 'Commencer avec Claude Code →',
 
     // What's New
     whatsNewBadge: 'Mar 2026',
@@ -520,6 +546,7 @@ Crée un fichier Excel à ~/Cowork-Workspace/output/depenses.xlsx avec :
     // Related Projects
     relatedTitle: 'Projets Associés',
     relatedProjects: [
+      { icon: '>_', title: 'Claude Code', desc: 'Assistant IA de codage en terminal. Pour les développeurs qui veulent automatiser leur workflow.', url: 'https://cc.bruniaux.com/', badge: 'Développeurs' },
       { icon: '📖', title: 'Claude Code Ultimate Guide', desc: 'Documentation complète, astuces et bonnes pratiques pour Claude Code CLI.', url: 'https://cc.bruniaux.com/' },
       { icon: '📊', title: 'ccboard', desc: 'Dashboard TUI/Web pour la gestion de sessions et analyses Claude Code.', url: 'https://ccboard.bruniaux.com/' },
       { icon: '🔌', title: 'cc-copilot-bridge', desc: 'Routeur multi-fournisseurs pour Claude Code. Basculez entre Anthropic, Copilot ou Ollama.', url: 'https://ccbridge.bruniaux.com/' },
@@ -546,6 +573,15 @@ Crée un fichier Excel à ~/Cowork-Workspace/output/depenses.xlsx avec :
           { text: 'Comparaison', url: GUIDE_BASE + 'reference/comparison.fr.md' },
           { text: 'FAQ', url: GUIDE_BASE + 'reference/faq.fr.md' },
           { text: 'Glossaire', url: GUIDE_BASE + 'reference/glossary.fr.md' },
+        ],
+      },
+      {
+        title: 'Livres blancs',
+        links: [
+          { text: 'Tous les livres blancs', url: '/whitepapers/' },
+          { text: 'WP-00 — De Zéro à Productif', url: '/whitepapers/#wp-00' },
+          { text: 'WP-09 — Sécurité & Confidentialité', url: '/whitepapers/#wp-09' },
+          { text: 'WP-11 — ROI & Déploiement', url: '/whitepapers/#wp-11' },
         ],
       },
       {

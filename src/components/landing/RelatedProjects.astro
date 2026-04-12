@@ -13,6 +13,9 @@ const s = t(Astro.props.lang)
     <div class="related-grid">
       {s.relatedProjects.map((project) => (
         <a href={project.url} target="_blank" rel="noopener" class="related-card">
+          {'badge' in project && project.badge && (
+            <span class="related-badge">{project.badge}</span>
+          )}
           <span class="related-icon">{project.icon}</span>
           <h3>{project.title}</h3>
           <p>{project.desc}</p>
@@ -37,6 +40,7 @@ const s = t(Astro.props.lang)
     text-decoration: none;
     color: inherit;
     transition: transform 0.2s, border-color 0.2s;
+    position: relative;
   }
 
   .related-card:hover {
@@ -44,10 +48,26 @@ const s = t(Astro.props.lang)
     border-color: var(--accent);
   }
 
+  .related-badge {
+    position: absolute;
+    top: var(--space-sm);
+    right: var(--space-sm);
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    background: var(--accent);
+    color: white;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
   .related-icon {
     font-size: 2rem;
     display: block;
     margin-bottom: var(--space-sm);
+    font-family: var(--font-mono);
+    color: var(--accent);
   }
 
   .related-card h3 {
