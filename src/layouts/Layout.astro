@@ -4,6 +4,7 @@ import '../styles/components.css'
 import Header from '../components/global/Header.astro'
 import Footer from '../components/global/Footer.astro'
 import SearchModal from '../components/global/SearchModal.astro'
+import FeedbackFab from '../components/global/FeedbackFab.astro'
 import type { Lang } from '../data/i18n'
 import { t } from '../data/i18n'
 
@@ -169,10 +170,7 @@ const altUrl = lang === 'en'
     <Footer lang={lang} />
     <SearchModal lang={lang} />
 
-    <!-- Floating Feedback Button -->
-    <a href="https://github.com/FlorianBruniaux/claude-cowork-guide/issues/new" target="_blank" rel="noopener" class="feedback-fab" aria-label={strings.feedbackLabel}>
-      💡 <span class="feedback-fab-text">{strings.feedbackText}</span>
-    </a>
+    <FeedbackFab />
 
     <!-- Client scripts -->
     <script>
