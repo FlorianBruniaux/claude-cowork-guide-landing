@@ -16,6 +16,23 @@ export interface BreakingChange {
 
 export const releases: Release[] = [
   {
+    version: 'v1.9.0',
+    date: 'Apr 11, 2026',
+    highlights: [
+      '⭐ <strong>Cowork GA</strong> — disponibilité générale sur macOS et Windows. Fini le "research preview" — disponible Pro, Max, Team et Enterprise',
+      '⭐ <strong>Connecteur Zoom MCP</strong> — nouveau connecteur officiel : réunions, transcripts, automatisation depuis Cowork',
+      '⭐ <strong>Contrôle d\'accès par rôle</strong> (Enterprise) — groupes, rôles personnalisés, activation Cowork par équipe',
+      '⭐ <strong>Analytics d\'utilisation</strong> (Enterprise) — monitoring d\'activité et reporting par équipe via Analytics API',
+      '<strong>Limites de dépenses</strong> par groupe (Enterprise) — plafonds budgétaires par département',
+      '<strong>OpenTelemetry</strong> étendu — connecter l\'activité Cowork à Datadog, Grafana, etc.',
+      '<strong>Smart Skills Loading</strong> — les Skills ne consomment plus l\'intégralité du contexte',
+    ],
+    latest: true,
+    initiallyVisible: true,
+    featured: true,
+    featuredLabel: '⭐ Cowork GA + Enterprise controls',
+  },
+  {
     version: 'v1.8.1',
     date: 'Apr 1, 2026',
     highlights: [
@@ -24,7 +41,6 @@ export const releases: Release[] = [
       'Docs: <strong>Computer Use hors VM</strong> — précision critique : le contrôle écran opère sur votre bureau réel, pas dans la VM isolée',
       'FAQ: <strong>Dispatch vs Channels</strong> — clarifie la confusion Telegram/Discord (Channels = Claude Code CLI, pas Cowork)',
     ],
-    latest: true,
     initiallyVisible: true,
     featured: true,
     featuredLabel: '⭐ Computer Use — sécurité & hiérarchie',
