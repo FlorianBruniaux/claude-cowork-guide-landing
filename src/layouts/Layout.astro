@@ -12,6 +12,9 @@ interface Props {
   title?: string
   description?: string
   image?: string
+  ogType?: string
+  noIndex?: boolean
+  preloadImages?: string[]
   jsonLd?: Record<string, any>[]
 }
 
@@ -20,6 +23,9 @@ const {
   title,
   description,
   image = '/og-image.png',
+  ogType = 'website',
+  noIndex = false,
+  preloadImages = [],
   jsonLd,
 } = Astro.props
 
@@ -42,6 +48,10 @@ const altUrl = lang === 'en'
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="canonical" href={canonicalURL} />
 
+    {preloadImages.map((src) => (
+      <link rel="preload" href={src} as="image" />
+    ))}
+
     <!-- Hreflang -->
     <link rel="alternate" hreflang={lang} href={canonicalURL} />
     <link rel="alternate" hreflang={altLang} href={altUrl} />
@@ -50,10 +60,10 @@ const altUrl = lang === 'en'
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
     <meta name="author" content="Florian BRUNIAUX" />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="robots" content={noIndex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1'} />
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={strings.ogDescription} />
@@ -153,6 +163,7 @@ const altUrl = lang === 'en'
 
     <Header lang={lang} />
     <main id="main-content" class="pt-14">
+      <slot name="announcement" />
       <slot />
     </main>
     <Footer lang={lang} />
