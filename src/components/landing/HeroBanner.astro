@@ -3,7 +3,11 @@ import type { Lang } from '../../data/i18n'
 import { t } from '../../data/i18n'
 
 interface Props { lang: Lang }
-const s = t(Astro.props.lang)
+const { lang } = Astro.props
+const s = t(lang)
+
+const ghUrl = 'https://github.com/FlorianBruniaux/claude-cowork-guide'
+const isEn = lang === 'en'
 ---
 
 <section class="hero">
@@ -12,35 +16,74 @@ const s = t(Astro.props.lang)
     <p class="hero-tagline">{s.heroTagline}</p>
 
     <div class="hero-badges">
-      <span class="badge-shield">
+      <a href={ghUrl + '/stargazers'} target="_blank" rel="noopener" class="badge badge-stars">
+        <span class="badge-label">★ stars</span>
+        <span class="badge-value" id="hero-stars">—</span>
+      </a>
+      <a href={isEn ? '/workflows/' : '/fr/workflows/'} class="badge badge-workflows">
         <span class="badge-label">{s.heroBadgeLabelWorkflows}</span>
         <span class="badge-value">{s.heroBadgeWorkflows}</span>
-      </span>
-      <span class="badge-shield">
+      </a>
+      <a href={isEn ? '/prompts/' : '/fr/prompts/'} class="badge badge-prompts">
         <span class="badge-label">{s.heroBadgeLabelPrompts}</span>
         <span class="badge-value">{s.heroBadgePrompts}</span>
-      </span>
-      <span class="badge-shield">
+      </a>
+      <span class="badge badge-rules">
         <span class="badge-label">{s.heroBadgeLabelRules}</span>
         <span class="badge-value">{s.heroBadgeRules}</span>
       </span>
+      <a href={ghUrl} target="_blank" rel="noopener" class="badge badge-opensource">
+        <span class="badge-label">license</span>
+        <span class="badge-value">CC BY-SA 4.0</span>
+      </a>
     </div>
 
     <div class="hero-ctas">
-      <a href="/guide/" class="btn btn-primary">
-        {s.heroCta}
-      </a>
-      <a href="#workflows" class="btn btn-secondary">
-        {s.heroCtaSecondary}
-      </a>
+      <a href="/guide/" class="btn btn-primary">{s.heroCta}</a>
+      <a href={isEn ? '/workflows/' : '/fr/workflows/'} class="btn btn-secondary">{s.heroCtaSecondary}</a>
     </div>
+
+    <nav class="hero-quick-nav" aria-label={isEn ? 'Quick navigation' : 'Navigation rapide'}>
+      <span class="quick-nav-label">{isEn ? 'Already know what you need?' : 'Déjà savoir ce qu\'il vous faut ?'}</span>
+      <a href={isEn ? '/workflows/' : '/fr/workflows/'}>{isEn ? '28 Workflows' : '28 Workflows'}</a>
+      <span class="quick-nav-sep" aria-hidden="true">|</span>
+      <a href={isEn ? '/prompts/' : '/fr/prompts/'}>{isEn ? '70 Prompts' : '70 Prompts'}</a>
+      <span class="quick-nav-sep" aria-hidden="true">|</span>
+      <a href={isEn ? '/glossary/' : '/fr/glossary/'}>{isEn ? 'Glossary' : 'Glossaire'}</a>
+      <span class="quick-nav-sep" aria-hidden="true">|</span>
+      <a href={isEn ? '/faq/' : '/fr/faq/'}>FAQ</a>
+    </nav>
   </div>
 </section>
+
+<script>
+  async function loadStars() {
+    try {
+      const res = await fetch('https://api.github.com/repos/FlorianBruniaux/claude-cowork-guide')
+      if (res.ok) {
+        const data = await res.json()
+        const stars = data.stargazers_count as number
+        const el = document.getElementById('hero-stars')
+        if (el && stars) {
+          el.textContent = stars >= 1000
+            ? (stars / 1000).toFixed(1).replace(/\.0$/, '') + 'k'
+            : String(stars)
+        }
+      }
+    } catch {
+      const el = document.getElementById('hero-stars')
+      if (el) el.textContent = '★'
+    }
+  }
+  loadStars()
+</script>
 
 <style>
   .hero {
     padding: var(--space-4xl) 0 var(--space-3xl);
-    background: var(--bg-primary);
+    background-color: var(--bg-primary);
+    background-image: linear-gradient(160deg, var(--bg-secondary) 0%, var(--bg-primary) 60%);
+    border-bottom: 1px solid var(--border-subtle);
   }
 
   .hero-title {
@@ -55,25 +98,100 @@ const s = t(Astro.props.lang)
   .hero-tagline {
     font-size: 1.25rem;
     color: var(--text-secondary);
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-xl);
   }
 
+  /* Shields.io-style badges */
   .hero-badges {
     display: flex;
-    gap: var(--space-sm);
+    gap: 0.375rem;
     flex-wrap: wrap;
     margin-bottom: var(--space-xl);
   }
 
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    height: 26px;
+    font-family: var(--font-mono, 'SF Mono', 'Fira Code', monospace);
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 4px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: transform 0.15s, filter 0.15s;
+    cursor: default;
+  }
+  a.badge {
+    cursor: pointer;
+  }
+  a.badge:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.12);
+  }
+
+  .badge-label,
+  .badge-value {
+    padding: 0 6px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+
+  .badge-label {
+    background: #555;
+    color: #fff;
+  }
+  [data-theme="dark"] .badge-label {
+    background: #444;
+  }
+
+  .badge-value { color: #fff; }
+
+  /* Per-badge colors */
+  .badge-stars .badge-value    { background: #3b82f6; }
+  .badge-workflows .badge-value { background: var(--accent, #6366f1); }
+  .badge-prompts .badge-value   { background: #7c3aed; }
+  .badge-rules .badge-value     { background: #16a34a; }
+  .badge-opensource .badge-value { background: #0ea5e9; }
+
+  /* CTAs */
   .hero-ctas {
     display: flex;
     gap: var(--space-md);
-    justify-content: flex-start;
     flex-wrap: wrap;
+    margin-bottom: var(--space-lg);
+  }
+
+  /* Quick-nav strip */
+  .hero-quick-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .quick-nav-label {
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+  }
+  .hero-quick-nav a {
+    font-size: 0.8rem;
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .hero-quick-nav a:hover {
+    text-decoration: underline;
+  }
+  .quick-nav-sep {
+    color: var(--border-subtle);
+    font-size: 0.75rem;
   }
 
   @media (max-width: 768px) {
     .hero { padding: var(--space-3xl) 0 var(--space-2xl); }
     .hero-title { font-size: clamp(2rem, 8vw, 3rem); }
+    .hero-tagline { font-size: 1.1rem; }
   }
 </style>

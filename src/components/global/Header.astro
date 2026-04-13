@@ -31,6 +31,7 @@ const moreLinks = [
   { label: s.navWhitepapers, url: s.navWhitepapersUrl },
   { label: s.navCompare, url: s.navCompareUrl },
   { label: s.navKeyTerms, url: s.navKeyTermsUrl },
+  { label: s.navRss, url: s.navRssUrl, icon: 'rss' },
 ]
 
 function isActiveLink(url: string): boolean {
@@ -85,9 +86,18 @@ const isMoreActive = moreLinks.some((link) => isActiveLink(link.url))
             <a
               href={link.url}
               role="menuitem"
-              class:list={{ active: isActiveLink(link.url) }}
+              class:list={['more-menu-item', { active: isActiveLink(link.url), 'more-item-rss': link.icon === 'rss' }]}
               aria-current={isActiveLink(link.url) ? 'page' : undefined}
             >
+              {link.icon === 'rss' && (
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                  width="13" height="13" aria-hidden="true" class="rss-icon">
+                  <path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19.01 7.38 20 6.18 20
+                    C4.98 20 4 19.01 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0
+                    0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9
+                    9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/>
+                </svg>
+              )}
               {link.label}
             </a>
           ))}
@@ -370,6 +380,24 @@ const isMoreActive = moreLinks.some((link) => isActiveLink(link.url))
     background: var(--bg-tertiary);
     color: var(--accent);
   }
+
+  .more-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .more-item-rss {
+    border-top: 1px solid var(--border-subtle);
+    margin-top: 0.25rem;
+    padding-top: 0.625rem !important;
+    color: #f97316;
+  }
+  .more-item-rss:hover {
+    color: #f97316 !important;
+    background: color-mix(in srgb, #f97316 10%, transparent) !important;
+  }
+  .rss-icon { flex-shrink: 0; }
 
   /* ── Nav actions ────────────────────────────────────────────────────────── */
 
