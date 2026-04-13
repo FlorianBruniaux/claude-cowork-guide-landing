@@ -11,8 +11,8 @@ export const GET: APIRoute = async () => {
   const stats = [
     { value: '28', label: 'WORKFLOWS' },
     { value: '70+', label: 'PROMPTS' },
-    { value: '7', label: 'SECURITY RULES' },
-    { value: '54', label: 'FAQ' },
+    { value: '7', label: 'GOLDEN RULES' },
+    { value: '13', label: 'FAQ' },
   ]
 
   const fontPath = resolve(
@@ -92,7 +92,7 @@ export const GET: APIRoute = async () => {
                 {
                   type: 'span',
                   props: {
-                    style: { fontSize: '72px', fontWeight: 800, color: '#f0883e', lineHeight: 1.1 },
+                    style: { fontSize: '72px', fontWeight: 800, color: '#6366f1', lineHeight: 1.1 },
                     children: 'Guide',
                   },
                 },
@@ -138,7 +138,7 @@ export const GET: APIRoute = async () => {
                     {
                       type: 'span',
                       props: {
-                        style: { fontSize: '36px', fontWeight: 800, color: '#f0883e', lineHeight: 1.2 },
+                        style: { fontSize: '36px', fontWeight: 800, color: '#6366f1', lineHeight: 1.2 },
                         children: value,
                       },
                     },
