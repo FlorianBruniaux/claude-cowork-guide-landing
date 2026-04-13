@@ -1,0 +1,272 @@
+---
+import Layout from '../../../layouts/Layout.astro'
+import { t } from '../../../data/i18n'
+import { PROMPT_CATEGORIES } from '../../../data/prompts-data'
+
+const lang = 'fr'
+const s = t(lang)
+---
+
+<Layout
+  lang={lang}
+  title={s.promptsMetaTitle}
+  description={s.promptsMetaDescription}
+>
+  <div class="page-hero">
+    <div class="container">
+      <a href="/fr/" class="back-link">{s.promptsBackHome}</a>
+      <h1>{s.promptsTitle}</h1>
+      <p class="hero-subtitle">{s.promptsSubtitle}</p>
+      <p class="hero-note">{s.promptsHeroNote}</p>
+    </div>
+  </div>
+
+  <div class="container prompts-page">
+    {PROMPT_CATEGORIES.map(category => (
+      <section class="prompt-category" id={category.id}>
+        <div class="category-header">
+          <div class="category-title-row">
+            <span class="category-icon">{category.icon}</span>
+            <div>
+              <h2 class="category-title">{category.titleFr}</h2>
+              <p class="category-desc">{category.descFr}</p>
+            </div>
+          </div>
+          <div class="category-meta">
+            <span class="prompt-count">{category.count} prompts</span>
+            <a href={category.guideUrlFr} target="_blank" rel="noopener" class="btn btn-secondary btn-sm">
+              {s.promptsSeeAll}
+            </a>
+          </div>
+        </div>
+
+        <div class="prompts-list">
+          {category.prompts.map(prompt => (
+            <div class="prompt-card" id={`fr-${prompt.id}`}>
+              <div class="prompt-card-header">
+                <h3 class="prompt-title">{prompt.titleFr}</h3>
+                <button
+                  class="copy-btn"
+                  data-code={prompt.codeFr}
+                  aria-label={`Copier le prompt : ${prompt.titleFr}`}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" width="14" height="14" aria-hidden="true">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                  </svg>
+                  {s.promptExampleCopy}
+                </button>
+              </div>
+              <pre class="prompt-code"><code>{prompt.codeFr}</code></pre>
+            </div>
+          ))}
+        </div>
+      </section>
+    ))}
+
+    <div class="prompts-footer-cta">
+      <p>Ce sont des exemples de chaque catégorie. Le guide complet contient les 70 prompts.</p>
+      <a
+        href="https://github.com/FlorianBruniaux/claude-cowork-guide/tree/main/prompts"
+        target="_blank"
+        rel="noopener"
+        class="btn btn-primary"
+      >
+        Voir tous les prompts sur GitHub →
+      </a>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const code = btn.dataset.code ?? ''
+      try {
+        await navigator.clipboard.writeText(code)
+        const original = btn.innerHTML
+        btn.textContent = 'Copié !'
+        btn.classList.add('copied')
+        setTimeout(() => {
+          btn.innerHTML = original
+          btn.classList.remove('copied')
+        }, 2000)
+      } catch {
+        const el = document.createElement('textarea')
+        el.value = code
+        el.style.position = 'absolute'
+        el.style.left = '-9999px'
+        document.body.appendChild(el)
+        el.select()
+        document.execCommand('copy')
+        document.body.removeChild(el)
+        btn.textContent = 'Copié !'
+        btn.classList.add('copied')
+        setTimeout(() => btn.classList.remove('copied'), 2000)
+      }
+    })
+  })
+</script>
+
+<style>
+  .page-hero {
+    padding: var(--space-3xl) 0 var(--space-xl);
+    background: var(--bg-tint-cool, color-mix(in srgb, var(--accent) 5%, var(--bg-primary)));
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .page-hero h1 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: var(--space-sm) 0;
+  }
+  .back-link {
+    font-size: 0.875rem;
+    color: var(--accent);
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+  }
+  .back-link:hover { opacity: 1; }
+  .hero-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin: 0 0 var(--space-sm);
+  }
+  .hero-note {
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+    margin: 0;
+  }
+
+  .prompts-page { padding: var(--space-2xl) 0 var(--space-3xl); }
+
+  .prompt-category {
+    margin-bottom: var(--space-3xl);
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: var(--space-2xl);
+  }
+  .prompt-category:last-of-type { border-bottom: none; }
+
+  .category-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+  }
+  .category-title-row {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+  .category-icon {
+    font-size: 2rem;
+    line-height: 1;
+    margin-top: 0.125rem;
+  }
+  .category-title {
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 0.25rem;
+  }
+  .category-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+  .category-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    flex-shrink: 0;
+  }
+  .prompt-count {
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-subtle);
+    padding: 0.25rem 0.625rem;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .prompts-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+  .prompt-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg, 12px);
+    overflow: hidden;
+  }
+  .prompt-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-sm) var(--space-md);
+    border-bottom: 1px solid var(--border-subtle);
+    background: var(--bg-tertiary, color-mix(in srgb, var(--bg-secondary) 50%, var(--bg-primary)));
+  }
+  .prompt-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+  }
+  .copy-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.25rem 0.625rem;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    background: transparent;
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .copy-btn:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  .copy-btn.copied {
+    background: #22c55e;
+    border-color: #22c55e;
+    color: #fff;
+  }
+  .prompt-code {
+    margin: 0;
+    padding: var(--space-md);
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+    color: var(--text-primary);
+    background: transparent;
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+  }
+
+  .prompts-footer-cta {
+    margin-top: var(--space-2xl);
+    text-align: center;
+    padding: var(--space-2xl);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg, 12px);
+  }
+  .prompts-footer-cta p {
+    color: var(--text-secondary);
+    margin: 0 0 var(--space-md);
+  }
+</style>

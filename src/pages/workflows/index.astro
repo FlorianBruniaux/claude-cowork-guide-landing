@@ -1,0 +1,252 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import { t } from '../../data/i18n'
+import { getWorkflows } from '../../data/workflows'
+
+const lang = 'en'
+const s = t(lang)
+const workflows = getWorkflows(lang)
+
+const categories = [
+  { id: 'all', label: s.workflowTabAll },
+  { id: 'administratif', label: s.workflowTabAdmin },
+  { id: 'commercial', label: s.workflowTabCommercial },
+  { id: 'production', label: s.workflowTabProduction },
+  { id: 'communication', label: s.workflowTabCommunication },
+  { id: 'organisation', label: s.workflowTabOrganisation },
+]
+---
+
+<Layout
+  lang={lang}
+  title={s.workflowsMetaTitle}
+  description={s.workflowsMetaDescription}
+>
+  <div class="page-hero">
+    <div class="container">
+      <a href="/" class="back-link">{s.workflowsBackHome}</a>
+      <h1>{s.workflowsTitle}</h1>
+      <p class="hero-subtitle">{s.workflowsSubtitle}</p>
+      <p class="hero-note">{s.workflowsHeroNote}</p>
+    </div>
+  </div>
+
+  <div class="container workflows-page">
+    <div class="category-tabs" role="tablist" aria-label="Filter workflows by category">
+      {categories.map((cat, i) => (
+        <button
+          class:list={['tab-btn', { active: i === 0 }]}
+          data-category={cat.id}
+          role="tab"
+          aria-selected={i === 0 ? 'true' : 'false'}
+        >
+          {cat.label}
+        </button>
+      ))}
+    </div>
+
+    <div class="workflows-grid" id="workflows-grid">
+      {workflows.map(workflow => (
+        <a
+          href={workflow.url}
+          class="workflow-card"
+          data-category={workflow.category}
+          target="_blank"
+          rel="noopener"
+        >
+          <div class="workflow-card-header">
+            <span class="workflow-icon">{workflow.icon}</span>
+            <span class:list={['complexity-badge', workflow.complexityClass]}>
+              {workflow.complexity}
+            </span>
+          </div>
+          <h3 class="workflow-title">{workflow.title}</h3>
+          <p class="workflow-desc">{workflow.desc}</p>
+          <span class="workflow-link-arrow">View workflow →</span>
+        </a>
+      ))}
+    </div>
+
+    <div class="workflows-cta">
+      <p>Looking for the full guide with detailed instructions for each workflow?</p>
+      <a href="/guide/" class="btn btn-primary">Read the Guide →</a>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const tabs = document.querySelectorAll<HTMLButtonElement>('.tab-btn')
+  const cards = document.querySelectorAll<HTMLElement>('.workflow-card')
+
+  function filterWorkflows(category: string) {
+    cards.forEach(card => {
+      if (category === 'all' || card.dataset.category === category) {
+        card.style.display = ''
+      } else {
+        card.style.display = 'none'
+      }
+    })
+    tabs.forEach(tab => {
+      const isActive = tab.dataset.category === category
+      tab.classList.toggle('active', isActive)
+      tab.setAttribute('aria-selected', isActive ? 'true' : 'false')
+    })
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      filterWorkflows(tab.dataset.category ?? 'all')
+    })
+    tab.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault()
+        filterWorkflows(tab.dataset.category ?? 'all')
+      }
+    })
+  })
+</script>
+
+<style>
+  .page-hero {
+    padding: var(--space-3xl) 0 var(--space-xl);
+    background: var(--bg-tint-cool, color-mix(in srgb, var(--accent) 5%, var(--bg-primary)));
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .page-hero h1 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: var(--space-sm) 0;
+  }
+  .back-link {
+    font-size: 0.875rem;
+    color: var(--accent);
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+  }
+  .back-link:hover { opacity: 1; }
+  .hero-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin: 0 0 var(--space-sm);
+  }
+  .hero-note {
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+    margin: 0;
+  }
+
+  .workflows-page { padding: var(--space-2xl) 0 var(--space-3xl); }
+
+  .category-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-xl);
+  }
+  .tab-btn {
+    padding: 0.375rem 0.875rem;
+    border-radius: 999px;
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .tab-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .tab-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+
+  .workflows-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-md);
+  }
+  .workflow-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    padding: var(--space-lg);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg, 12px);
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  }
+  .workflow-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 16px color-mix(in srgb, var(--accent) 15%, transparent);
+    transform: translateY(-2px);
+  }
+  .workflow-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .workflow-icon { font-size: 1.5rem; }
+  .complexity-badge {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.2rem 0.5rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .complexity-beginner {
+    background: color-mix(in srgb, #22c55e 15%, transparent);
+    color: #16a34a;
+  }
+  [data-theme="dark"] .complexity-beginner { color: #4ade80; }
+  .complexity-intermediate {
+    background: color-mix(in srgb, #f59e0b 15%, transparent);
+    color: #d97706;
+  }
+  [data-theme="dark"] .complexity-intermediate { color: #fbbf24; }
+  .complexity-advanced {
+    background: color-mix(in srgb, #ef4444 15%, transparent);
+    color: #dc2626;
+  }
+  [data-theme="dark"] .complexity-advanced { color: #f87171; }
+
+  .workflow-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+  }
+  .workflow-desc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0;
+    flex: 1;
+  }
+  .workflow-link-arrow {
+    font-size: 0.8rem;
+    color: var(--accent);
+    font-weight: 500;
+    margin-top: var(--space-xs);
+  }
+
+  .workflows-cta {
+    margin-top: var(--space-3xl);
+    text-align: center;
+    padding: var(--space-2xl);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg, 12px);
+  }
+  .workflows-cta p {
+    color: var(--text-secondary);
+    margin: 0 0 var(--space-md);
+  }
+</style>
