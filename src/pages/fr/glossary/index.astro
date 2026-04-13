@@ -16,7 +16,7 @@ const jsonLd = [
     name: 'Glossaire Claude Cowork Guide',
     url: 'https://cowork.bruniaux.com/fr/glossary/',
     inLanguage: 'fr',
-    hasDefinedTerm: glossaryTerms.slice(0, 20).map(t => ({
+    hasDefinedTerm: glossaryTerms.map(t => ({
       '@type': 'DefinedTerm',
       name: t.termFr ?? t.term,
       description: t.definitionFr,
