@@ -1,6 +1,6 @@
 ---
-import Layout from '../../layouts/Layout.astro'
-import { WHITEPAPERS, TOTAL_PAGES, PDF_BASE_URL, API_URL } from '../../data/whitepapers-data.ts'
+import Layout from '../../../layouts/Layout.astro'
+import { WHITEPAPERS, TOTAL_PAGES, PDF_BASE_URL, API_URL } from '../../../data/whitepapers-data.ts'
 
 const AUTHOR = {
   '@type': 'Person',
@@ -8,30 +8,30 @@ const AUTHOR = {
   url: 'https://github.com/FlorianBruniaux',
 }
 
-const title = 'Whitepapers — 17 Guides | Claude Cowork'
-const description = `17 whitepapers, ${TOTAL_PAGES}+ pages, PDF. From getting started to team deployment — practical guides for small and medium businesses. WP-00 free, no sign-up needed.`
+const title = 'Livres blancs — 17 Guides | Claude Cowork'
+const description = `17 livres blancs, ${TOTAL_PAGES}+ pages, PDF. De la prise en main au déploiement équipe — guides pratiques pour TPE et PME françaises. WP-00 gratuit sans inscription.`
 
 const jsonLd = [
   {
     '@type': 'CollectionPage',
-    name: 'Claude Cowork Whitepapers',
+    name: 'Livres blancs Claude Cowork',
     description,
-    url: 'https://cowork.bruniaux.com/whitepapers/',
-    inLanguage: 'en',
+    url: 'https://cowork.bruniaux.com/fr/whitepapers/',
+    inLanguage: 'fr',
     author: AUTHOR,
     hasPart: WHITEPAPERS.map(wp => ({
       '@type': 'Book',
-      name: wp.titleEn,
-      description: wp.subtitleEn,
+      name: wp.titleFr,
+      description: wp.subtitle,
       bookFormat: 'EBook',
-      inLanguage: 'en',
-      url: 'https://cowork.bruniaux.com/whitepapers/',
+      inLanguage: 'fr',
+      url: 'https://cowork.bruniaux.com/fr/whitepapers/',
       author: AUTHOR,
       datePublished: wp.datePublished,
       numberOfPages: wp.pages,
       audience: {
         '@type': 'Audience',
-        audienceType: wp.audienceEn,
+        audienceType: wp.audience,
       },
     })),
   },
@@ -39,59 +39,59 @@ const jsonLd = [
 
 const profiles = [
   {
-    label: 'Getting started with Cowork',
+    label: 'Je débute avec Cowork',
     icon: '🚀',
     path: ['WP00', 'WP01', 'WP09'],
-    desc: 'Entry point, effective prompts, then data security.',
+    desc: 'Point d\'entrée, prompts efficaces, puis sécurité des données.',
   },
   {
-    label: 'Tradesperson / Construction',
+    label: 'Artisan / BTP',
     icon: '🔨',
     path: ['WP00', 'WP03', 'WP06'],
-    desc: 'Getting started, site quotes, then client prospecting.',
+    desc: 'Démarrage, devis chantier, puis prospection clientèle.',
   },
   {
-    label: 'Shop Owner / Retail',
+    label: 'Commerçant / Retail',
     icon: '🏪',
     path: ['WP00', 'WP04', 'WP07'],
-    desc: 'Getting started, commercial calendar, then communication.',
+    desc: 'Démarrage, calendrier commercial, puis communication.',
   },
   {
-    label: 'Consultant / Freelancer',
+    label: 'Consultant / Indépendant',
     icon: '💼',
     path: ['WP05', 'WP06', 'WP08'],
-    desc: 'Billable ROI, client prospecting, then organisation.',
+    desc: 'ROI facturable, prospection clients, puis organisation.',
   },
   {
-    label: 'Executive deploying AI',
+    label: 'Dirigeant qui déploie',
     icon: '👥',
     path: ['WP11', 'WP10', 'WP09'],
-    desc: 'ROI first, team training, then data security.',
+    desc: 'ROI d\'abord, formation équipe, puis sécurité des données.',
   },
   {
-    label: 'Admin / Accounting',
+    label: 'Admin / Comptabilité',
     icon: '📊',
     path: ['WP02', 'WP08', 'WP01'],
-    desc: 'Admin task automation, organisation, then prompts.',
+    desc: 'Automatisation tâches admin, organisation, puis prompts.',
   },
 ]
 ---
 
-<Layout lang="en" title={title} description={description} jsonLd={jsonLd}>
+<Layout lang="fr" title={title} description={description} jsonLd={jsonLd}>
 
   <!-- Hero -->
   <header class="page-hero">
     <div class="container">
-      <div class="hero-label">Whitepapers & PDF Guides</div>
-      <h1>Field guides, not overviews</h1>
+      <div class="hero-label">Livres blancs & Guides PDF</div>
+      <h1>Des guides terrain, pas des survols</h1>
       <p class="tagline">
-        17 whitepapers covering every Claude Cowork use case for small and medium businesses.
-        Concrete, structured, directly actionable.
+        17 livres blancs couvrant chaque usage de Claude Cowork pour les TPE et PME françaises.
+        Concrets, structurés, directement applicables. Tout en français.
       </p>
       <div class="hero-stats">
         <div class="stat">
           <span class="stat-num">17</span>
-          <span class="stat-lbl">Whitepapers</span>
+          <span class="stat-lbl">Livres blancs</span>
         </div>
         <div class="stat-sep" aria-hidden="true"></div>
         <div class="stat">
@@ -100,8 +100,8 @@ const profiles = [
         </div>
         <div class="stat-sep" aria-hidden="true"></div>
         <div class="stat">
-          <span class="stat-num">EN</span>
-          <span class="stat-lbl">Language</span>
+          <span class="stat-num">FR</span>
+          <span class="stat-lbl">Langue</span>
         </div>
         <div class="stat-sep" aria-hidden="true"></div>
         <div class="stat">
@@ -110,8 +110,8 @@ const profiles = [
         </div>
       </div>
       <div class="hero-cta">
-        <a href="#table" class="btn btn-primary">Browse all guides</a>
-        <a href="#free" class="btn btn-secondary">Free access</a>
+        <a href="#table" class="btn btn-primary">Voir tous les guides</a>
+        <a href="#free" class="btn btn-secondary">Accès libre</a>
       </div>
     </div>
   </header>
@@ -120,31 +120,31 @@ const profiles = [
 
     <!-- Open access featured card -->
     <section id="free" class="section">
-      <h2 class="section-heading">No sign-up required</h2>
-      <p class="section-sub">Direct download — no form needed.</p>
+      <h2 class="section-heading">Sans inscription</h2>
+      <p class="section-sub">Téléchargement direct — sans formulaire.</p>
       <div class="featured-grid">
         {WHITEPAPERS.filter(wp => !wp.gated).map(wp => (
           <div class="featured-card">
             <div class="featured-header">
               <span class="wp-num-badge">WP-{wp.num}</span>
-              <span class="badge badge-free">Free</span>
+              <span class="badge badge-free">Gratuit</span>
             </div>
-            <h3 class="featured-title">{wp.titleEn}</h3>
-            <p class="featured-sub">{wp.subtitleEn}</p>
+            <h3 class="featured-title">{wp.titleFr}</h3>
+            <p class="featured-sub">{wp.subtitle}</p>
             <div class="featured-meta">
-              <span class="meta-pill">{wp.audienceEn}</span>
+              <span class="meta-pill">{wp.audience}</span>
               <span class="meta-pill">~{wp.pages}p</span>
             </div>
             <div class="featured-actions">
               <a
-                href={`${PDF_BASE_URL}/${wp.hashedFileEn ?? wp.hashedFileFr}`}
+                href={`${PDF_BASE_URL}/${wp.hashedFileFr}`}
                 target="_blank"
                 rel="noopener"
                 class="dl-btn dl-pdf"
-                aria-label={`Download ${wp.titleEn} PDF`}
+                aria-label={`Télécharger ${wp.titleFr} PDF`}
               >
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Download PDF
+                Télécharger PDF
               </a>
             </div>
           </div>
@@ -154,23 +154,23 @@ const profiles = [
 
     <!-- Complete table -->
     <section id="table" class="section">
-      <h2 class="section-heading">All 17 whitepapers</h2>
+      <h2 class="section-heading">Les 17 livres blancs</h2>
       <div class="wp-table">
         {WHITEPAPERS.map(wp => (
           <div class="wp-row" id={`wp-${wp.num}`}>
             <div class="wp-row-info">
               <div class="wp-row-header">
                 <span class="wp-num-badge">WP-{wp.num}</span>
-                {wp.badgeEn && (
-                  <span class={`badge ${wp.badgeEn === 'Free' ? 'badge-free' : wp.badgeEn === 'Popular' ? 'badge-popular' : 'badge-new'}`}>
-                    {wp.badgeEn}
+                {wp.badge && (
+                  <span class={`badge ${wp.badge === 'Gratuit' ? 'badge-free' : wp.badge === 'Populaire' ? 'badge-popular' : 'badge-new'}`}>
+                    {wp.badge}
                   </span>
                 )}
-                <span class="wp-audience">{wp.audienceEn}</span>
+                <span class="wp-audience">{wp.audience}</span>
                 <span class="wp-pages">~{wp.pages}p</span>
               </div>
-              <h3 class="wp-row-title">{wp.titleEn}</h3>
-              <p class="wp-row-subtitle">{wp.subtitleEn}</p>
+              <h3 class="wp-row-title">{wp.titleFr}</h3>
+              <p class="wp-row-subtitle">{wp.subtitle}</p>
               <div class="wp-tags">
                 {wp.tags.slice(0, 3).map(tag => (
                   <span class="tag">{tag}</span>
@@ -179,7 +179,7 @@ const profiles = [
             </div>
             <div class="wp-row-actions">
               {wp.gated ? (
-                <div class="gated-block" data-wp={wp.num} data-slug={`cw-${wp.slugEn}.en`}>
+                <div class="gated-block" data-wp={wp.num} data-slug={`cw-${wp.slugFr}.fr`}>
                   <button
                     type="button"
                     class="get-btn"
@@ -187,36 +187,36 @@ const profiles = [
                     aria-expanded="false"
                     aria-controls={`form-${wp.num}`}
                   >
-                    Get the guide
+                    Recevoir le guide
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
                   </button>
-                  <div id={`form-${wp.num}`} class="inline-form hidden" role="region" aria-label={`Get ${wp.titleEn}`}>
-                    <form class="subscribe-form" data-wp={wp.num} data-slug={`cw-${wp.slugEn}.en`}>
+                  <div id={`form-${wp.num}`} class="inline-form hidden" role="region" aria-label={`Recevoir ${wp.titleFr}`}>
+                    <form class="subscribe-form" data-wp={wp.num} data-slug={`cw-${wp.slugFr}.fr`}>
                       <input type="text" name="website" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
                       <div class="form-row">
-                        <input type="text" name="firstname" placeholder="First or last name" required class="form-input" autocomplete="name" />
+                        <input type="text" name="firstname" placeholder="Prénom ou nom" required class="form-input" autocomplete="name" />
                         <input type="email" name="email" placeholder="Email" required class="form-input" autocomplete="email" />
                       </div>
                       <button type="submit" class="submit-btn">
-                        <span class="submit-text">Send to my inbox</span>
+                        <span class="submit-text">Envoyer dans ma boite mail</span>
                         <span class="submit-spinner hidden" aria-hidden="true">···</span>
                       </button>
-                      <p class="form-note">One email with the download link. No newsletter.</p>
+                      <p class="form-note">Un seul email avec le lien de téléchargement. Pas de newsletter.</p>
                     </form>
                     <div class="form-success hidden" role="alert">
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                      Check your inbox — link sent.
+                      Vérifiez votre boite mail — lien envoyé.
                     </div>
                     <div class="form-error hidden" role="alert">
-                      Something went wrong. <a href="mailto:florian@bruniaux.com">Contact me</a> to receive the guide.
+                      Une erreur s'est produite. <a href="mailto:florian@bruniaux.com">Contactez-moi</a> pour recevoir le guide.
                     </div>
                   </div>
                 </div>
               ) : (
                 <div class="free-downloads">
-                  <a href={`${PDF_BASE_URL}/${wp.hashedFileEn ?? wp.hashedFileFr}`} target="_blank" rel="noopener" class="dl-btn dl-pdf">
+                  <a href={`${PDF_BASE_URL}/${wp.hashedFileFr}`} target="_blank" rel="noopener" class="dl-btn dl-pdf">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    Free PDF
+                    PDF gratuit
                   </a>
                 </div>
               )}
@@ -228,8 +228,8 @@ const profiles = [
 
     <!-- Reading paths -->
     <section id="parcours" class="section">
-      <h2 class="section-heading">By profile</h2>
-      <p class="section-sub">Start with what's relevant for you. Skip the rest.</p>
+      <h2 class="section-heading">Par profil</h2>
+      <p class="section-sub">Commencez par ce qui est utile pour vous. Ignorez le reste.</p>
       <div class="paths-grid">
         {profiles.map(p => (
           <div class="path-card">
@@ -258,24 +258,24 @@ const profiles = [
       <h2 class="section-heading">FAQ</h2>
       <div class="faq-grid">
         <details class="faq-item">
-          <summary class="faq-q">What format are the whitepapers?</summary>
-          <p class="faq-a">PDF only (rendered with Quarto+Typst). Optimised for screen reading and A4 printing.</p>
+          <summary class="faq-q">Quel format sont les livres blancs ?</summary>
+          <p class="faq-a">PDF uniquement (rendu Quarto+Typst, palette Bold Guy). Optimisés pour lecture écran et impression A4.</p>
         </details>
         <details class="faq-item">
-          <summary class="faq-q">Why do some require an email?</summary>
-          <p class="faq-a">Not a paywall — everything is free. WP-00 is directly accessible without a form. The others ask for your email to send the download link and notify you when a revised version is released. One email, no newsletter unless you explicitly opt in.</p>
+          <summary class="faq-q">Pourquoi certains demandent un email ?</summary>
+          <p class="faq-a">Pas un paywall — tout est gratuit. WP-00 est accessible directement sans formulaire. Les autres demandent votre email pour envoyer le lien de téléchargement et vous prévenir quand une version révisée sort. Un seul email, pas de newsletter sauf si vous optez explicitement.</p>
         </details>
         <details class="faq-item">
-          <summary class="faq-q">How are these different from the main guide?</summary>
-          <p class="faq-a">The guide (workflows, prompts, reference) is the comprehensive resource — dense and navigable. The whitepapers are structured narratives on a single topic: better for continuous reading, printing, or sharing with a colleague.</p>
+          <summary class="faq-q">Quelle différence avec le guide principal ?</summary>
+          <p class="faq-a">Le guide (workflows, prompts, référence) est la ressource complète — dense et navigable. Les livres blancs sont des récits structurés sur un seul sujet : meilleurs pour la lecture en continu, l'impression ou le partage avec un collègue.</p>
         </details>
         <details class="faq-item">
-          <summary class="faq-q">Will the guides be updated?</summary>
-          <p class="faq-a">Yes. Each whitepaper has its own version number independent of the main guide. Your email link remains valid — it always points to the current version.</p>
+          <summary class="faq-q">Est-ce que les guides seront mis à jour ?</summary>
+          <p class="faq-a">Oui. Chaque livre blanc a son propre numéro de version indépendant du guide. Votre lien email reste valide — il pointe toujours vers la version courante.</p>
         </details>
         <details class="faq-item">
-          <summary class="faq-q">Are there French versions?</summary>
-          <p class="faq-a">Yes — all 17 whitepapers are also available in French at the same address. The French editions include France-specific references (URSSAF, Infogreffe, Pappers) while the English editions adapt these for an international audience.</p>
+          <summary class="faq-q">Y a-t-il des versions EN ?</summary>
+          <p class="faq-a">Oui — les 17 livres blancs sont aussi disponibles en anglais. Les éditions françaises incluent les références spécifiques (URSSAF, Infogreffe, Pappers) tandis que les éditions anglaises s'adressent à un public international.</p>
         </details>
       </div>
     </section>
@@ -368,185 +368,203 @@ const profiles = [
     border-radius: 3px;
   }
 
-  /* Featured cards (free WPs) */
-  .featured-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.25rem; margin-bottom: 0.5rem; }
+  /* Featured free cards */
+  .featured-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
   .featured-card {
+    background: var(--surface-elevated);
     border: 1px solid var(--accent);
     border-radius: 0.75rem;
-    padding: 1.5rem;
-    background: color-mix(in srgb, var(--accent) 4%, var(--bg-secondary));
+    padding: 1.25rem;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.5rem;
   }
   .featured-header { display: flex; align-items: center; gap: 0.5rem; }
-  .featured-title { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin: 0; }
-  .featured-sub { font-size: 0.875rem; color: var(--text-secondary); margin: 0; line-height: 1.5; }
-  .featured-meta { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-  .meta-pill { font-size: 0.72rem; color: var(--text-muted); border: 1px solid var(--border); padding: 0.1rem 0.4rem; border-radius: 999px; }
+  .featured-title { font-size: 1rem; font-weight: 700; color: var(--text-primary); margin: 0; }
+  .featured-sub { font-size: 0.85rem; color: var(--text-secondary); margin: 0; line-height: 1.5; flex: 1; }
+  .featured-meta { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+  .meta-pill {
+    font-size: 0.7rem;
+    background: var(--bg-tertiary);
+    color: var(--text-muted);
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+  }
   .featured-actions { margin-top: 0.25rem; }
-
-  /* Download buttons */
   .dl-btn {
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
-    font-size: 0.78rem;
+    gap: 0.4rem;
+    font-size: 0.8rem;
     font-weight: 600;
-    padding: 0.35rem 0.7rem;
-    border-radius: 0.35rem;
+    padding: 0.4rem 0.85rem;
+    border-radius: 0.4rem;
     text-decoration: none;
-    cursor: pointer;
-    transition: all 0.15s;
-    border: 1px solid var(--border);
-    color: var(--text-secondary);
-    background: var(--bg-secondary);
+    transition: all 0.18s;
   }
-  .dl-btn:hover { color: var(--accent); border-color: var(--accent); }
+  .dl-pdf {
+    background: var(--accent);
+    color: #fff;
+  }
+  .dl-pdf:hover { background: var(--accent-hover); }
 
-  /* Table */
-  .wp-table { display: flex; flex-direction: column; border: 1px solid var(--border); border-radius: 0.75rem; overflow: hidden; }
+  /* WP Table */
+  .wp-table { display: flex; flex-direction: column; gap: 0; }
   .wp-row {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 1.5rem;
-    padding: 1.25rem 1.5rem;
+    gap: 2rem;
+    padding: 1.25rem 0;
     border-bottom: 1px solid var(--border);
-    transition: background 0.15s;
   }
   .wp-row:last-child { border-bottom: none; }
-  .wp-row:hover { background: var(--bg-secondary); }
   .wp-row-info { flex: 1; min-width: 0; }
-  .wp-row-header { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem; flex-wrap: wrap; }
-  .wp-audience { font-size: 0.72rem; color: var(--text-muted); font-style: italic; }
-  .wp-pages { font-size: 0.7rem; color: var(--text-muted); font-family: var(--font-mono); }
-  .wp-row-title { font-size: 1rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.25rem; }
-  .wp-row-subtitle { font-size: 0.85rem; color: var(--text-secondary); margin: 0 0 0.5rem; line-height: 1.4; }
-  .wp-tags { display: flex; gap: 0.35rem; flex-wrap: wrap; }
-  .tag { font-size: 0.68rem; color: var(--text-muted); background: var(--bg-tertiary, var(--bg-secondary)); border: 1px solid var(--border); padding: 0.1rem 0.4rem; border-radius: 3px; font-family: var(--font-mono); }
-  .wp-row-actions { flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem; min-width: 160px; }
-  .free-downloads { display: flex; gap: 0.4rem; flex-wrap: wrap; justify-content: flex-end; }
+  .wp-row-header { display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+  .wp-audience { font-size: 0.72rem; color: var(--text-muted); }
+  .wp-pages { font-size: 0.72rem; color: var(--text-muted); font-family: var(--font-mono); }
+  .wp-row-title { font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.3rem; }
+  .wp-row-subtitle { font-size: 0.83rem; color: var(--text-secondary); margin: 0 0 0.5rem; line-height: 1.5; }
+  .wp-tags { display: flex; gap: 0.3rem; flex-wrap: wrap; }
+  .tag {
+    font-size: 0.65rem;
+    background: var(--bg-tertiary);
+    color: var(--text-muted);
+    padding: 0.1rem 0.45rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+  }
+  .wp-row-actions { min-width: 180px; display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem; }
 
-  /* Get button */
+  /* Gated form */
+  .gated-block { display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem; width: 100%; }
   .get-btn {
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
-    padding: 0.5rem 1rem;
-    border-radius: 0.45rem;
-    background: var(--accent);
-    color: #fff;
-    font-size: 0.85rem;
+    gap: 0.35rem;
+    font-size: 0.82rem;
     font-weight: 600;
-    border: none;
+    padding: 0.45rem 0.9rem;
+    border-radius: 0.4rem;
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    color: var(--accent);
+    border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
     cursor: pointer;
-    transition: background 0.15s;
-    white-space: nowrap;
+    transition: all 0.18s;
   }
-  .get-btn:hover { background: var(--accent-hover); }
-  .get-btn svg { transition: transform 0.2s; }
-  .get-btn[aria-expanded="true"] svg { transform: rotate(180deg); }
-
-  /* Inline form */
+  .get-btn:hover { background: var(--accent); color: #fff; }
   .inline-form {
-    margin-top: 0.75rem;
-    padding: 1rem 1.25rem;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: 0.5rem;
     width: 100%;
-    max-width: 420px;
+    max-width: 300px;
+    background: var(--surface-elevated);
+    border: 1px solid var(--border);
+    border-radius: 0.6rem;
+    padding: 0.85rem;
   }
   .inline-form.hidden { display: none; }
-  .honeypot { position: absolute; width: 0; height: 0; opacity: 0; pointer-events: none; }
-  .form-row { display: flex; gap: 0.5rem; margin-bottom: 0.75rem; }
+  .subscribe-form { display: flex; flex-direction: column; gap: 0.5rem; }
+  .form-row { display: flex; gap: 0.4rem; }
   .form-input {
     flex: 1;
-    padding: 0.45rem 0.7rem;
+    min-width: 0;
+    padding: 0.4rem 0.65rem;
+    font-size: 0.8rem;
     border: 1px solid var(--border);
-    border-radius: 0.375rem;
-    font-size: 0.85rem;
+    border-radius: 0.35rem;
     background: var(--bg-primary);
     color: var(--text-primary);
-    min-width: 0;
-    transition: border-color 0.15s;
+    outline: none;
+    transition: border-color 0.18s;
   }
-  .form-input:focus { outline: none; border-color: var(--accent); }
+  .form-input:focus { border-color: var(--accent); }
+  .honeypot { display: none !important; }
   .submit-btn {
     width: 100%;
-    padding: 0.55rem 1rem;
+    padding: 0.45rem;
+    font-size: 0.82rem;
+    font-weight: 600;
     background: var(--accent);
     color: #fff;
     border: none;
-    border-radius: 0.4rem;
-    font-size: 0.875rem;
-    font-weight: 600;
+    border-radius: 0.35rem;
     cursor: pointer;
-    transition: background 0.15s;
-    margin-bottom: 0.5rem;
+    transition: background 0.18s;
+    position: relative;
   }
   .submit-btn:hover { background: var(--accent-hover); }
   .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
-  .form-note { font-size: 0.72rem; color: var(--text-muted); text-align: center; margin: 0; }
-  .form-success, .form-error {
+  .hidden { display: none !important; }
+  .form-note { font-size: 0.72rem; color: var(--text-muted); margin: 0; text-align: center; }
+  .form-success {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.6rem 0.75rem;
-    border-radius: 0.4rem;
-    font-size: 0.85rem;
-    font-weight: 500;
+    gap: 0.4rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #16a34a;
+    padding: 0.5rem 0;
   }
-  .form-success.hidden, .form-error.hidden { display: none; }
-  .form-success { background: color-mix(in srgb, #22c55e 12%, transparent); color: #15803d; }
-  .form-error { background: color-mix(in srgb, #ef4444 12%, transparent); color: #dc2626; }
-  .form-error a { color: inherit; text-decoration: underline; }
-  .submit-spinner { font-family: monospace; letter-spacing: 0.2em; }
+  .form-error {
+    font-size: 0.8rem;
+    color: var(--status-danger, #ef4444);
+    padding: 0.35rem 0;
+    text-align: center;
+  }
+  .form-error a { color: inherit; }
+
+  /* Free direct download */
+  .free-downloads { display: flex; gap: 0.4rem; flex-wrap: wrap; justify-content: flex-end; }
 
   /* Reading paths */
-  .paths-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
-  .path-card { padding: 1.25rem; border: 1px solid var(--border); border-radius: 0.625rem; background: var(--bg-secondary); display: flex; flex-direction: column; gap: 0.5rem; }
-  .path-icon { font-size: 1.4rem; line-height: 1; }
-  .path-label { font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin: 0; }
-  .path-desc { font-size: 0.825rem; color: var(--text-secondary); margin: 0; line-height: 1.45; }
-  .path-sequence { display: flex; align-items: center; gap: 0.25rem; flex-wrap: wrap; margin-top: 0.25rem; }
-  .path-step { display: flex; align-items: center; gap: 0.25rem; }
-  .path-arrow { color: var(--text-muted); font-size: 0.8rem; }
+  .paths-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+  .path-card {
+    background: var(--surface-elevated);
+    border: 1px solid var(--border);
+    border-radius: 0.65rem;
+    padding: 1rem;
+  }
+  .path-icon { font-size: 1.4rem; margin-bottom: 0.4rem; }
+  .path-label { font-size: 0.85rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.25rem; }
+  .path-desc { font-size: 0.78rem; color: var(--text-secondary); margin: 0 0 0.6rem; line-height: 1.4; }
+  .path-sequence { display: flex; align-items: center; gap: 0.2rem; flex-wrap: wrap; }
+  .path-step { display: flex; align-items: center; gap: 0.2rem; }
+  .path-arrow { color: var(--text-muted); font-size: 0.7rem; }
   .path-link {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 700;
+    font-family: var(--font-mono);
     color: var(--accent);
     text-decoration: none;
     background: color-mix(in srgb, var(--accent) 10%, transparent);
-    padding: 0.15rem 0.4rem;
+    padding: 0.1rem 0.35rem;
     border-radius: 3px;
-    transition: background 0.15s;
   }
   .path-link:hover { background: color-mix(in srgb, var(--accent) 20%, transparent); }
 
   /* FAQ */
-  .faq-section { padding-bottom: 2rem; }
-  .faq-grid { display: flex; flex-direction: column; border: 1px solid var(--border); border-radius: 0.625rem; overflow: hidden; }
-  .faq-item { border-bottom: 1px solid var(--border); }
+  .faq-section { border-top: 1px solid var(--border); }
+  .faq-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 0; }
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    padding: 0;
+  }
   .faq-item:last-child { border-bottom: none; }
   .faq-q {
-    list-style: none;
-    padding: 1rem 1.25rem;
+    padding: 0.85rem 1.25rem;
+    font-size: 0.88rem;
     font-weight: 600;
-    font-size: 0.95rem;
     color: var(--text-primary);
     cursor: pointer;
-    user-select: none;
+    list-style: none;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    transition: background 0.15s;
+    justify-content: space-between;
+    gap: 0.5rem;
   }
-  .faq-q:hover { background: var(--bg-secondary); }
-  .faq-q::after { content: '+'; font-size: 1.2rem; color: var(--accent); flex-shrink: 0; }
-  .faq-item[open] .faq-q::after { content: '-'; }
+  .faq-q::-webkit-details-marker { display: none; }
+  .faq-q::after { content: '+'; color: var(--accent); font-size: 1rem; flex-shrink: 0; }
+  details[open] .faq-q::after { content: '−'; }
   .faq-a { padding: 0 1.25rem 1rem; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin: 0; }
 
   /* Responsive */
@@ -568,17 +586,17 @@ const profiles = [
 
 <script define:vars={{ apiUrl: API_URL }}>
   // Restore saved contact details into a form
-  function prefillContactFields(form: Element) {
+  function prefillContactFields(form) {
     try {
       const name = localStorage.getItem('cowork-contact-name')
       const email = localStorage.getItem('cowork-contact-email')
-      if (name) (form.querySelector('[name="firstname"]') as HTMLInputElement).value = name
-      if (email) (form.querySelector('[name="email"]') as HTMLInputElement).value = email
+      if (name) form.querySelector('[name="firstname"]').value = name
+      if (email) form.querySelector('[name="email"]').value = email
     } catch {}
   }
 
   // Toggle inline form
-  document.querySelectorAll<HTMLButtonElement>('.get-btn').forEach(btn => {
+  document.querySelectorAll('.get-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const wpNum = btn.dataset.wp
       const form = document.getElementById(`form-${wpNum}`)
@@ -588,8 +606,8 @@ const profiles = [
       form.classList.toggle('hidden', isOpen)
       if (!isOpen) {
         prefillContactFields(form)
-        const nameInput = form.querySelector<HTMLInputElement>('[name="firstname"]')
-        ;(nameInput?.value ? form.querySelector<HTMLInputElement>('[name="email"]') : nameInput)?.focus()
+        const nameInput = form.querySelector('[name="firstname"]')
+        ;(nameInput?.value ? form.querySelector('[name="email"]') : nameInput)?.focus()
       }
     })
   })
@@ -600,25 +618,24 @@ const profiles = [
   const utmCampaign = urlParams.get('utm_campaign') || null
 
   // Handle form submission
-  document.querySelectorAll<HTMLFormElement>('.subscribe-form').forEach(form => {
+  document.querySelectorAll('.subscribe-form').forEach(form => {
     form.addEventListener('submit', async (e) => {
       e.preventDefault()
       const wpNum = form.dataset.wp
-      const slug = form.dataset.slug!  // e.g. "cw-01-prompts-efficaces-non-devs.fr"
+      const slug = form.dataset.slug
 
-      const honeypot = (form.querySelector('[name="website"]') as HTMLInputElement)?.value
+      const honeypot = form.querySelector('[name="website"]')?.value
       if (honeypot) return
 
-      const email = (form.querySelector('[name="email"]') as HTMLInputElement)?.value
-      const firstName = (form.querySelector('[name="firstname"]') as HTMLInputElement)?.value
+      const email = form.querySelector('[name="email"]')?.value
+      const firstName = form.querySelector('[name="firstname"]')?.value
 
-      // Persist contact details
       try {
         if (firstName) localStorage.setItem('cowork-contact-name', firstName)
         if (email) localStorage.setItem('cowork-contact-email', email)
       } catch {}
 
-      const submitBtn = form.querySelector<HTMLButtonElement>('.submit-btn')
+      const submitBtn = form.querySelector('.submit-btn')
       const submitText = form.querySelector('.submit-text')
       const submitSpinner = form.querySelector('.submit-spinner')
       const successMsg = form.parentElement?.querySelector('.form-success')
@@ -646,8 +663,8 @@ const profiles = [
         form.classList.add('hidden')
         successMsg?.classList.remove('hidden')
         try { localStorage.setItem('cowork-subscriber', '1') } catch {}
-        if (typeof (window as any).gtag === 'function') {
-          (window as any).gtag('event', 'ebook_subscribe', {
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'ebook_subscribe', {
             guide: slug,
             format: 'pdf',
             source: utmSource,
