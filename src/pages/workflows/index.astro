@@ -15,12 +15,40 @@ const categories = [
   { id: 'communication', label: s.workflowTabCommunication },
   { id: 'organisation', label: s.workflowTabOrganisation },
 ]
+
+const workflowsJsonLd = [
+  {
+    '@type': 'CollectionPage',
+    name: s.workflowsMetaTitle,
+    description: s.workflowsMetaDescription,
+    url: 'https://cowork.bruniaux.com/workflows/',
+    inLanguage: 'en',
+    mainEntity: {
+      '@type': 'ItemList',
+      name: 'Claude Cowork Workflows',
+      numberOfItems: workflows.length,
+      itemListElement: workflows.map((wf, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        item: {
+          '@type': 'Article',
+          name: wf.title,
+          description: wf.desc,
+          url: wf.url,
+          inLanguage: 'en',
+          educationalLevel: wf.complexity,
+        },
+      })),
+    },
+  },
+]
 ---
 
 <Layout
   lang={lang}
   title={s.workflowsMetaTitle}
   description={s.workflowsMetaDescription}
+  jsonLd={workflowsJsonLd}
 >
   <div class="page-hero">
     <div class="container">
