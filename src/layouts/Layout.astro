@@ -5,6 +5,7 @@ import Header from '../components/global/Header.astro'
 import Footer from '../components/global/Footer.astro'
 import SearchModal from '../components/global/SearchModal.astro'
 import FeedbackFab from '../components/global/FeedbackFab.astro'
+import AnnouncementBanner from '../components/global/AnnouncementBanner.astro'
 import type { Lang } from '../data/i18n'
 import { t } from '../data/i18n'
 
@@ -169,8 +170,8 @@ const altUrl = lang === 'en'
     <div class="scroll-progress" aria-hidden="true"></div>
 
     <Header lang={lang} />
+    <AnnouncementBanner lang={lang} />
     <main id="main-content" class="pt-14">
-      <slot name="announcement" />
       <slot />
     </main>
     <Footer lang={lang} />

@@ -1,0 +1,167 @@
+---
+/**
+ * AnnouncementBanner
+ * Dismissible strip under the nav to surface major new content.
+ * Dismissed state stored in localStorage — resets for all visitors
+ * when BANNER_ID changes.
+ *
+ * Update BANNER_ID whenever the message changes.
+ */
+import type { Lang } from '../../data/i18n'
+
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
+
+// Increment whenever the content changes — resets dismissed state for everyone
+const BANNER_ID = 'cowork-banner-whitepapers-2026-04'
+
+const isFr = lang === 'fr'
+---
+
+<div id="announcement-banner" class="ann-banner" data-banner-id={BANNER_ID} aria-label={isFr ? 'Annonce' : 'Announcement'}>
+  <div class="ann-inner">
+    <div class="ann-content">
+      <span class="ann-badge">NEW</span>
+      <span class="ann-text">
+        {isFr ? (
+          <>
+            <a href="/fr/whitepapers/" class="ann-link">17 Whitepapers Cowork — guides PDF gratuits →</a>
+            <span class="ann-sep" aria-hidden="true">·</span>
+            <a href="/fr/workflows/" class="ann-link">28 Workflows →</a>
+            <span class="ann-sep" aria-hidden="true">·</span>
+            <a href="/fr/prompts/" class="ann-link">70 Prompts →</a>
+          </>
+        ) : (
+          <>
+            <a href="/whitepapers/" class="ann-link">17 Cowork Whitepapers — free PDF guides →</a>
+            <span class="ann-sep" aria-hidden="true">·</span>
+            <a href="/workflows/" class="ann-link">28 Workflows →</a>
+            <span class="ann-sep" aria-hidden="true">·</span>
+            <a href="/prompts/" class="ann-link">70 Prompts →</a>
+          </>
+        )}
+      </span>
+    </div>
+    <button
+      id="ann-close"
+      class="ann-close"
+      aria-label={isFr ? 'Fermer l\'annonce' : 'Dismiss announcement'}
+      type="button"
+    >×</button>
+  </div>
+</div>
+
+<script>
+  const banner = document.getElementById('announcement-banner')
+  const BANNER_ID = banner?.dataset.bannerId ?? ''
+  const STORAGE_KEY = `ann_dismissed_${BANNER_ID}`
+
+  if (localStorage.getItem(STORAGE_KEY) === '1') {
+    banner?.remove()
+  }
+
+  document.getElementById('ann-close')?.addEventListener('click', () => {
+    localStorage.setItem(STORAGE_KEY, '1')
+    banner?.remove()
+  })
+</script>
+
+<style>
+.ann-banner {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 40%, var(--border-subtle));
+  border-top: 2px solid var(--accent);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.ann-inner {
+  max-width: var(--max-width, 1200px);
+  margin: 0 auto;
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.ann-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.ann-badge {
+  flex-shrink: 0;
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-family: var(--font-mono, 'SF Mono', monospace);
+  letter-spacing: 0.08em;
+  border-radius: 3px;
+}
+
+.ann-text {
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.ann-link {
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.ann-link:hover {
+  text-decoration: underline;
+}
+
+.ann-sep {
+  color: var(--border-subtle);
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.ann-close {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0.25rem 0.375rem;
+  line-height: 1;
+  border-radius: 3px;
+  opacity: 0.6;
+  transition: opacity 0.15s;
+}
+
+.ann-close:hover {
+  opacity: 1;
+  background: var(--bg-tertiary, color-mix(in srgb, var(--bg-secondary) 50%, var(--bg-primary)));
+}
+
+@media (max-width: 640px) {
+  .ann-text {
+    white-space: normal;
+  }
+  .ann-inner {
+    padding: 0.5rem 1rem;
+  }
+}
+</style>
