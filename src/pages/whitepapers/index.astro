@@ -2,23 +2,39 @@
 import Layout from '../../layouts/Layout.astro'
 import { WHITEPAPERS, TOTAL_PAGES, PDF_BASE_URL } from '../../data/whitepapers-data.ts'
 
+const AUTHOR = {
+  '@type': 'Person',
+  name: 'Florian BRUNIAUX',
+  url: 'https://github.com/FlorianBruniaux',
+}
+
 const title = 'Livres blancs — 17 Guides | Claude Cowork'
 const description = `17 livres blancs, ${TOTAL_PAGES}+ pages, PDF. De la prise en main au déploiement équipe — guides pratiques pour TPE et PME françaises. WP-00 gratuit sans inscription.`
 
 const jsonLd = [
   {
-    "@type": "CollectionPage",
-    "name": "Livres blancs Claude Cowork",
-    "description": description,
-    "url": "https://cowork.bruniaux.com/whitepapers/",
-    "hasPart": WHITEPAPERS.map(wp => ({
-      "@type": "Book",
-      "name": wp.titleFr,
-      "bookFormat": "EBook",
-      "inLanguage": "fr",
-      "url": "https://cowork.bruniaux.com/whitepapers/",
+    '@type': 'CollectionPage',
+    name: 'Livres blancs Claude Cowork',
+    description,
+    url: 'https://cowork.bruniaux.com/whitepapers/',
+    inLanguage: 'fr',
+    author: AUTHOR,
+    hasPart: WHITEPAPERS.map(wp => ({
+      '@type': 'Book',
+      name: wp.titleFr,
+      description: wp.subtitle,
+      bookFormat: 'EBook',
+      inLanguage: 'fr',
+      url: 'https://cowork.bruniaux.com/whitepapers/',
+      author: AUTHOR,
+      datePublished: wp.datePublished,
+      numberOfPages: wp.pages,
+      audience: {
+        '@type': 'Audience',
+        audienceType: wp.audience,
+      },
     })),
-  }
+  },
 ]
 
 const profiles = [

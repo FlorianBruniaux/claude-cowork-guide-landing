@@ -18,6 +18,7 @@ export interface Whitepaper {
   badge?: string
   slugFr: string     // stable ID sans préfixe cw- ni suffixe .fr (ex: "00-de-zero-a-productif")
   hashedFileFr?: string  // pour les WP non-gated seulement — chemin relatif depuis /guides/
+  datePublished: string  // ISO 8601 (YYYY-MM-DD)
 }
 
 export const WHITEPAPERS: Whitepaper[] = [
@@ -32,6 +33,7 @@ export const WHITEPAPERS: Whitepaper[] = [
     badge: 'Gratuit',
     slugFr: '00-de-zero-a-productif',
     hashedFileFr: 'cowork/00-de-zero-a-productif.fr.v1.0.0.50815d34631f.pdf',
+    datePublished: '2026-01-15',
   },
   {
     num: '01',
@@ -42,6 +44,7 @@ export const WHITEPAPERS: Whitepaper[] = [
     tags: ['prompts', 'ctoc', 'avant-après'],
     gated: true,
     slugFr: '01-prompts-efficaces-non-devs',
+    datePublished: '2026-01-20',
   },
   {
     num: '02',
@@ -52,6 +55,7 @@ export const WHITEPAPERS: Whitepaper[] = [
     tags: ['admin', 'urssaf', 'tva', 'factures'],
     gated: true,
     slugFr: '02-automatisation-administrative',
+    datePublished: '2026-01-22',
   },
   {
     num: '03',
@@ -62,6 +66,7 @@ export const WHITEPAPERS: Whitepaper[] = [
     tags: ['artisan', 'btp', 'devis', 'chantier'],
     gated: true,
     slugFr: '03-ia-artisans-btp',
+    datePublished: '2026-01-25',
   },
   {
     num: '04',
@@ -72,6 +77,7 @@ export const WHITEPAPERS: Whitepaper[] = [
     tags: ['commerce', 'retail', 'saisonnalité', 'avis'],
     gated: true,
     slugFr: '04-ia-commercants-retail',
+    datePublished: '2026-01-28',
   },
   {
     num: '05',
@@ -82,6 +88,7 @@ export const WHITEPAPERS: Whitepaper[] = [
     tags: ['consultant', 'freelance', 'propositions', 'roi'],
     gated: true,
     slugFr: '05-ia-consultants-professions-liberales',
+    datePublished: '2026-02-01',
   },
   {
     num: '06',
@@ -92,6 +99,7 @@ export const WHITEPAPERS: Whitepaper[] = [
     tags: ['prospection', 'infogreffe', 'crm', 'relances'],
     gated: true,
     slugFr: '06-prospection-relation-client',
+    datePublished: '2026-02-05',
   },
   {
     num: '07',
@@ -102,6 +110,7 @@ export const WHITEPAPERS: Whitepaper[] = [
     tags: ['gmb', 'linkedin', 'instagram', 'newsletter'],
     gated: true,
     slugFr: '07-communication-visibilite',
+    datePublished: '2026-02-08',
   },
   {
     num: '08',
@@ -113,6 +122,7 @@ export const WHITEPAPERS: Whitepaper[] = [
     gated: true,
     badge: 'Populaire',
     slugFr: '08-organisation-productivite',
+    datePublished: '2026-02-12',
   },
   {
     num: '09',
@@ -123,6 +133,7 @@ export const WHITEPAPERS: Whitepaper[] = [
     tags: ['sécurité', 'rgpd', 'confidentialité', 'checklist'],
     gated: true,
     slugFr: '09-securite-confidentialite-tpe',
+    datePublished: '2026-02-15',
   },
   {
     num: '10',
@@ -133,6 +144,7 @@ export const WHITEPAPERS: Whitepaper[] = [
     tags: ['apprentissage', 'uval', 'plan-30-jours', 'adoption'],
     gated: true,
     slugFr: '10-apprendre-ia-non-dev',
+    datePublished: '2026-02-20',
   },
   {
     num: '11',
@@ -143,6 +155,7 @@ export const WHITEPAPERS: Whitepaper[] = [
     tags: ['roi', 'déploiement', 'équipe', 'budget'],
     gated: true,
     slugFr: '11-roi-deploiement-dirigeants',
+    datePublished: '2026-02-25',
   },
   {
     num: '12',
@@ -153,6 +166,7 @@ export const WHITEPAPERS: Whitepaper[] = [
     tags: ['santé', 'médical', 'secret-médical', 'cabinet', 'CPAM'],
     gated: true,
     slugFr: '12-ia-professions-sante-liberales',
+    datePublished: '2026-03-05',
   },
   {
     num: '13',
@@ -163,6 +177,7 @@ export const WHITEPAPERS: Whitepaper[] = [
     tags: ['conciergerie', 'location-saisonniere', 'airbnb', 'prospection', 'immobilier'],
     gated: true,
     slugFr: '13-ia-conciergerie-lcd',
+    datePublished: '2026-03-10',
   },
   {
     num: '14',
@@ -173,6 +188,7 @@ export const WHITEPAPERS: Whitepaper[] = [
     tags: ['restauration', 'food-cost', 'avis', 'fournisseurs', 'menus'],
     gated: true,
     slugFr: '14-ia-restauration-hotellerie',
+    datePublished: '2026-03-15',
   },
   {
     num: '15',
@@ -183,6 +199,7 @@ export const WHITEPAPERS: Whitepaper[] = [
     tags: ['immobilier', 'annonces', 'prospection', 'mandataires', 'estimation'],
     gated: true,
     slugFr: '15-ia-agents-immobiliers',
+    datePublished: '2026-03-20',
   },
   {
     num: '16',
@@ -194,6 +211,7 @@ export const WHITEPAPERS: Whitepaper[] = [
     gated: true,
     badge: 'Nouveau',
     slugFr: '16-ia-ecommerce-vendeurs-en-ligne',
+    datePublished: '2026-04-01',
   },
 ]
 
