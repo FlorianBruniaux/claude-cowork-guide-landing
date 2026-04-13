@@ -1,0 +1,285 @@
+---
+import Layout from '../../../layouts/Layout.astro'
+import { t } from '../../../data/i18n'
+import { releases } from '../../../data/releases'
+
+const lang = 'fr'
+const s = t(lang)
+const hidden = releases.filter(r => !r.initiallyVisible)
+---
+
+<Layout
+  lang={lang}
+  title={s.releasesMetaTitle}
+  description={s.releasesMetaDescription}
+>
+  <div class="page-hero">
+    <div class="container">
+      <a href="/fr/" class="back-link">{s.releasesBackHome}</a>
+      <h1>{s.releasesHeroTitle}</h1>
+      <p class="hero-subtitle">{s.releasesHeroSubtitle}</p>
+      <div class="releases-meta">
+        <span class="releases-count">{releases.length} versions</span>
+        <a href="https://github.com/FlorianBruniaux/claude-cowork-guide" class="btn btn-secondary btn-sm" target="_blank" rel="noopener">{s.releasesViewGitHub}</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container releases-page">
+
+    <div class="releases-timeline" id="releases-timeline">
+      {releases.map((release, index) => (
+        <div
+          class:list={['release-card', { 'release-latest': release.latest, 'release-hidden': !release.initiallyVisible }]}
+          data-index={index}
+        >
+          {release.latest && <span class="latest-badge">{s.releasesLatestBadge}</span>}
+          {release.featured && release.featuredLabel && (
+            <span class="featured-label" set:html={release.featuredLabel} />
+          )}
+          <div class="release-header">
+            <span class="release-version">{release.version}</span>
+            <span class="release-date">{release.date}</span>
+          </div>
+          <ul class="release-highlights">
+            {release.highlights.map(h => <li set:html={h} />)}
+          </ul>
+          {release.breaking && release.breaking.length > 0 && (
+            <div class="release-breaking">
+              <strong>⚠️ Changements breaking :</strong>
+              <ul>
+                {release.breaking.map(b => <li set:html={b} />)}
+              </ul>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+
+    {hidden.length > 0 && (
+      <div class="releases-toggle">
+        <button
+          id="toggle-btn"
+          class="btn btn-secondary"
+          data-more={`${s.releasesShowAll} (${hidden.length} de plus)`}
+          data-less={s.releasesShowLess}
+        >
+          {s.releasesShowAll} ({hidden.length} de plus)
+        </button>
+      </div>
+    )}
+
+  </div>
+</Layout>
+
+<script>
+  const btn = document.getElementById('toggle-btn')
+  const hiddenCards = document.querySelectorAll<HTMLElement>('.release-hidden')
+  let expanded = false
+
+  btn?.addEventListener('click', () => {
+    expanded = !expanded
+    hiddenCards.forEach(el => {
+      el.style.display = expanded ? 'flex' : 'none'
+    })
+    if (btn) {
+      btn.textContent = expanded
+        ? (btn.dataset.less ?? 'Voir moins')
+        : (btn.dataset.more ?? 'Voir toutes les releases')
+    }
+  })
+</script>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, var(--surface-elevated) 0%, var(--bg-primary) 100%);
+    border-bottom: 1px solid var(--border);
+    padding: calc(var(--space-3xl) + 3.5rem) var(--space-lg) var(--space-2xl);
+  }
+
+  .back-link {
+    display: inline-block;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: var(--space-md);
+    transition: color var(--transition-fast);
+  }
+  .back-link:hover { color: var(--accent); }
+
+  .page-hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: var(--space-sm);
+  }
+
+  .hero-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  .releases-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  .releases-count {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    padding: 0.25rem 0.75rem;
+    border-radius: 99px;
+  }
+
+  .btn-sm {
+    padding: 0.35rem 0.85rem;
+    font-size: 0.85rem;
+  }
+
+  .releases-page {
+    padding: var(--space-3xl) var(--space-lg);
+  }
+
+  .releases-timeline {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .release-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius-lg);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-sm);
+    transition: border-color var(--transition-normal), transform var(--transition-normal), box-shadow var(--transition-normal);
+    position: relative;
+  }
+
+  .release-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .release-latest {
+    border-color: var(--accent);
+  }
+
+  .release-hidden {
+    display: none;
+  }
+
+  .latest-badge {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+  }
+
+  .featured-label {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: var(--space-sm);
+  }
+
+  .release-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .release-version {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .release-date {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .release-highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+  }
+
+  .release-highlights li {
+    position: relative;
+    padding-left: var(--space-lg);
+    margin-bottom: var(--space-sm);
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .release-highlights li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  .release-highlights li:last-child { margin-bottom: 0; }
+
+  .release-highlights :global(code) {
+    background: var(--bg-tertiary);
+    color: var(--accent);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+  }
+
+  .release-breaking {
+    margin-top: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--bg-tertiary);
+    border-left: 3px solid var(--status-danger, #ef4444);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    font-size: 0.875rem;
+  }
+
+  .release-breaking ul {
+    list-style: disc;
+    padding-left: var(--space-lg);
+    margin-top: var(--space-xs);
+    color: var(--text-secondary);
+  }
+
+  .releases-toggle {
+    text-align: center;
+    padding: var(--space-xl) 0;
+  }
+
+  @media (max-width: 640px) {
+    .releases-timeline {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
