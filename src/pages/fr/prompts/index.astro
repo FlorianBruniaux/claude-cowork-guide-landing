@@ -5,12 +5,40 @@ import { PROMPT_CATEGORIES } from '../../../data/prompts-data'
 
 const lang = 'fr'
 const s = t(lang)
+
+const allPrompts = PROMPT_CATEGORIES.flatMap(cat => cat.prompts)
+
+const promptsJsonLd = [
+  {
+    '@type': 'CollectionPage',
+    name: s.promptsMetaTitle,
+    description: s.promptsMetaDescription,
+    url: 'https://cowork.bruniaux.com/fr/prompts/',
+    inLanguage: 'fr',
+    mainEntity: {
+      '@type': 'ItemList',
+      name: 'Prompts Claude Cowork',
+      numberOfItems: allPrompts.length,
+      itemListElement: allPrompts.map((prompt, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        item: {
+          '@type': 'CreativeWork',
+          name: prompt.titleFr,
+          url: `https://cowork.bruniaux.com/fr/prompts/#${prompt.id}`,
+          inLanguage: 'fr',
+        },
+      })),
+    },
+  },
+]
 ---
 
 <Layout
   lang={lang}
   title={s.promptsMetaTitle}
   description={s.promptsMetaDescription}
+  jsonLd={promptsJsonLd}
 >
   <div class="page-hero">
     <div class="container">
