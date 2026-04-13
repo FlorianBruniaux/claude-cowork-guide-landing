@@ -7,12 +7,66 @@ const lang = 'en'
 const s = t(lang)
 const initiallyVisible = releases.filter(r => r.initiallyVisible)
 const hidden = releases.filter(r => !r.initiallyVisible)
+
+function stripHtml(str: string) {
+  return str.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').trim()
+}
+
+function parseDate(dateStr: string): string {
+  return new Date(dateStr).toISOString().split('T')[0]
+}
+
+const latestRelease = releases.find(r => r.latest) ?? releases[0]
+
+const releasesJsonLd = [
+  {
+    '@type': 'WebPage',
+    '@id': 'https://cowork.bruniaux.com/releases/#page',
+    name: s.releasesMetaTitle,
+    description: s.releasesMetaDescription,
+    url: 'https://cowork.bruniaux.com/releases/',
+    inLanguage: 'en',
+    dateModified: parseDate(latestRelease.date),
+    mainEntity: {
+      '@type': 'ItemList',
+      name: 'Claude Cowork Guide Versions',
+      numberOfItems: releases.length,
+      itemListElement: releases.map((release, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        item: {
+          '@type': 'SoftwareApplication',
+          name: `Claude Cowork Guide ${release.version}`,
+          softwareVersion: release.version.replace('v', ''),
+          releaseNotes: release.featuredLabel
+            ? stripHtml(release.featuredLabel).replace(/^[^\w]+/, '').trim()
+            : stripHtml(release.highlights[0] ?? ''),
+          datePublished: parseDate(release.date),
+          url: 'https://cowork.bruniaux.com/releases/',
+          applicationCategory: 'ProductivityApplication',
+          operatingSystem: 'macOS, Windows',
+          author: {
+            '@type': 'Person',
+            name: 'Florian BRUNIAUX',
+            url: 'https://github.com/FlorianBruniaux',
+          },
+          offers: {
+            '@type': 'Offer',
+            price: '0',
+            priceCurrency: 'EUR',
+          },
+        },
+      })),
+    },
+  },
+]
 ---
 
 <Layout
   lang={lang}
   title={s.releasesMetaTitle}
   description={s.releasesMetaDescription}
+  jsonLd={releasesJsonLd}
 >
   <div class="page-hero">
     <div class="container">
