@@ -282,6 +282,8 @@ const profiles = [
 
   </div>
 
+  <div id="page-config" data-api-url={API_URL} hidden></div>
+
 </Layout>
 
 <style>
@@ -584,7 +586,8 @@ const profiles = [
   }
 </style>
 
-<script define:vars={{ apiUrl: API_URL }}>
+<script>
+  const apiUrl = (document.getElementById('page-config') as HTMLElement | null)?.dataset.apiUrl ?? 'https://florian.bruniaux.com/api/subscribe'
   // Restore saved contact details into a form
   function prefillContactFields(form) {
     try {
