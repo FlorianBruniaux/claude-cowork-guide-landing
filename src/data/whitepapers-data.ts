@@ -166,7 +166,7 @@ export const WHITEPAPERS: Whitepaper[] = [
     badge: 'Populaire',
     badgeEn: 'Popular',
     slugFr: '08-organisation-productivite',
-    slugEn: '08-organization-and-productivity',
+    slugEn: '08-organisation-and-productivity',
     datePublished: '2026-02-12',
   },
   {
