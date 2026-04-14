@@ -39,7 +39,7 @@ const isEn = lang === 'en'
     </div>
 
     <div class="hero-ctas">
-      <a href="/guide/" class="btn btn-primary">{s.heroCta}</a>
+      <a href="/guide/" class="btn btn-primary" data-astro-prefetch="false">{s.heroCta}</a>
       <a href={isEn ? '/workflows/' : '/fr/workflows/'} class="btn btn-secondary">{s.heroCtaSecondary}</a>
     </div>
 

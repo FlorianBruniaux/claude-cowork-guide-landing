@@ -2,7 +2,6 @@ import { defineConfig } from 'astro/config'
 import starlight from '@astrojs/starlight'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
-import partytown from '@astrojs/partytown'
 import { remarkGuideLinks } from './plugins/remark-guide-links.mjs'
 import { readdirSync, existsSync } from 'fs'
 import { resolve, dirname } from 'path'
@@ -91,11 +90,6 @@ export default defineConfig({
           return { ...item, priority: 0.85, changefreq: 'weekly' }
         }
         return { ...item, priority: 0.7, changefreq: 'monthly' }
-      },
-    }),
-    partytown({
-      config: {
-        forward: ['dataLayer.push'],
       },
     }),
   ],

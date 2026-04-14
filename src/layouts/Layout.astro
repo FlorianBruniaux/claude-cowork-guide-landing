@@ -152,9 +152,9 @@ const altUrl = lang === 'en'
       <script type="application/ld+json" set:html={JSON.stringify({ "@context": "https://schema.org", ...schema })} />
     ))}
 
-    <!-- Google Analytics 4 via Partytown -->
-    <script type="text/partytown" src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
-    <script type="text/partytown" define:vars={{ gaId }}>
+    <!-- Google Analytics 4 -->
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+    <script is:inline define:vars={{ gaId }}>
       window.dataLayer = window.dataLayer || [];
       function gtag() { dataLayer.push(arguments); }
       gtag('js', new Date());

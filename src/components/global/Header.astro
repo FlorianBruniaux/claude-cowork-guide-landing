@@ -62,6 +62,7 @@ const isMoreActive = moreLinks.some((link) => isActiveLink(link.url))
           href={link.url}
           class:list={['nav-link', { active: isActiveLink(link.url) }]}
           aria-current={isActiveLink(link.url) ? 'page' : undefined}
+          data-astro-prefetch={link.url.startsWith('/guide') ? 'false' : undefined}
         >
           {link.label}
         </a>
@@ -140,7 +141,7 @@ const isMoreActive = moreLinks.some((link) => isActiveLink(link.url))
         </svg>
       </a>
 
-      <a href="/guide/" class="btn btn-primary">{s.readGuide}</a>
+      <a href="/guide/" class="btn btn-primary" data-astro-prefetch="false">{s.readGuide}</a>
     </div>
 
     <button class="menu-toggle" id="menu-toggle" aria-label={s.menuToggle} aria-expanded="false"
