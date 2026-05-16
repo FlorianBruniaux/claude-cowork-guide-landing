@@ -16,6 +16,25 @@ export interface BreakingChange {
 
 export const releases: Release[] = [
   {
+    version: 'v1.10.0',
+    date: 'May 16, 2026',
+    highlights: [
+      '⭐ <strong>Claude Opus 4.7</strong> — nouveau modèle : vision haute résolution 3x, auto-correction améliorée, effort <code>xhigh</code>. Même prix qu\'Opus 4.6',
+      '⭐ <strong>Claude Design</strong> (research preview) — créer designs, slides et prototypes par conversation. Import DOCX/PPTX, export PDF/PPTX/HTML/Canva. Propulsé par Opus 4.7',
+      '⭐ <strong>9 Creative Connectors</strong> — Ableton, Adobe CC (50+ outils), Affinity by Canva, Autodesk Fusion, Blender, Resolume Arena & Wire, SketchUp, Splice',
+      '⭐ <strong>Claude for Small Business</strong> — 7 connecteurs préinstallés (QuickBooks, PayPal, HubSpot, Canva, Docusign, Google Workspace, Microsoft 365) + 15 workflows agentic + 15 skills',
+      '⭐ <strong>Claude for Legal</strong> — 12 plugins par domaine de pratique + 20+ connecteurs MCP (iManage, Westlaw, LexisNexis, Harvey, Relativity, Ironclad…)',
+      '⭐ <strong>Agents for Financial Services</strong> — 10 templates d\'agents + 8 connecteurs financiers (Moody\'s, D&B, Verisk, Experian, GLG, IBISWorld…)',
+      'Limites d\'usage doublées (SpaceX Colossus 1) — plus de throttling aux heures de pointe pour Pro/Max/Team/Enterprise',
+      '<strong>Claude Security</strong> (Enterprise beta) — scan de codebases, rapports vulnérabilités, patchs ciblés. Partenaires : CrowdStrike, Palo Alto, SentinelOne, Wiz',
+      '<strong>Outlook add-in</strong> (beta) + <strong>Word</strong> GA — 4 add-ins Office avec contexte partagé',
+    ],
+    latest: true,
+    initiallyVisible: true,
+    featured: true,
+    featuredLabel: '⭐ Opus 4.7 + Claude for Small Business + Legal',
+  },
+  {
     version: 'v1.9.0',
     date: 'Apr 11, 2026',
     highlights: [
@@ -27,7 +46,6 @@ export const releases: Release[] = [
       '<strong>OpenTelemetry</strong> étendu — connecter l\'activité Cowork à Datadog, Grafana, etc.',
       '<strong>Smart Skills Loading</strong> — les Skills ne consomment plus l\'intégralité du contexte',
     ],
-    latest: true,
     initiallyVisible: true,
     featured: true,
     featuredLabel: '⭐ Cowork GA + Enterprise controls',
