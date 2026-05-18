@@ -117,7 +117,7 @@ export const UI_STRINGS = {
     step1Title: 'Install Claude Desktop',
     step1Text: 'Download from <a href="https://claude.ai/download" target="_blank" rel="noopener">claude.ai/download</a> (macOS and Windows, Pro $20/mo required)',
     step2Title: 'Follow Security Setup',
-    step2Text: 'Read <a href="' + GUIDE_BASE + 'guide/01-getting-started.en.md" target="_blank" rel="noopener">Getting Started guide</a> for safe isolation and backup configuration',
+    step2Text: 'Read <a href="' + GUIDE_BASE + 'guide/01-getting-started.md" target="_blank" rel="noopener">Getting Started guide</a> for safe isolation and backup configuration',
     step3Title: 'Copy Your First Prompt',
     step3Text: 'Start with <a href="#prompts">70 ready-to-use prompts</a> for common tasks',
 
