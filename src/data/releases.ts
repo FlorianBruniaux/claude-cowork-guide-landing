@@ -203,6 +203,30 @@ export const releases: Release[] = [
     featured: true,
     featuredLabel: '⭐ Website Audit workflow',
   },
+  {
+    version: 'v1.1.0',
+    date: 'Jan 20, 2026',
+    highlights: [
+      '⭐ <strong>25 workflows TPE/PME</strong> — expansion 5 → 25, focus artisans, commerçants, dirigeants français',
+      '⭐ <strong>4 catégories métiers</strong> — Administratif (6), Commercial (5), Production (5), Communication (4)',
+      'Références françaises : SIREN, Infogreffe, URSSAF, Qualibat, TVA 20%',
+    ],
+    initiallyVisible: true,
+    featured: true,
+    featuredLabel: '⭐ 25 workflows TPE/PME',
+  },
+  {
+    version: 'v1.0.0',
+    date: 'Jan 20, 2026',
+    highlights: [
+      '⭐ <strong>Release initiale</strong> — 5 guides + 5 workflows + 67 prompts copy-paste',
+      '⭐ <strong>Framework CTOC</strong> — Context → Task → Output → Constraints',
+      'Plateforme macOS (research preview), plans Pro et Max',
+    ],
+    initiallyVisible: true,
+    featured: true,
+    featuredLabel: '⭐ Release initiale',
+  },
 ]
 
 export const breakingChanges: BreakingChange[] = []
