@@ -2,13 +2,13 @@
 import Layout from '../../../layouts/Layout.astro'
 
 const title = 'FAQ Claude Cowork : Prix, Sécurité, Limites & Plus'
-const description = '13 réponses sur Claude Cowork : prix, compatibilité plateforme, sécurité, limites d\'utilisation, Excel, problèmes VPN et plus. Basé sur une utilisation quotidienne depuis le lancement.'
+const description = '14 réponses sur Claude Cowork : gratuit, prix, compatibilité plateforme, sécurité, limites d\'utilisation, Excel, problèmes VPN et plus. Basé sur une utilisation quotidienne depuis le lancement.'
 
 const jsonLd = [
   {
     "@type": "WebPage",
     "name": "FAQ Claude Cowork : Prix, Sécurité, Limites & Plus",
-    "description": "13 réponses sur Claude Cowork : prix, compatibilité plateforme, sécurité, limites d'utilisation, Excel, problèmes VPN et plus.",
+    "description": "14 réponses sur Claude Cowork : gratuit, prix, compatibilité plateforme, sécurité, limites d'utilisation, Excel, problèmes VPN et plus.",
     "url": "https://cowork.bruniaux.com/fr/faq/",
     "datePublished": "2026-01-01",
     "dateModified": "2026-02-17",
@@ -57,6 +57,14 @@ const jsonLd = [
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Claude Code : interface terminal, accès shell complet, pour développeurs. Cowork : app desktop, accès fichiers uniquement, pour professionnels non-développeurs. Ils partagent l'architecture mais diffèrent en capacités."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Claude Cowork est-il gratuit ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui, Claude Cowork est une fonctionnalité gratuite incluse avec votre abonnement Claude. Le guide et les 70 prompts sont gratuits."
         }
       },
       {
@@ -141,7 +149,7 @@ const jsonLd = [
     <div class="container">
       <a href="/fr/" class="back-link">← Guide Claude Cowork</a>
       <h1>FAQ Claude Cowork</h1>
-      <p class="tagline">13 réponses basées sur une utilisation quotidienne depuis le lancement : prix, limites, sécurité, compatibilité et plus.</p>
+      <p class="tagline">14 réponses basées sur une utilisation quotidienne depuis le lancement : gratuité, prix, limites, sécurité, compatibilité et plus.</p>
     </div>
   </header>
 
@@ -174,6 +182,10 @@ const jsonLd = [
     <section class="faq-section">
       <h2 class="faq-section-title">Prix & Limites</h2>
       <div class="faq-list">
+        <details class="faq-item">
+          <summary>Claude Cowork est-il gratuit ?</summary>
+          <p>Oui, Claude Cowork est une fonctionnalité gratuite incluse avec votre abonnement Claude. Le guide et les 70 prompts sont gratuits.</p>
+        </details>
         <details class="faq-item">
           <summary>Combien coûte Cowork ?</summary>
           <p>Cowork nécessite un abonnement <strong>Pro (20$/mois)</strong> ou <strong>Max (100-200$/mois)</strong>. Pro est recommandé uniquement pour une utilisation légère — le quota s'épuise en ~1-1,5 heures d'utilisation intensive. Max offre 5x-20x plus de capacité.</p>

@@ -144,6 +144,21 @@ const altUrl = lang === 'en'
             ...(lang === 'fr' ? [{ "@type": "ListItem", position: 2, name: "Français", item: String(new URL('/fr/', Astro.site)) }] : []),
           ],
         },
+        {
+          "@type": "SoftwareApplication",
+          name: "Claude Cowork",
+          applicationCategory: "BusinessApplication",
+          operatingSystem: "macOS",
+          offers: {
+            "@type": "Offer",
+            price: "0",
+            priceCurrency: "EUR",
+          },
+          url: "https://cowork.bruniaux.com/guide/",
+          description: lang === 'fr'
+            ? "Claude Cowork est l'espace de travail de bureau de Claude, permettant l'automatisation de fichiers, la création de documents et l'OCR."
+            : "Claude Cowork is Claude's desktop workspace enabling file automation, document creation, and OCR.",
+        },
       ],
     })} />
 

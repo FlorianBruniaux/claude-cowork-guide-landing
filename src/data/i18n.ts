@@ -276,6 +276,7 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
       { q: 'Is this guide official?', a: '<strong>No, this is a community guide.</strong> Cowork has been GA since April 9, 2026. This guide is actively maintained and reflects the current feature set as I test and document new capabilities. Not affiliated with Anthropic.' },
       { q: 'Who is behind this guide?', a: 'Created by <a href="https://github.com/FlorianBruniaux" target="_blank" rel="noopener">Florian BRUNIAUX</a>, a developer experimenting with Cowork since its recent launch. This is a living document. I\'m learning in real-time and documenting my findings as they evolve. Feedback, corrections, and reality checks are essential!' },
       { q: 'Can I contribute to the guide?', a: 'Yes! The <a href="https://github.com/FlorianBruniaux/claude-cowork-guide" target="_blank" rel="noopener">guide repository</a> is open-source. Found an error? Have a better prompt? Contributions welcome on GitHub.' },
+      { q: 'Is Claude Cowork free?', a: 'Yes, Claude Cowork is a free desktop feature included with your Claude subscription. The guide and all 70 prompts are free to use.' },
     ],
 
     // Related Projects
@@ -615,6 +616,7 @@ Crée un fichier Excel à ~/Cowork-Workspace/output/depenses.xlsx avec :
       { q: 'Ce guide est-il officiel ?', a: '<strong>Non, c\'est un guide communautaire.</strong> Cowork est en disponibilité générale depuis le 9 avril 2026. Ce guide est activement maintenu et reflète les fonctionnalités actuelles au fur et à mesure que je les teste et les documente. Pas affilié à Anthropic.' },
       { q: 'Qui est derrière ce guide ?', a: 'Créé par <a href="https://github.com/FlorianBruniaux" target="_blank" rel="noopener">Florian BRUNIAUX</a>, un développeur expérimentant Cowork depuis son lancement récent. C\'est un document vivant. J\'apprends en temps réel et documente mes découvertes au fur et à mesure qu\'elles évoluent. Les retours, corrections et vérifications de réalité sont essentiels !' },
       { q: 'Puis-je contribuer au guide ?', a: 'Oui ! Le <a href="https://github.com/FlorianBruniaux/claude-cowork-guide" target="_blank" rel="noopener">dépôt du guide</a> est open-source. Trouvé une erreur ? Vous avez une meilleure instruction (prompt) ? Les contributions sont bienvenues sur GitHub.' },
+      { q: 'Claude Cowork est-il gratuit ?', a: 'Oui, Claude Cowork est une fonctionnalité gratuite incluse avec votre abonnement Claude. Le guide et les 70 prompts sont gratuits.' },
     ],
 
     // Related Projects
