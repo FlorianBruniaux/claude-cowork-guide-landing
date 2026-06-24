@@ -3,6 +3,7 @@
 # All crawlers
 User-agent: *
 Allow: /
+Disallow: /*?q=
 
 # AI Search Engine Bots (GEO - Generative Engine Optimization)
 User-agent: GPTBot
