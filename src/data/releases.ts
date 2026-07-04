@@ -16,6 +16,26 @@ export interface BreakingChange {
 
 export const releases: Release[] = [
   {
+    version: 'v1.11.0',
+    date: 'Jul 4, 2026',
+    highlights: [
+      '⭐ <strong>Claude Fable 5</strong> — premier modèle Mythos-class grand public : contexte 1M, output 128K, adaptive thinking. Suspendu le 12 juin (export controls US), restauré le 1er juillet avec classifieur renforcé',
+      '⭐ <strong>Claude Sonnet 5</strong> — nouveau modèle par défaut Free/Pro, proche d\'Opus 4.8 à coût inférieur. API : $2/$10 par M tokens jusqu\'au 31 août',
+      '⭐ <strong>Claude Opus 4.8</strong> — améliorations coding, agentic skills et raisonnement. Fallback de Fable 5 sur les sujets sensibles',
+      '⭐ <strong>Claude Desktop bêta Linux</strong> — Ubuntu 22.04+/Debian 12+, onglets Chat/Cowork/Code, install <code>apt</code> ou <code>.deb</code>. Computer Use indisponible en bêta',
+      '⭐ <strong>Claude Tag</strong> (bêta Team/Enterprise) — @Claude dans Slack : délégation de tâches, exécution asynchrone, mode ambient proactif, accès scopés',
+      '⭐ <strong>Dynamic Workflows</strong> (research preview) — sous-agents parallèles dans une session unique pour les tâches longues, avec vérification intégrée',
+      '⭐ <strong>Claude Science</strong> (bêta) — workbench scientifique sur claude.com/science : 60+ skills, rendu 3D natif, agent reviewer',
+      'Édition des brouillons en place — surligner un passage d\'un draft (chat ou Cowork) et réviser directement dans l\'artifact',
+      '<strong>Managed Agents</strong> — planification cron + vaults sécurisés. <strong>Connector Observability</strong> en public beta',
+      'Enterprise — rôles admin personnalisés, Connector Access Controls, Compliance API (CrowdStrike, Palo Alto, SentinelOne, Wiz), sandboxes self-hosted + MCP tunnels, model entitlements (bêta)',
+    ],
+    latest: true,
+    initiallyVisible: true,
+    featured: true,
+    featuredLabel: '⭐ Fable 5 + Sonnet 5 + bêta Linux',
+  },
+  {
     version: 'v1.10.0',
     date: 'May 16, 2026',
     highlights: [
@@ -29,7 +49,6 @@ export const releases: Release[] = [
       '<strong>Claude Security</strong> (Enterprise beta) — scan de codebases, rapports vulnérabilités, patchs ciblés. Partenaires : CrowdStrike, Palo Alto, SentinelOne, Wiz',
       '<strong>Outlook add-in</strong> (beta) + <strong>Word</strong> GA — 4 add-ins Office avec contexte partagé',
     ],
-    latest: true,
     initiallyVisible: true,
     featured: true,
     featuredLabel: '⭐ Opus 4.7 + Claude for Small Business + Legal',

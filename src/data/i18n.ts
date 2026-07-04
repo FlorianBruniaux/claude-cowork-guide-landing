@@ -91,12 +91,12 @@ export const UI_STRINGS = {
     heroCtaSecondary: 'Browse Workflows',
 
     // What's New
-    whatsNewBadge: 'Apr 2026',
-    whatsNewTitle: 'v1.9.0: Cowork GA + Enterprise Controls + Zoom Connector',
-    whatsNewText: 'Cowork is generally available (GA) since April 9, 2026. Enterprise controls launched: role-based access, spend limits per group, usage analytics, OpenTelemetry. New Zoom MCP connector. Available on Pro, Max, Team, and Enterprise.',
-    whatsNewWarning: 'Usage limits permanently doubled for all paid plans (May 2026, SpaceX compute partnership). Peak-hour restrictions removed for Pro and Max.',
+    whatsNewBadge: 'Jul 2026',
+    whatsNewTitle: 'v1.11.0: Fable 5 + Sonnet 5 + Linux Beta',
+    whatsNewText: 'Claude Fable 5 (June 9): Anthropic\'s first Mythos-class model on paid plans, 1M context, 128K output. Claude Sonnet 5 (June 30) becomes the default model on Free and Pro. Claude Desktop lands on Linux in beta (Ubuntu 22.04+, Debian 12+) with Chat, Cowork and Code tabs. Also new: Claude Tag in Slack (Team/Enterprise beta), Dynamic Workflows, Claude Science.',
+    whatsNewWarning: 'Fable 5 was suspended on June 12 (US export controls) and restored on July 1 with reinforced safeguards. Included up to 50% of weekly limits through July 7, then usage credits.',
     whatsNewCta: 'View Capabilities →',
-    whatsNewUrl: GUIDE_BASE + 'guide/02-capabilities.md#direct-excel-and-powerpoint-integrations',
+    whatsNewUrl: GUIDE_BASE + 'guide/02-capabilities.md#model-selection',
 
     // TL;DR
     tldrTitle: 'TL;DR',
@@ -431,12 +431,12 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
     heroCtaSecondary: 'Parcourir les Workflows',
 
     // What's New
-    whatsNewBadge: 'Avr 2026',
-    whatsNewTitle: 'v1.9.0 : Cowork GA + Contrôles Enterprise + Connecteur Zoom',
-    whatsNewText: 'Cowork est en disponibilité générale (GA) depuis le 9 avril 2026. Contrôles enterprise lancés : accès par rôle, plafonds de dépenses par groupe, analytics d\'utilisation, OpenTelemetry. Nouveau connecteur Zoom MCP. Disponible sur Pro, Max, Team et Enterprise.',
-    whatsNewWarning: 'Limites d\'utilisation doublées définitivement pour tous les plans payants (mai 2026, partenariat calcul SpaceX). Restrictions heures de pointe supprimées pour Pro et Max.',
+    whatsNewBadge: 'Juil 2026',
+    whatsNewTitle: 'v1.11.0 : Fable 5 + Sonnet 5 + Bêta Linux',
+    whatsNewText: 'Claude Fable 5 (9 juin) : premier modèle Mythos-class d\'Anthropic sur les plans payants, contexte 1M, output 128K. Claude Sonnet 5 (30 juin) devient le modèle par défaut sur Free et Pro. Claude Desktop arrive sur Linux en bêta (Ubuntu 22.04+, Debian 12+) avec les onglets Chat, Cowork et Code. Aussi : Claude Tag dans Slack (bêta Team/Enterprise), Dynamic Workflows, Claude Science.',
+    whatsNewWarning: 'Fable 5 a été suspendu le 12 juin (export controls US) puis restauré le 1er juillet avec des safeguards renforcés. Inclus jusqu\'à 50% des limites hebdo jusqu\'au 7 juillet, ensuite crédits d\'usage.',
     whatsNewCta: 'Voir les fonctionnalités →',
-    whatsNewUrl: GUIDE_BASE + 'guide/02-capabilities.fr.md#integrations-excel-et-powerpoint',
+    whatsNewUrl: GUIDE_BASE + 'guide/02-capabilities.fr.md#selection-du-modele',
 
     // TL;DR
     tldrTitle: 'TL;DR',
