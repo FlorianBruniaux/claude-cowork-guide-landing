@@ -1,0 +1,20 @@
+src/data/releases.ts
+  s_0c948ed42a9cda::t_440087aa3d1230 19-39
+  s_0c948ed42a9cda::t_8efad41795d624 18
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "62569ab09ce3e3f96cf74f346836796f43ee4438",
+  "prompts": {},
+  "sessions": {
+    "s_0c948ed42a9cda": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "23624101-b72d-42d2-8bfa-074a9a3cd5e1",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": null
+    }
+  }
+}
