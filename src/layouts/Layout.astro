@@ -63,7 +63,7 @@ const altUrl = lang === 'en'
     <!-- Hreflang -->
     <link rel="alternate" hreflang={lang} href={canonicalURL} />
     <link rel="alternate" hreflang={altLang} href={altUrl} />
-    <link rel="alternate" hreflang="x-default" href={new URL('/', Astro.site)} />
+    <link rel="alternate" hreflang="x-default" href={lang === 'en' ? canonicalURL : altUrl} />
 
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
@@ -92,8 +92,9 @@ const altUrl = lang === 'en'
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- Preconnect -->
-    <link rel="preconnect" href="https://img.shields.io" crossorigin />
+    <!-- Preconnect (only hosts actually fetched at runtime: the shields.io
+         badges are rendered in CSS now, so preconnecting there cost a DNS +
+         TLS handshake to a host that was never contacted). -->
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
 
     <!-- Anti-FOUC: dark mode default -->
@@ -126,11 +127,6 @@ const altUrl = lang === 'en'
               "https://github.com/FlorianBruniaux",
               "https://www.linkedin.com/in/florian-bruniaux-43408b83/",
             ],
-          },
-          potentialAction: {
-            "@type": "SearchAction",
-            target: "https://cowork.bruniaux.com/?q={search_term_string}",
-            "query-input": "required name=search_term_string",
           },
           speakable: {
             "@type": "SpeakableSpecification",

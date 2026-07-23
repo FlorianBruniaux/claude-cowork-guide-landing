@@ -1,0 +1,35 @@
+---
+/**
+ * Starlight Head override.
+ * Renders Starlight's default head tags, then appends a per-page TechArticle
+ * JSON-LD. Guide pages shipped with zero structured data (schema_validate
+ * returned 0 schemas on /fr/guide/04-troubleshooting/), unlike the landing
+ * pages which get their @graph from src/layouts/Layout.astro.
+ */
+import Default from '@astrojs/starlight/components/Head.astro'
+
+const { entry, lang, siteTitle } = Astro.locals.starlightRoute
+const canonical = new URL(Astro.url.pathname, Astro.site)
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: entry.data.title,
+  description: entry.data.description,
+  url: canonical.href,
+  inLanguage: lang,
+  isPartOf: {
+    '@type': 'WebSite',
+    '@id': 'https://cowork.bruniaux.com/#website',
+    name: siteTitle,
+  },
+  author: {
+    '@type': 'Person',
+    name: 'Florian BRUNIAUX',
+    url: 'https://github.com/FlorianBruniaux',
+  },
+}
+---
+
+<Default><slot /></Default>
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

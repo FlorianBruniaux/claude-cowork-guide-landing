@@ -42,6 +42,7 @@ export default defineConfig({
         './src/styles/starlight-overrides.css',
       ],
       components: {
+        Head: './src/components/starlight/Head.astro',
         Header: './src/components/starlight/Header.astro',
         Footer: './src/components/starlight/Footer.astro',
       },
@@ -80,16 +81,19 @@ export default defineConfig({
     tailwind({ applyBaseStyles: false }),
     sitemap({
       serialize(item) {
-        if (item.url === 'https://cowork.bruniaux.com/') {
-          return { ...item, priority: 1.0, changefreq: 'weekly' }
+        // trailingSlash: 'always' → normalize sitemap URLs to match the live
+        // canonical, otherwise Google crawls the 301 source and never indexes.
+        const url = item.url.endsWith('/') ? item.url : `${item.url}/`
+        if (url === 'https://cowork.bruniaux.com/') {
+          return { ...item, url, priority: 1.0, changefreq: 'weekly' }
         }
-        if (item.url.includes('/fr/')) {
-          return { ...item, priority: 0.9, changefreq: 'weekly' }
+        if (url.includes('/fr/')) {
+          return { ...item, url, priority: 0.9, changefreq: 'weekly' }
         }
-        if (item.url.includes('/guide/')) {
-          return { ...item, priority: 0.85, changefreq: 'weekly' }
+        if (url.includes('/guide/')) {
+          return { ...item, url, priority: 0.85, changefreq: 'weekly' }
         }
-        return { ...item, priority: 0.7, changefreq: 'monthly' }
+        return { ...item, url, priority: 0.7, changefreq: 'monthly' }
       },
     }),
   ],

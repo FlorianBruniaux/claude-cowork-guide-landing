@@ -6,7 +6,7 @@ export const UI_STRINGS = {
   en: {
     // Meta
     siteTitle: 'Claude Cowork Guide: 28 workflows & 70 Prompts - Free',
-    siteDescription: 'Master Claude Cowork with 28 step-by-step workflows and 70 ready-to-use prompts. Free guide for desktop file automation, document creation, and OCR. Get started →',
+    siteDescription: 'Master Claude Cowork with 28 workflows and 70 ready-to-use prompts. Free guide for desktop file automation, document creation, and OCR. Get started →',
     ogDescription: 'Free, open-source guide for Claude Cowork. 28 workflows, 70 prompts, security best practices. Master desktop AI automation.',
     twitterDescription: '70 ready-to-use prompts, 28 workflows, security guide. Master Claude\'s desktop AI assistant.',
 
@@ -346,7 +346,7 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
   fr: {
     // Meta
     siteTitle: 'Guide Claude Cowork : 28 workflows & 70 Prompts - Gratuit',
-    siteDescription: 'Maîtrisez Claude Cowork avec 28 workflows détaillés et 70 prompts prêts à l\'emploi. Guide gratuit pour l\'automatisation de fichiers, création de documents et OCR. Démarrez →',
+    siteDescription: 'Maîtrisez Claude Cowork avec 28 workflows et 70 prompts prêts à l\'emploi. Guide gratuit : automatisation de fichiers, création de documents, OCR. Démarrez →',
     ogDescription: 'Guide gratuit et open-source pour Claude Cowork. 28 workflows, 70 prompts, bonnes pratiques de sécurité. Maîtrisez l\'automatisation IA sur desktop.',
     twitterDescription: '70 prompts prêts à l\'emploi, 28 workflows, guide de sécurité. Maîtrisez l\'assistant IA desktop de Claude.',
 
