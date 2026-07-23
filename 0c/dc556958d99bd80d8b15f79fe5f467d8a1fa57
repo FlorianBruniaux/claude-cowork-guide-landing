@@ -1,0 +1,31 @@
+src/data/i18n.ts
+  s_8b9769027d50ea::t_5bf205eb2e3c6f 349
+  s_8b9769027d50ea::t_fa27edd5dd7f7c 9
+pnpm-workspace.yaml
+  s_8b9769027d50ea::t_6df3a4090eb972 1
+  s_8b9769027d50ea::t_14e3377f6ec001 2-3
+astro.config.mjs
+  s_8b9769027d50ea::t_b7dab05fb96ff0 45
+  s_8b9769027d50ea::t_be403be4175b2a 84-88,90-91,93-94,96
+src/components/starlight/Head.astro
+  s_8b9769027d50ea::t_7d98bc820d71b8 1-35
+src/layouts/Layout.astro
+  s_8b9769027d50ea::t_3a4ecf41a92ad6 95-97
+  s_8b9769027d50ea::t_e35f5805aa0ff4 66
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "0cdc556958d99bd80d8b15f79fe5f467d8a1fa57",
+  "prompts": {},
+  "sessions": {
+    "s_8b9769027d50ea": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "eb0fdb27-ee08-462c-9e49-968dc2e866dd",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Florian BRUNIAUX <florian@bruniaux.com>"
+    }
+  }
+}
