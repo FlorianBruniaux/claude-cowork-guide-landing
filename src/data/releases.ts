@@ -16,6 +16,28 @@ export interface BreakingChange {
 
 export const releases: Release[] = [
   {
+    version: 'v1.12.0',
+    date: 'Jul 22, 2026',
+    highlights: [
+      '⭐ <strong>Claude Cowork sur web et mobile</strong> (bêta, Max d\'abord) — sessions et fichiers sauvegardés sur le compte Claude, accessibles depuis claude.ai, iPhone, iPad et Android. Tâches exécutées dans le cloud sans appareil connecté',
+      '⭐ <strong>Chat et Cowork fusionnés</strong> — les onglets séparés disparaissent au profit d\'une vue unique, sur web et desktop',
+      '⭐ <strong>Microsoft 365 : outils d\'écriture</strong> — le connecteur passe en écriture (emails, calendrier, OneDrive, SharePoint). Teams reste en lecture seule. Consentement admin requis',
+      '⭐ <strong>Reflect + Time and focus</strong> (bêta Free/Pro/Max) — temps passé par sujet, jour actif, heure de pointe ; rappels de pause et heures calmes. Mémoire requise',
+      '<strong>Configuration HIPAA en self-service</strong> (Enterprise/API) — BAA, guide d\'implémentation et activation dans un parcours unifié, sans passer par le support',
+      '<strong>Admin API Claude Enterprise</strong> (bêta) — gestion des membres claude.ai par API : rôles, invitations, groupes, rôles custom',
+      '<strong>Configuration managée Cowork</strong> — <code>otlpTracesEnabled</code>, <code>toolSearchEnabled</code>, <code>allowedPluginMarketplaces</code> par utilisateur, <code>disableFeatureDiscovery</code>',
+      '<strong>Mémoire par entrées catégorisées</strong> — la mémoire devient un ensemble d\'entrées que Claude lit et met à jour, en remplacement du résumé quotidien',
+      'Fixed: <strong>Cowork indisponible sur ChromeOS</strong> — plus d\'accès terminal proposé sur les OS incapables de fournir la virtualisation nécessaire à l\'environnement isolé',
+    ],
+    breaking: [
+      'Desktop Extensions désactivées par défaut (déploiements administrés) — <code>isDesktopExtensionEnabled</code> passe de <code>true</code> à <code>false</code>. Les extensions <code>.dxt</code> et <code>.mcpb</code> ne se chargent plus tant qu\'un admin ne l\'autorise pas',
+    ],
+    latest: true,
+    initiallyVisible: true,
+    featured: true,
+    featuredLabel: '⭐ Cowork sur web et mobile + fusion Chat/Cowork',
+  },
+  {
     version: 'v1.11.0',
     date: 'Jul 4, 2026',
     highlights: [
@@ -30,7 +52,6 @@ export const releases: Release[] = [
       '<strong>Managed Agents</strong> — planification cron + vaults sécurisés. <strong>Connector Observability</strong> en public beta',
       'Enterprise — rôles admin personnalisés, Connector Access Controls, Compliance API (CrowdStrike, Palo Alto, SentinelOne, Wiz), sandboxes self-hosted + MCP tunnels, model entitlements (bêta)',
     ],
-    latest: true,
     initiallyVisible: true,
     featured: true,
     featuredLabel: '⭐ Fable 5 + Sonnet 5 + bêta Linux',
