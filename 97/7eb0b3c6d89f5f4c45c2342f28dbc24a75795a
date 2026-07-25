@@ -1,0 +1,19 @@
+pnpm-workspace.yaml
+  s_8a65bf3da7908b::t_8532e021c135e0 1-2,6-8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "977eb0b3c6d89f5f4c45c2342f28dbc24a75795a",
+  "prompts": {},
+  "sessions": {
+    "s_8a65bf3da7908b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "75ede287-2942-41d0-b8ea-ad3bcadc6167",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Florian BRUNIAUX <florian@bruniaux.com>"
+    }
+  }
+}
