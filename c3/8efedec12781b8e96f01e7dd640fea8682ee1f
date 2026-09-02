@@ -1,0 +1,16 @@
+src/data/adoption-paths.test.ts
+  h_07916ece6468dd 18-19
+src/data/i18n.ts
+  h_07916ece6468dd 135,503
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "c38efedec12781b8e96f01e7dd640fea8682ee1f",
+  "prompts": {},
+  "humans": {
+    "h_07916ece6468dd": {
+      "author": "Florian BRUNIAUX <florian@bruniaux.com>"
+    }
+  }
+}
