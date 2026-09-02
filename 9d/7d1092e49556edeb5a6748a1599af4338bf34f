@@ -1,0 +1,22 @@
+src/data/adoption-paths.test.ts
+  s_bdb2613b4f3398::t_8c09f43eabd932 18-21,34,37-38,41
+  s_bdb2613b4f3398::t_b3186e20a13b2b 22-25
+CHANGELOG.md
+  s_bdb2613b4f3398::t_696e246267019a 9-12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "9d7d1092e49556edeb5a6748a1599af4338bf34f",
+  "prompts": {},
+  "sessions": {
+    "s_bdb2613b4f3398": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a05eba-a063-7eb2-8f50-a7bad8a04d04",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Florian BRUNIAUX <florian@bruniaux.com>"
+    }
+  }
+}
