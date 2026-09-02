@@ -1,0 +1,134 @@
+---
+import type { Lang } from '../../data/i18n'
+import { t } from '../../data/i18n'
+
+interface Props { lang: Lang }
+const s = t(Astro.props.lang)
+---
+
+<section class="section adoption-paths" aria-labelledby="adoption-paths-title">
+  <div class="container">
+    <p class="adoption-badge">{s.adoptionBadge}</p>
+    <h2 id="adoption-paths-title" class="section-title">{s.adoptionTitle}</h2>
+    <p class="section-subtitle">{s.adoptionSubtitle}</p>
+
+    <div class="adoption-grid">
+      {s.adoptionPaths.map((path, index) => (
+        <article class="adoption-card">
+          <p class="adoption-index" aria-hidden="true">0{index + 1}</p>
+          <h3>{path.label}</h3>
+          <p>{path.description}</p>
+          <p class="adoption-exit">{path.exit}</p>
+        </article>
+      ))}
+    </div>
+
+    <div class="adoption-footer">
+      <p>{s.adoptionNote}</p>
+      <a href={s.adoptionGuideUrl} target="_blank" rel="noopener">
+        {s.adoptionGuideCta} <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .adoption-paths {
+    background: var(--surface);
+    border-block: 1px solid var(--border);
+  }
+
+  .adoption-badge {
+    display: inline-block;
+    margin: 0 0 var(--space-md);
+    padding: var(--space-xs) var(--space-md);
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .adoption-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-md);
+  }
+
+  .adoption-card {
+    min-width: 0;
+    padding: var(--space-lg);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius-lg);
+    background: var(--surface-elevated);
+  }
+
+  .adoption-index {
+    margin: 0 0 var(--space-sm);
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+
+  .adoption-card h3 {
+    margin-bottom: var(--space-sm);
+    font-size: 1.25rem;
+  }
+
+  .adoption-card p {
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+  }
+
+  .adoption-card .adoption-exit {
+    margin: var(--space-md) 0 0;
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--border);
+    color: var(--text-primary);
+    font-size: 0.82rem;
+    font-weight: 600;
+  }
+
+  .adoption-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
+    padding: var(--space-md) var(--space-lg);
+    border-left: 3px solid var(--accent);
+    background: var(--surface-elevated);
+  }
+
+  .adoption-footer p {
+    margin: 0;
+    color: var(--text-secondary);
+  }
+
+  .adoption-footer a {
+    flex: 0 0 auto;
+    color: var(--accent);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .adoption-footer a:hover,
+  .adoption-footer a:focus-visible {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 800px) {
+    .adoption-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .adoption-footer {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+  }
+</style>

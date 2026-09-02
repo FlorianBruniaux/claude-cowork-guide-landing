@@ -121,6 +121,34 @@ export const UI_STRINGS = {
     step3Title: 'Copy Your First Prompt',
     step3Text: 'Start with <a href="#prompts">70 ready-to-use prompts</a> for common tasks',
 
+    // Adoption paths
+    adoptionBadge: 'Adoption paths',
+    adoptionTitle: 'Choose the next operating condition',
+    adoptionSubtitle: 'Keep one task controlled, turn proven work into a reusable workflow, then add shared controls only when repetition or exposure requires them.',
+    adoptionGuideCta: 'Read the Cowork adoption method',
+    adoptionGuideUrl: GUIDE_BASE + 'guide/methodologies.md#start--build--scale-for-knowledge-work',
+    adoptionNote: 'Scale is not a mandatory destination. A useful one-person workflow may remain at Build.',
+    adoptionPaths: [
+      {
+        id: 'start',
+        label: 'Start',
+        description: 'Complete one real task inside a dedicated workspace. Preserve the source files and verify the result against a sample.',
+        exit: 'Exit: you can explain, check, and recover the task.',
+      },
+      {
+        id: 'build',
+        label: 'Build',
+        description: 'Save the prompt or template, inputs, outputs, required context, and verification step for a proven task.',
+        exit: 'Exit: another person can run the workflow and recognize success or failure.',
+      },
+      {
+        id: 'scale',
+        label: 'Scale',
+        description: 'Add shared controls when the workflow crosses people, recurring volume, sensitive documents, or business dependencies.',
+        exit: 'Exit: ownership, permissions, logs, escalation, and recovery are inspectable.',
+      },
+    ],
+
     // Why This Guide
     whyTitle: 'Why This Guide?',
     whySubtitle: 'Stop wasting hours. Start working safely and efficiently from day one.',
@@ -460,6 +488,34 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
     step2Text: 'Lire le <a href="' + GUIDE_BASE + 'guide/01-getting-started.md" target="_blank" rel="noopener">guide de démarrage</a> pour l\'isolation sécurisée et la configuration des sauvegardes',
     step3Title: 'Copier Votre Premier Prompt',
     step3Text: 'Commencer avec <a href="#prompts">70 prompts prêts à l\'emploi</a> pour vos tâches courantes',
+
+    // Parcours d'adoption
+    adoptionBadge: 'Parcours d\'adoption',
+    adoptionTitle: 'Choisissez la prochaine condition de fonctionnement',
+    adoptionSubtitle: 'Gardez une tâche sous contrôle, transformez le travail validé en workflow réutilisable, puis ajoutez des contrôles partagés lorsque la répétition ou l\'exposition l\'exige.',
+    adoptionGuideCta: 'Lire la méthode d\'adoption Cowork',
+    adoptionGuideUrl: GUIDE_BASE + 'guide/methodologies.md#start--build--scale-for-knowledge-work',
+    adoptionNote: 'Scale n\'est pas une destination obligatoire. Un workflow utile pour une personne peut rester au stade Build.',
+    adoptionPaths: [
+      {
+        id: 'start',
+        label: 'Start',
+        description: 'Réalisez une tâche réelle dans un espace dédié. Préservez les fichiers sources et vérifiez le résultat sur un échantillon.',
+        exit: 'Sortie : vous savez expliquer, vérifier et restaurer la tâche.',
+      },
+      {
+        id: 'build',
+        label: 'Build',
+        description: 'Conservez le prompt ou le modèle, les entrées, les sorties, le contexte requis et l\'étape de vérification d\'une tâche validée.',
+        exit: 'Sortie : une autre personne peut exécuter le workflow et reconnaître un succès ou un échec.',
+      },
+      {
+        id: 'scale',
+        label: 'Scale',
+        description: 'Ajoutez des contrôles partagés lorsque le workflow implique plusieurs personnes, un volume récurrent, des documents sensibles ou des dépendances métier.',
+        exit: 'Sortie : responsabilité, permissions, journaux, escalade et reprise sont vérifiables.',
+      },
+    ],
 
     // Why This Guide
     whyTitle: 'Pourquoi ce Guide ?',
