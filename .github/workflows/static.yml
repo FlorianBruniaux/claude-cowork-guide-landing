@@ -11,7 +11,7 @@ permissions:
   id-token: write
 
 env:
-  GUIDE_COMMIT: b425d542fe5e4b1b83dc82dbfd92b48a54b9fdaa
+  GUIDE_COMMIT: d0fc8f0cae0951b4bf4acaf1bcfef536e5fa3a1c
 
 concurrency:
   group: "pages"

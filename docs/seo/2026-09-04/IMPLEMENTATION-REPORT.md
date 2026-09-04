@@ -56,6 +56,7 @@ Guide, branche `codex/cowork-seo-audit-20260904` :
 - `7068f34` `fix(docs): repair generated guide anchors`
 - `04f9124` `fix(docs): qualify network and pricing claims`
 - `b425d54` `fix(ci): compare translation commit order`
+- `d0fc8f0` `fix(ci): avoid bash errexit on counters`
 
 Landing, branche `codex/cowork-seo-audit-20260904` :
 
