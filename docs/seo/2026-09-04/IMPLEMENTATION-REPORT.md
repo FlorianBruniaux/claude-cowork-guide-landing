@@ -1,6 +1,6 @@
 # Rapport d'implémentation SEO
 
-Statut : **VALIDÉ LOCALEMENT, NON DÉPLOYÉ**.
+Statut : **INTÉGRÉ, DÉPLOYÉ ET VALIDÉ EN PRODUCTION**.
 
 Date de validation : 4 septembre 2026.
 
@@ -10,7 +10,7 @@ Date de validation : 4 septembre 2026.
 - Build : 112 pages HTML et 112 URL sitemap, sans finding du gate SEO.
 - Parité du corpus publié : 44 pages guide EN et 44 FR.
 - Guide : 29 workflows, 70 prompts, version 1.12.0, 47 traductions synchronisées.
-- Production actuelle : smoke HTTP strict 7/7. Ce test prouve l'état public avant déploiement, pas les corrections locales.
+- Production : smoke HTTP strict 7/7 après déploiement du SHA landing `41e05a6a0bb64531ff432a214e4a3b85f3c60e59`.
 
 ## Changements
 
@@ -41,9 +41,11 @@ L'installation d'`@astrojs/check` a transformé une invite interactive sans preu
 | `pnpm check` | PASS, 0 erreur, 0 warning, 12 hints |
 | `pnpm build` | PASS, 112 pages |
 | `pnpm check:built-seo` | PASS, 112 pages et 112 URL sitemap |
-| `pnpm check:public-seo` | PASS, 7/7 sur la production actuelle |
-| Rendu desktop | PASS sur l'accueil local |
-| Rendu mobile 390 x 844 | PASS sur accueil, FAQ et guide local |
+| `pnpm check:public-seo` | PASS, 7/7 après déploiement |
+| Rendu desktop production | PASS sur accueil EN/FR, FAQ, guide et workflows |
+| Rendu mobile production 390 x 844 | PASS sur accueil, FAQ, guide et workflows |
+| GitHub Pages | PASS, workflow `33878780179` |
+| GSC | PASS, sitemap canonique soumis sans erreur et ancien sitemap retiré |
 | Revue indépendante, troisième passe | PASS, 0 P0 et 0 P1 |
 
 ## Commits locaux
@@ -63,16 +65,22 @@ Landing, branche `codex/cowork-seo-audit-20260904` :
 - `3cf3307` `feat(seo): enforce generated site contracts`
 - `c838a34` `fix(seo): align Cowork facts and entities`
 - `2b4f88b` `fix(seo): close final audit blockers`
+- `c2e104a` `chore(seo): integrate audited guide revision`
+- `67b3df5` `fix(ci): pin successful guide revision`
+- `41e05a6` `fix(ci): prepare generated content before check`
 
 ## Actions externes
 
-Aucune. Aucun push, merge, déploiement, changement GSC, changement GA4 ni écriture portfolio.
+- Guide poussé sur `origin/main` au SHA `d0fc8f0cae0951b4bf4acaf1bcfef536e5fa3a1c`.
+- Landing poussée et déployée depuis `origin/main` au SHA `41e05a6a0bb64531ff432a214e4a3b85f3c60e59`.
+- Ancien sitemap `https://cowork.bruniaux.com/sitemap.xml` supprimé de GSC.
+- Sitemap canonique `https://cowork.bruniaux.com/sitemap-index.xml` soumis le 4 septembre 2026 à 13:40:02 UTC, téléchargé par GSC à 13:40:03 UTC, sans erreur ni warning.
+- Aucune modification GA4 ni écriture portfolio.
 
 ## Risques résiduels
 
-- Le déploiement et la réinspection GSC ne sont pas prouvés.
 - GA4 reste `UNKNOWN` : le Measurement ID observé est partagé avec `cc.bruniaux.com` et la propriété numérique n'est pas connue.
-- L'ancien `sitemap.xml` soumis dans GSC reste en erreur. Son retrait exige une écriture externe.
+- `/workflows/`, `/fr/workflows/` et `/fr/whitepapers/` restent `NEUTRAL` lors de la réinspection GSC, sans crawl ni canonical exploitables. Leur HTTP 200 et leur présence dans le sitemap ne prouvent pas leur indexation.
 - `/index.html`, les headers de sécurité et une CSP report-only dépendent de la couche d'hébergement.
 - CrUX et PageSpeed restent `UNKNOWN` après une réponse API 429.
 - Les 12 hints Astro n'empêchent ni le typage ni le build, mais restent une dette technique mesurable.
