@@ -78,7 +78,7 @@ export const releases: Release[] = [
     version: 'v1.9.0',
     date: 'Apr 11, 2026',
     highlights: [
-      '⭐ <strong>Cowork GA</strong> — disponibilité générale sur macOS et Windows. Fini le "research preview" — disponible Pro, Max, Team et Enterprise',
+      '⭐ <strong>Couverture Cowork étendue</strong> — documentation macOS et Windows, avec accès selon le plan et la surface',
       '⭐ <strong>Connecteur Zoom MCP</strong> — nouveau connecteur officiel : réunions, transcripts, automatisation depuis Cowork',
       '⭐ <strong>Contrôle d\'accès par rôle</strong> (Enterprise) — groupes, rôles personnalisés, activation Cowork par équipe',
       '⭐ <strong>Analytics d\'utilisation</strong> (Enterprise) — monitoring d\'activité et reporting par équipe via Analytics API',
@@ -88,7 +88,7 @@ export const releases: Release[] = [
     ],
     initiallyVisible: true,
     featured: true,
-    featuredLabel: '⭐ Cowork GA + Enterprise controls',
+    featuredLabel: '⭐ Cowork coverage + enterprise controls',
   },
   {
     version: 'v1.8.1',

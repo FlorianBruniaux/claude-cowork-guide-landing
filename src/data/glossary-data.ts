@@ -161,11 +161,12 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   // L
   {
-    id: 'local-first',
+    id: 'local-folder-access',
     letter: 'L',
-    term: 'Local-First',
-    definition: 'Design principle where data and processing stay on your computer rather than in the cloud. Cowork accesses local files only — nothing is uploaded without your explicit action.',
-    definitionFr: 'Principe de design où les données et le traitement restent sur votre ordinateur plutôt que dans le cloud. Cowork accède uniquement aux fichiers locaux — rien n\'est téléchargé sans votre action explicite.',
+    term: 'Local Folder Access',
+    termFr: 'Accès aux dossiers locaux',
+    definition: 'On desktop, Cowork can work with folders you select while running code in an isolated environment. Other surfaces can use cloud sessions and connectors. Data handling depends on the surface, permissions, and Anthropic policies.',
+    definitionFr: 'Sur desktop, Cowork peut travailler dans les dossiers que vous sélectionnez tout en exécutant le code dans un environnement isolé. Les autres surfaces peuvent utiliser des sessions cloud et des connecteurs. Le traitement des données dépend de la surface, des permissions et des politiques Anthropic.',
     category: 'Security',
   },
   // M

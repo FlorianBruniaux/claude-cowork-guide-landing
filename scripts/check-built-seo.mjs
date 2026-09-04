@@ -47,13 +47,19 @@ export async function auditBuiltSite(distDir = resolve('dist')) {
 
   const htmlFiles = filesBelow(distDir, '.html')
   const routes = new Set(htmlFiles.map(file => routeFor(distDir, file)))
+  const htmlByRoute = new Map(htmlFiles.map(file => [routeFor(distDir, file), readFileSync(file, 'utf8')]))
+  const idsByRoute = new Map([...htmlByRoute].map(([route, html]) => [
+    route,
+    new Set([...html.matchAll(/\bid=(?:"([^"]+)"|'([^']+)')/gi)].map(match => match[1] ?? match[2])),
+  ]))
   const canonicals = new Map()
+  const canonicalOwners = new Map()
   const alternatesByCanonical = new Map()
   const titles = new Map()
 
   for (const file of htmlFiles) {
     const route = routeFor(distDir, file)
-    const html = readFileSync(file, 'utf8')
+    const html = htmlByRoute.get(route)
     const htmlTag = html.match(/<html\b[^>]*>/i)?.[0] ?? ''
     const lang = attrs(htmlTag).lang ?? ''
     const title = textBetween(html, 'title')
@@ -76,6 +82,13 @@ export async function auditBuiltSite(distDir = resolve('dist')) {
     const h1Count = (html.match(/<h1\b/gi) ?? []).length
     if (h1Count !== 1) add('H1_COUNT', route, `Expected one H1, found ${h1Count}`)
     if (canonicalLinks.length !== 1 || !canonical?.startsWith(`${ORIGIN}/`)) add('CANONICAL', route, `Expected one HTTPS canonical on ${ORIGIN}`)
+    if (canonical) {
+      const expectedCanonical = `${ORIGIN}${route}`
+      if (canonical !== expectedCanonical) add('CANONICAL_ROUTE_MISMATCH', route, `Expected ${expectedCanonical}, found ${canonical}`)
+      const owner = canonicalOwners.get(canonical)
+      if (owner && owner !== route) add('CANONICAL_DUPLICATE', route, `Canonical also belongs to ${owner}`)
+      else canonicalOwners.set(canonical, route)
+    }
     if (/noindex/i.test(robots)) add('NOINDEX_CANONICAL', route, 'Canonical page is noindex')
     if ((route.startsWith('/fr/') && lang !== 'fr') || (!route.startsWith('/fr/') && lang !== 'en')) add('LANG_PATH_MISMATCH', route, `lang=${lang || '(missing)'}`)
     if (!alternates.has('x-default')) add('HREFLANG_X_DEFAULT', route, 'Missing x-default')
@@ -93,13 +106,22 @@ export async function auditBuiltSite(distDir = resolve('dist')) {
 
     for (const match of html.matchAll(/<a\b[^>]*href=(?:"([^"]+)"|'([^']+)')[^>]*>/gi)) {
       const href = match[1] ?? match[2]
-      if (!href || href.startsWith('#') || href.startsWith('&#') || /^(mailto:|tel:|javascript:)/i.test(href)) continue
+      if (!href || href.startsWith('&#') || /^(mailto:|tel:|javascript:)/i.test(href)) continue
       let target
-      try { target = normalizeRoute(href) } catch { add('LINK_INVALID', route, href); continue }
+      let resolvedLink
+      try {
+        resolvedLink = new URL(href, `${ORIGIN}${route}`)
+        target = normalizeRoute(resolvedLink.href)
+      } catch { add('LINK_INVALID', route, href); continue }
       if (!target) continue
       if (/\.[a-z0-9]+$/i.test(target) && !target.endsWith('.html')) {
         if (!existsSync(resolve(distDir, target.slice(1)))) add('BROKEN_INTERNAL_LINK', route, target)
       } else if (!routes.has(target)) add('BROKEN_INTERNAL_LINK', route, target)
+      else if (resolvedLink.hash) {
+        let fragment = resolvedLink.hash.slice(1)
+        try { fragment = decodeURIComponent(fragment) } catch { /* malformed fragments remain unmatched */ }
+        if (!idsByRoute.get(target)?.has(fragment)) add('BROKEN_INTERNAL_FRAGMENT', route, `${target}#${fragment}`)
+      }
     }
   }
 

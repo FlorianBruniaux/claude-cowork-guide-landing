@@ -80,7 +80,7 @@ export const UI_STRINGS = {
 
     // Hero
     heroTitle: 'Master Claude Cowork',
-    heroTagline: 'The complete guide for Claude\'s desktop AI assistant',
+    heroTagline: 'The complete guide to Claude Cowork across desktop, web, and mobile',
     heroBadgeLabelWorkflows: 'workflows',
     heroBadgeWorkflows: '29',
     heroBadgeLabelPrompts: 'prompts',
@@ -91,7 +91,7 @@ export const UI_STRINGS = {
     heroCtaSecondary: 'Browse Workflows',
 
     // What's New
-    whatsNewBadge: 'Jul 2026',
+    whatsNewBadge: 'Sep 2026',
     whatsNewTitle: 'Guide v1.12.0: 29 workflows and 70 prompts',
     whatsNewText: 'The guide now provides a bilingual workflow library, a verified product FAQ, security guidance, prompt templates, and reference material for each supported surface.',
     whatsNewWarning: 'Product capabilities vary by plan and surface. Check the linked Anthropic documentation before relying on a feature for critical work.',
@@ -113,7 +113,7 @@ export const UI_STRINGS = {
     // Getting Started
     gettingStartedBadge: 'Quick Setup',
     gettingStartedTitle: 'Get Started in 3 Steps',
-    gettingStartedSubtitle: '15 minutes to your first automated workflow',
+    gettingStartedSubtitle: 'A practical path to your first automated workflow',
     step1Title: 'Install Claude Desktop',
     step1Text: 'Download from <a href="https://claude.ai/download" target="_blank" rel="noopener">claude.ai/download</a>. Cowork requires an eligible paid plan; Linux Desktop remains beta.',
     step2Title: 'Follow Security Setup',
@@ -128,7 +128,7 @@ export const UI_STRINGS = {
     withoutIcon: '😰',
     withoutItems: [
       'Blocked from working for hours with setup issues',
-      'Out of quota after 1 hour, can\'t finish work',
+      'Repeat expensive attempts without clear checkpoints',
       'Risk exposing passwords, confidential files, API keys',
       'Write every instruction manually, every time',
       'No idea what tasks are safe to delegate',
@@ -137,7 +137,7 @@ export const UI_STRINGS = {
     withTitle: 'With the Guide',
     withIcon: '🚀',
     withItems: [
-      'Working in 15 minutes with step-by-step setup',
+      'Follow a step-by-step setup with explicit checkpoints',
       'Use explicit scope and checkpoints to control expensive retries',
       'Keep passwords & files safe with isolation setup',
       '70 copy-paste prompts ready to use instantly',
@@ -262,23 +262,6 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
     // FAQ
     faqTitle: 'Frequently Asked Questions',
     faqSubtitle: 'Quick answers to common questions',
-    faqItems: [
-      { q: 'What is Cowork?', a: 'Cowork is Claude\'s agentic desktop feature that manipulates local files, creates documents, and organizes your workspace, without writing code. Think of it as Claude Code for knowledge workers.' },
-      { q: 'How much does Cowork cost?', a: 'Cowork requires a Pro ($20/month) or Max ($100-200/month) subscription. Pro is recommended for light use only (quota exhausts in ~1-1.5 hours of intensive use).' },
-      { q: 'Does Cowork work on Windows or Linux?', a: 'Windows support was added on February 10, 2026. Both macOS and Windows are supported. Linux has no official announcement — use Claude Code for Linux agentic capabilities.' },
-      { q: 'Can I use Cowork with a VPN?', a: 'No. VPN software creates routing conflicts with Cowork\'s internal VM networking. This is the #1 reported issue. Disconnect VPN completely before using Cowork.' },
-      { q: 'Is Cowork secure?', a: 'Enterprise-grade security controls launched with GA (April 9, 2026): role-based access, spend limits, usage analytics, OpenTelemetry. Note: Audit Logs don\'t capture Cowork activity — confirmed limitation. Best practices: use dedicated workspace, review every plan, keep credentials out, verify file sources.' },
-      { q: 'What can Cowork NOT do?', a: 'Cowork cannot: execute code/scripts, make API calls, access cloud storage directly (Google Drive, Dropbox), process audio/video, decrypt encrypted files.' },
-      { q: 'When should I use Chat vs Cowork?', a: 'Chat (80%): reasoning, writing, coding, exploratory tasks. Cowork (20%): batch file operations, document creation, browser automation. Together they enable workflows impossible with either alone.' },
-      { q: 'What\'s the difference from Claude Code?', a: 'Claude Code: terminal interface, full shell access, for developers. Cowork: desktop app, file-only access, for knowledge workers. They share architecture but differ in capabilities.' },
-      { q: 'Can Cowork create Excel formulas?', a: 'Yes! Cowork can create Excel files with working formulas, multiple sheets, and formatting. Specify your regional setting (US comma vs EU semicolon) in your prompt.' },
-      { q: 'What are the usage limits?', a: 'Usage resets every 5 hours (not daily/monthly). Pro tier: ~45 short messages per reset (~1-1.5h intensive use). Max tier: 5x-20x more. File processing consumes tokens rapidly.' },
-      { q: 'Is this guide official?', a: '<strong>No, this is a community guide.</strong> Cowork has been GA since April 9, 2026. This guide is actively maintained and reflects the current feature set as I test and document new capabilities. Not affiliated with Anthropic.' },
-      { q: 'Who is behind this guide?', a: 'Created by <a href="https://github.com/FlorianBruniaux" target="_blank" rel="noopener">Florian BRUNIAUX</a>, a developer experimenting with Cowork since its recent launch. This is a living document. I\'m learning in real-time and documenting my findings as they evolve. Feedback, corrections, and reality checks are essential!' },
-      { q: 'Can I contribute to the guide?', a: 'Yes! The <a href="https://github.com/FlorianBruniaux/claude-cowork-guide" target="_blank" rel="noopener">guide repository</a> is open-source. Found an error? Have a better prompt? Contributions welcome on GitHub.' },
-      { q: 'Is Claude Cowork free?', a: 'Yes, Claude Cowork is a free desktop feature included with your Claude subscription. The guide and all 70 prompts are free to use.' },
-    ],
-
     // Related Projects
     relatedTitle: 'Related Projects',
     relatedProjects: [
@@ -420,7 +403,7 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
 
     // Hero
     heroTitle: 'Maîtrisez Claude Cowork',
-    heroTagline: 'Le guide complet pour l\'assistant IA desktop de Claude',
+    heroTagline: 'Le guide complet de Claude Cowork sur desktop, web et mobile',
     heroBadgeLabelWorkflows: 'workflows',
     heroBadgeWorkflows: '29',
     heroBadgeLabelPrompts: 'prompts',
@@ -431,7 +414,7 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
     heroCtaSecondary: 'Parcourir les Workflows',
 
     // What's New
-    whatsNewBadge: 'Juil 2026',
+    whatsNewBadge: 'Sept 2026',
     whatsNewTitle: 'Guide v1.12.0 : 29 workflows et 70 prompts',
     whatsNewText: 'Le guide propose maintenant une bibliothèque bilingue de workflows, une FAQ produit vérifiée, des pratiques de sécurité, des modèles de prompts et des références par surface.',
     whatsNewWarning: 'Les capacités produit varient selon le plan et la surface. Vérifiez la documentation Anthropic liée avant de dépendre d’une fonction pour une tâche critique.',
@@ -453,7 +436,7 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
     // Getting Started
     gettingStartedBadge: 'Configuration Rapide',
     gettingStartedTitle: 'Commencer en 3 Étapes',
-    gettingStartedSubtitle: '15 minutes jusqu\'à votre premier workflow automatisé',
+    gettingStartedSubtitle: 'Un parcours pratique vers votre premier workflow automatisé',
     step1Title: 'Installer Claude Desktop',
     step1Text: 'Télécharger depuis <a href="https://claude.ai/download" target="_blank" rel="noopener">claude.ai/download</a>. Cowork exige un plan payant éligible ; Linux Desktop reste en beta.',
     step2Title: 'Suivre la Configuration Sécurité',
@@ -468,7 +451,7 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
     withoutIcon: '😰',
     withoutItems: [
       'Bloqué pendant des heures avec des problèmes de configuration',
-      'À court de quota après 1 heure, impossible de finir le travail',
+      'Répéter des tentatives coûteuses sans points de contrôle clairs',
       'Risque d\'exposer mots de passe, fichiers confidentiels, clés API',
       'Écrire chaque instruction manuellement, à chaque fois',
       'Aucune idée des tâches sûres à déléguer',
@@ -477,7 +460,7 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
     withTitle: 'Avec le Guide',
     withIcon: '🚀',
     withItems: [
-      'Opérationnel en 15 minutes avec configuration pas à pas',
+      'Suivez une configuration pas à pas avec des points de contrôle explicites',
       'Cadrez la tâche et les validations pour limiter les reprises coûteuses',
       'Gardez mots de passe & fichiers en sécurité avec isolation',
       '70 prompts copier-coller prêts à l\'emploi instantanément',
@@ -602,23 +585,6 @@ Crée un fichier Excel à ~/Cowork-Workspace/output/depenses.xlsx avec :
     // FAQ
     faqTitle: 'Questions Fréquentes',
     faqSubtitle: 'Réponses rapides aux questions courantes',
-    faqItems: [
-      { q: 'Qu\'est-ce que Cowork ?', a: 'Cowork est la fonctionnalité autonome (agentique) de Claude qui manipule les fichiers locaux, crée des documents et organise votre espace de travail, sans écrire de code. Pensez-y comme Claude Code pour les professionnels non-développeurs.' },
-      { q: 'Combien coûte Cowork ?', a: 'Cowork nécessite un abonnement Pro (20$/mois) ou Max (100-200$/mois). Pro est recommandé uniquement pour une utilisation légère (le quota s\'épuise en ~1-1,5 heures d\'utilisation intensive).' },
-      { q: 'Cowork fonctionne-t-il sur Windows ou Linux ?', a: 'Le support Windows a été ajouté le 10 février 2026. macOS et Windows sont tous les deux supportés. Linux n\'a pas d\'annonce officielle. Utilisez Claude Code pour les capacités autonomes (agentiques) sur Linux.' },
-      { q: 'Puis-je utiliser Cowork avec un VPN ?', a: 'Non. Les logiciels VPN créent des conflits de routage avec le réseau VM interne de Cowork. C\'est le problème n°1 rapporté. Déconnectez complètement votre VPN avant d\'utiliser Cowork.' },
-      { q: 'Cowork est-il sécurisé ?', a: 'Des contrôles de sécurité enterprise ont été lancés avec le GA (9 avril 2026) : accès par rôle, plafonds de dépenses, analytics d\'utilisation, OpenTelemetry. Note : les Audit Logs ne capturent pas l\'activité Cowork — limitation confirmée. Bonnes pratiques : workspace dédié, vérification de chaque plan, codes d\'accès hors workspace, vérification des sources de fichiers.' },
-      { q: 'Que ne peut PAS faire Cowork ?', a: 'Cowork ne peut pas : exécuter du code/scripts, faire des appels API, accéder directement au cloud storage (Google Drive, Dropbox), traiter l\'audio/vidéo, déchiffrer des fichiers cryptés.' },
-      { q: 'Quand utiliser Chat vs Cowork ?', a: 'Chat (80%) : raisonnement, écriture, codage, tâches exploratoires. Cowork (20%) : opérations fichiers en lot, création de documents, automatisation navigateur. Ensemble, ils permettent des procédures guidées (workflows) impossibles avec l\'un ou l\'autre seul.' },
-      { q: 'Quelle est la différence avec Claude Code ?', a: 'Claude Code : interface terminal, accès shell complet, pour développeurs. Cowork : app desktop, accès fichiers uniquement, pour professionnels non-développeurs. Ils partagent l\'architecture mais diffèrent en capacités.' },
-      { q: 'Cowork peut-il créer des formules Excel ?', a: 'Oui ! Cowork peut créer des fichiers Excel avec formules fonctionnelles, feuilles multiples et mise en forme. Spécifiez votre réglage régional (virgule US vs point-virgule EU) dans votre instruction (prompt).' },
-      { q: 'Quelles sont les limites d\'utilisation ?', a: 'L\'utilisation se réinitialise toutes les 5 heures (pas quotidien/mensuel). Tier Pro : ~45 messages courts par reset (~1-1,5h utilisation intensive). Tier Max : 5x-20x plus. Le traitement de fichiers consomme la capacité (tokens) rapidement.' },
-      { q: 'Ce guide est-il officiel ?', a: '<strong>Non, c\'est un guide communautaire.</strong> Cowork est en disponibilité générale depuis le 9 avril 2026. Ce guide est activement maintenu et reflète les fonctionnalités actuelles au fur et à mesure que je les teste et les documente. Pas affilié à Anthropic.' },
-      { q: 'Qui est derrière ce guide ?', a: 'Créé par <a href="https://github.com/FlorianBruniaux" target="_blank" rel="noopener">Florian BRUNIAUX</a>, un développeur expérimentant Cowork depuis son lancement récent. C\'est un document vivant. J\'apprends en temps réel et documente mes découvertes au fur et à mesure qu\'elles évoluent. Les retours, corrections et vérifications de réalité sont essentiels !' },
-      { q: 'Puis-je contribuer au guide ?', a: 'Oui ! Le <a href="https://github.com/FlorianBruniaux/claude-cowork-guide" target="_blank" rel="noopener">dépôt du guide</a> est open-source. Trouvé une erreur ? Vous avez une meilleure instruction (prompt) ? Les contributions sont bienvenues sur GitHub.' },
-      { q: 'Claude Cowork est-il gratuit ?', a: 'Oui, Claude Cowork est une fonctionnalité gratuite incluse avec votre abonnement Claude. Le guide et les 70 prompts sont gratuits.' },
-    ],
-
     // Related Projects
     relatedTitle: 'Projets Associés',
     relatedProjects: [

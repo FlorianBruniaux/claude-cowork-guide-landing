@@ -20,7 +20,20 @@ export async function checkPublicSeo(urls = DEFAULT_URLS, fetchImpl = fetch) {
       const isHtml = response.headers.get('content-type')?.includes('text/html')
       const contractFailures = []
       if (!response.ok) contractFailures.push(`HTTP ${response.status}`)
-      if (isHtml && !/<link\b[^>]*rel=["']canonical["']/i.test(body)) contractFailures.push('missing canonical')
+      const requestedUrl = new URL(url)
+      const finalUrl = new URL(response.url || url)
+      const expectsHtml = requestedUrl.pathname.endsWith('/') || requestedUrl.pathname.endsWith('.html')
+      if (expectsHtml && !isHtml) contractFailures.push('expected text/html content type')
+      if (requestedUrl.origin !== finalUrl.origin || requestedUrl.pathname !== finalUrl.pathname) {
+        contractFailures.push(`redirected to ${finalUrl.href}`)
+      }
+      if (isHtml) {
+        const canonicalTag = body.match(/<link\b[^>]*rel=["']canonical["'][^>]*>/i)?.[0]
+          ?? body.match(/<link\b[^>]*href=["'][^"']+["'][^>]*rel=["']canonical["'][^>]*>/i)?.[0]
+        const canonical = canonicalTag?.match(/href=["']([^"']+)["']/i)?.[1]
+        if (!canonical) contractFailures.push('missing canonical')
+        else if (canonical !== finalUrl.href) contractFailures.push(`canonical mismatch: ${canonical}`)
+      }
       if (isHtml && !/<h1\b/i.test(body)) contractFailures.push('missing H1')
       results.push({ url, finalUrl: response.url, status: response.status, kind: 'server', failures: contractFailures })
     } catch (error) {

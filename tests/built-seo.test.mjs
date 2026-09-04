@@ -69,3 +69,28 @@ test('reports malformed JSON-LD, language-path mismatch and a legacy public URL'
   assert.ok(codes.includes('JSON_LD_INVALID'))
   assert.ok(codes.includes('LEGACY_URL'))
 })
+
+test('rejects a page whose canonical points to a different route', async t => {
+  const root = await fixture({
+    '/': page(),
+    '/foo/': page({ canonical: `${site}/`, alternate: `${site}/fr/` })
+      .replace('A useful Cowork guide page', 'A different useful Cowork guide page'),
+    '/fr/': page({ lang: 'fr', canonical: `${site}/fr/`, alternate: `${site}/` }),
+  }, [`${site}/`, `${site}/foo/`, `${site}/fr/`])
+  t.after(() => rm(root, { recursive: true, force: true }))
+
+  const codes = (await auditBuiltSite(root)).findings.map(finding => finding.code)
+  assert.ok(codes.includes('CANONICAL_ROUTE_MISMATCH'))
+  assert.ok(codes.includes('CANONICAL_DUPLICATE'))
+})
+
+test('rejects missing fragments on same-page and cross-page links', async t => {
+  const root = await fixture({
+    '/': page({ body: '<h1 id="guide">Guide</h1><a href="#missing">Same page</a><a href="/fr/#absent">French page</a>' }),
+    '/fr/': page({ lang: 'fr', canonical: `${site}/fr/`, alternate: `${site}/`, body: '<h1 id="guide-fr">Guide</h1>' }),
+  }, [`${site}/`, `${site}/fr/`])
+  t.after(() => rm(root, { recursive: true, force: true }))
+
+  const fragmentFindings = (await auditBuiltSite(root)).findings.filter(finding => finding.code === 'BROKEN_INTERNAL_FRAGMENT')
+  assert.equal(fragmentFindings.length, 2)
+})

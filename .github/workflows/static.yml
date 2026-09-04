@@ -10,6 +10,9 @@ permissions:
   pages: write
   id-token: write
 
+env:
+  GUIDE_COMMIT: 04f91241c0c23689fb9981830d4a0d9c0cdcaec4
+
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -21,11 +24,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Clone guide repo
-        run: git clone --depth 1 https://github.com/FlorianBruniaux/claude-cowork-guide.git ../claude-cowork-guide
+      - name: Checkout audited guide revision
+        run: |
+          git init ../claude-cowork-guide
+          git -C ../claude-cowork-guide remote add origin https://github.com/FlorianBruniaux/claude-cowork-guide.git
+          git -C ../claude-cowork-guide fetch --depth 1 origin "$GUIDE_COMMIT"
+          git -C ../claude-cowork-guide checkout --detach FETCH_HEAD
 
-      - name: Record guide revision
-        run: git -C ../claude-cowork-guide rev-parse HEAD
+      - name: Verify guide revision
+        run: test "$(git -C ../claude-cowork-guide rev-parse HEAD)" = "$GUIDE_COMMIT"
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
