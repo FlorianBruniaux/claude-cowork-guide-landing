@@ -1,9 +1,11 @@
 ---
 import type { Lang } from '../../data/i18n'
 import { t } from '../../data/i18n'
+import { faqByLang } from '../../data/faq-data'
 
 interface Props { lang: Lang }
 const s = t(Astro.props.lang)
+const items = faqByLang[Astro.props.lang].flatMap(section => section.items).slice(0, 6)
 ---
 
 <section class="section" id="faq">
@@ -12,10 +14,10 @@ const s = t(Astro.props.lang)
     <p class="section-subtitle">{s.faqSubtitle}</p>
 
     <div class="faq-list">
-      {s.faqItems.map((item) => (
+      {items.map((item) => (
         <details class="faq-item">
-          <summary>{item.q}</summary>
-          <p set:html={item.a} />
+          <summary>{item.question}</summary>
+          <p set:html={item.answerHtml} />
         </details>
       ))}
     </div>

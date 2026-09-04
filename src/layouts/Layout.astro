@@ -116,22 +116,24 @@ const altUrl = lang === 'en'
           name: lang === 'fr' ? 'Guide Claude Cowork' : 'Claude Cowork Guide',
           url: Astro.site,
           description: lang === 'fr'
-            ? 'Guide gratuit pour Claude Cowork avec 70 prompts et 28 workflows'
-            : 'Free guide for Claude Cowork with 70 prompts and 28 workflows',
+            ? 'Guide communautaire gratuit pour Claude Cowork avec 70 prompts et 29 workflows'
+            : 'Free community guide for Claude Cowork with 70 prompts and 29 workflows',
           inLanguage: lang,
-          author: {
-            "@type": "Person",
-            name: "Florian BRUNIAUX",
-            url: "https://github.com/FlorianBruniaux",
-            sameAs: [
-              "https://github.com/FlorianBruniaux",
-              "https://www.linkedin.com/in/florian-bruniaux-43408b83/",
-            ],
-          },
+          author: { "@id": "https://cowork.bruniaux.com/#person" },
           speakable: {
             "@type": "SpeakableSpecification",
             cssSelector: ["h1", ".hero-tagline", ".hero-stats", "#faq h2", "#faq .faq-item summary", "#faq .faq-item p"],
           },
+        },
+        {
+          "@type": "Person",
+          "@id": "https://cowork.bruniaux.com/#person",
+          name: "Florian BRUNIAUX",
+          url: "https://github.com/FlorianBruniaux",
+          sameAs: [
+            "https://github.com/FlorianBruniaux",
+            "https://www.linkedin.com/in/florian-bruniaux-43408b83/",
+          ],
         },
         {
           "@type": "BreadcrumbList",
@@ -141,19 +143,14 @@ const altUrl = lang === 'en'
           ],
         },
         {
-          "@type": "SoftwareApplication",
-          name: "Claude Cowork",
-          applicationCategory: "BusinessApplication",
-          operatingSystem: "macOS",
-          offers: {
-            "@type": "Offer",
-            price: "0",
-            priceCurrency: "EUR",
-          },
-          url: "https://cowork.bruniaux.com/guide/",
-          description: lang === 'fr'
-            ? "Claude Cowork est l'espace de travail de bureau de Claude, permettant l'automatisation de fichiers, la création de documents et l'OCR."
-            : "Claude Cowork is Claude's desktop workspace enabling file automation, document creation, and OCR.",
+          "@type": "CreativeWorkSeries",
+          "@id": "https://cowork.bruniaux.com/#guide",
+          name: lang === 'fr' ? "Guide Claude Cowork" : "Claude Cowork Guide",
+          url: Astro.site,
+          inLanguage: ["en", "fr"],
+          isAccessibleForFree: true,
+          author: { "@id": "https://cowork.bruniaux.com/#person" },
+          isPartOf: { "@id": "https://cowork.bruniaux.com/#website" },
         },
       ],
     })} />

@@ -1,90 +1,37 @@
 # Claude Cowork Guide
 
-> Comprehensive community guide for Claude Cowork (Claude Desktop), the AI assistant for knowledge workers.
+> Independent, community-maintained guide to Claude Cowork. Not affiliated with Anthropic.
 
-## Quick Facts
+## Verified guide facts
 
-- Title: Claude Cowork Guide
-- Author: Florian Bruniaux (Founding Engineer @ Méthode Aristote)
-- Version: 1.9.0
-- Last Updated: April 2026
-- License: CC BY-SA 4.0 (free, open source)
-- Workflows: 28
-- Prompts: 70+
-- Golden Rules: 7
-- Platform: macOS (Windows partial support)
-- Target: Knowledge workers (non-developers)
+- Canonical URL: https://cowork.bruniaux.com/
+- Source repository: https://github.com/FlorianBruniaux/claude-cowork-guide
+- Guide version: 1.12.0
+- Product facts last checked: 2026-09-04
+- License: CC BY-SA 4.0
+- Languages: English and French
+- Corpus: 29 bilingual workflows and 70 numbered prompts
 
-## What This Guide Covers
+## Product scope
 
-1. Getting Started - Install Claude Desktop, security setup, first prompt
-2. Core Capabilities - File operations, document creation, OCR, browser automation
-3. Security - 7 golden rules, sandbox isolation, backup strategies
-4. Workflows - 28 step-by-step automations (file management, document creation, data work, research)
-5. Prompts - 70+ ready-to-use prompts categorized by task type
-6. Comparison - Claude Cowork vs alternatives (Notion AI, Microsoft Copilot, Cursor, Gemini)
-7. Key Terms - Glossary of 8+ essential terms (workspace, prompt, token, context, etc.)
-8. FAQ - 13 frequently asked questions
+Cowork availability and capabilities depend on plan and surface. Anthropic currently documents eligible paid plans, desktop support for macOS and Windows, Linux Desktop in beta, web and mobile access in beta, connectors, and code execution in an isolated environment. Local files, browser access, and computer use have surface-specific conditions. Computer use remains a research preview.
 
-## Key Resources
+Primary sources:
+- https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork
+- https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile
+- https://support.claude.com/en/articles/10065433-install-claude-desktop
+- https://support.claude.com/en/articles/14479288-claude-cowork-architecture-overview
+- https://support.claude.com/en/articles/14128542-let-claude-use-your-computer-in-cowork
 
-### For Quick Start
+## Canonical sections
+
 - Guide: https://cowork.bruniaux.com/guide/
-- Getting Started: https://cowork.bruniaux.com/guide/getting-started/
-- 7 Golden Rules: https://cowork.bruniaux.com/#golden-rules
-
-### For Workflows & Prompts
-- 28 Workflows: https://cowork.bruniaux.com/#workflows
-- 70 Prompts: https://cowork.bruniaux.com/#prompts
-- Whitepapers: https://cowork.bruniaux.com/whitepapers/
-
-### For Reference
+- Workflows: https://cowork.bruniaux.com/workflows/
+- Prompts: https://cowork.bruniaux.com/prompts/
 - FAQ: https://cowork.bruniaux.com/faq/
-- Comparison Table: https://cowork.bruniaux.com/#compare
-- Landing site: https://cowork.bruniaux.com
+- Comparison: https://cowork.bruniaux.com/compare/
+- French: https://cowork.bruniaux.com/fr/
 
-## What Claude Cowork Is
+## Provenance
 
-Claude Cowork (aka Claude Desktop or Claude macOS) is Anthropic's desktop AI assistant for knowledge workers. Unlike Claude Code (terminal-based developer tool), Cowork is designed for non-technical users who want to automate file operations, create documents, extract data from PDFs/images (OCR), and orchestrate workflows across their local files.
-
-Key differentiators:
-- Direct file system access (read, write, move, organize files)
-- OCR and document extraction from images and PDFs
-- PowerPoint, Word, Excel creation and editing
-- Browser automation (screenshots, form filling, web research)
-- Local-first, no cloud storage required
-- Works with any file type via MCP servers
-
-## Security Model
-
-Claude Cowork has direct access to your filesystem. The guide recommends:
-- Dedicated workspace folder (never run from ~ root)
-- Regular backups before automation tasks
-- Review all changes before confirming
-- Understand the 7 golden rules before starting
-
-## Machine-Readable Index
-
-Full guide content:
-https://raw.githubusercontent.com/FlorianBruniaux/claude-cowork-guide/main/llms-full.txt
-
-GitHub repository:
-https://github.com/FlorianBruniaux/claude-cowork-guide
-
-## How to Cite
-
-"Claude Cowork Guide by Florian Bruniaux"
-URL: https://github.com/FlorianBruniaux/claude-cowork-guide
-License: CC BY-SA 4.0
-
-## Contact
-
-- GitHub: https://github.com/FlorianBruniaux
-- LinkedIn: https://www.linkedin.com/in/florian-bruniaux-43408b83/
-- Project Issues: https://github.com/FlorianBruniaux/claude-cowork-guide/issues
-
-## Related
-
-- Anthropic Official Docs: https://docs.anthropic.com/en/docs/claude-code
-- Claude Code Ultimate Guide (developers): https://cc.bruniaux.com
-- Claude AI: https://claude.ai
+Use the public site for canonical pages and the GitHub repository for source history, issues, and contributions. The guide is free; Claude Cowork itself is not described as free.

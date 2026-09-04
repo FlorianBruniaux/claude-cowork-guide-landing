@@ -5,10 +5,10 @@ const GUIDE_BASE = 'https://github.com/FlorianBruniaux/claude-cowork-guide/blob/
 export const UI_STRINGS = {
   en: {
     // Meta
-    siteTitle: 'Claude Cowork Guide: 28 workflows & 70 Prompts - Free',
-    siteDescription: 'Master Claude Cowork with 28 workflows and 70 ready-to-use prompts. Free guide for desktop file automation, document creation, and OCR. Get started →',
-    ogDescription: 'Free, open-source guide for Claude Cowork. 28 workflows, 70 prompts, security best practices. Master desktop AI automation.',
-    twitterDescription: '70 ready-to-use prompts, 28 workflows, security guide. Master Claude\'s desktop AI assistant.',
+    siteTitle: 'Claude Cowork Guide: 29 workflows & 70 Prompts - Free',
+    siteDescription: 'Master Claude Cowork with 29 workflows and 70 ready-to-use prompts. Free community guide for secure, surface-aware workflows.',
+    ogDescription: 'Free, open-source guide for Claude Cowork. 29 workflows, 70 prompts, security practices, and verified product scope.',
+    twitterDescription: '70 ready-to-use prompts, 29 workflows, security guide, and verified Cowork capability notes.',
 
     // Header
     logoText: 'Claude Cowork Guide',
@@ -31,8 +31,8 @@ export const UI_STRINGS = {
     navMore: 'More',
     navReleases: 'Releases',
     navReleasesUrl: '/releases/',
-    workflowsMetaTitle: '28 Cowork Workflows — Step-by-Step Automations | Claude Cowork Guide',
-    workflowsMetaDescription: '28 complete Cowork workflows for knowledge workers: invoicing, client tracking, inventory, presentations, social media, and more. Copy-paste ready.',
+    workflowsMetaTitle: '29 Cowork Workflows: Step-by-Step Automations | Claude Cowork Guide',
+    workflowsMetaDescription: '29 complete Cowork workflows for knowledge workers: invoicing, client tracking, inventory, presentations, social media, and more.',
     workflowsBackHome: '← Back to guide',
     workflowsHeroNote: 'Each workflow links directly to the full step-by-step guide.',
     promptsMetaTitle: '70 Ready-to-Use Cowork Prompts | Claude Cowork Guide',
@@ -76,13 +76,13 @@ export const UI_STRINGS = {
 
     // Preview Banner
     previewBadge: 'Community Guide',
-    previewText: 'Cowork is generally available (GA since April 9, 2026). This guide is actively maintained and reflects the current feature set. Not affiliated with Anthropic.',
+    previewText: 'Community guide, product facts verified against Anthropic documentation on September 4, 2026. Not affiliated with Anthropic.',
 
     // Hero
     heroTitle: 'Master Claude Cowork',
     heroTagline: 'The complete guide for Claude\'s desktop AI assistant',
     heroBadgeLabelWorkflows: 'workflows',
-    heroBadgeWorkflows: '28',
+    heroBadgeWorkflows: '29',
     heroBadgeLabelPrompts: 'prompts',
     heroBadgePrompts: '70',
     heroBadgeLabelRules: 'golden rules',
@@ -92,9 +92,9 @@ export const UI_STRINGS = {
 
     // What's New
     whatsNewBadge: 'Jul 2026',
-    whatsNewTitle: 'v1.11.0: Fable 5 + Sonnet 5 + Linux Beta',
-    whatsNewText: 'Claude Fable 5 (June 9): Anthropic\'s first Mythos-class model on paid plans, 1M context, 128K output. Claude Sonnet 5 (June 30) becomes the default model on Free and Pro. Claude Desktop lands on Linux in beta (Ubuntu 22.04+, Debian 12+) with Chat, Cowork and Code tabs. Also new: Claude Tag in Slack (Team/Enterprise beta), Dynamic Workflows, Claude Science.',
-    whatsNewWarning: 'Fable 5 was suspended on June 12 (US export controls) and restored on July 1 with reinforced safeguards. Included up to 50% of weekly limits through July 7, then usage credits.',
+    whatsNewTitle: 'Guide v1.12.0: 29 workflows and 70 prompts',
+    whatsNewText: 'The guide now provides a bilingual workflow library, a verified product FAQ, security guidance, prompt templates, and reference material for each supported surface.',
+    whatsNewWarning: 'Product capabilities vary by plan and surface. Check the linked Anthropic documentation before relying on a feature for critical work.',
     whatsNewCta: 'View Capabilities →',
     whatsNewUrl: GUIDE_BASE + 'guide/02-capabilities.md#model-selection',
 
@@ -103,11 +103,11 @@ export const UI_STRINGS = {
     tldrSubtitle: 'What you need to know in 30 seconds',
     tldrRows: [
       ['Target Audience', 'Knowledge workers (non-developers)'],
-      ['Platform', 'macOS + Windows (Linux: no)'],
-      ['Cost', 'Pro $20/mo or Max $100-200/mo'],
-      ['Status', 'Generally Available (GA since April 9, 2026)'],
+      ['Platform', 'Desktop: macOS, Windows, Linux beta; web and mobile beta'],
+      ['Access', 'Eligible paid Claude plans; availability varies by surface'],
+      ['Status', 'Available now; some surfaces and computer use remain beta or preview'],
       ['Best For', 'File organization, document creation, OCR'],
-      ['Not For', 'Code execution, API calls, cloud storage'],
+      ['Scope', 'Capabilities depend on surface, permissions, connectors, and plan'],
     ] as [string, string][],
 
     // Getting Started
@@ -115,7 +115,7 @@ export const UI_STRINGS = {
     gettingStartedTitle: 'Get Started in 3 Steps',
     gettingStartedSubtitle: '15 minutes to your first automated workflow',
     step1Title: 'Install Claude Desktop',
-    step1Text: 'Download from <a href="https://claude.ai/download" target="_blank" rel="noopener">claude.ai/download</a> (macOS and Windows, Pro $20/mo required)',
+    step1Text: 'Download from <a href="https://claude.ai/download" target="_blank" rel="noopener">claude.ai/download</a>. Cowork requires an eligible paid plan; Linux Desktop remains beta.',
     step2Title: 'Follow Security Setup',
     step2Text: 'Read <a href="' + GUIDE_BASE + 'guide/01-getting-started.md" target="_blank" rel="noopener">Getting Started guide</a> for safe isolation and backup configuration',
     step3Title: 'Copy Your First Prompt',
@@ -138,7 +138,7 @@ export const UI_STRINGS = {
     withIcon: '🚀',
     withItems: [
       'Working in 15 minutes with step-by-step setup',
-      'Make your quota last 3-4x longer with smart tips',
+      'Use explicit scope and checkpoints to control expensive retries',
       'Keep passwords & files safe with isolation setup',
       '70 copy-paste prompts ready to use instantly',
       'Clear guidelines: what\'s safe, what\'s risky',
@@ -150,25 +150,25 @@ export const UI_STRINGS = {
     featuresTitle: 'Complete Documentation',
     featuresSubtitle: 'Everything you need to master Cowork',
     features: [
-      { icon: '🔄', title: '28 Step-by-Step Workflows', desc: 'From invoicing to project planning. Complete with copy-paste prompts, examples and troubleshooting.', meta: 'Beginner → Advanced', url: GUIDE_BASE + 'workflows' },
+      { icon: '🔄', title: '29 Step-by-Step Workflows', desc: 'From invoicing to project planning. Complete with copy-paste prompts, examples and troubleshooting.', meta: 'Beginner → Advanced', url: '/workflows/' },
       { icon: '💬', title: '70 Ready-to-Use Prompts', desc: 'Copy-paste prompts for file ops, document creation, data extraction, and web research.', meta: '4 categories', url: GUIDE_BASE + 'prompts', featured: true, badge: 'Popular' },
-      { icon: '🛡️', title: 'Security Guide', desc: 'Prompt injection defense, workspace isolation, browser permission management, incident response.', meta: '12 min read', url: GUIDE_BASE + 'guide/03-security.md' },
-      { icon: '🔧', title: 'Troubleshooting', desc: 'VPN issues, permission bugs, mid-task failures, quota management. Decision tree included.', meta: '8 min read', url: GUIDE_BASE + 'guide/04-troubleshooting.md' },
-      { icon: '⚖️', title: 'Product Comparison', desc: 'Cowork vs Claude Code vs Copilot vs Gemini vs ChatGPT. When to use what.', meta: 'Decision matrix', url: GUIDE_BASE + 'reference/comparison.md' },
-      { icon: '📋', title: 'Cheatsheet', desc: '1-page printable reference. CTOC framework, golden rules, keyboard shortcuts.', meta: 'Print-ready', url: GUIDE_BASE + 'reference/cheatsheet.md' },
+      { icon: '🛡️', title: 'Security Guide', desc: 'Prompt injection defense, workspace isolation, browser permission management, incident response.', meta: '12 min read', url: '/guide/03-security/' },
+      { icon: '🔧', title: 'Troubleshooting', desc: 'VPN issues, permission bugs, mid-task failures, quota management. Decision tree included.', meta: '8 min read', url: '/guide/04-troubleshooting/' },
+      { icon: '⚖️', title: 'Product Comparison', desc: 'Cowork vs Claude Code vs Copilot vs Gemini vs ChatGPT. When to use what.', meta: 'Decision matrix', url: '/guide/reference/comparison/' },
+      { icon: '📋', title: 'Cheatsheet', desc: '1-page printable reference. CTOC framework, golden rules, keyboard shortcuts.', meta: 'Print-ready', url: '/guide/reference/cheatsheet/' },
       { icon: '🎨', title: 'Profile Personalization', desc: 'Create a personal .md profile to set Claude\'s voice, tone, and style. Template included.', meta: 'New', url: GUIDE_BASE + 'guide/01-getting-started.md#step-6-personalize-your-profile-optional' },
       { icon: '⚙️', title: 'Model Selection', desc: 'Sonnet vs Opus: when to use each model. Speed, cost, and capability trade-offs.', meta: 'New', url: GUIDE_BASE + 'guide/02-capabilities.md#model-selection' },
       { icon: '⚖️', title: 'Claude Legal Extension', desc: 'First official Cowork plugin. Automated contract review, risk detection, compliance tracking. Documentation only.', meta: 'Does not provide legal advice', url: GUIDE_BASE + 'guide/02-capabilities.md#extensions--plugins', badge: 'Feb 2026' },
       { icon: '⚡', title: 'Customize Tab & Skills', desc: 'Skills system (slash commands like /pdf /xlsx), MCP connectors, community skills. No coding required.', meta: 'New v1.5.0', url: GUIDE_BASE + 'guide/02-capabilities.md#customize-cowork' },
-      { icon: '🧠', title: 'Cross-Session Memory', desc: 'Persist context between sessions with Desktop Commander and a memory.md file. Never repeat yourself.', meta: 'New v1.5.0', url: GUIDE_BASE + 'workflows/memory-setup.en.md' },
-      { icon: '🕐', title: 'Scheduled Automation', desc: 'Daily briefs, weekly reports, monthly dashboards — set once, runs automatically. Recurring or on-demand.', meta: 'New v1.5.0', url: GUIDE_BASE + 'workflows/scheduled-automation.en.md' },
+      { icon: '🧠', title: 'Cross-Session Memory', desc: 'Persist context between sessions with Desktop Commander and a memory.md file. Never repeat yourself.', meta: 'New v1.5.0', url: '/guide/workflows/memory-setup/' },
+      { icon: '🕐', title: 'Scheduled Automation', desc: 'Daily briefs, weekly reports, monthly dashboards; set once, run automatically.', meta: 'New v1.5.0', url: '/guide/workflows/scheduled-automation/' },
     ],
 
     // Workflows
     workflowsBadge: 'Step-by-Step',
-    workflowsTitle: '28 Complete Workflows',
+    workflowsTitle: '29 Complete Workflows',
     workflowsSubtitle: 'Organized by task type - Administrative, Commercial, Production, Communication, Organization',
-    workflowTabAll: 'All (28)',
+    workflowTabAll: 'All (29)',
     workflowTabAdmin: 'Admin (6)',
     workflowTabCommercial: 'Commercial (5)',
     workflowTabProduction: 'Production (5)',
@@ -180,10 +180,10 @@ export const UI_STRINGS = {
     promptsTitle: '70 Ready-to-Use Prompts',
     promptsSubtitle: 'Organized by category, tested and refined',
     promptCategories: [
-      { icon: '📂', title: 'File Operations', desc: 'Organization, renaming, cleanup, deduplication', count: '20 prompts', url: GUIDE_BASE + 'prompts/file-ops.md' },
-      { icon: '📄', title: 'Document Creation', desc: 'Reports, summaries, presentations, Excel', count: '16 prompts', url: GUIDE_BASE + 'prompts/document-creation.md' },
-      { icon: '🔍', title: 'Data Extraction', desc: 'Images → data, PDF parsing, OCR', count: '17 prompts', url: GUIDE_BASE + 'prompts/data-extraction.md' },
-      { icon: '🌐', title: 'Web Research', desc: 'Research, synthesis, competitive analysis', count: '17 prompts', url: GUIDE_BASE + 'prompts/research.md' },
+      { icon: '📂', title: 'File Operations', desc: 'Organization, renaming, cleanup, deduplication', count: '20 prompts', url: '/guide/prompts/file-ops/' },
+      { icon: '📄', title: 'Document Creation', desc: 'Reports, summaries, presentations, Excel', count: '16 prompts', url: '/guide/prompts/document-creation/' },
+      { icon: '🔍', title: 'Data Extraction', desc: 'Images → data, PDF parsing, OCR', count: '17 prompts', url: '/guide/prompts/data-extraction/' },
+      { icon: '🌐', title: 'Web Research', desc: 'Research, synthesis, competitive analysis', count: '17 prompts', url: '/guide/prompts/research/' },
     ],
     promptExampleTitle: 'Example: Expense Receipt Extraction',
     promptExampleCopy: 'Copy',
@@ -208,14 +208,14 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
     comparisonRows: [
       { label: 'Target User', values: ['Knowledge workers', 'Developers', 'M365 users', 'Everyone'], classes: ['', '', '', ''] },
       { label: 'Local File Access', values: ['Sandbox', 'Full', 'Office files only*', 'Upload only'], classes: ['feature-yes', 'feature-yes', 'feature-partial', 'feature-no'] },
-      { label: 'Execute Code', values: ['No', 'Full shell', 'No', 'No'], classes: ['feature-no', 'feature-yes', 'feature-no', 'feature-no'] },
+      { label: 'Execute Code', values: ['Isolated environment', 'Full shell', 'No', 'Sandboxed tools'], classes: ['feature-partial', 'feature-yes', 'feature-no', 'feature-partial'] },
       { label: 'Create Office Docs', values: ['Native', 'Via scripts', 'Native', 'No'], classes: ['feature-yes', 'feature-partial', 'feature-yes', 'feature-no'] },
       { label: 'Browser Automation', values: ['Chrome', 'Via tools', 'No', 'Operator beta'], classes: ['feature-yes', 'feature-yes', 'feature-no', 'feature-partial'] },
       { label: 'Multi-step Planning', values: ['Yes', 'Yes', 'Limited', 'GPTs only'], classes: ['feature-yes', 'feature-yes', 'feature-partial', 'feature-partial'] },
-      { label: 'Platform', values: ['macOS + Windows', 'All', 'Windows/Mac', 'All'], classes: ['', '', '', ''] },
-      { label: 'Status', values: ['GA', 'Production', 'Production', 'Production'], classes: ['feature-yes', 'feature-yes', 'feature-yes', 'feature-yes'] },
+      { label: 'Platform', values: ['Desktop + web/mobile beta', 'All', 'Windows/Mac', 'All'], classes: ['', '', '', ''] },
+      { label: 'Status', values: ['Varies by surface', 'Production', 'Production', 'Production'], classes: ['feature-partial', 'feature-yes', 'feature-yes', 'feature-yes'] },
     ],
-    comparisonNote: '<strong>Rule of thumb:</strong> Use Chat (80%) for thinking/writing/coding. Use Cowork (20%) for batch files and automation.',
+    comparisonNote: '<strong>Rule of thumb:</strong> choose the surface from the files, permissions, connectors, and review controls the task needs.',
     comparisonFootnote: '<strong>*Note:</strong> "M365 Copilot" refers to Microsoft 365 Copilot (Word/Excel/PowerPoint integration), not GitHub Copilot (developer tool with full file system access).',
 
     // Key Terms
@@ -223,10 +223,10 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
     termsTitle: 'Key Terms',
     termsSubtitle: 'Essential vocabulary for getting started with Cowork',
     terms: [
-      { title: 'Workspace', definition: 'The macOS folder where Claude can read/write files. Set up properly to keep work separate from personal files.' },
+      { title: 'Workspace', definition: 'The files and services made available to Cowork for a task. Access depends on the active surface and permissions.' },
       { title: 'Prompt', definition: 'Instructions you give to Claude. Can be simple ("organize these files") or complex workflows with multiple steps.' },
       { title: 'Workflow', definition: 'A repeatable sequence of actions (read files → process → create output). Like a recipe you can reuse.' },
-      { title: 'Token', definition: 'Unit that measures text processed by Claude. ~4 characters = 1 token. Pro plan gives 5M tokens/month.' },
+      { title: 'Token', definition: 'A unit used to measure model input and output. Actual usage depends on the model, task, and processed content.' },
       { title: 'Context', definition: 'Information Claude remembers during a conversation. Like short-term memory, limited but powerful.' },
       { title: 'Sandbox', definition: 'Isolated testing area. Lets you experiment safely without affecting real files or data.' },
       { title: 'OCR', definition: 'Optical Character Recognition. Claude can read text from photos/scans and convert to editable text.' },
@@ -242,8 +242,8 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
       { title: 'Dedicated workspace only', desc: 'Never grant access to ~/Documents, ~/Desktop, or your home folder. Create ~/Cowork-Workspace/ instead.' },
       { title: 'No credentials in workspace', desc: 'Keep passwords, API keys, and secrets out of Cowork-accessible folders. Content is sent to Anthropic servers.' },
       { title: 'Verify file sources', desc: 'Prompt injection risk in untrusted files. Malicious PDFs can manipulate Cowork behavior.' },
-      { title: 'Budget error correction time', desc: 'OCR accuracy is ~97% for fields, ~63% for line items. Always verify extracted data.' },
-      { title: 'Disconnect VPN', desc: 'The #1 reported issue. VPN breaks VM networking. Disconnect before using Cowork.' },
+      { title: 'Budget error correction time', desc: 'Treat generated documents and extracted data as drafts. Verify material fields against their sources.' },
+      { title: 'Check network policy', desc: 'If a connection fails, review the official troubleshooting guidance before changing VPN or firewall policy.' },
       { title: 'Backup before destructive ops', desc: 'No undo for file deletions. Run <code>cp -R ~/Cowork-Workspace/ ~/Cowork-Backup/</code> first.' },
     ],
 
@@ -290,7 +290,7 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
 
     // Footer
     footerCtaTitle: 'Ready to master Claude Cowork?',
-    footerCtaText: '70 prompts and 28 workflows to transform your desktop workflow.',
+    footerCtaText: '70 prompts and 29 workflows for safe, repeatable work with Claude Cowork.',
     footerCtaCta: 'Read the Guide →',
     footerSections: [
       {
@@ -345,10 +345,10 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
 
   fr: {
     // Meta
-    siteTitle: 'Guide Claude Cowork : 28 workflows & 70 Prompts - Gratuit',
-    siteDescription: 'Maîtrisez Claude Cowork avec 28 workflows et 70 prompts prêts à l\'emploi. Guide gratuit : automatisation de fichiers, création de documents, OCR. Démarrez →',
-    ogDescription: 'Guide gratuit et open-source pour Claude Cowork. 28 workflows, 70 prompts, bonnes pratiques de sécurité. Maîtrisez l\'automatisation IA sur desktop.',
-    twitterDescription: '70 prompts prêts à l\'emploi, 28 workflows, guide de sécurité. Maîtrisez l\'assistant IA desktop de Claude.',
+    siteTitle: 'Guide Claude Cowork : 29 workflows & 70 Prompts - Gratuit',
+    siteDescription: 'Maîtrisez Claude Cowork avec 29 workflows et 70 prompts prêts à l\'emploi. Guide communautaire gratuit, sécurisé et vérifié.',
+    ogDescription: 'Guide gratuit et open source pour Claude Cowork. 29 workflows, 70 prompts, sécurité et périmètre produit vérifié.',
+    twitterDescription: '70 prompts, 29 workflows, sécurité et capacités Claude Cowork vérifiées.',
 
     // Header
     logoText: 'Guide Claude Cowork',
@@ -371,8 +371,8 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
     navMore: 'Plus',
     navReleases: 'Releases',
     navReleasesUrl: '/fr/releases/',
-    workflowsMetaTitle: '28 Workflows Cowork — Automations Pas à Pas | Guide Claude Cowork',
-    workflowsMetaDescription: '28 workflows Cowork complets pour les travailleurs du savoir : facturation, suivi client, inventaire, présentations, réseaux sociaux et plus. Prêts à copier.',
+    workflowsMetaTitle: '29 Workflows Cowork : automatisations pas à pas | Guide Claude Cowork',
+    workflowsMetaDescription: '29 workflows Cowork complets pour les professionnels : facturation, suivi client, inventaire, présentations et réseaux sociaux.',
     workflowsBackHome: '← Retour au guide',
     workflowsHeroNote: 'Chaque workflow renvoie directement au guide complet pas à pas.',
     promptsMetaTitle: '70 Prompts Cowork Prêts à l\'Emploi | Guide Claude Cowork',
@@ -416,13 +416,13 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
 
     // Preview Banner
     previewBadge: 'Guide Communauté',
-    previewText: 'Cowork est en disponibilité générale (GA depuis le 9 avril 2026). Ce guide est activement maintenu et reflète les fonctionnalités actuelles. Non affilié à Anthropic.',
+    previewText: 'Guide communautaire, informations produit vérifiées avec la documentation Anthropic le 4 septembre 2026. Non affilié à Anthropic.',
 
     // Hero
     heroTitle: 'Maîtrisez Claude Cowork',
     heroTagline: 'Le guide complet pour l\'assistant IA desktop de Claude',
     heroBadgeLabelWorkflows: 'workflows',
-    heroBadgeWorkflows: '28',
+    heroBadgeWorkflows: '29',
     heroBadgeLabelPrompts: 'prompts',
     heroBadgePrompts: '70',
     heroBadgeLabelRules: 'règles d\'or',
@@ -432,9 +432,9 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
 
     // What's New
     whatsNewBadge: 'Juil 2026',
-    whatsNewTitle: 'v1.11.0 : Fable 5 + Sonnet 5 + Bêta Linux',
-    whatsNewText: 'Claude Fable 5 (9 juin) : premier modèle Mythos-class d\'Anthropic sur les plans payants, contexte 1M, output 128K. Claude Sonnet 5 (30 juin) devient le modèle par défaut sur Free et Pro. Claude Desktop arrive sur Linux en bêta (Ubuntu 22.04+, Debian 12+) avec les onglets Chat, Cowork et Code. Aussi : Claude Tag dans Slack (bêta Team/Enterprise), Dynamic Workflows, Claude Science.',
-    whatsNewWarning: 'Fable 5 a été suspendu le 12 juin (export controls US) puis restauré le 1er juillet avec des safeguards renforcés. Inclus jusqu\'à 50% des limites hebdo jusqu\'au 7 juillet, ensuite crédits d\'usage.',
+    whatsNewTitle: 'Guide v1.12.0 : 29 workflows et 70 prompts',
+    whatsNewText: 'Le guide propose maintenant une bibliothèque bilingue de workflows, une FAQ produit vérifiée, des pratiques de sécurité, des modèles de prompts et des références par surface.',
+    whatsNewWarning: 'Les capacités produit varient selon le plan et la surface. Vérifiez la documentation Anthropic liée avant de dépendre d’une fonction pour une tâche critique.',
     whatsNewCta: 'Voir les fonctionnalités →',
     whatsNewUrl: GUIDE_BASE + 'guide/02-capabilities.fr.md#selection-du-modele',
 
@@ -443,11 +443,11 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
     tldrSubtitle: 'Ce que vous devez savoir en 30 secondes',
     tldrRows: [
       ['Public cible', 'Professionnels non-développeurs (chefs de projet, consultants, analystes...)'],
-      ['Plateforme', 'macOS + Windows (Linux : non)'],
-      ['Coût', 'Pro 20$/mois ou Max 100-200$/mois'],
-      ['Statut', 'Disponibilité générale (GA depuis le 9 avril 2026)'],
+      ['Plateforme', 'Desktop : macOS, Windows, Linux beta ; web et mobile beta'],
+      ['Accès', 'Plans Claude payants éligibles ; disponibilité variable selon la surface'],
+      ['Statut', 'Disponible ; certaines surfaces et fonctions restent en beta ou preview'],
       ['Idéal pour', 'Organisation fichiers, création documents, lecture de photos/scans'],
-      ['Pas pour', 'Exécution de code, appels automatiques sur Internet, fichiers cloud'],
+      ['Périmètre', 'Capacités variables selon surface, permissions, connecteurs et plan'],
     ] as [string, string][],
 
     // Getting Started
@@ -455,7 +455,7 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
     gettingStartedTitle: 'Commencer en 3 Étapes',
     gettingStartedSubtitle: '15 minutes jusqu\'à votre premier workflow automatisé',
     step1Title: 'Installer Claude Desktop',
-    step1Text: 'Télécharger depuis <a href="https://claude.ai/download" target="_blank" rel="noopener">claude.ai/download</a> (macOS et Windows, Pro 20$/mois requis)',
+    step1Text: 'Télécharger depuis <a href="https://claude.ai/download" target="_blank" rel="noopener">claude.ai/download</a>. Cowork exige un plan payant éligible ; Linux Desktop reste en beta.',
     step2Title: 'Suivre la Configuration Sécurité',
     step2Text: 'Lire le <a href="' + GUIDE_BASE + 'guide/01-getting-started.md" target="_blank" rel="noopener">guide de démarrage</a> pour l\'isolation sécurisée et la configuration des sauvegardes',
     step3Title: 'Copier Votre Premier Prompt',
@@ -478,7 +478,7 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
     withIcon: '🚀',
     withItems: [
       'Opérationnel en 15 minutes avec configuration pas à pas',
-      'Faites durer votre quota 3-4x plus longtemps avec des astuces',
+      'Cadrez la tâche et les validations pour limiter les reprises coûteuses',
       'Gardez mots de passe & fichiers en sécurité avec isolation',
       '70 prompts copier-coller prêts à l\'emploi instantanément',
       'Directives claires : ce qui est sûr, ce qui est risqué',
@@ -490,25 +490,25 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
     featuresTitle: 'Documentation Complète',
     featuresSubtitle: 'Tout ce dont vous avez besoin pour maîtriser Cowork',
     features: [
-      { icon: '🔄', title: '28 workflows Pas à Pas', desc: 'De la facturation à la planification de projets. Complets avec prompts copier-coller, exemples et dépannage.', meta: 'Débutant → Avancé', url: GUIDE_BASE + 'workflows' },
+      { icon: '🔄', title: '29 workflows pas à pas', desc: 'De la facturation à la planification de projets. Complets avec prompts copier-coller, exemples et dépannage.', meta: 'Débutant → Avancé', url: '/fr/workflows/' },
       { icon: '💬', title: '70 Prompts Prêts à l\'Emploi', desc: 'Prompts copier-coller pour opérations fichiers, création documents, extraction données et recherche web.', meta: '4 catégories', url: GUIDE_BASE + 'prompts', featured: true, badge: 'Populaire' },
-      { icon: '🛡️', title: 'Guide de Sécurité', desc: 'Défense contre les fichiers pièges (injection de prompts), atelier isolé (workspace), gestion permissions navigateur, réponse aux incidents.', meta: '12 min lecture', url: GUIDE_BASE + 'guide/03-security.fr.md' },
-      { icon: '🔧', title: 'Dépannage', desc: 'Problèmes VPN, bugs de permissions, échecs en cours de tâche, gestion du quota. Arbre de décision inclus.', meta: '8 min lecture', url: GUIDE_BASE + 'guide/04-troubleshooting.fr.md' },
-      { icon: '⚖️', title: 'Comparaison Produits', desc: 'Cowork vs Claude Code vs Copilot vs Gemini vs ChatGPT. Quand utiliser quoi.', meta: 'Matrice de décision', url: GUIDE_BASE + 'reference/comparison.fr.md' },
-      { icon: '📋', title: 'Cheatsheet', desc: 'Référence imprimable 1 page. Framework CTOC, règles d\'or, raccourcis clavier.', meta: 'Prêt à imprimer', url: GUIDE_BASE + 'reference/cheatsheet.fr.md' },
+      { icon: '🛡️', title: 'Guide de Sécurité', desc: 'Défense contre les fichiers pièges, isolation, permissions navigateur et réponse aux incidents.', meta: '12 min lecture', url: '/fr/guide/03-security/' },
+      { icon: '🔧', title: 'Dépannage', desc: 'Problèmes réseau, permissions, échecs en cours de tâche et gestion des limites.', meta: '8 min lecture', url: '/fr/guide/04-troubleshooting/' },
+      { icon: '⚖️', title: 'Comparaison Produits', desc: 'Cowork vs Claude Code vs Copilot vs Gemini vs ChatGPT. Quand utiliser quoi.', meta: 'Matrice de décision', url: '/fr/guide/reference/comparison/' },
+      { icon: '📋', title: 'Cheatsheet', desc: 'Référence imprimable 1 page. Framework CTOC, règles d\'or et raccourcis clavier.', meta: 'Prêt à imprimer', url: '/fr/guide/reference/cheatsheet/' },
       { icon: '🎨', title: 'Personnalisation du Profil', desc: 'Créez un fichier .md personnel pour définir la voix, le ton et le style de Claude. Template inclus.', meta: 'Nouveau', url: GUIDE_BASE + 'guide/01-getting-started.fr.md#étape-6--personnaliser-votre-profil-optionnel' },
       { icon: '⚙️', title: 'Sélection du Modèle', desc: 'Sonnet vs Opus : quand utiliser chaque modèle. Compromis vitesse, coût et capacités.', meta: 'Nouveau', url: GUIDE_BASE + 'guide/02-capabilities.fr.md#sélection-du-modèle' },
       { icon: '⚖️', title: 'Extension Claude Legal', desc: 'Premier plugin officiel Cowork. Revue automatisée de contrats, détection de risques, suivi de conformité. Documentation uniquement.', meta: 'Ne fournit pas de conseil juridique', url: GUIDE_BASE + 'guide/02-capabilities.fr.md#extensions--plugins', badge: 'Fév 2026' },
       { icon: '⚡', title: 'Onglet Personnaliser & Skills', desc: 'Système de Skills (commandes /pdf /xlsx), connecteurs MCP, skills communautaires. Sans code.', meta: 'Nouveau v1.5.0', url: GUIDE_BASE + 'guide/02-capabilities.fr.md#personnaliser-cowork' },
-      { icon: '🧠', title: 'Mémoire Inter-Sessions', desc: 'Persistez le contexte entre sessions avec Desktop Commander et un fichier memory.md. Ne vous répétez plus.', meta: 'Nouveau v1.5.0', url: GUIDE_BASE + 'workflows/memory-setup.md' },
-      { icon: '🕐', title: 'Automatisation Planifiée', desc: 'Briefs quotidiens, rapports hebdo, dashboards mensuels — configurez une fois, exécutez automatiquement. Récurrent ou à la demande.', meta: 'Nouveau v1.5.0', url: GUIDE_BASE + 'workflows/scheduled-automation.md' },
+      { icon: '🧠', title: 'Mémoire Inter-Sessions', desc: 'Persistez le contexte entre sessions avec Desktop Commander et un fichier memory.md.', meta: 'Nouveau v1.5.0', url: '/fr/guide/workflows/memory-setup/' },
+      { icon: '🕐', title: 'Automatisation Planifiée', desc: 'Briefs quotidiens, rapports hebdo et dashboards mensuels, récurrents ou à la demande.', meta: 'Nouveau v1.5.0', url: '/fr/guide/workflows/scheduled-automation/' },
     ],
 
     // Workflows
     workflowsBadge: 'Pas à Pas',
-    workflowsTitle: '28 workflows Complets',
+    workflowsTitle: '29 workflows complets',
     workflowsSubtitle: 'Organisés par type de tâche - Administratif, Commercial, Production, Communication, Organisation',
-    workflowTabAll: 'Tous (28)',
+    workflowTabAll: 'Tous (29)',
     workflowTabAdmin: 'Admin (6)',
     workflowTabCommercial: 'Commercial (5)',
     workflowTabProduction: 'Production (5)',
@@ -520,10 +520,10 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
     promptsTitle: '70 Prompts Prêts à l\'Emploi',
     promptsSubtitle: 'Organisés par catégorie, testés et affinés',
     promptCategories: [
-      { icon: '📂', title: 'Opérations Fichiers', desc: 'Organisation, renommage, nettoyage, déduplication', count: '20 prompts', url: GUIDE_BASE + 'prompts/file-ops.fr.md' },
-      { icon: '📄', title: 'Création Documents', desc: 'Rapports, synthèses, présentations, Excel', count: '16 prompts', url: GUIDE_BASE + 'prompts/document-creation.fr.md' },
-      { icon: '🔍', title: 'Extraction Données', desc: 'Images → données, parsing PDF, OCR', count: '17 prompts', url: GUIDE_BASE + 'prompts/data-extraction.fr.md' },
-      { icon: '🌐', title: 'Recherche Web', desc: 'Recherche, synthèse, analyse concurrentielle', count: '17 prompts', url: GUIDE_BASE + 'prompts/research.fr.md' },
+      { icon: '📂', title: 'Opérations Fichiers', desc: 'Organisation, renommage, nettoyage, déduplication', count: '20 prompts', url: '/fr/guide/prompts/file-ops/' },
+      { icon: '📄', title: 'Création Documents', desc: 'Rapports, synthèses, présentations, Excel', count: '16 prompts', url: '/fr/guide/prompts/document-creation/' },
+      { icon: '🔍', title: 'Extraction Données', desc: 'Images vers données, parsing PDF, OCR', count: '17 prompts', url: '/fr/guide/prompts/data-extraction/' },
+      { icon: '🌐', title: 'Recherche Web', desc: 'Recherche, synthèse, analyse concurrentielle', count: '17 prompts', url: '/fr/guide/prompts/research/' },
     ],
     promptExampleTitle: 'Exemple : Extraction Tickets de Caisse',
     promptExampleCopy: 'Copier',
@@ -548,14 +548,14 @@ Crée un fichier Excel à ~/Cowork-Workspace/output/depenses.xlsx avec :
     comparisonRows: [
       { label: 'Utilisateur cible', values: ['Knowledge workers', 'Développeurs', 'Utilisateurs M365', 'Tout le monde'], classes: ['', '', '', ''] },
       { label: 'Accès fichiers locaux', values: ['Sandbox', 'Complet', 'Fichiers Office uniquement*', 'Upload uniquement'], classes: ['feature-yes', 'feature-yes', 'feature-partial', 'feature-no'] },
-      { label: 'Exécuter du code', values: ['Non', 'Shell complet', 'Non', 'Non'], classes: ['feature-no', 'feature-yes', 'feature-no', 'feature-no'] },
+      { label: 'Exécuter du code', values: ['Environnement isolé', 'Shell complet', 'Non', 'Outils isolés'], classes: ['feature-partial', 'feature-yes', 'feature-no', 'feature-partial'] },
       { label: 'Créer docs Office', values: ['Natif', 'Via scripts', 'Natif', 'Non'], classes: ['feature-yes', 'feature-partial', 'feature-yes', 'feature-no'] },
       { label: 'Automatisation navigateur', values: ['Chrome', 'Via outils', 'Non', 'Operator beta'], classes: ['feature-yes', 'feature-yes', 'feature-no', 'feature-partial'] },
       { label: 'Planification multi-étapes', values: ['Oui', 'Oui', 'Limité', 'GPTs seulement'], classes: ['feature-yes', 'feature-yes', 'feature-partial', 'feature-partial'] },
-      { label: 'Plateforme', values: ['macOS + Windows', 'Tous', 'Windows/Mac', 'Tous'], classes: ['', '', '', ''] },
-      { label: 'Statut', values: ['GA', 'Production', 'Production', 'Production'], classes: ['feature-yes', 'feature-yes', 'feature-yes', 'feature-yes'] },
+      { label: 'Plateforme', values: ['Desktop + web/mobile beta', 'Tous', 'Windows/Mac', 'Tous'], classes: ['', '', '', ''] },
+      { label: 'Statut', values: ['Variable selon la surface', 'Production', 'Production', 'Production'], classes: ['feature-partial', 'feature-yes', 'feature-yes', 'feature-yes'] },
     ],
-    comparisonNote: '<strong>Règle d\'or :</strong> Utilisez Chat (80%) pour réflexion/écriture/codage. Utilisez Cowork (20%) pour fichiers en lot et automatisation.',
+    comparisonNote: '<strong>Règle pratique :</strong> choisissez la surface selon les fichiers, permissions, connecteurs et validations nécessaires.',
     comparisonFootnote: '<strong>*Note :</strong> "M365 Copilot" désigne Microsoft 365 Copilot (intégration Word/Excel/PowerPoint), pas GitHub Copilot (outil développeur avec accès complet au système de fichiers).',
 
     // Key Terms
@@ -563,10 +563,10 @@ Crée un fichier Excel à ~/Cowork-Workspace/output/depenses.xlsx avec :
     termsTitle: 'Termes Clés',
     termsSubtitle: 'Vocabulaire essentiel pour démarrer avec Cowork',
     terms: [
-      { title: 'Espace de travail', definition: 'Le dossier macOS où Claude peut lire/écrire des fichiers. À configurer pour séparer travail et fichiers personnels.' },
+      { title: 'Espace de travail', definition: 'Les fichiers et services mis à disposition de Cowork pour une tâche. L’accès dépend de la surface et des permissions.' },
       { title: 'Prompt', definition: 'Instructions données à Claude. Peuvent être simples ("organiser ces fichiers") ou complexes avec plusieurs étapes.' },
       { title: 'Workflow', definition: 'Séquence d\'actions répétable (lire fichiers → traiter → créer résultat). Comme une recette réutilisable.' },
-      { title: 'Jeton (Token)', definition: 'Unité mesurant le texte traité par Claude. ~4 caractères = 1 jeton. Plan Pro donne 5M jetons/mois.' },
+      { title: 'Jeton (Token)', definition: 'Unité utilisée pour mesurer les entrées et sorties du modèle. L’usage dépend du modèle, de la tâche et du contenu traité.' },
       { title: 'Contexte', definition: 'Information que Claude mémorise pendant une conversation. Mémoire à court terme, limitée mais puissante.' },
       { title: 'Bac à sable', definition: 'Zone de test isolée. Permet d\'expérimenter en toute sécurité sans affecter fichiers réels ou données.' },
       { title: 'OCR', definition: 'Reconnaissance optique de caractères. Claude lit du texte dans photos/scans et convertit en texte modifiable.' },
@@ -582,8 +582,8 @@ Crée un fichier Excel à ~/Cowork-Workspace/output/depenses.xlsx avec :
       { title: 'Workspace dédié uniquement', desc: 'N\'accordez jamais l\'accès à ~/Documents, ~/Desktop ou votre dossier personnel. Créez ~/Cowork-Workspace/ à la place.' },
       { title: 'Pas d\'identifiants dans le workspace', desc: 'Gardez mots de passe, clés API et secrets hors des dossiers accessibles à Cowork. Le contenu est envoyé aux serveurs d\'Anthropic.' },
       { title: 'Vérifier les sources de fichiers', desc: 'Risque de fichiers pièges (injection de prompt) dans les fichiers non fiables. Les PDF malveillants peuvent manipuler le comportement de Cowork.' },
-      { title: 'Budgéter le temps de correction', desc: 'La précision OCR est ~97% pour les champs, ~63% pour les lignes. Vérifiez toujours les données extraites.' },
-      { title: 'Déconnecter le VPN', desc: 'Le problème n°1 rapporté. Le VPN casse le réseau VM. Déconnectez avant d\'utiliser Cowork.' },
+      { title: 'Budgéter le temps de correction', desc: 'Traitez documents générés et données extraites comme des brouillons. Vérifiez les champs matériels avec leurs sources.' },
+      { title: 'Vérifier la politique réseau', desc: 'En cas d’échec réseau, consultez le dépannage officiel avant de modifier la politique VPN ou pare-feu.' },
       { title: 'Sauvegarder avant opérations destructives', desc: 'Pas d\'annulation pour les suppressions de fichiers. Exécutez <code>cp -R ~/Cowork-Workspace/ ~/Cowork-Backup/</code> d\'abord.' },
     ],
 
@@ -630,7 +630,7 @@ Crée un fichier Excel à ~/Cowork-Workspace/output/depenses.xlsx avec :
 
     // Footer
     footerCtaTitle: 'Prêt à maîtriser Claude Cowork ?',
-    footerCtaText: '70 prompts et 28 workflows pour transformer votre workflow desktop.',
+    footerCtaText: '70 prompts et 29 workflows pour travailler de façon sûre et répétable avec Claude Cowork.',
     footerCtaCta: 'Lire le Guide →',
     footerSections: [
       {

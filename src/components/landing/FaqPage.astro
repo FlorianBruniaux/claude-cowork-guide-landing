@@ -1,0 +1,40 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import type { Lang } from '../../data/i18n'
+import { FAQ_UPDATED, answerText, faqByLang } from '../../data/faq-data'
+
+const { lang } = Astro.props as { lang: Lang }
+const isFr = lang === 'fr'
+const sections = faqByLang[lang]
+const count = sections.flatMap(section => section.items).length
+const title = isFr ? 'FAQ Claude Cowork : accès, plateformes et sécurité' : 'Claude Cowork FAQ: Access, Platforms, and Safety'
+const description = isFr ? `${count} réponses vérifiées sur les plans, plateformes, exécution isolée, connecteurs et sécurité de Claude Cowork.` : `${count} verified answers about Claude Cowork plans, platforms, isolated execution, connectors, and safety.`
+const pageUrl = `https://cowork.bruniaux.com/${isFr ? 'fr/faq/' : 'faq/'}`
+const jsonLd = [
+  { '@type': 'WebPage', '@id': `${pageUrl}#webpage`, name: title, description, url: pageUrl, dateModified: FAQ_UPDATED, inLanguage: lang, isPartOf: { '@id': 'https://cowork.bruniaux.com/#website' }, author: { '@id': 'https://cowork.bruniaux.com/#person' } },
+  { '@type': 'FAQPage', '@id': `${pageUrl}#faq`, mainEntity: sections.flatMap(section => section.items).map(item => ({ '@type': 'Question', name: item.question, acceptedAnswer: { '@type': 'Answer', text: answerText(item.answerHtml) } })) },
+]
+---
+
+<Layout lang={lang} title={title} description={description} jsonLd={jsonLd}>
+  <header class="page-hero"><div class="container">
+    <a href={isFr ? '/fr/' : '/'} class="back-link">← {isFr ? 'Guide Claude Cowork' : 'Claude Cowork Guide'}</a>
+    <h1>{isFr ? 'FAQ Claude Cowork' : 'Claude Cowork FAQ'}</h1>
+    <p class="tagline">{description}</p>
+    <p class="verified">{isFr ? 'Informations produit vérifiées' : 'Product information verified'}: <time datetime={FAQ_UPDATED}>{FAQ_UPDATED}</time></p>
+  </div></header>
+  <div class="container faq-page">{sections.map(section => (
+    <section class="faq-section"><h2 class="faq-section-title">{section.title}</h2><div class="faq-list">{section.items.map(item => (
+      <details class="faq-item"><summary>{item.question}</summary><p set:html={item.answerHtml} /></details>
+    ))}</div></section>
+  ))}</div>
+  <style>
+    .page-hero{background:linear-gradient(135deg,var(--surface-elevated) 0%,var(--bg-primary) 100%);border-bottom:1px solid var(--border);padding:calc(var(--space-3xl) + 3.5rem) var(--space-lg) var(--space-2xl)}
+    .back-link{display:inline-block;color:var(--text-secondary);text-decoration:none;font-size:.875rem;margin-bottom:var(--space-md)}.back-link:hover,.faq-item a{color:var(--accent)}
+    .page-hero h1{font-size:clamp(1.75rem,4vw,2.5rem);font-weight:700;margin-bottom:var(--space-md)}.tagline{color:var(--text-secondary);font-size:1.1rem;max-width:720px}.verified{color:var(--text-secondary);font-size:.875rem;margin-top:var(--space-sm)}
+    .faq-page{padding:var(--space-xl) var(--space-lg)}.faq-section{margin-bottom:var(--space-2xl)}.faq-section-title{font-size:1.25rem;font-weight:600;color:var(--accent);margin-bottom:var(--space-lg);padding-bottom:var(--space-sm);border-bottom:2px solid var(--border)}
+    .faq-item{background-color:var(--surface-elevated);border:1px solid var(--border);border-radius:var(--border-radius);margin-bottom:var(--space-md);overflow:hidden;box-shadow:var(--shadow-sm)}.faq-item[open]{box-shadow:var(--shadow-md);border-color:var(--accent)}
+    .faq-item summary{padding:var(--space-lg);cursor:pointer;font-weight:500;list-style:none;display:flex;justify-content:space-between;align-items:center}.faq-item summary::-webkit-details-marker{display:none}.faq-item summary::after{content:'+';font-size:1.5rem;color:var(--text-secondary);flex-shrink:0}.faq-item[open] summary::after{content:'−'}.faq-item[open] summary{border-bottom:1px solid var(--border)}
+    .faq-item p{padding:var(--space-lg);color:var(--text-secondary);margin:0;line-height:1.7}.faq-item a{text-decoration:underline}
+  </style>
+</Layout>
