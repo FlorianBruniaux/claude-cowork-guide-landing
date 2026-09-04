@@ -6,7 +6,7 @@
     "dev": "node scripts/prepare-guide-content.mjs && astro dev",
     "build": "node scripts/prepare-guide-content.mjs && node scripts/build-guide-content-index.mjs && astro build",
     "preview": "astro preview",
-    "check": "astro check",
+    "check": "node scripts/prepare-guide-content.mjs && node scripts/build-guide-content-index.mjs && astro check",
     "test": "node --test tests/*.test.mjs",
     "check:built-seo": "node scripts/check-built-seo.mjs",
     "check:public-seo": "node scripts/check-public-seo.mjs",
