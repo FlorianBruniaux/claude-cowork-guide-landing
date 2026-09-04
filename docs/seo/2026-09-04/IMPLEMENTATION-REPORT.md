@@ -10,7 +10,7 @@ Date de validation : 4 septembre 2026.
 - Build : 112 pages HTML et 112 URL sitemap, sans finding du gate SEO.
 - Parité du corpus publié : 44 pages guide EN et 44 FR.
 - Guide : 29 workflows, 70 prompts, version 1.12.0, 47 traductions synchronisées.
-- Production : smoke HTTP strict 7/7 après déploiement du SHA landing `41e05a6a0bb64531ff432a214e4a3b85f3c60e59`.
+- Production : smoke HTTP strict 7/7 après déploiement. Le dernier SHA qui modifie le site est `41e05a6a0bb64531ff432a214e4a3b85f3c60e59`; les commits suivants ne mettent à jour que ces rapports.
 
 ## Changements
 
@@ -72,7 +72,7 @@ Landing, branche `codex/cowork-seo-audit-20260904` :
 ## Actions externes
 
 - Guide poussé sur `origin/main` au SHA `d0fc8f0cae0951b4bf4acaf1bcfef536e5fa3a1c`.
-- Landing poussée et déployée depuis `origin/main` au SHA `41e05a6a0bb64531ff432a214e4a3b85f3c60e59`.
+- Landing poussée et déployée depuis `origin/main`. Le dernier SHA qui modifie le site est `41e05a6a0bb64531ff432a214e4a3b85f3c60e59`; les commits suivants sont documentaires.
 - Ancien sitemap `https://cowork.bruniaux.com/sitemap.xml` supprimé de GSC.
 - Sitemap canonique `https://cowork.bruniaux.com/sitemap-index.xml` soumis le 4 septembre 2026 à 13:40:02 UTC, téléchargé par GSC à 13:40:03 UTC, sans erreur ni warning.
 - Aucune modification GA4 ni écriture portfolio.

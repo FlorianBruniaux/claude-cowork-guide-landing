@@ -6,7 +6,7 @@
 2. Intégrer ensuite les commits landing. Sa CI exige exactement ce SHA guide. Acceptation : tests, check Astro, build et contrôle SEO final verts.
 3. Examiner le diff final des deux dépôts. Acceptation : aucune modification hors périmètre et aucun secret.
 
-Les trois critères sont satisfaits. Le guide est sur `d0fc8f0cae0951b4bf4acaf1bcfef536e5fa3a1c`, la landing déployée sur `41e05a6a0bb64531ff432a214e4a3b85f3c60e59`, et les deux branches `main` correspondent à `origin/main`.
+Les trois critères sont satisfaits. Le guide est sur `d0fc8f0cae0951b4bf4acaf1bcfef536e5fa3a1c`. Le dernier SHA qui modifie le site landing est `41e05a6a0bb64531ff432a214e4a3b85f3c60e59`; les commits suivants ne mettent à jour que les rapports. Les deux branches `main` correspondent à `origin/main` après publication.
 
 ## P1, déploiement et GSC terminés
 

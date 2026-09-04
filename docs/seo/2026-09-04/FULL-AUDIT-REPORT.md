@@ -24,7 +24,7 @@ Baselines Git : guide `6f7582a050ff4cf186858adb33119f5fd87696f0`, landing `9f4aa
 
 ## Mise à jour après intégration
 
-Le guide est intégré et poussé au SHA `d0fc8f0cae0951b4bf4acaf1bcfef536e5fa3a1c`. La landing est déployée depuis le SHA `41e05a6a0bb64531ff432a214e4a3b85f3c60e59`. Le workflow GitHub Pages `33878780179` est terminé avec succès. Le smoke HTTP strict post-déploiement passe sur 7 URL sur 7 et le contrôle visuel production couvre les accueils EN/FR, la FAQ, l'index du guide et les workflows, en desktop et à 390 x 844.
+Le guide est intégré et poussé au SHA `d0fc8f0cae0951b4bf4acaf1bcfef536e5fa3a1c`. Le dernier SHA qui modifie le site landing est `41e05a6a0bb64531ff432a214e4a3b85f3c60e59`; les commits suivants ne mettent à jour que ces rapports. Le workflow GitHub Pages `33878780179` associé à ce SHA est terminé avec succès. Le smoke HTTP strict post-déploiement passe sur 7 URL sur 7 et le contrôle visuel production couvre les accueils EN/FR, la FAQ, l'index du guide et les workflows, en desktop et à 390 x 844.
 
 Dans GSC, l'ancien `https://cowork.bruniaux.com/sitemap.xml` a été supprimé. Le sitemap canonique `https://cowork.bruniaux.com/sitemap-index.xml` a été soumis puis téléchargé le 4 septembre 2026, sans erreur ni warning. Les trois URL précédemment `NEUTRAL` le restent après réinspection. Cette absence d'état de crawl exploitable ne prouve pas une absence d'indexation.
 
