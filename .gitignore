@@ -33,3 +33,6 @@ src/data/guide-content-entries.ts
 
 # Vitals provenance data
 .vitals/
+
+# Local SEO audit evidence (may contain raw exports and screenshots)
+.audit/

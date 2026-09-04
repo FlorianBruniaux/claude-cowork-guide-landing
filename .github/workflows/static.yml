@@ -24,6 +24,9 @@ jobs:
       - name: Clone guide repo
         run: git clone --depth 1 https://github.com/FlorianBruniaux/claude-cowork-guide.git ../claude-cowork-guide
 
+      - name: Record guide revision
+        run: git -C ../claude-cowork-guide rev-parse HEAD
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
@@ -38,14 +41,17 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Prepare guide content
-        run: node scripts/prepare-guide-content.mjs
+      - name: Test SEO contracts
+        run: pnpm test
 
-      - name: Build guide content search index
-        run: node scripts/build-guide-content-index.mjs
+      - name: Check Astro project
+        run: pnpm check
 
-      - name: Build
-        run: pnpm astro build
+      - name: Build site with guide content
+        run: pnpm build
+
+      - name: Check built SEO
+        run: pnpm check:built-seo
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

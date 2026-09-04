@@ -4,6 +4,7 @@ import { t } from '../../data/i18n'
 
 interface Props { lang: Lang }
 const s = t(Astro.props.lang)
+const features = s.features as readonly (typeof s.features[number] & { featured?: boolean; badge?: string })[]
 ---
 
 <section class="section" id="features">
@@ -12,8 +13,8 @@ const s = t(Astro.props.lang)
     <h2 class="section-title">{s.featuresTitle}</h2>
     <p class="section-subtitle">{s.featuresSubtitle}</p>
     <div class="features-grid">
-      {s.features.map((f) => (
-        <a href={f.url} target="_blank" rel="noopener" class:list={['feature-card', { featured: f.featured }]}>
+      {features.map((f) => (
+        <a href={f.url} target={f.url.startsWith('http') ? '_blank' : undefined} rel={f.url.startsWith('http') ? 'noopener' : undefined} class:list={['feature-card', { featured: f.featured }]}>
           {f.badge && <span class="feature-badge">{f.badge}</span>}
           <span class="feature-icon">{f.icon}</span>
           <h3>{f.title}</h3>

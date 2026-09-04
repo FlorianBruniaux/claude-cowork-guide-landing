@@ -22,9 +22,18 @@ import { visit } from 'unist-util-visit'
 const GITHUB_BASE = 'https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/'
 const IMAGE_EXTS = new Set(['.jpeg', '.jpg', '.png', '.gif', '.svg', '.webp', '.avif'])
 
-function resolveGuideLink(href, anchorFragment, guideBase) {
+function resolveGuideLink(href, anchorFragment, guideBase, collectionBase) {
   const cleanHref = href.replace(/^\.\//, '')
   const frag = anchorFragment || ''
+
+  if (/^(?:\.\.\/)?(?:workflows|prompts|reference)\/?$/.test(cleanHref)) {
+    const directory = cleanHref.match(/(workflows|prompts|reference)/)[1]
+    return `${guideBase}${directory}/${frag}`
+  }
+
+  if (/(?:^|\/)README(?:\.en|\.fr)?\.md$/.test(cleanHref)) {
+    return cleanHref.startsWith('../') ? `${guideBase}${frag}` : `${collectionBase}${frag}`
+  }
 
   // Images
   const ext = '.' + (cleanHref.split('.').pop() || '')
@@ -34,8 +43,8 @@ function resolveGuideLink(href, anchorFragment, guideBase) {
 
   // Same-dir .md or .fr.md (no subpath)
   if ((cleanHref.endsWith('.md') || cleanHref.endsWith('.fr.md')) && !cleanHref.includes('/')) {
-    const slug = cleanHref.replace(/\.fr\.md$/, '').replace(/\.md$/, '')
-    return `${guideBase}${slug}/${frag}`
+    const slug = cleanHref.replace(/\.fr\.md$/, '').replace(/\.en\.md$/, '').replace(/\.md$/, '')
+    return `${collectionBase}${slug}/${frag}`
   }
 
   // ../guide/XX.fr.md or ../guide/XX.md (from reference/prompts cross-linking to guide)
@@ -45,21 +54,19 @@ function resolveGuideLink(href, anchorFragment, guideBase) {
   }
 
   // ../workflows/XX.en.md or ../workflows/XX.md
-  const workflowMatch =
-    cleanHref.match(/(?:\.\.\/)?workflows\/(.+?)\.en\.md$/) ||
-    cleanHref.match(/(?:\.\.\/)?workflows\/(.+?)\.md$/)
+  const workflowMatch = cleanHref.match(/(?:\.\.\/)?workflows\/(.+?)(?:\.en|\.fr)?\.md$/)
   if (workflowMatch) {
     return `${guideBase}workflows/${workflowMatch[1]}/${frag}`
   }
 
   // ../prompts/XX.fr.md or ../prompts/XX.md
-  const promptMatch = cleanHref.match(/(?:\.\.\/)?prompts\/(.+?)(?:\.fr)?\.md$/)
+  const promptMatch = cleanHref.match(/(?:\.\.\/)?prompts\/(.+?)(?:\.en|\.fr)?\.md$/)
   if (promptMatch) {
     return `${guideBase}prompts/${promptMatch[1]}/${frag}`
   }
 
   // ../reference/XX.fr.md or ../reference/XX.md
-  const referenceMatch = cleanHref.match(/(?:\.\.\/)?reference\/(.+?)(?:\.fr)?\.md$/)
+  const referenceMatch = cleanHref.match(/(?:\.\.\/)?reference\/(.+?)(?:\.en|\.fr)?\.md$/)
   if (referenceMatch) {
     return `${guideBase}reference/${referenceMatch[1]}/${frag}`
   }
@@ -81,6 +88,9 @@ export function remarkGuideLinks() {
     if (!isEN && !isFR) return
 
     const guideBase = isFR ? '/fr/guide/' : '/guide/'
+    const normalizedPath = filePath.replaceAll('\\', '/')
+    const collection = normalizedPath.match(/\/docs\/(?:fr\/)?guide\/(workflows|prompts|reference)\//)?.[1]
+    const collectionBase = collection ? `${guideBase}${collection}/` : guideBase
 
     visit(tree, ['link', 'image'], (node) => {
       const originalUrl = node.url || ''
@@ -94,7 +104,7 @@ export function remarkGuideLinks() {
       const fragmentPart = hashIdx >= 0 ? originalUrl.slice(hashIdx) : ''
       if (!hrefPart) return
 
-      const resolved = resolveGuideLink(hrefPart, fragmentPart, guideBase)
+      const resolved = resolveGuideLink(hrefPart, fragmentPart, guideBase, collectionBase)
       if (resolved) {
         node.url = resolved
       } else if (hrefPart.startsWith('../') || hrefPart.startsWith('..\\')) {

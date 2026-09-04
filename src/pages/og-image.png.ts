@@ -9,10 +9,10 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 
 export const GET: APIRoute = async () => {
   const stats = [
-    { value: '28', label: 'WORKFLOWS' },
+    { value: '29', label: 'WORKFLOWS' },
     { value: '70+', label: 'PROMPTS' },
     { value: '7', label: 'GOLDEN RULES' },
-    { value: '13', label: 'FAQ' },
+    { value: '10', label: 'FAQ' },
   ]
 
   const fontPath = resolve(
@@ -22,7 +22,7 @@ export const GET: APIRoute = async () => {
   const fontData: ArrayBuffer = readFileSync(fontPath).buffer as ArrayBuffer
 
   const svg = await satori(
-    {
+    ({
       type: 'div',
       props: {
         style: {
@@ -174,7 +174,7 @@ export const GET: APIRoute = async () => {
           },
         ],
       },
-    },
+    } as any),
     {
       width: 1200,
       height: 630,

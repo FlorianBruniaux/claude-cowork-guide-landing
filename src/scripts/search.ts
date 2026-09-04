@@ -131,10 +131,10 @@ export function initSearch(entries: SearchEntry[]): void {
 
   // ── Modal lifecycle ─────────────────────────────────────────────────────────
   function openModal(): void {
-    modal.removeAttribute('hidden')
-    modal.setAttribute('aria-hidden', 'false')
-    input.value = ''
-    input.focus()
+    modal!.removeAttribute('hidden')
+    modal!.setAttribute('aria-hidden', 'false')
+    input!.value = ''
+    input!.focus()
     activeIndex = -1
     currentResults = []
     renderEmpty(resultsList!)
@@ -142,8 +142,8 @@ export function initSearch(entries: SearchEntry[]): void {
   }
 
   function closeModal(): void {
-    modal.setAttribute('hidden', '')
-    modal.setAttribute('aria-hidden', 'true')
+    modal!.setAttribute('hidden', '')
+    modal!.setAttribute('aria-hidden', 'true')
     document.body.style.overflow = ''
     activeIndex = -1
   }

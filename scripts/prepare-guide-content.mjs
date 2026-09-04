@@ -24,28 +24,22 @@ const ROOT = resolve(__dirname, '..')
 
 // Clear Astro's content layer data store so stale entries don't cause
 // duplicate ID warnings after guide files are regenerated.
-const DATA_STORE = resolve(ROOT, '.astro/data-store.json')
-if (existsSync(DATA_STORE)) {
-  rmSync(DATA_STORE)
+const DATA_STORES = [
+  resolve(ROOT, '.astro/data-store.json'),
+  resolve(ROOT, 'node_modules/.astro/data-store.json'),
+]
+for (const dataStore of DATA_STORES) {
+  if (existsSync(dataStore)) rmSync(dataStore)
 }
 
 const GUIDE_REPO = resolve(ROOT, '../claude-cowork-guide')
 const GUIDE_DIR = resolve(GUIDE_REPO, 'guide')
 
-// Graceful fail if guide repo absent
+// A guide-less build would publish a structurally valid but empty site.
 if (!existsSync(GUIDE_DIR)) {
-  console.warn(`[prepare-guide] WARNING: Guide repo not found at ${GUIDE_DIR}`)
-  console.warn(`[prepare-guide] Skipping — expected path: ${GUIDE_DIR}`)
-  console.warn(`[prepare-guide] In CI, ensure guide repo is cloned before running this script.`)
-
-  const stubDir = resolve(ROOT, 'src/content/docs/guide')
-  mkdirSync(stubDir, { recursive: true })
-  writeFileSync(
-    resolve(ROOT, 'src/content/docs/guide/index.md'),
-    '---\ntitle: "Guide"\ndescription: "Guide content not available in this build."\n---\n\nGuide content is generated during CI from the [guide repository](https://github.com/FlorianBruniaux/claude-cowork-guide).\n',
-    'utf-8'
-  )
-  process.exit(0)
+  console.error(`[prepare-guide] ERROR: Guide repo not found at ${GUIDE_DIR}`)
+  console.error('[prepare-guide] Refusing to publish an empty guide.')
+  process.exit(1)
 }
 
 // --- Paths ---
@@ -105,6 +99,13 @@ function normalizeLangs(content) {
   })
 }
 
+function removeRenderedTitle(content) {
+  const frontmatter = content.match(/^---\r?\n[\s\S]*?\r?\n---\r?\n?/)
+  const offset = frontmatter?.[0].length ?? 0
+  const body = content.slice(offset).replace(/^\s*#\s+[^\n]+\r?\n+/, '')
+  return content.slice(0, offset) + body
+}
+
 function ensureDir(dir) {
   mkdirSync(dir, { recursive: true })
 }
@@ -147,6 +148,7 @@ for (let i = 0; i < guideFiles.length; i++) {
 
   content = addStarlightFm(content, { title, desc, order: i })
   content = normalizeLangs(content)
+  content = removeRenderedTitle(content)
 
   writeFileSync(resolve(OUT_GUIDE, file), content, 'utf-8')
   stats.guide++
@@ -178,6 +180,7 @@ if (existsSync(WORKFLOWS_SRC)) {
 
     content = addStarlightFm(content, { title, desc, order: 200 + i })
     content = normalizeLangs(content)
+    content = removeRenderedTitle(content)
 
     // Output filename: strip .en → name.md
     const outFile = file.replace('.en.md', '.md')
@@ -214,6 +217,7 @@ if (existsSync(PROMPTS_SRC)) {
 
     content = addStarlightFm(content, { title, desc, order: 300 + i })
     content = normalizeLangs(content)
+    content = removeRenderedTitle(content)
 
     writeFileSync(resolve(OUT_PROMPTS, file), content, 'utf-8')
     stats.prompts++
@@ -248,6 +252,7 @@ if (existsSync(REFERENCE_SRC)) {
 
     content = addStarlightFm(content, { title, desc, order: 400 + i })
     content = normalizeLangs(content)
+    content = removeRenderedTitle(content)
 
     writeFileSync(resolve(OUT_REFERENCE, file), content, 'utf-8')
     stats.reference++
@@ -288,6 +293,14 @@ hero:
 `
 writeFileSync(resolve(OUT_GUIDE, 'index.md'), guideIndexContent, 'utf-8')
 
+for (const [directory, title, description] of [
+  [OUT_WORKFLOWS, 'Cowork Workflows', 'Step-by-step workflows for repeatable work in Claude Cowork.'],
+  [OUT_PROMPTS, 'Cowork Prompts', 'Ready-to-use, reviewed prompt templates for common Claude Cowork tasks.'],
+  [OUT_REFERENCE, 'Cowork Reference', 'Cheatsheet, FAQ, glossary, and comparisons for Claude Cowork.'],
+]) {
+  writeFileSync(resolve(directory, 'index.md'), `---\ntitle: "${title}"\ndescription: "${description}"\nsidebar:\n  order: -1\n---\n`, 'utf-8')
+}
+
 // -----------------------------------------------------------------------
 // 6. FR — Core guide files (guide/*.fr.md → strip .fr → fr/guide/XX.md)
 // -----------------------------------------------------------------------
@@ -308,6 +321,7 @@ for (let i = 0; i < frGuideFiles.length; i++) {
 
   content = addStarlightFm(content, { title, desc, order: i })
   content = normalizeLangs(content)
+  content = removeRenderedTitle(content)
 
   const outFile = file.replace('.fr.md', '.md')
   writeFileSync(resolve(OUT_FR_GUIDE, outFile), content, 'utf-8')
@@ -336,6 +350,7 @@ if (existsSync(WORKFLOWS_SRC)) {
 
     content = addStarlightFm(content, { title, desc, order: 200 + i })
     content = normalizeLangs(content)
+    content = removeRenderedTitle(content)
 
     writeFileSync(resolve(OUT_FR_WORKFLOWS, file), content, 'utf-8')
     stats.fr++
@@ -350,6 +365,7 @@ if (existsSync(PROMPTS_SRC)) {
 
   const frPromptFiles = readdirSync(PROMPTS_SRC)
     .filter(f => f.endsWith('.fr.md') && !f.startsWith('README'))
+    .filter(f => existsSync(resolve(PROMPTS_SRC, f.replace('.fr.md', '.md'))))
     .sort()
 
   for (let i = 0; i < frPromptFiles.length; i++) {
@@ -364,6 +380,7 @@ if (existsSync(PROMPTS_SRC)) {
 
     content = addStarlightFm(content, { title, desc, order: 300 + i })
     content = normalizeLangs(content)
+    content = removeRenderedTitle(content)
 
     const outFile = file.replace('.fr.md', '.md')
     writeFileSync(resolve(OUT_FR_PROMPTS, outFile), content, 'utf-8')
@@ -393,6 +410,7 @@ if (existsSync(REFERENCE_SRC)) {
 
     content = addStarlightFm(content, { title, desc, order: 400 + i })
     content = normalizeLangs(content)
+    content = removeRenderedTitle(content)
 
     const outFile = file.replace('.fr.md', '.md')
     writeFileSync(resolve(OUT_FR_REFERENCE, outFile), content, 'utf-8')
@@ -429,6 +447,14 @@ hero:
 | [Référence](/fr/guide/reference/cheatsheet/) | Cheatsheet, FAQ, glossaire et comparaison |
 `
 writeFileSync(resolve(OUT_FR_GUIDE, 'index.md'), frGuideIndexContent, 'utf-8')
+
+for (const [directory, title, description] of [
+  [OUT_FR_WORKFLOWS, 'Workflows Cowork', 'Workflows pas à pas pour automatiser des tâches répétables avec Claude Cowork.'],
+  [OUT_FR_PROMPTS, 'Prompts Cowork', 'Modèles de prompts prêts à utiliser avec Claude Cowork.'],
+  [OUT_FR_REFERENCE, 'Référence Cowork', 'Cheatsheet, FAQ, glossaire et comparaisons pour Claude Cowork.'],
+]) {
+  writeFileSync(resolve(directory, 'index.md'), `---\ntitle: "${title}"\ndescription: "${description}"\nsidebar:\n  order: -1\n---\n`, 'utf-8')
+}
 
 // -----------------------------------------------------------------------
 // Report

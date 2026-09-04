@@ -6,6 +6,7 @@
  */
 import GlobalHeader from '../global/Header.astro'
 import SearchModal from '../global/SearchModal.astro'
+const lang = Astro.url.pathname.startsWith('/fr/') ? 'fr' : 'en'
 ---
-<GlobalHeader lang="en" />
-<SearchModal lang="en" />
+<GlobalHeader lang={lang} />
+<SearchModal lang={lang} />
