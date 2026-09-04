@@ -1,0 +1,40 @@
+scripts/check-built-seo.mjs
+  s_c99475ba6642f6::t_dc13a9911888cf 56,85-91
+  s_c99475ba6642f6::t_33b77ba16a2ba4 50-54,62,109,111-115,120-124
+scripts/check-public-seo.mjs
+  s_c99475ba6642f6::t_3ce7e366e14d72 25-26
+  s_c99475ba6642f6::t_dc13a9911888cf 23-24,27-29
+  s_c99475ba6642f6::t_c8dce2a31ae2b8 30-36
+src/data/glossary-data.ts
+  s_c99475ba6642f6::t_b101266448e7c4 164,166-169
+src/data/i18n.ts
+  s_c99475ba6642f6::t_382a8bce8306df 83,94,116,131,140,406,417,439,454,463
+tests/built-seo.test.mjs
+  s_c99475ba6642f6::t_a5d975cd326a06 86-96
+  s_c99475ba6642f6::t_84653e57eb4a46 72-85
+.github/workflows/static.yml
+  s_c99475ba6642f6::t_5b2ac8b375a40f 14
+  s_c99475ba6642f6::t_3e2b23781d5369 13,15,27-32,34-35
+src/data/releases.ts
+  s_c99475ba6642f6::t_84653e57eb4a46 81,91,272
+tests/public-seo.test.mjs
+  s_c99475ba6642f6::t_fafaa9537c5bc0 28-35
+  s_c99475ba6642f6::t_84653e57eb4a46 1-27
+  s_c99475ba6642f6::t_f26bfb6f9bb0c5 36-43
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "2b4f88b1c86c6a82e181beb0381692f6e98296be",
+  "prompts": {},
+  "sessions": {
+    "s_c99475ba6642f6": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a06c32-2be3-7262-8436-543fb8d0b6f8",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Florian BRUNIAUX <florian@bruniaux.com>"
+    }
+  }
+}
