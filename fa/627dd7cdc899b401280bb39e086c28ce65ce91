@@ -1,0 +1,30 @@
+docs/seo/2026-09-04/ACTION-PLAN.md
+  s_c99475ba6642f6::t_b1275eecc80b4a 5-6
+  s_c99475ba6642f6::t_c03936228d1187 1-4,7-26
+docs/seo/2026-09-04/IMPLEMENTATION-REPORT.md
+  s_c99475ba6642f6::t_b1275eecc80b4a 1-76
+docs/seo/2026-09-04/DELTA-SINCE-PREVIOUS-AUDITS.md
+  s_c99475ba6642f6::t_c03936228d1187 1-22
+docs/superpowers/plans/2026-09-04-cowork-seo-corrections.md
+  s_c99475ba6642f6::t_212ada4c6756be 1-53
+docs/superpowers/specs/2026-09-04-cowork-seo-corrections.md
+  s_c99475ba6642f6::t_212ada4c6756be 1-51
+docs/seo/2026-09-04/FULL-AUDIT-REPORT.md
+  s_c99475ba6642f6::t_c03936228d1187 1-87
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "fa627dd7cdc899b401280bb39e086c28ce65ce91",
+  "prompts": {},
+  "sessions": {
+    "s_c99475ba6642f6": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a06c32-2be3-7262-8436-543fb8d0b6f8",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Florian BRUNIAUX <florian@bruniaux.com>"
+    }
+  }
+}
