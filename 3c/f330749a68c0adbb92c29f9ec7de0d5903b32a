@@ -1,0 +1,68 @@
+src/components/starlight/Header.astro
+  s_c99475ba6642f6::t_db95b7bf385177 9,11-12
+.gitignore
+  s_c99475ba6642f6::t_212ada4c6756be 36-38
+src/components/landing/Features.astro
+  s_c99475ba6642f6::t_1b4878251e8a6c 7,16
+  s_c99475ba6642f6::t_a1a0d870a698bb 17
+src/content.config.ts
+  s_c99475ba6642f6::t_db95b7bf385177 1,10
+scripts/check-built-seo.mjs
+  s_c99475ba6642f6::t_0d1c210b82c45d 1-69,72,74-95,97-133
+  s_c99475ba6642f6::t_6282bdee7ba5da 70-71,73,96
+src/scripts/search.ts
+  s_c99475ba6642f6::t_1b4878251e8a6c 134-137,145-146
+src/components/global/Header.astro
+  s_c99475ba6642f6::t_472302662b4a91 581-582
+plugins/remark-guide-links.mjs
+  s_c99475ba6642f6::t_db95b7bf385177 25,29-37,46-47,91-93,107
+  s_c99475ba6642f6::t_6282bdee7ba5da 57,63,69
+src/pages/og-image.png.ts
+  s_c99475ba6642f6::t_6a0541cc8c3027 12,15
+  s_c99475ba6642f6::t_1b4878251e8a6c 25,177
+.github/workflows/static.yml
+  s_c99475ba6642f6::t_f9d06893d291d3 27-29,44-48,50-51,53-54
+package.json
+  s_c99475ba6642f6::t_c7f3ed6c9d49b4 10-12
+  s_c99475ba6642f6::t_eb5f2eec416d99 29
+src/pages/fr/whitepapers/index.astro
+  s_c99475ba6642f6::t_1b4878251e8a6c 592,596-597,602,612-613,624,630,633-634,641,669-670
+src/components/starlight/Head.astro
+  s_c99475ba6642f6::t_db95b7bf385177 13-14,30,38
+scripts/prepare-guide-content.mjs
+  s_c99475ba6642f6::t_db95b7bf385177 38,40-42,102-108,151,183,220,255,296-297,299-303,324,353,383,413,451-457
+  s_c99475ba6642f6::t_68fa37b102accb 27-32
+  s_c99475ba6642f6::t_6282bdee7ba5da 298,368
+  s_b2baa54c0e70cf::t_619ab1349e6909 458
+scripts/check-public-seo.mjs
+  s_c99475ba6642f6::t_0d1c210b82c45d 1-45
+tests/built-seo.test.mjs
+  s_c99475ba6642f6::t_c7f3ed6c9d49b4 1-25,27-71
+  s_c99475ba6642f6::t_7c75130a6cee37 26
+pnpm-lock.yaml
+  s_c99475ba6642f6::t_957fe809c1d4d3 39-41,73-78,85-96,134-136,166-186,1161-1202,1214-1229,1367-1370,1383-1386,1553-1555,1637-1639,1644-1646,1695-1698,1703-1706,1878-1886,1891-1894,2112-2114,2200-2202,2224-2227,2299-2303,2328-2331,2402-2411,2502-2505,2566-2569,2586,2601-2606,2791-2898,2917-2924,2930-2939,2944-2951,2991-3001,3006-3030,3153-3156,3178-3200,3868-3923,3930-3944,4165-4168,4177-4182,4321-4325,4462-4463,4472-4473,4492-4495,4519-4520,4523-4524,4809-4814,4817-4818,5320-5321,5420-5421,5434-5435,5490-5491,5513-5514,5655-5660,5851-5855,5948-5952,5972-5977,6107-6214,6231-6247,6250-6253,6256-6266
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "3cf330749a68c0adbb92c29f9ec7de0d5903b32a",
+  "prompts": {},
+  "sessions": {
+    "s_b2baa54c0e70cf": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a06c27-5c72-7e63-82b2-fe0d78c94145",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Florian BRUNIAUX <florian@bruniaux.com>"
+    },
+    "s_c99475ba6642f6": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a06c32-2be3-7262-8436-543fb8d0b6f8",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Florian BRUNIAUX <florian@bruniaux.com>"
+    }
+  }
+}
