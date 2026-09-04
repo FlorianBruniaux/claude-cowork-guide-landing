@@ -55,6 +55,7 @@ Guide, branche `codex/cowork-seo-audit-20260904` :
 - `3b9066b` `docs(cowork): bound active capability claims`
 - `7068f34` `fix(docs): repair generated guide anchors`
 - `04f9124` `fix(docs): qualify network and pricing claims`
+- `b425d54` `fix(ci): compare translation commit order`
 
 Landing, branche `codex/cowork-seo-audit-20260904` :
 

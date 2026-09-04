@@ -2,7 +2,7 @@
 
 ## P0, avant intégration
 
-1. Intégrer les commits guide jusqu'à `04f91241c0c23689fb9981830d4a0d9c0cdcaec4` en premier. Acceptation : version 1.12.0, 70 prompts, 29 workflows, parité FR et contrôles verts.
+1. Intégrer les commits guide jusqu'à `b425d542fe5e4b1b83dc82dbfd92b48a54b9fdaa` en premier. Acceptation : version 1.12.0, 70 prompts, 29 workflows, parité FR et contrôles verts.
 2. Intégrer ensuite les commits landing. Sa CI exige exactement ce SHA guide. Acceptation : tests, check Astro, build et contrôle SEO final verts.
 3. Examiner le diff final des deux dépôts. Acceptation : aucune modification hors périmètre et aucun secret.
 
