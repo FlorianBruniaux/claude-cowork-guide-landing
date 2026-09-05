@@ -92,8 +92,8 @@ export const UI_STRINGS = {
 
     // What's New
     whatsNewBadge: 'Sep 2026',
-    whatsNewTitle: 'Guide v1.12.0: 29 workflows and 70 prompts',
-    whatsNewText: 'The guide now provides a bilingual workflow library, a verified product FAQ, security guidance, prompt templates, and reference material for each supported surface.',
+    whatsNewTitle: 'Guide v1.13.0: Opus 5, Fable 5.1 and cloud memory in Cowork',
+    whatsNewText: 'Updated Sep 5, 2026 with Claude Opus 5, Claude Fable 5.1 and Mythos 5.1, cloud memory with editable Topics in Cowork, and wider Cowork folder access. The guide also covers a bilingual workflow library, a verified product FAQ, security guidance, prompt templates, and reference material for each supported surface.',
     whatsNewWarning: 'Product capabilities vary by plan and surface. Check the linked Anthropic documentation before relying on a feature for critical work.',
     whatsNewCta: 'View Capabilities →',
     whatsNewUrl: GUIDE_BASE + 'guide/02-capabilities.md#model-selection',
@@ -415,8 +415,8 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
 
     // What's New
     whatsNewBadge: 'Sept 2026',
-    whatsNewTitle: 'Guide v1.12.0 : 29 workflows et 70 prompts',
-    whatsNewText: 'Le guide propose maintenant une bibliothèque bilingue de workflows, une FAQ produit vérifiée, des pratiques de sécurité, des modèles de prompts et des références par surface.',
+    whatsNewTitle: 'Guide v1.13.0 : Opus 5, Fable 5.1 et mémoire cloud dans Cowork',
+    whatsNewText: 'Mis à jour le 5 septembre 2026 avec Claude Opus 5, Claude Fable 5.1 et Mythos 5.1, la mémoire cloud avec Topics éditables dans Cowork, et un accès élargi aux dossiers Cowork. Le guide propose aussi une bibliothèque bilingue de workflows, une FAQ produit vérifiée, des pratiques de sécurité, des modèles de prompts et des références par surface.',
     whatsNewWarning: 'Les capacités produit varient selon le plan et la surface. Vérifiez la documentation Anthropic liée avant de dépendre d’une fonction pour une tâche critique.',
     whatsNewCta: 'Voir les fonctionnalités →',
     whatsNewUrl: GUIDE_BASE + 'guide/02-capabilities.fr.md#selection-du-modele',

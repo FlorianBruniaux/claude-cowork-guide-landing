@@ -16,6 +16,23 @@ export interface BreakingChange {
 
 export const releases: Release[] = [
   {
+    version: 'v1.13.0',
+    date: 'Sep 5, 2026',
+    highlights: [
+      '⭐ <strong>Claude Opus 5</strong> (24 juillet 2026, tous plans payants) — performances proches de la frontière d\'intelligence de Claude Fable 5 pour environ la moitié du prix',
+      '⭐ <strong>Claude Fable 5.1 et Claude Mythos 5.1</strong> (1er septembre 2026) — les modèles les plus avancés d\'Anthropic à ce jour pour le coding et le knowledge work',
+      '⭐ <strong>Mémoire dans Cowork (cloud)</strong> — mémoire unifiée across chat et Cowork, <code>Settings &gt; Memory &gt; Topics</code> éditable/supprimable, toggle sujets sensibles',
+      '⭐ <strong>Cowork attache des dossiers plus larges</strong> — dossier utilisateur complet, Documents/AppData Windows, Library macOS, disques entiers ; credentials et config Claude restent hors périmètre',
+      '<strong>Scan de sécurité des skills et plugins tiers</strong> (Enterprise) — vérification automatique du contenu malveillant à l\'upload ou l\'édition',
+      '<strong>Claude dans le menu « Ouvrir avec »</strong> — tableurs, PDF, Word/PowerPoint, texte, images, sur macOS et Windows',
+      'File d\'attente des messages pendant la limite d\'usage de 5h — message mis en attente, modifiable/annulable au lieu d\'échouer',
+    ],
+    latest: true,
+    initiallyVisible: true,
+    featured: true,
+    featuredLabel: '⭐ Opus 5 + Fable 5.1/Mythos 5.1 + mémoire Cowork',
+  },
+  {
     version: 'v1.12.0',
     date: 'Jul 22, 2026',
     highlights: [
@@ -32,10 +49,8 @@ export const releases: Release[] = [
     breaking: [
       'Desktop Extensions désactivées par défaut (déploiements administrés) — <code>isDesktopExtensionEnabled</code> passe de <code>true</code> à <code>false</code>. Les extensions <code>.dxt</code> et <code>.mcpb</code> ne se chargent plus tant qu\'un admin ne l\'autorise pas',
     ],
-    latest: true,
     initiallyVisible: true,
-    featured: true,
-    featuredLabel: '⭐ Cowork sur web et mobile + fusion Chat/Cowork',
+    featured: false,
   },
   {
     version: 'v1.11.0',
