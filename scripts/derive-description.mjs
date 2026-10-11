@@ -10,6 +10,11 @@
 export const MAX_DESCRIPTION_LENGTH = 159
 export const MIN_DESCRIPTION_LENGTH = 50
 
+/** Serialise a string as a double-quoted YAML scalar (backslash, quote, newline safe). */
+export function yamlString(text) {
+  return `"${String(text).replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\r?\n/g, ' ')}"`
+}
+
 // Lines that are never prose: headings, quotes, tables, lists, rules, HTML,
 // badges and images, language switchers (🌐), admonition fences.
 const NON_PROSE = /^(#{1,6}\s|>|\||[-*+]\s|\d+[.)]\s|-{3,}\s*$|\*{3,}\s*$|_{3,}\s*$|<|!\[|\[!\[|🌐|:::)/

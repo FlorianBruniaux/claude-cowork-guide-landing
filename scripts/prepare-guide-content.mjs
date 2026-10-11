@@ -17,7 +17,7 @@
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync, rmSync } from 'fs'
 import { resolve, dirname } from 'path'
-import { deriveDescription } from './derive-description.mjs'
+import { deriveDescription, yamlString } from './derive-description.mjs'
 import { fileURLToPath } from 'url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -70,7 +70,7 @@ function addStarlightFm(content, meta) {
     const headingMatch = content.match(/^# (.+)/m)
     const title = headingMatch ? headingMatch[1].trim() : meta.title
     const desc = meta.desc || ''
-    return `---\ntitle: "${title.replace(/"/g, '\\"')}"\n${desc ? `description: "${desc.replace(/"/g, '\\"')}"\n` : ''}${sidebarYaml}\n---\n\n${content.trimStart()}`
+    return `---\ntitle: ${yamlString(title)}\n${desc ? `description: ${yamlString(desc)}\n` : ''}${sidebarYaml}\n---\n\n${content.trimStart()}`
   }
 
   let fm = match[1]
@@ -80,7 +80,7 @@ function addStarlightFm(content, meta) {
   fm = fm.replace(/^tags:\n([ \t]+-[^\n]*\n)*/m, '')
   fm = fm.trim()
   if (fm) fm += '\n'
-  if (meta.desc && !/^description:/m.test(fm)) fm += `description: "${meta.desc.replace(/\\/g, '\\\\').replace(/"/g, '\\"')}"\n`
+  if (meta.desc && !/^description:/m.test(fm)) fm += `description: ${yamlString(meta.desc)}\n`
   fm += sidebarYaml
 
   return content.replace(fmRegex, `---\n${fm}\n---`)

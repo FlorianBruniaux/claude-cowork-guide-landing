@@ -111,14 +111,15 @@ export function remarkGuideLinks() {
 
       const hashIdx = originalUrl.indexOf('#')
       const hrefPart = hashIdx >= 0 ? originalUrl.slice(0, hashIdx) : originalUrl
-      const fragmentPart = hashIdx >= 0 ? normalizeFragment(originalUrl.slice(hashIdx)) : ''
+      const rawFragment = hashIdx >= 0 ? originalUrl.slice(hashIdx) : ''
       if (!hrefPart) return
 
-      const resolved = resolveGuideLink(hrefPart, fragmentPart, guideBase, collectionBase)
+      // Astro drops the trailing dash of heading ids, GitHub keeps it.
+      const resolved = resolveGuideLink(hrefPart, normalizeFragment(rawFragment), guideBase, collectionBase)
       if (resolved) {
         node.url = resolved
       } else if (hrefPart.startsWith('../') || hrefPart.startsWith('..\\')) {
-        node.url = toGitHubUrl(hrefPart) + fragmentPart
+        node.url = toGitHubUrl(hrefPart) + rawFragment
       }
     })
   }

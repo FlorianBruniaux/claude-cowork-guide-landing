@@ -41,7 +41,7 @@ const releasesJsonLd = [
           name: `Guide Claude Cowork ${release.version}`,
           version: release.version.replace('v', ''),
           description: release.featuredLabel
-            ? stripHtml(release.featuredLabel).replace(/^[^\w]+/, '').trim()
+            ? stripHtml(release.featuredLabel).replace(/^[^\p{L}\p{N}]+/u, '').trim()
             : stripHtml(release.highlights[0] ?? ''),
           datePublished: parseDate(release.date),
           url: 'https://cowork.bruniaux.com/fr/releases/',

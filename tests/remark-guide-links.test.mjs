@@ -25,3 +25,10 @@ test('leaves fragments without trailing dash and external URLs untouched', () =>
   assert.equal(rewrite('#section-a'), '#section-a')
   assert.equal(rewrite('https://example.com/#x-'), 'https://example.com/#x-')
 })
+
+test('keeps the GitHub trailing dash when the link falls back to GitHub', () => {
+  assert.equal(
+    rewrite('../../machine-readable/notes.md#q-is-it-free-'),
+    'https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/machine-readable/notes.md#q-is-it-free-',
+  )
+})

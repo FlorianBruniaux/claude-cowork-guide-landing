@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import { deriveDescription, truncateOnWord } from '../scripts/derive-description.mjs'
+import { deriveDescription, truncateOnWord, yamlString } from '../scripts/derive-description.mjs'
 
 test('skips title, language switcher, header quote, rule, table and code to reach the first paragraph', () => {
   const md = [
@@ -68,4 +68,9 @@ test('falls back to the bold lead quote when the page has no usable paragraph', 
 test('skips navigation lines and strips FAQ answer labels', () => {
   const md = "# T\n\n[Retour à l'Index](./README.md) | [Documentation](../x.md)\n\n**R:** Cowork est la fonctionnalité desktop agentique de Claude pour vos fichiers locaux.\n"
   assert.equal(deriveDescription(md), 'Cowork est la fonctionnalité desktop agentique de Claude pour vos fichiers locaux.')
+})
+
+test('yamlString escapes backslashes, quotes and newlines for a double-quoted YAML scalar', () => {
+  assert.equal(yamlString('C:\\Users\\Nom "Pro"'), '"C:\\\\Users\\\\Nom \\"Pro\\""')
+  assert.equal(yamlString('a\nb'), '"a b"')
 })
