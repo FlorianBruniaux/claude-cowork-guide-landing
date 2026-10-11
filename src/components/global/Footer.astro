@@ -23,7 +23,7 @@ function isExternal(url: string): boolean {
     <div class="footer-cta">
       <div class="footer-cta-inner">
         <div class="footer-cta-text">
-          <h3>{s.footerCtaTitle}</h3>
+          <h2>{s.footerCtaTitle}</h2>
           <p>{s.footerCtaText}</p>
         </div>
         <div class="footer-cta-actions">
@@ -53,7 +53,7 @@ function isExternal(url: string): boolean {
     <div class="footer-grid">
       {s.footerSections.map((section) => (
         <div class="footer-section">
-          <h4>{section.title}</h4>
+          <h3>{section.title}</h3>
           <ul>
             {section.links.map((link) => (
               <li>
@@ -126,7 +126,7 @@ function isExternal(url: string): boolean {
     padding: var(--space-xl) var(--space-2xl);
     flex-wrap: wrap;
   }
-  .footer-cta-text h3 {
+  .footer-cta-text h2 {
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--text-primary);
@@ -151,7 +151,7 @@ function isExternal(url: string): boolean {
     gap: var(--space-lg) var(--space-xl);
     margin-bottom: var(--space-2xl);
   }
-  .footer-section h4 {
+  .footer-section h3 {
     font-size: 0.8rem;
     font-weight: 700;
     text-transform: uppercase;
