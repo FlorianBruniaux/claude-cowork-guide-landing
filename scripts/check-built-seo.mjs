@@ -83,7 +83,8 @@ export async function auditBuiltSite(distDir = resolve('dist')) {
   const add = (code, route, message) => findings.push({ code, route, message })
   if (!existsSync(distDir)) return { pages: 0, findings: [{ code: 'DIST_MISSING', route: '/', message: `${distDir} does not exist` }] }
 
-  const htmlFiles = filesBelow(distDir, '.html')
+  // 404.html is a noindex error page: no canonical, hreflang or sitemap entry is expected.
+  const htmlFiles = filesBelow(distDir, '.html').filter(file => routeFor(distDir, file) !== '/404.html')
   const routes = new Set(htmlFiles.map(file => routeFor(distDir, file)))
   const htmlByRoute = new Map(htmlFiles.map(file => [routeFor(distDir, file), readFileSync(file, 'utf8')]))
   const idsByRoute = new Map([...htmlByRoute].map(([route, html]) => [

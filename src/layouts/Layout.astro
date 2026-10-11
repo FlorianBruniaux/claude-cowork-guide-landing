@@ -79,21 +79,25 @@ const speakableSelectors = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="canonical" href={canonicalURL} />
+    {!noIndex && <link rel="canonical" href={canonicalURL} />}
 
     {preloadImages.map((src) => (
       <link rel="preload" href={src} as="image" />
     ))}
 
-    <!-- Hreflang -->
-    <link rel="alternate" hreflang={lang} href={canonicalURL} />
-    <link rel="alternate" hreflang={altLang} href={altUrl} />
-    <link rel="alternate" hreflang="x-default" href={lang === 'en' ? canonicalURL : altUrl} />
+    <!-- Hreflang (indexable pages only: a noindex page has no alternate URLs) -->
+    {!noIndex && (
+      <>
+        <link rel="alternate" hreflang={lang} href={canonicalURL} />
+        <link rel="alternate" hreflang={altLang} href={altUrl} />
+        <link rel="alternate" hreflang="x-default" href={lang === 'en' ? canonicalURL : altUrl} />
+      </>
+    )}
 
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
     <meta name="author" content="Florian BRUNIAUX" />
-    <meta name="robots" content={noIndex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1'} />
+    <meta name="robots" content={noIndex ? 'noindex' : 'index, follow, max-image-preview:large, max-snippet:-1'} />
 
     <!-- Open Graph -->
     <meta property="og:type" content={ogType} />

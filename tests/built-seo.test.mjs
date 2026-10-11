@@ -182,3 +182,11 @@ test('rejects speakable selectors that match nothing in the page', async t => {
   assert.ok(findings.some(finding => finding.message.includes('.hero-tagline')))
   assert.ok(findings.some(finding => finding.message.includes('#faq h2')))
 })
+
+test('ignores a noindex 404.html that has no canonical, hreflang or sitemap entry', async t => {
+  const root = await fixture({ '/': page({ alternate: `${site}/fr/` }), '/fr/': page({ lang: 'fr', canonical: `${site}/fr/`, alternate: `${site}/` }) }, [`${site}/`, `${site}/fr/`])
+  t.after(() => rm(root, { recursive: true, force: true }))
+  await writeFile(join(root, '404.html'), '<!doctype html><html lang="en"><head><title>Not found</title><meta name="robots" content="noindex"><link rel="canonical" href="https://cowork.bruniaux.com/404/"></head><body><h1>404</h1><a href="/fr/404/">x</a></body></html>')
+
+  assert.deepEqual((await auditBuiltSite(root)).findings, [])
+})
