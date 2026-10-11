@@ -1,0 +1,23 @@
+src/pages/fr/glossary/index.astro
+  s_f6f18e2ee1bede::t_1b5c50f245ac71 55,58,170-171
+src/pages/glossary/index.astro
+  s_f6f18e2ee1bede::t_0be7619cd8ea7d 54,57,169-170
+tests/built/c-headings.test.mjs
+  s_f6f18e2ee1bede::t_7a60ddc9dea79d 5,13,15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "9b577986f38e27e7aeee5b2f1118bd18c153f442",
+  "prompts": {},
+  "sessions": {
+    "s_f6f18e2ee1bede": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "45b6c144-ab6f-47f3-a276-074bbddcaa0f",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Florian BRUNIAUX <florian@bruniaux.com>"
+    }
+  }
+}
