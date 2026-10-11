@@ -30,7 +30,7 @@ export const PROMPT_CATEGORIES: PromptCategory[] = [
     desc: 'Organization, renaming, cleanup, deduplication',
     descFr: 'Organisation, renommage, nettoyage, déduplication',
     count: 20,
-    guideUrl: GUIDE_BASE + 'prompts/file-ops.en.md',
+    guideUrl: GUIDE_BASE + 'prompts/file-ops.md',
     guideUrlFr: GUIDE_BASE + 'prompts/file-ops.fr.md',
     prompts: [
       {
@@ -188,7 +188,7 @@ Crée un rapport dans ~/Cowork-Workspace/output/rapport-nettoyage.txt`,
     desc: 'Reports, summaries, presentations, Excel',
     descFr: 'Rapports, synthèses, présentations, Excel',
     count: 16,
-    guideUrl: GUIDE_BASE + 'prompts/document-creation.en.md',
+    guideUrl: GUIDE_BASE + 'prompts/document-creation.md',
     guideUrlFr: GUIDE_BASE + 'prompts/document-creation.fr.md',
     prompts: [
       {
@@ -366,7 +366,7 @@ Enregistrer aussi en PDF : ~/Cowork-Workspace/output/presentation.pdf`,
     desc: 'Images → data, PDF parsing, OCR',
     descFr: 'Images → données, parsing PDF, OCR',
     count: 17,
-    guideUrl: GUIDE_BASE + 'prompts/data-extraction.en.md',
+    guideUrl: GUIDE_BASE + 'prompts/data-extraction.md',
     guideUrlFr: GUIDE_BASE + 'prompts/data-extraction.fr.md',
     prompts: [
       {
@@ -540,7 +540,7 @@ Crée un rapport Word dans ~/Cowork-Workspace/output/rapport-inspection.docx :
     desc: 'Research, synthesis, competitive analysis',
     descFr: 'Recherche, synthèse, analyse concurrentielle',
     count: 17,
-    guideUrl: GUIDE_BASE + 'prompts/research.en.md',
+    guideUrl: GUIDE_BASE + 'prompts/research.md',
     guideUrlFr: GUIDE_BASE + 'prompts/research.fr.md',
     prompts: [
       {

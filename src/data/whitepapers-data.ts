@@ -298,7 +298,7 @@ export const FREE_WPS = WHITEPAPERS.filter(wp => !wp.gated)
 export const GATED_WPS = WHITEPAPERS.filter(wp => wp.gated)
 
 /** Base URL des PDFs hashés sur Vercel */
-export const PDF_BASE_URL = import.meta.env.PUBLIC_PDF_BASE ?? 'https://florian.bruniaux.com/guides'
+export const PDF_BASE_URL = import.meta.env.PUBLIC_PDF_BASE ?? 'https://www.florian.bruniaux.com/guides'
 
 /** URL de l'API subscribe du portfolio */
 export const API_URL = import.meta.env.PUBLIC_API_URL ?? 'https://www.florian.bruniaux.com/api/subscribe/'
