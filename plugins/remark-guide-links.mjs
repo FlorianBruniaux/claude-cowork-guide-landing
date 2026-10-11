@@ -14,13 +14,20 @@
  *   ../prompts/file-ops.md              → /guide/prompts/file-ops/  → /fr/guide/prompts/file-ops/
  *   ../reference/cheatsheet.md          → /guide/reference/...      → /fr/guide/reference/...
  *   https://...                         → unchanged
- *   #anchor                             → unchanged
+ *   #anchor                             → unchanged, minus one trailing dash
+ *
+ * Fragments follow Astro's heading ids: github-slugger output with one
+ * trailing dash removed ("Q: Cowork est-il gratuit ?" → q-cowork-est-il-gratuit).
  */
 
 import { visit } from 'unist-util-visit'
 
 const GITHUB_BASE = 'https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/'
 const IMAGE_EXTS = new Set(['.jpeg', '.jpg', '.png', '.gif', '.svg', '.webp', '.avif'])
+
+function normalizeFragment(fragment) {
+  return fragment.endsWith('-') ? fragment.slice(0, -1) : fragment
+}
 
 function resolveGuideLink(href, anchorFragment, guideBase, collectionBase) {
   const cleanHref = href.replace(/^\.\//, '')
@@ -95,13 +102,16 @@ export function remarkGuideLinks() {
     visit(tree, ['link', 'image'], (node) => {
       const originalUrl = node.url || ''
       if (originalUrl.startsWith('http://') || originalUrl.startsWith('https://')) return
-      if (originalUrl.startsWith('#')) return
+      if (originalUrl.startsWith('#')) {
+        node.url = normalizeFragment(originalUrl)
+        return
+      }
       if (originalUrl.startsWith('data:')) return
       if (originalUrl.startsWith('/')) return
 
       const hashIdx = originalUrl.indexOf('#')
       const hrefPart = hashIdx >= 0 ? originalUrl.slice(0, hashIdx) : originalUrl
-      const fragmentPart = hashIdx >= 0 ? originalUrl.slice(hashIdx) : ''
+      const fragmentPart = hashIdx >= 0 ? normalizeFragment(originalUrl.slice(hashIdx)) : ''
       if (!hrefPart) return
 
       const resolved = resolveGuideLink(hrefPart, fragmentPart, guideBase, collectionBase)

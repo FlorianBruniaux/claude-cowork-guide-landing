@@ -26,6 +26,7 @@ function page({ lang = 'en', canonical = `${site}/`, alternate = `${site}/fr/`, 
     <title>${lang === 'fr' ? 'Une page utile du guide Cowork' : 'A useful Cowork guide page'}</title>
     <meta name="description" content="A factual description of this Claude Cowork guide page, with enough detail to help readers choose the right documented workflow safely.">
     <meta name="robots" content="index, follow">
+    <meta property="og:image" content="${site}/og-image.png">
     <link rel="canonical" href="${canonical}">
     <link rel="alternate" hreflang="${lang}" href="${canonical}">
     <link rel="alternate" hreflang="${altLang}" href="${alternate}">
@@ -93,4 +94,99 @@ test('rejects missing fragments on same-page and cross-page links', async t => {
 
   const fragmentFindings = (await auditBuiltSite(root)).findings.filter(finding => finding.code === 'BROKEN_INTERNAL_FRAGMENT')
   assert.equal(fragmentFindings.length, 2)
+})
+
+test('rejects a description shared by more than three pages', async t => {
+  const pages = {}
+  const urls = []
+  for (const n of [1, 2, 3, 4]) {
+    pages[`/p${n}/`] = page({ canonical: `${site}/p${n}/`, alternate: `${site}/fr/p${n}/` })
+      .replace('A useful Cowork guide page', `Useful Cowork guide page ${n}`)
+    urls.push(`${site}/p${n}/`)
+  }
+  const root = await fixture(pages, urls)
+  t.after(() => rm(root, { recursive: true, force: true }))
+
+  const findings = (await auditBuiltSite(root)).findings.filter(finding => finding.code === 'DESCRIPTION_SHARED')
+  assert.equal(findings.length, 1)
+  assert.match(findings[0].message, /4 pages/)
+})
+
+test('accepts a description shared by exactly three pages', async t => {
+  const pages = {}
+  const urls = []
+  for (const n of [1, 2, 3]) {
+    pages[`/p${n}/`] = page({ canonical: `${site}/p${n}/`, alternate: `${site}/fr/p${n}/` })
+      .replace('A useful Cowork guide page', `Useful Cowork guide page ${n}`)
+    urls.push(`${site}/p${n}/`)
+  }
+  const root = await fixture(pages, urls)
+  t.after(() => rm(root, { recursive: true, force: true }))
+
+  const findings = (await auditBuiltSite(root)).findings.filter(finding => finding.code === 'DESCRIPTION_SHARED')
+  assert.deepEqual(findings, [])
+})
+
+test('rejects pages without an absolute og:image', async t => {
+  const missing = page().replace(/\s*<meta property="og:image"[^>]+>/, '')
+  const relative = page({ canonical: `${site}/rel/`, alternate: `${site}/fr/rel/` })
+    .replace(`content="${site}/og-image.png"`, 'content="/og-image.png"')
+    .replace('A useful Cowork guide page', 'Another useful Cowork guide page')
+  const root = await fixture({ '/': missing, '/rel/': relative }, [`${site}/`, `${site}/rel/`])
+  t.after(() => rm(root, { recursive: true, force: true }))
+
+  const routes = (await auditBuiltSite(root)).findings.filter(finding => finding.code === 'OG_IMAGE').map(finding => finding.route)
+  assert.deepEqual(routes.sort(), ['/', '/rel/'])
+})
+
+function withJsonLd(html, ...blocks) {
+  return html.replace('</head>', `${blocks.map(block => `<script type="application/ld+json">${JSON.stringify(block)}</script>`).join('')}</head>`)
+}
+
+const website = { '@type': 'WebSite', '@id': `${site}/#website`, name: 'Claude Cowork Guide', url: `${site}/` }
+
+test('rejects one JSON-LD @id defined with different names, including nested definitions', async t => {
+  const en = withJsonLd(page(), { '@context': 'https://schema.org', '@graph': [website] })
+  const fr = withJsonLd(page({ lang: 'fr', canonical: `${site}/fr/`, alternate: `${site}/` }),
+    { '@context': 'https://schema.org', '@type': 'TechArticle', isPartOf: { ...website, name: 'Guide Claude Cowork' } })
+  const root = await fixture({ '/': en, '/fr/': fr }, [`${site}/`, `${site}/fr/`])
+  t.after(() => rm(root, { recursive: true, force: true }))
+
+  const findings = (await auditBuiltSite(root)).findings.filter(finding => finding.code === 'JSON_LD_ID_CONFLICT')
+  assert.equal(findings.length, 1)
+  assert.match(findings[0].message, /#website/)
+})
+
+test('accepts the same JSON-LD definition repeated, and bare @id references', async t => {
+  const en = withJsonLd(page(), { '@context': 'https://schema.org', '@graph': [website, { '@type': 'WebPage', author: { '@id': `${site}/#person` } }] })
+  const fr = withJsonLd(page({ lang: 'fr', canonical: `${site}/fr/`, alternate: `${site}/` }),
+    { '@context': 'https://schema.org', '@type': 'TechArticle', isPartOf: { ...website } })
+  const root = await fixture({ '/': en, '/fr/': fr }, [`${site}/`, `${site}/fr/`])
+  t.after(() => rm(root, { recursive: true, force: true }))
+
+  const findings = (await auditBuiltSite(root)).findings.filter(finding => finding.code === 'JSON_LD_ID_CONFLICT')
+  assert.deepEqual(findings, [])
+})
+
+test('rejects speakable selectors that match nothing in the page', async t => {
+  const speakable = { '@context': 'https://schema.org', '@type': 'WebPage', speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.hero-tagline', '#faq h2'] } }
+  const root = await fixture({
+    '/': withJsonLd(page({ body: '<h1>Guide</h1><p class="hero tagline-x">x</p>' }), speakable),
+    '/ok/': withJsonLd(page({ canonical: `${site}/ok/`, alternate: `${site}/fr/ok/`, body: '<h1>Guide</h1><p class="hero-tagline">x</p><section id="faq"><h2>Q</h2></section>' })
+      .replace('A useful Cowork guide page', 'Another useful Cowork guide page'), speakable),
+  }, [`${site}/`, `${site}/ok/`])
+  t.after(() => rm(root, { recursive: true, force: true }))
+
+  const findings = (await auditBuiltSite(root)).findings.filter(finding => finding.code === 'SPEAKABLE_SELECTOR')
+  assert.deepEqual(findings.map(finding => finding.route), ['/', '/'])
+  assert.ok(findings.some(finding => finding.message.includes('.hero-tagline')))
+  assert.ok(findings.some(finding => finding.message.includes('#faq h2')))
+})
+
+test('ignores a noindex 404.html that has no canonical, hreflang or sitemap entry', async t => {
+  const root = await fixture({ '/': page({ alternate: `${site}/fr/` }), '/fr/': page({ lang: 'fr', canonical: `${site}/fr/`, alternate: `${site}/` }) }, [`${site}/`, `${site}/fr/`])
+  t.after(() => rm(root, { recursive: true, force: true }))
+  await writeFile(join(root, '404.html'), '<!doctype html><html lang="en"><head><title>Not found</title><meta name="robots" content="noindex"><link rel="canonical" href="https://cowork.bruniaux.com/404/"></head><body><h1>404</h1><a href="/fr/404/">x</a></body></html>')
+
+  assert.deepEqual((await auditBuiltSite(root)).findings, [])
 })
