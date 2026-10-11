@@ -1,0 +1,29 @@
+scripts/check-outbound-links.mjs
+  s_f6f18e2ee1bede::t_a17d08715e3d7e 1-82
+src/components/global/Footer.astro
+  s_f6f18e2ee1bede::t_cbd5fd0d479c61 86
+src/data/i18n.ts
+  s_f6f18e2ee1bede::t_41d9731b531391 118,313,324,441,636,647
+src/data/prompts-data.ts
+  s_f6f18e2ee1bede::t_f0f2ad6ef6b247 33,191,369,543
+src/data/whitepapers-data.ts
+  s_f6f18e2ee1bede::t_46c85c454db6fb 301
+tests/b-outbound-links.test.mjs
+  s_f6f18e2ee1bede::t_b3f18fbd0421d5 1-62
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "389fa08aedf395844b938107e428c8b1bde4892e",
+  "prompts": {},
+  "sessions": {
+    "s_f6f18e2ee1bede": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "45b6c144-ab6f-47f3-a276-074bbddcaa0f",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Florian BRUNIAUX <florian@bruniaux.com>"
+    }
+  }
+}
