@@ -1,6 +1,7 @@
 ---
 import type { Lang } from '../../data/i18n'
 import { t } from '../../data/i18n'
+import { releases } from '../../data/releases'
 
 interface Props {
   lang: Lang
@@ -8,6 +9,8 @@ interface Props {
 
 const { lang } = Astro.props
 const s = t(lang)
+const latest = releases[0]
+const releaseDate = new Date(`${latest.date} 12:00 UTC`).toLocaleDateString(lang === 'fr' ? 'fr-FR' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })
 
 function isExternal(url: string): boolean {
   return url.startsWith('http://') || url.startsWith('https://')
@@ -91,6 +94,10 @@ function isExternal(url: string): boolean {
         <p set:html={s.footerMadeBy} />
       </div>
     </div>
+
+    <p class="footer-legal">
+      {s.footerDisclaimer} · {s.footerVersionLabel} {latest.version} · <time datetime={new Date(`${latest.date} 12:00 UTC`).toISOString().slice(0, 10)}>{releaseDate}</time>
+    </p>
 
   </div>
 </footer>
@@ -200,6 +207,11 @@ function isExternal(url: string): boolean {
   }
   .footer-sep {
     color: var(--border-subtle);
+  }
+  .footer-legal {
+    margin: var(--space-md) 0 0;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
   }
   .footer-bottom-right p {
     font-size: 0.8rem;
