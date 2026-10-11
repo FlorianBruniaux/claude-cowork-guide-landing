@@ -1,0 +1,21 @@
+docs/seo/2026-10-11/ACTION-PLAN.md
+  s_f6f18e2ee1bede::t_9d39ff2242b662 1-30
+docs/seo/2026-10-11/FULL-AUDIT-REPORT.md
+  s_f6f18e2ee1bede::t_da620963cb1839 1-85
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "07e9b263eb4f2c9c5c7ba2a2ead9da337aeeb82b",
+  "prompts": {},
+  "sessions": {
+    "s_f6f18e2ee1bede": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "45b6c144-ab6f-47f3-a276-074bbddcaa0f",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Florian BRUNIAUX <florian@bruniaux.com>"
+    }
+  }
+}
