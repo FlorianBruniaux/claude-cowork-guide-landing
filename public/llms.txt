@@ -6,15 +6,15 @@
 
 - Canonical URL: https://cowork.bruniaux.com/
 - Source repository: https://github.com/FlorianBruniaux/claude-cowork-guide
-- Guide version: 1.12.0
-- Product facts last checked: 2026-09-04
+- Guide version: 1.14.0
+- Product facts last checked: 2026-10-11
 - License: CC BY-SA 4.0
 - Languages: English and French
 - Corpus: 29 bilingual workflows and 70 numbered prompts
 
 ## Product scope
 
-Cowork availability and capabilities depend on plan and surface. Anthropic currently documents eligible paid plans, desktop support for macOS and Windows, Linux Desktop in beta, web and mobile access in beta, connectors, and code execution in an isolated environment. Local files, browser access, and computer use have surface-specific conditions. Computer use remains a research preview.
+Cowork availability and capabilities depend on plan and surface. Since 2026-09-16 Cowork is built into Claude (Unified Claude, rolling out to Pro and Max): there is no separate Chat or Cowork mode. Cowork is for paid plans only (Pro, Max, Team, Enterprise). Since 2026-10-06, new Pro and Max tasks run in the cloud; folders stay on the computer and a cloud session reaches connected folders only while Claude Desktop is open. Desktop supports macOS 13+, Windows, and Linux in beta. Approval modes are Manual, Auto and Skip all approvals. Computer use is a beta for Pro and Max on macOS 14+ and Windows. Current models are the Claude 5.5 family (Opus 5.5, Sonnet 5.5, Haiku 5.5). Claude Design, Slides and Docs are available in any conversation; Dashboards and Motion are in beta. Pricing is published in US dollars, excluding tax, at https://claude.com/pricing.
 
 Primary sources:
 - https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork

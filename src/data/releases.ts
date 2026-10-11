@@ -16,6 +16,29 @@ export interface BreakingChange {
 
 export const releases: Release[] = [
   {
+    version: 'v1.14.0',
+    date: 'Oct 11, 2026',
+    highlights: [
+      '⭐ <strong>Cowork dans chaque conversation</strong> (« Unified Claude », Pro/Max, web, desktop, mobile) : plus de choix de mode, chats, tâches, projets, connecteurs et skills conservés',
+      '⭐ <strong>Claude Opus 5.5, Sonnet 5.5 et Haiku 5.5</strong> : Opus 5.5 au niveau de Fable 5.1 sur la plupart des tâches, 40 % moins cher qu\'Opus 5',
+      '⭐ <strong>Claude Design, Slides et Docs dans toute conversation</strong> (tous plans, Free compris) : sortis de bêta le 8 octobre, avec <strong>Claude Dashboards</strong> (Pro à Enterprise) et <strong>Claude Motion</strong> (Team et Enterprise) en bêta',
+      '⭐ <strong>Navigateur intégré dans Cowork</strong> (macOS, Windows, Linux bêta) : séparé du navigateur personnel, Claude Desktop doit rester ouvert',
+      'Modes d\'approbation renommés : <strong>Manual</strong>, <strong>Auto</strong>, <strong>Skip all approvals</strong>. Scan des skills et plugins actif par défaut sur Enterprise depuis le 2 octobre',
+      '⭐ <strong>Google Docs, Sheets et Slides</strong> (bêta) : add-on Google Workspace et connecteurs, création de fichiers Google depuis le sélecteur Output du desktop',
+      '⭐ <strong>Salesforce in Claude</strong> (bêta) : plugin avec 37 skills de vente, organisations approuvées par Salesforce',
+      '<strong>Portail développeur</strong> pour les plugins, <strong>Smart reports</strong> (bêta Enterprise), crédits API mensuels inclus dans Max et Team',
+      'Prérequis relevés : macOS 13 minimum pour l\'app, macOS 14 pour computer use',
+    ],
+    breaking: [
+      'Cowork passe dans le cloud pour Pro et Max (6 octobre 2026) : l\'option « Only on your computer » est supprimée, sans retour possible. Les dossiers restent sur l\'ordinateur',
+      'Tâches planifiées créées par Claude en « Automatically approve » par défaut, quand l\'organisation l\'autorise',
+    ],
+    latest: true,
+    initiallyVisible: true,
+    featured: true,
+    featuredLabel: '⭐ Cowork unifié + Claude 5.5 + Design/Slides/Docs',
+  },
+  {
     version: 'v1.13.0',
     date: 'Sep 5, 2026',
     highlights: [
@@ -27,7 +50,6 @@ export const releases: Release[] = [
       '<strong>Claude dans le menu « Ouvrir avec »</strong> — tableurs, PDF, Word/PowerPoint, texte, images, sur macOS et Windows',
       'File d\'attente des messages pendant la limite d\'usage de 5h — message mis en attente, modifiable/annulable au lieu d\'échouer',
     ],
-    latest: true,
     initiallyVisible: true,
     featured: true,
     featuredLabel: '⭐ Opus 5 + Fable 5.1/Mythos 5.1 + mémoire Cowork',

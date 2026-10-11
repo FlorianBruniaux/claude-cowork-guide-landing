@@ -62,8 +62,8 @@ export const glossaryTerms: GlossaryTerm[] = [
     id: 'claude-desktop',
     letter: 'C',
     term: 'Claude Desktop',
-    definition: 'The macOS and Windows application that hosts Cowork. Different from the web interface (claude.ai).',
-    definitionFr: 'L\'application macOS et Windows qui héberge Cowork. Différente de l\'interface web (claude.ai).',
+    definition: 'The application for macOS, Windows and Linux (beta) that hosts Cowork. Different from the web interface (claude.ai). It must stay open for cloud sessions to reach your connected folders and the built-in browser.',
+    definitionFr: 'L\'application pour macOS, Windows et Linux (bêta) qui héberge Cowork. Différente de l\'interface web (claude.ai). Elle doit rester ouverte pour que les sessions cloud accèdent à vos dossiers connectés et au navigateur intégré.',
     category: 'Cowork',
   },
   {
@@ -165,8 +165,8 @@ export const glossaryTerms: GlossaryTerm[] = [
     letter: 'L',
     term: 'Local Folder Access',
     termFr: 'Accès aux dossiers locaux',
-    definition: 'On desktop, Cowork can work with folders you select while running code in an isolated environment. Other surfaces can use cloud sessions and connectors. Data handling depends on the surface, permissions, and Anthropic policies.',
-    definitionFr: 'Sur desktop, Cowork peut travailler dans les dossiers que vous sélectionnez tout en exécutant le code dans un environnement isolé. Les autres surfaces peuvent utiliser des sessions cloud et des connecteurs. Le traitement des données dépend de la surface, des permissions et des politiques Anthropic.',
+    definition: 'Cowork works with folders you select. Since October 6, 2026, new Pro and Max tasks run in the cloud: the folders stay on your computer, and a cloud session reaches only the folders you connect, while Claude Desktop is open. Data handling depends on the surface, permissions, and Anthropic policies.',
+    definitionFr: 'Cowork travaille dans les dossiers que vous sélectionnez. Depuis le 6 octobre 2026, les nouvelles tâches Pro et Max s\'exécutent dans le cloud : les dossiers restent sur votre ordinateur, et une session cloud n\'atteint que les dossiers connectés, tant que Claude Desktop est ouvert. Le traitement des données dépend de la surface, des permissions et des politiques Anthropic.',
     category: 'Security',
   },
   // M

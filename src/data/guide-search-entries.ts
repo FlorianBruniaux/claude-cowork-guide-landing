@@ -365,10 +365,10 @@ export const GUIDE_ENTRIES_EN: GuideSearchEntry[] = [
   },
   {
     "id": "guide-capabilities-sonnet-model",
-    "title": "Model Selection (Sonnet 4.6)",
-    "keywords": "model selection sonnet opus agentic cost performance osworld benchmark",
+    "title": "Model Selection (Claude 5.5 family)",
+    "keywords": "model selection opus sonnet haiku 5.5 fable effort levels cost performance",
     "category": "Guide",
-    "url": "https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/guide/02-capabilities.md#model-selection",
+    "url": "https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/guide/02-capabilities.md#model-selection-and-usage",
     "source": "guide"
   }
 ]
@@ -728,10 +728,10 @@ export const GUIDE_ENTRIES_FR: GuideSearchEntry[] = [
   },
   {
     "id": "guide-capabilities-sonnet-model-fr",
-    "title": "Sélection du Modèle (Sonnet 4.6)",
-    "keywords": "modèle sélection sonnet opus agentique coût performance benchmark par défaut",
+    "title": "Sélection du Modèle (famille Claude 5.5)",
+    "keywords": "modèle sélection opus sonnet haiku 5.5 fable niveaux effort coût performance",
     "category": "Guide",
-    "url": "https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/guide/02-capabilities.fr.md#sélection-du-modèle",
+    "url": "https://github.com/FlorianBruniaux/claude-cowork-guide/blob/main/guide/02-capabilities.fr.md#sélection-du-modèle-et-usage",
     "source": "guide"
   }
 ]
