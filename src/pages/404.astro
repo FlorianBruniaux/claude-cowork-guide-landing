@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout
+  lang="en"
+  title="Page not found | Claude Cowork Guide"
+  description="This page does not exist. Browse the Claude Cowork guide, workflows and prompts from the home page."
+  noIndex
+>
+  <section class="not-found container">
+    <p class="not-found-code">404</p>
+    <h1>Page not found</h1>
+    <p>The page you asked for does not exist or has moved.</p>
+    <div class="not-found-links">
+      <a href="/" class="btn btn-primary">Back to the home page</a>
+      <a href="/guide/" class="btn btn-secondary">Read the guide</a>
+      <a href="/workflows/" class="btn btn-secondary">Workflows</a>
+      <a href="/prompts/" class="btn btn-secondary">Prompts</a>
+    </div>
+    <p class="not-found-fr">Vous cherchez la version française ? <a href="/fr/">Aller au site en français</a>.</p>
+  </section>
+</Layout>
+
+<style>
+  .not-found { padding: var(--space-3xl) 0; text-align: center; }
+  .not-found-code { font-size: 4rem; font-weight: 700; color: var(--accent); margin: 0; }
+  .not-found h1 { margin: var(--space-sm) 0; }
+  .not-found-links { display: flex; flex-wrap: wrap; gap: var(--space-sm); justify-content: center; margin: var(--space-xl) 0; }
+  .not-found-fr { color: var(--text-secondary); }
+</style>
