@@ -41,6 +41,43 @@ function normalizeRoute(href) {
   return path.endsWith('/') ? path : `${path}/`
 }
 
+// Every object that defines something (an @id plus at least one other property),
+// at any depth. A bare { "@id": ... } is a reference, not a definition.
+function jsonLdDefinitions(value, found = []) {
+  if (Array.isArray(value)) value.forEach(item => jsonLdDefinitions(item, found))
+  else if (value && typeof value === 'object') {
+    const { '@context': _context, ...rest } = value
+    if (typeof rest['@id'] === 'string' && Object.keys(rest).length > 1) found.push(rest)
+    Object.values(rest).forEach(item => jsonLdDefinitions(item, found))
+  }
+  return found
+}
+
+function speakableSelectors(value, found = []) {
+  if (Array.isArray(value)) value.forEach(item => speakableSelectors(item, found))
+  else if (value && typeof value === 'object') {
+    if (value.speakable?.cssSelector) found.push(...[value.speakable.cssSelector].flat())
+    Object.values(value).forEach(item => speakableSelectors(item, found))
+  }
+  return found
+}
+
+// Presence check for simple selectors (tag, #id, .class and descendant chains):
+// each compound must match some element. Nesting is not verified.
+function selectorPresent(html, selector) {
+  return selector.trim().split(/\s+/).every(compound => {
+    const tag = compound.match(/^[a-z][a-z0-9]*/i)?.[0]
+    const ids = [...compound.matchAll(/#([\w-]+)/g)].map(match => match[1])
+    const classes = [...compound.matchAll(/\.([\w-]+)/g)].map(match => match[1])
+    return [...html.matchAll(/<([a-z][a-z0-9]*)\b([^>]*)>/gi)].some(([, name, attributes]) => {
+      const parsed = attrs(`<${name} ${attributes}>`)
+      return (!tag || name.toLowerCase() === tag.toLowerCase())
+        && ids.every(id => parsed.id === id)
+        && classes.every(cls => (parsed.class ?? '').split(/\s+/).includes(cls))
+    })
+  })
+}
+
 export async function auditBuiltSite(distDir = resolve('dist')) {
   const findings = []
   const add = (code, route, message) => findings.push({ code, route, message })
@@ -58,6 +95,7 @@ export async function auditBuiltSite(distDir = resolve('dist')) {
   const alternatesByCanonical = new Map()
   const titles = new Map()
   const routesByDescription = new Map()
+  const definitionsById = new Map()
 
   for (const file of htmlFiles) {
     const route = routeFor(distDir, file)
@@ -106,7 +144,17 @@ export async function auditBuiltSite(distDir = resolve('dist')) {
     if (html.includes(LEGACY_ORIGIN)) add('LEGACY_URL', route, `Contains ${LEGACY_ORIGIN}`)
 
     for (const match of html.matchAll(/<script\b[^>]*type=(?:"application\/ld\+json"|'application\/ld\+json')[^>]*>([\s\S]*?)<\/script>/gi)) {
-      try { JSON.parse(match[1]) } catch (error) { add('JSON_LD_INVALID', route, error.message) }
+      let data
+      try { data = JSON.parse(match[1]) } catch (error) { add('JSON_LD_INVALID', route, error.message); continue }
+      for (const definition of jsonLdDefinitions(data)) {
+        const signature = JSON.stringify(definition, (_key, item) => item && typeof item === 'object' && !Array.isArray(item) ? Object.fromEntries(Object.entries(item).sort()) : item)
+        const byId = definitionsById.get(definition['@id']) ?? new Map()
+        byId.set(signature, byId.get(signature) ?? route)
+        definitionsById.set(definition['@id'], byId)
+      }
+      for (const selector of new Set(speakableSelectors(data))) {
+        if (!selectorPresent(html, selector)) add('SPEAKABLE_SELECTOR', route, `speakable selector matches nothing in the page: ${selector}`)
+      }
     }
 
     for (const match of html.matchAll(/<a\b[^>]*href=(?:"([^"]+)"|'([^']+)')[^>]*>/gi)) {
@@ -141,6 +189,10 @@ export async function auditBuiltSite(distDir = resolve('dist')) {
 
   for (const [description, sharing] of routesByDescription) {
     if (sharing.length > MAX_PAGES_PER_DESCRIPTION) add('DESCRIPTION_SHARED', sharing[0], `Description shared by ${sharing.length} pages (max ${MAX_PAGES_PER_DESCRIPTION}): ${description.slice(0, 60)}`)
+  }
+
+  for (const [id, variants] of definitionsById) {
+    if (variants.size > 1) add('JSON_LD_ID_CONFLICT', [...variants.values()][0], `${id} has ${variants.size} different definitions (first seen on ${[...variants.values()].join(', ')})`)
   }
 
   const sitemapFiles = filesBelow(distDir, '.xml').filter(file => /sitemap(?:-\d+)?\.xml$/.test(file))

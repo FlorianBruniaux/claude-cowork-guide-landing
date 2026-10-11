@@ -7,9 +7,10 @@
  * pages which get their @graph from src/layouts/Layout.astro.
  */
 import Default from '@astrojs/starlight/components/Head.astro'
+import { personNode, websiteNode } from '../../data/site-schema'
 
 const route = Astro.locals.starlightRoute
-const { entry, lang, siteTitle } = route
+const { entry, lang } = route
 // Starlight sets og:locale to the bare language code ("fr") and og:site_name to
 // the localized site title. Drop both so the values emitted below are the only ones.
 const replaced = new Set(['og:locale', 'og:site_name'])
@@ -28,17 +29,8 @@ const schema = {
   description: entry.data.description,
   url: canonical.href,
   inLanguage: lang,
-  isPartOf: {
-    '@type': 'WebSite',
-    '@id': 'https://cowork.bruniaux.com/#website',
-    name: siteTitle,
-  },
-  author: {
-    '@type': 'Person',
-    '@id': 'https://cowork.bruniaux.com/#person',
-    name: 'Florian BRUNIAUX',
-    url: 'https://github.com/FlorianBruniaux',
-  },
+  isPartOf: websiteNode,
+  author: personNode,
 }
 ---
 

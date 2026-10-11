@@ -8,6 +8,7 @@ import FeedbackFab from '../components/global/FeedbackFab.astro'
 import AnnouncementBanner from '../components/global/AnnouncementBanner.astro'
 import type { Lang } from '../data/i18n'
 import { t } from '../data/i18n'
+import { guideNode, personNode, websiteNode, WEBSITE_ID } from '../data/site-schema'
 
 interface Props {
   lang: Lang
@@ -47,6 +48,30 @@ const altLang = lang === 'en' ? 'fr' : 'en'
 const altUrl = lang === 'en'
   ? new URL('/fr' + Astro.url.pathname, Astro.site)
   : new URL(Astro.url.pathname.replace(/^\/fr/, '') || '/', Astro.site)
+
+// Breadcrumb: Home, then the language root on /fr/, then the current page.
+const languageRoot = lang === 'fr' ? new URL('/fr/', Astro.site) : new URL('/', Astro.site)
+const breadcrumb = [
+  { name: 'Home', item: String(Astro.site) },
+  ...(lang === 'fr' ? [{ name: 'Français', item: String(languageRoot) }] : []),
+  ...(canonicalURL.pathname !== languageRoot.pathname
+    ? [{ name: pageTitle.split(' | ')[0], item: canonicalURL.href }]
+    : []),
+]
+
+// speakable: keep only the selectors that exist in this page. Not every landing
+// page has a hero or a FAQ section, and a selector that matches nothing is noise.
+const renderedBody = await Astro.slots.render('default')
+const hasClass = (name: string) => new RegExp(`class="[^"]*\\b${name}\\b`).test(renderedBody)
+const hasFaq = /\bid="faq"/.test(renderedBody)
+const speakableSelectors = [
+  /<h1\b/.test(renderedBody) && 'h1',
+  hasClass('hero-tagline') && '.hero-tagline',
+  hasClass('hero-stats') && '.hero-stats',
+  hasFaq && /<h2\b/.test(renderedBody) && '#faq h2',
+  hasFaq && hasClass('faq-item') && /<summary\b/.test(renderedBody) && '#faq .faq-item summary',
+  hasFaq && hasClass('faq-item') && '#faq .faq-item p',
+].filter((selector): selector is string => Boolean(selector))
 ---
 
 <!doctype html>
@@ -106,51 +131,29 @@ const altUrl = lang === 'en'
       })();
     </script>
 
-    <!-- JSON-LD -->
+    <!-- JSON-LD: #website, #person and #guide come from src/data/site-schema.ts so that
+         every template defines them identically; only the page-level nodes vary. -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@graph": [
+        websiteNode,
+        personNode,
+        guideNode,
         {
-          "@type": "WebSite",
-          "@id": "https://cowork.bruniaux.com/#website",
-          name: lang === 'fr' ? 'Guide Claude Cowork' : 'Claude Cowork Guide',
-          url: Astro.site,
-          description: lang === 'fr'
-            ? 'Guide communautaire gratuit pour Claude Cowork avec 70 prompts et 29 workflows'
-            : 'Free community guide for Claude Cowork with 70 prompts and 29 workflows',
+          // No @id on purpose: the FAQ and releases pages pass their own WebPage node
+          // (with an @id) through the jsonLd prop, and two definitions of one @id would conflict.
+          "@type": "WebPage",
+          url: canonicalURL.href,
+          name: pageTitle,
           inLanguage: lang,
-          author: { "@id": "https://cowork.bruniaux.com/#person" },
-          speakable: {
-            "@type": "SpeakableSpecification",
-            cssSelector: ["h1", ".hero-tagline", ".hero-stats", "#faq h2", "#faq .faq-item summary", "#faq .faq-item p"],
-          },
-        },
-        {
-          "@type": "Person",
-          "@id": "https://cowork.bruniaux.com/#person",
-          name: "Florian BRUNIAUX",
-          url: "https://github.com/FlorianBruniaux",
-          sameAs: [
-            "https://github.com/FlorianBruniaux",
-            "https://www.linkedin.com/in/florian-bruniaux-43408b83/",
-          ],
+          isPartOf: { "@id": WEBSITE_ID },
+          ...(speakableSelectors.length > 0 && {
+            speakable: { "@type": "SpeakableSpecification", cssSelector: speakableSelectors },
+          }),
         },
         {
           "@type": "BreadcrumbList",
-          itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: String(Astro.site) },
-            ...(lang === 'fr' ? [{ "@type": "ListItem", position: 2, name: "Français", item: String(new URL('/fr/', Astro.site)) }] : []),
-          ],
-        },
-        {
-          "@type": "CreativeWorkSeries",
-          "@id": "https://cowork.bruniaux.com/#guide",
-          name: lang === 'fr' ? "Guide Claude Cowork" : "Claude Cowork Guide",
-          url: Astro.site,
-          inLanguage: ["en", "fr"],
-          isAccessibleForFree: true,
-          author: { "@id": "https://cowork.bruniaux.com/#person" },
-          isPartOf: { "@id": "https://cowork.bruniaux.com/#website" },
+          itemListElement: breadcrumb.map(({ name, item }, index) => ({ "@type": "ListItem", position: index + 1, name, item })),
         },
       ],
     })} />

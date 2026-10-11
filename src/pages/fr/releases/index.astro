@@ -1,10 +1,13 @@
 ---
 import Layout from '../../../layouts/Layout.astro'
 import { t } from '../../../data/i18n'
+import { GUIDE_ID, PERSON_ID } from '../../../data/site-schema'
 import { releases } from '../../../data/releases'
 
 const lang = 'fr'
 const s = t(lang)
+// i18n.ts still carries the English title for fr (same string as en); keep the page title French.
+const pageTitle = 'Historique des versions du Guide Claude Cowork'
 const hidden = releases.filter(r => !r.initiallyVisible)
 
 function stripHtml(str: string) {
@@ -21,7 +24,7 @@ const releasesJsonLd = [
   {
     '@type': 'WebPage',
     '@id': 'https://cowork.bruniaux.com/fr/releases/#page',
-    name: s.releasesMetaTitle,
+    name: pageTitle,
     description: s.releasesMetaDescription,
     url: 'https://cowork.bruniaux.com/fr/releases/',
     inLanguage: 'fr',
@@ -34,26 +37,16 @@ const releasesJsonLd = [
         '@type': 'ListItem',
         position: i + 1,
         item: {
-          '@type': 'SoftwareApplication',
+          '@type': 'CreativeWork',
           name: `Guide Claude Cowork ${release.version}`,
-          softwareVersion: release.version.replace('v', ''),
-          releaseNotes: release.featuredLabel
+          version: release.version.replace('v', ''),
+          description: release.featuredLabel
             ? stripHtml(release.featuredLabel).replace(/^[^\w]+/, '').trim()
             : stripHtml(release.highlights[0] ?? ''),
           datePublished: parseDate(release.date),
           url: 'https://cowork.bruniaux.com/fr/releases/',
-          applicationCategory: 'ProductivityApplication',
-          operatingSystem: 'macOS, Windows, Linux (beta)',
-          author: {
-            '@type': 'Person',
-            name: 'Florian BRUNIAUX',
-            url: 'https://github.com/FlorianBruniaux',
-          },
-          offers: {
-            '@type': 'Offer',
-            price: '0',
-            priceCurrency: 'EUR',
-          },
+          author: { '@id': PERSON_ID },
+          isPartOf: { '@id': GUIDE_ID },
         },
       })),
     },
@@ -63,7 +56,7 @@ const releasesJsonLd = [
 
 <Layout
   lang={lang}
-  title={s.releasesMetaTitle}
+  title={pageTitle}
   description={s.releasesMetaDescription}
   jsonLd={releasesJsonLd}
 >

@@ -138,3 +138,47 @@ test('rejects pages without an absolute og:image', async t => {
   const routes = (await auditBuiltSite(root)).findings.filter(finding => finding.code === 'OG_IMAGE').map(finding => finding.route)
   assert.deepEqual(routes.sort(), ['/', '/rel/'])
 })
+
+function withJsonLd(html, ...blocks) {
+  return html.replace('</head>', `${blocks.map(block => `<script type="application/ld+json">${JSON.stringify(block)}</script>`).join('')}</head>`)
+}
+
+const website = { '@type': 'WebSite', '@id': `${site}/#website`, name: 'Claude Cowork Guide', url: `${site}/` }
+
+test('rejects one JSON-LD @id defined with different names, including nested definitions', async t => {
+  const en = withJsonLd(page(), { '@context': 'https://schema.org', '@graph': [website] })
+  const fr = withJsonLd(page({ lang: 'fr', canonical: `${site}/fr/`, alternate: `${site}/` }),
+    { '@context': 'https://schema.org', '@type': 'TechArticle', isPartOf: { ...website, name: 'Guide Claude Cowork' } })
+  const root = await fixture({ '/': en, '/fr/': fr }, [`${site}/`, `${site}/fr/`])
+  t.after(() => rm(root, { recursive: true, force: true }))
+
+  const findings = (await auditBuiltSite(root)).findings.filter(finding => finding.code === 'JSON_LD_ID_CONFLICT')
+  assert.equal(findings.length, 1)
+  assert.match(findings[0].message, /#website/)
+})
+
+test('accepts the same JSON-LD definition repeated, and bare @id references', async t => {
+  const en = withJsonLd(page(), { '@context': 'https://schema.org', '@graph': [website, { '@type': 'WebPage', author: { '@id': `${site}/#person` } }] })
+  const fr = withJsonLd(page({ lang: 'fr', canonical: `${site}/fr/`, alternate: `${site}/` }),
+    { '@context': 'https://schema.org', '@type': 'TechArticle', isPartOf: { ...website } })
+  const root = await fixture({ '/': en, '/fr/': fr }, [`${site}/`, `${site}/fr/`])
+  t.after(() => rm(root, { recursive: true, force: true }))
+
+  const findings = (await auditBuiltSite(root)).findings.filter(finding => finding.code === 'JSON_LD_ID_CONFLICT')
+  assert.deepEqual(findings, [])
+})
+
+test('rejects speakable selectors that match nothing in the page', async t => {
+  const speakable = { '@context': 'https://schema.org', '@type': 'WebPage', speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.hero-tagline', '#faq h2'] } }
+  const root = await fixture({
+    '/': withJsonLd(page({ body: '<h1>Guide</h1><p class="hero tagline-x">x</p>' }), speakable),
+    '/ok/': withJsonLd(page({ canonical: `${site}/ok/`, alternate: `${site}/fr/ok/`, body: '<h1>Guide</h1><p class="hero-tagline">x</p><section id="faq"><h2>Q</h2></section>' })
+      .replace('A useful Cowork guide page', 'Another useful Cowork guide page'), speakable),
+  }, [`${site}/`, `${site}/ok/`])
+  t.after(() => rm(root, { recursive: true, force: true }))
+
+  const findings = (await auditBuiltSite(root)).findings.filter(finding => finding.code === 'SPEAKABLE_SELECTOR')
+  assert.deepEqual(findings.map(finding => finding.route), ['/', '/'])
+  assert.ok(findings.some(finding => finding.message.includes('.hero-tagline')))
+  assert.ok(findings.some(finding => finding.message.includes('#faq h2')))
+})

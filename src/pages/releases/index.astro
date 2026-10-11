@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro'
 import { t } from '../../data/i18n'
+import { GUIDE_ID, PERSON_ID } from '../../data/site-schema'
 import { releases } from '../../data/releases'
 
 const lang = 'en'
@@ -35,26 +36,16 @@ const releasesJsonLd = [
         '@type': 'ListItem',
         position: i + 1,
         item: {
-          '@type': 'SoftwareApplication',
+          '@type': 'CreativeWork',
           name: `Claude Cowork Guide ${release.version}`,
-          softwareVersion: release.version.replace('v', ''),
-          releaseNotes: release.featuredLabel
+          version: release.version.replace('v', ''),
+          description: release.featuredLabel
             ? stripHtml(release.featuredLabel).replace(/^[^\w]+/, '').trim()
             : stripHtml(release.highlights[0] ?? ''),
           datePublished: parseDate(release.date),
           url: 'https://cowork.bruniaux.com/releases/',
-          applicationCategory: 'ProductivityApplication',
-          operatingSystem: 'macOS, Windows, Linux (beta)',
-          author: {
-            '@type': 'Person',
-            name: 'Florian BRUNIAUX',
-            url: 'https://github.com/FlorianBruniaux',
-          },
-          offers: {
-            '@type': 'Offer',
-            price: '0',
-            priceCurrency: 'EUR',
-          },
+          author: { '@id': PERSON_ID },
+          isPartOf: { '@id': GUIDE_ID },
         },
       })),
     },
