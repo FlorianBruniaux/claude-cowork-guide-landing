@@ -12,8 +12,8 @@
 :root {
   /* Accent / brand color */
   --sl-color-accent-low:  #fef7f0;   /* bg-tint-warm */
-  --sl-color-accent:      #d4520a;   /* our --accent */
-  --sl-color-accent-high: #ea580c;   /* our --accent-hover */
+  --sl-color-accent:      #b8400a;   /* our --accent */
+  --sl-color-accent-high: #9a3412;   /* our --accent-hover */
 
   /* Text */
   --sl-color-white:   #1a1207;       /* our --text-primary */
@@ -251,7 +251,7 @@ starlight-toc a:hover {
 .hero .sl-link-button.primary,
 a.sl-link-button.primary {
   background: var(--sl-color-accent) !important;
-  color: #ffffff !important;
+  color: var(--btn-primary-color) !important;
   border-color: transparent !important;
   font-weight: 600;
 }
@@ -260,7 +260,7 @@ a.sl-link-button.primary {
 .hero .sl-link-button.primary:hover,
 a.sl-link-button.primary:hover {
   background: var(--sl-color-accent-high) !important;
-  color: #ffffff !important;
+  color: var(--btn-primary-color) !important;
 }
 
 .sl-link-button[data-variant='secondary'],

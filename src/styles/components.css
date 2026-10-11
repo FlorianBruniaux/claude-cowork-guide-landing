@@ -69,7 +69,7 @@ kbd {
 
 .btn-primary {
     background-color: var(--accent);
-    color: #ffffff;
+    color: var(--btn-primary-color);
     font-weight: 600;
     padding: 0.875rem 1.75rem;
     border: none;
@@ -78,7 +78,7 @@ kbd {
 
 .btn-primary:hover {
     background-color: var(--accent-hover);
-    color: #ffffff;
+    color: var(--btn-primary-color);
     transform: translateY(-1px);
 }
 
