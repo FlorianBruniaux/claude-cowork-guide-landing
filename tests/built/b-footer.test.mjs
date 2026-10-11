@@ -3,8 +3,8 @@ import { readFileSync, readdirSync, statSync } from 'node:fs'
 import { join, relative } from 'node:path'
 import test from 'node:test'
 
-const dist = new URL('../dist/', import.meta.url).pathname
-const version = readFileSync(new URL('../src/data/releases.ts', import.meta.url), 'utf8').match(/version:\s*'(v[^']+)'/)[1]
+const dist = new URL('../../dist/', import.meta.url).pathname
+const version = readFileSync(new URL('../../src/data/releases.ts', import.meta.url), 'utf8').match(/version:\s*'(v[^']+)'/)[1]
 
 function htmlFiles(dir) {
   return readdirSync(dir).flatMap(name => {

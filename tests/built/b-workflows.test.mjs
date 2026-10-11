@@ -3,7 +3,7 @@ import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs'
 import { join } from 'node:path'
 import test from 'node:test'
 
-const dist = new URL('../dist/', import.meta.url).pathname
+const dist = new URL('../../dist/', import.meta.url).pathname
 
 function guideSlugs(prefix) {
   const dir = join(dist, prefix, 'guide/workflows')

@@ -3,7 +3,7 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
 import test from 'node:test'
 
-const dist = new URL('../dist/', import.meta.url).pathname
+const dist = new URL('../../dist/', import.meta.url).pathname
 
 test('dist/404.html is a noindex page with the site navigation and a link to /fr/', () => {
   const file = join(dist, '404.html')

@@ -2,7 +2,7 @@ import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import test from 'node:test'
 
-const dist = new URL('../dist/', import.meta.url).pathname
+const dist = new URL('../../dist/', import.meta.url).pathname
 
 for (const route of ['releases', 'fr/releases', 'workflows', 'fr/workflows']) {
   test(`/${route}/ never skips a heading level`, () => {

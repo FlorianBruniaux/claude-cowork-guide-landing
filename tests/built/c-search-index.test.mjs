@@ -8,7 +8,7 @@ const BASELINE_ENTRIES = 462
 const BASELINE_INDEX_BYTES = 242127
 const INLINE_JSON_BYTES = 165203
 
-const dist = new URL('../dist/', import.meta.url)
+const dist = new URL('../../dist/', import.meta.url)
 
 for (const lang of ['en', 'fr']) {
   test(`dist/search-index/${lang}.json is valid JSON with the baseline entry count`, async () => {
