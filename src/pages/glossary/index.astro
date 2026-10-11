@@ -51,10 +51,10 @@ const jsonLd = [
       const terms = grouped.get(letter)!
       return (
         <div class="letter-group" id={`letter-${letter}`}>
-          <div class="letter-heading">
+          <h2 class="letter-heading">
             <span class="letter-char">{letter}</span>
             <span class="letter-count">{terms.length}</span>
-          </div>
+          </h2>
           <div class="terms-list">
             {terms.map(term => (
               <div class="term-row" data-cat={term.category}>
@@ -166,6 +166,8 @@ const jsonLd = [
 
   .letter-heading {
     display: flex;
+    margin-top: 0;
+    font-size: inherit;
     align-items: center;
     gap: var(--space-sm);
     margin-bottom: var(--space-sm);
