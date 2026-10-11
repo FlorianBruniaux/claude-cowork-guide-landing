@@ -10,7 +10,7 @@ const s = t(Astro.props.lang)
   <div class="container">
     <div class="whats-new-inner">
       <span class="section-badge">{s.whatsNewBadge}</span>
-      <h3>{s.whatsNewTitle}</h3>
+      <h2>{s.whatsNewTitle}</h2>
       <p>{s.whatsNewText} <strong>{s.whatsNewWarning}</strong></p>
       <a href={s.whatsNewUrl} class="btn btn-secondary" target="_blank" rel="noopener" style="font-size: 0.9rem;">
         {s.whatsNewCta}
@@ -29,7 +29,7 @@ const s = t(Astro.props.lang)
   .whats-new-inner {
   }
 
-  .whats-new-inner h3 {
+  .whats-new-inner h2 {
     margin: var(--space-md) 0 var(--space-sm);
     font-size: 1.25rem;
   }

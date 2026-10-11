@@ -14,8 +14,8 @@
     --text-primary: #1a1207;
     --text-secondary: #4a3f31;
     --text-muted: #6b6053;
-    --accent: #d4520a;
-    --accent-hover: #ea580c;
+    --accent: #b8400a;
+    --accent-hover: #9a3412;
     --accent-secondary: #22c55e;
     --accent-secondary-hover: #16a34a;
     --accent-tertiary: #3b82f6;
@@ -87,6 +87,7 @@
     --border-light: #1e1e1e;
     --accent: #f97316;
     --accent-hover: #fb923c;
+    --btn-primary-color: #1a1207;
     --accent-secondary: #22c55e;
     --accent-secondary-hover: #16a34a;
     --accent-tertiary: #60a5fa;
@@ -140,7 +141,7 @@
     top: -40px;
     left: 0;
     background: var(--accent);
-    color: white;
+    color: var(--btn-primary-color);
     padding: 8px 16px;
     text-decoration: none;
     z-index: 100;
@@ -166,7 +167,7 @@
 
   /* Selection color */
   ::selection {
-    background-color: rgba(212, 82, 10, 0.3);
+    background-color: rgba(184, 64, 10, 0.3);
     color: var(--text-primary);
   }
 }
