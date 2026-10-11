@@ -151,7 +151,7 @@ export const UI_STRINGS = {
     featuresSubtitle: 'Everything you need to master Cowork',
     features: [
       { icon: '🔄', title: '29 Step-by-Step Workflows', desc: 'From invoicing to project planning. Complete with copy-paste prompts, examples and troubleshooting.', meta: 'Beginner → Advanced', url: '/workflows/' },
-      { icon: '💬', title: '70 Ready-to-Use Prompts', desc: 'Copy-paste prompts for file ops, document creation, data extraction, and web research.', meta: '4 categories', url: GUIDE_BASE + 'prompts', featured: true, badge: 'Popular' },
+      { icon: '💬', title: '70 Ready-to-Use Prompts', desc: 'Copy-paste prompts for file ops, document creation, data extraction, and web research.', meta: '4 categories', url: 'https://github.com/FlorianBruniaux/claude-cowork-guide/tree/main/prompts', featured: true, badge: 'Popular' },
       { icon: '🛡️', title: 'Security Guide', desc: 'Prompt injection defense, workspace isolation, browser permission management, incident response.', meta: '12 min read', url: '/guide/03-security/' },
       { icon: '🔧', title: 'Troubleshooting', desc: 'VPN issues, permission bugs, mid-task failures, quota management. Decision tree included.', meta: '8 min read', url: '/guide/04-troubleshooting/' },
       { icon: '⚖️', title: 'Product Comparison', desc: 'Cowork vs Claude Code vs Copilot vs Gemini vs ChatGPT. When to use what.', meta: 'Decision matrix', url: '/guide/reference/comparison/' },
@@ -476,7 +476,7 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
     featuresSubtitle: 'Tout ce dont vous avez besoin pour maîtriser Cowork',
     features: [
       { icon: '🔄', title: '29 workflows pas à pas', desc: 'De la facturation à la planification de projets. Complets avec prompts copier-coller, exemples et dépannage.', meta: 'Débutant → Avancé', url: '/fr/workflows/' },
-      { icon: '💬', title: '70 Prompts Prêts à l\'Emploi', desc: 'Prompts copier-coller pour opérations fichiers, création documents, extraction données et recherche web.', meta: '4 catégories', url: GUIDE_BASE + 'prompts', featured: true, badge: 'Populaire' },
+      { icon: '💬', title: '70 Prompts Prêts à l\'Emploi', desc: 'Prompts copier-coller pour opérations fichiers, création documents, extraction données et recherche web.', meta: '4 catégories', url: 'https://github.com/FlorianBruniaux/claude-cowork-guide/tree/main/prompts', featured: true, badge: 'Populaire' },
       { icon: '🛡️', title: 'Guide de Sécurité', desc: 'Défense contre les fichiers pièges, isolation, permissions navigateur et réponse aux incidents.', meta: '12 min lecture', url: '/fr/guide/03-security/' },
       { icon: '🔧', title: 'Dépannage', desc: 'Problèmes réseau, permissions, échecs en cours de tâche et gestion des limites.', meta: '8 min lecture', url: '/fr/guide/04-troubleshooting/' },
       { icon: '⚖️', title: 'Comparaison Produits', desc: 'Cowork vs Claude Code vs Copilot vs Gemini vs ChatGPT. Quand utiliser quoi.', meta: 'Matrice de décision', url: '/fr/guide/reference/comparison/' },
