@@ -75,7 +75,11 @@ const isEn = lang === 'en'
       if (el) el.textContent = '★'
     }
   }
-  loadStars()
+  // Defer the GitHub API call until the page is idle so it stays off the critical path.
+  const schedule = () =>
+    'requestIdleCallback' in window ? requestIdleCallback(() => loadStars()) : setTimeout(loadStars, 1)
+  if (document.readyState === 'complete') schedule()
+  else window.addEventListener('load', schedule, { once: true })
 </script>
 
 <style>
