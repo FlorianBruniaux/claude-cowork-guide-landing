@@ -2,6 +2,7 @@ import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs'
 import { resolve, relative, sep } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
+const MAX_PAGES_PER_DESCRIPTION = 3
 const ORIGIN = 'https://cowork.bruniaux.com'
 const LEGACY_ORIGIN = 'https://florianbruniaux.github.io/claude-cowork-guide-landing'
 
@@ -56,6 +57,7 @@ export async function auditBuiltSite(distDir = resolve('dist')) {
   const canonicalOwners = new Map()
   const alternatesByCanonical = new Map()
   const titles = new Map()
+  const routesByDescription = new Map()
 
   for (const file of htmlFiles) {
     const route = routeFor(distDir, file)
@@ -79,6 +81,7 @@ export async function auditBuiltSite(distDir = resolve('dist')) {
       else titles.set(titleKey, route)
     }
     if (description.length < 50 || description.length > 170) add('DESCRIPTION_LENGTH', route, `Description length is ${description.length}`)
+    if (description) routesByDescription.set(description, [...(routesByDescription.get(description) ?? []), route])
     const h1Count = (html.match(/<h1\b/gi) ?? []).length
     if (h1Count !== 1) add('H1_COUNT', route, `Expected one H1, found ${h1Count}`)
     if (canonicalLinks.length !== 1 || !canonical?.startsWith(`${ORIGIN}/`)) add('CANONICAL', route, `Expected one HTTPS canonical on ${ORIGIN}`)
@@ -132,6 +135,10 @@ export async function auditBuiltSite(distDir = resolve('dist')) {
       const reciprocal = alternatesByCanonical.get(target)
       if (!reciprocal || ![...reciprocal.values()].includes(canonical)) add('HREFLANG_RECIPROCAL', new URL(canonical).pathname, `${target} does not link back`)
     }
+  }
+
+  for (const [description, sharing] of routesByDescription) {
+    if (sharing.length > MAX_PAGES_PER_DESCRIPTION) add('DESCRIPTION_SHARED', sharing[0], `Description shared by ${sharing.length} pages (max ${MAX_PAGES_PER_DESCRIPTION}): ${description.slice(0, 60)}`)
   }
 
   const sitemapFiles = filesBelow(distDir, '.xml').filter(file => /sitemap(?:-\d+)?\.xml$/.test(file))

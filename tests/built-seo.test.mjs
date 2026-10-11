@@ -94,3 +94,34 @@ test('rejects missing fragments on same-page and cross-page links', async t => {
   const fragmentFindings = (await auditBuiltSite(root)).findings.filter(finding => finding.code === 'BROKEN_INTERNAL_FRAGMENT')
   assert.equal(fragmentFindings.length, 2)
 })
+
+test('rejects a description shared by more than three pages', async t => {
+  const pages = {}
+  const urls = []
+  for (const n of [1, 2, 3, 4]) {
+    pages[`/p${n}/`] = page({ canonical: `${site}/p${n}/`, alternate: `${site}/fr/p${n}/` })
+      .replace('A useful Cowork guide page', `Useful Cowork guide page ${n}`)
+    urls.push(`${site}/p${n}/`)
+  }
+  const root = await fixture(pages, urls)
+  t.after(() => rm(root, { recursive: true, force: true }))
+
+  const findings = (await auditBuiltSite(root)).findings.filter(finding => finding.code === 'DESCRIPTION_SHARED')
+  assert.equal(findings.length, 1)
+  assert.match(findings[0].message, /4 pages/)
+})
+
+test('accepts a description shared by exactly three pages', async t => {
+  const pages = {}
+  const urls = []
+  for (const n of [1, 2, 3]) {
+    pages[`/p${n}/`] = page({ canonical: `${site}/p${n}/`, alternate: `${site}/fr/p${n}/` })
+      .replace('A useful Cowork guide page', `Useful Cowork guide page ${n}`)
+    urls.push(`${site}/p${n}/`)
+  }
+  const root = await fixture(pages, urls)
+  t.after(() => rm(root, { recursive: true, force: true }))
+
+  const findings = (await auditBuiltSite(root)).findings.filter(finding => finding.code === 'DESCRIPTION_SHARED')
+  assert.deepEqual(findings, [])
+})

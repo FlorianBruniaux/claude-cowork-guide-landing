@@ -17,6 +17,7 @@
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync, rmSync } from 'fs'
 import { resolve, dirname } from 'path'
+import { deriveDescription } from './derive-description.mjs'
 import { fileURLToPath } from 'url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -79,6 +80,7 @@ function addStarlightFm(content, meta) {
   fm = fm.replace(/^tags:\n([ \t]+-[^\n]*\n)*/m, '')
   fm = fm.trim()
   if (fm) fm += '\n'
+  if (meta.desc && !/^description:/m.test(fm)) fm += `description: "${meta.desc.replace(/\\/g, '\\\\').replace(/"/g, '\\"')}"\n`
   fm += sidebarYaml
 
   return content.replace(fmRegex, `---\n${fm}\n---`)
@@ -144,7 +146,7 @@ for (let i = 0; i < guideFiles.length; i++) {
   const titleMatch = content.match(/^title:\s*["']?(.+?)["']?\s*$/m) || content.match(/^# (.+)/m)
   const title = titleMatch ? titleMatch[1].trim() : file.replace('.md', '')
   const descMatch = content.match(/^description:\s*["']?(.+?)["']?\s*$/m)
-  const desc = descMatch ? descMatch[1].trim() : ''
+  const desc = descMatch ? descMatch[1].trim() : deriveDescription(content)
 
   content = addStarlightFm(content, { title, desc, order: i })
   content = normalizeLangs(content)
@@ -176,7 +178,7 @@ if (existsSync(WORKFLOWS_SRC)) {
     const titleMatch = content.match(/^title:\s*["']?(.+?)["']?\s*$/m) || content.match(/^# (.+)/m)
     const title = titleMatch ? titleMatch[1].trim() : file.replace('.en.md', '')
     const descMatch = content.match(/^description:\s*["']?(.+?)["']?\s*$/m)
-    const desc = descMatch ? descMatch[1].trim() : ''
+    const desc = descMatch ? descMatch[1].trim() : deriveDescription(content)
 
     content = addStarlightFm(content, { title, desc, order: 200 + i })
     content = normalizeLangs(content)
@@ -213,7 +215,7 @@ if (existsSync(PROMPTS_SRC)) {
     const titleMatch = content.match(/^title:\s*["']?(.+?)["']?\s*$/m) || content.match(/^# (.+)/m)
     const title = titleMatch ? titleMatch[1].trim() : file.replace('.md', '')
     const descMatch = content.match(/^description:\s*["']?(.+?)["']?\s*$/m)
-    const desc = descMatch ? descMatch[1].trim() : ''
+    const desc = descMatch ? descMatch[1].trim() : deriveDescription(content)
 
     content = addStarlightFm(content, { title, desc, order: 300 + i })
     content = normalizeLangs(content)
@@ -248,7 +250,7 @@ if (existsSync(REFERENCE_SRC)) {
     const titleMatch = content.match(/^title:\s*["']?(.+?)["']?\s*$/m) || content.match(/^# (.+)/m)
     const title = titleMatch ? titleMatch[1].trim() : file.replace('.md', '')
     const descMatch = content.match(/^description:\s*["']?(.+?)["']?\s*$/m)
-    const desc = descMatch ? descMatch[1].trim() : ''
+    const desc = descMatch ? descMatch[1].trim() : deriveDescription(content)
 
     content = addStarlightFm(content, { title, desc, order: 400 + i })
     content = normalizeLangs(content)
@@ -317,7 +319,7 @@ for (let i = 0; i < frGuideFiles.length; i++) {
   const titleMatch = content.match(/^title:\s*["']?(.+?)["']?\s*$/m) || content.match(/^# (.+)/m)
   const title = titleMatch ? titleMatch[1].trim() : file.replace('.fr.md', '')
   const descMatch = content.match(/^description:\s*["']?(.+?)["']?\s*$/m)
-  const desc = descMatch ? descMatch[1].trim() : ''
+  const desc = descMatch ? descMatch[1].trim() : deriveDescription(content)
 
   content = addStarlightFm(content, { title, desc, order: i })
   content = normalizeLangs(content)
@@ -346,7 +348,7 @@ if (existsSync(WORKFLOWS_SRC)) {
     const titleMatch = content.match(/^title:\s*["']?(.+?)["']?\s*$/m) || content.match(/^# (.+)/m)
     const title = titleMatch ? titleMatch[1].trim() : file.replace('.md', '')
     const descMatch = content.match(/^description:\s*["']?(.+?)["']?\s*$/m)
-    const desc = descMatch ? descMatch[1].trim() : ''
+    const desc = descMatch ? descMatch[1].trim() : deriveDescription(content)
 
     content = addStarlightFm(content, { title, desc, order: 200 + i })
     content = normalizeLangs(content)
@@ -376,7 +378,7 @@ if (existsSync(PROMPTS_SRC)) {
     const titleMatch = content.match(/^title:\s*["']?(.+?)["']?\s*$/m) || content.match(/^# (.+)/m)
     const title = titleMatch ? titleMatch[1].trim() : file.replace('.fr.md', '')
     const descMatch = content.match(/^description:\s*["']?(.+?)["']?\s*$/m)
-    const desc = descMatch ? descMatch[1].trim() : ''
+    const desc = descMatch ? descMatch[1].trim() : deriveDescription(content)
 
     content = addStarlightFm(content, { title, desc, order: 300 + i })
     content = normalizeLangs(content)
@@ -406,7 +408,7 @@ if (existsSync(REFERENCE_SRC)) {
     const titleMatch = content.match(/^title:\s*["']?(.+?)["']?\s*$/m) || content.match(/^# (.+)/m)
     const title = titleMatch ? titleMatch[1].trim() : file.replace('.fr.md', '')
     const descMatch = content.match(/^description:\s*["']?(.+?)["']?\s*$/m)
-    const desc = descMatch ? descMatch[1].trim() : ''
+    const desc = descMatch ? descMatch[1].trim() : deriveDescription(content)
 
     content = addStarlightFm(content, { title, desc, order: 400 + i })
     content = normalizeLangs(content)
