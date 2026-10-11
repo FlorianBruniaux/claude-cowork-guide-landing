@@ -26,6 +26,7 @@ function page({ lang = 'en', canonical = `${site}/`, alternate = `${site}/fr/`, 
     <title>${lang === 'fr' ? 'Une page utile du guide Cowork' : 'A useful Cowork guide page'}</title>
     <meta name="description" content="A factual description of this Claude Cowork guide page, with enough detail to help readers choose the right documented workflow safely.">
     <meta name="robots" content="index, follow">
+    <meta property="og:image" content="${site}/og-image.png">
     <link rel="canonical" href="${canonical}">
     <link rel="alternate" hreflang="${lang}" href="${canonical}">
     <link rel="alternate" hreflang="${altLang}" href="${alternate}">
@@ -124,4 +125,16 @@ test('accepts a description shared by exactly three pages', async t => {
 
   const findings = (await auditBuiltSite(root)).findings.filter(finding => finding.code === 'DESCRIPTION_SHARED')
   assert.deepEqual(findings, [])
+})
+
+test('rejects pages without an absolute og:image', async t => {
+  const missing = page().replace(/\s*<meta property="og:image"[^>]+>/, '')
+  const relative = page({ canonical: `${site}/rel/`, alternate: `${site}/fr/rel/` })
+    .replace(`content="${site}/og-image.png"`, 'content="/og-image.png"')
+    .replace('A useful Cowork guide page', 'Another useful Cowork guide page')
+  const root = await fixture({ '/': missing, '/rel/': relative }, [`${site}/`, `${site}/rel/`])
+  t.after(() => rm(root, { recursive: true, force: true }))
+
+  const routes = (await auditBuiltSite(root)).findings.filter(finding => finding.code === 'OG_IMAGE').map(finding => finding.route)
+  assert.deepEqual(routes.sort(), ['/', '/rel/'])
 })

@@ -68,6 +68,7 @@ export async function auditBuiltSite(distDir = resolve('dist')) {
     const descriptionTag = [...html.matchAll(/<meta\b[^>]*>/gi)].map(match => attrs(match[0])).find(item => item.name?.toLowerCase() === 'description')
     const description = descriptionTag?.content ?? ''
     const robots = [...html.matchAll(/<meta\b[^>]*>/gi)].map(match => attrs(match[0])).find(item => item.name?.toLowerCase() === 'robots')?.content ?? ''
+    const ogImage = [...html.matchAll(/<meta\b[^>]*>/gi)].map(match => attrs(match[0])).find(item => item.property?.toLowerCase() === 'og:image')?.content ?? ''
     const links = [...html.matchAll(/<link\b[^>]*>/gi)].map(match => attrs(match[0]))
     const canonicalLinks = links.filter(link => link.rel?.toLowerCase() === 'canonical')
     const canonical = canonicalLinks[0]?.href
@@ -82,6 +83,7 @@ export async function auditBuiltSite(distDir = resolve('dist')) {
     }
     if (description.length < 50 || description.length > 170) add('DESCRIPTION_LENGTH', route, `Description length is ${description.length}`)
     if (description) routesByDescription.set(description, [...(routesByDescription.get(description) ?? []), route])
+    if (!/^https:\/\/[^/]+\/\S+/.test(ogImage)) add('OG_IMAGE', route, `Expected an absolute og:image, found ${ogImage || '(missing)'}`)
     const h1Count = (html.match(/<h1\b/gi) ?? []).length
     if (h1Count !== 1) add('H1_COUNT', route, `Expected one H1, found ${h1Count}`)
     if (canonicalLinks.length !== 1 || !canonical?.startsWith(`${ORIGIN}/`)) add('CANONICAL', route, `Expected one HTTPS canonical on ${ORIGIN}`)

@@ -8,10 +8,18 @@
  */
 import Default from '@astrojs/starlight/components/Head.astro'
 
-const { entry, lang, siteTitle } = Astro.locals.starlightRoute
+const route = Astro.locals.starlightRoute
+const { entry, lang, siteTitle } = route
+// Starlight sets og:locale to the bare language code ("fr") and og:site_name to
+// the localized site title. Drop both so the values emitted below are the only ones.
+const replaced = new Set(['og:locale', 'og:site_name'])
+route.head = route.head.filter(({ tag, attrs }) => !(tag === 'meta' && replaced.has(String(attrs?.property))))
 const canonical = new URL(Astro.url.pathname, Astro.site)
 const englishPath = Astro.url.pathname.replace(/^\/fr(?=\/|$)/, '') || '/'
 const xDefault = new URL(englishPath, Astro.site)
+// Starlight emits og:title/og:type/og:url and twitter:card (summary_large_image) but no
+// image; reuse the generated card.
+const ogImage = new URL('/og-image.png', Astro.site)
 
 const schema = {
   '@context': 'https://schema.org',
@@ -36,4 +44,10 @@ const schema = {
 
 <Default><slot /></Default>
 <link rel="alternate" hreflang="x-default" href={xDefault} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="Claude Cowork Guide" />
+<meta property="og:locale" content={lang === 'fr' ? 'fr_FR' : 'en_US'} />
+<meta name="twitter:image" content={ogImage} />
 <script type="application/ld+json" set:html={JSON.stringify(schema)} />
