@@ -1,0 +1,31 @@
+scripts/check-built-seo.mjs
+  s_f6f18e2ee1bede::t_bdb1919c928081 44-80,98,147-157,194-197
+src/components/starlight/Head.astro
+  s_f6f18e2ee1bede::t_a42b6b025e4b9a 10,13,32-33
+src/data/site-schema.ts
+  s_f6f18e2ee1bede::t_8a249d018ef186 1-47
+src/layouts/Layout.astro
+  s_f6f18e2ee1bede::t_f3203518780490 11,51-74,134-135,139-141,143-147,149-152,156
+src/pages/fr/releases/index.astro
+  s_f6f18e2ee1bede::t_28282af0383e7c 4,9-10,27,40,42-43,48-49,59
+src/pages/releases/index.astro
+  s_f6f18e2ee1bede::t_d4cbecfef30988 4,39,41-42,47-48
+tests/built-seo.test.mjs
+  s_f6f18e2ee1bede::t_c538a999eb9518 141-184
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "14bc73f5b485807f3bba4ddb1834f44006e6421f",
+  "prompts": {},
+  "sessions": {
+    "s_f6f18e2ee1bede": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "45b6c144-ab6f-47f3-a276-074bbddcaa0f",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Florian BRUNIAUX <florian@bruniaux.com>"
+    }
+  }
+}
