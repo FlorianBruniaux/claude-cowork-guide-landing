@@ -1,0 +1,23 @@
+scripts/check-headings.mjs
+  s_f6f18e2ee1bede::t_40cbe5ff51d415 1-50
+src/components/landing/WhatsNew.astro
+  s_f6f18e2ee1bede::t_3a4f4e2e5cce73 13,32
+tests/c-headings.test.mjs
+  s_f6f18e2ee1bede::t_6b9b9bdaf6df33 1-18
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "6e76563f5ffa018ca0955ec3f6d77bf4bc9dc5da",
+  "prompts": {},
+  "sessions": {
+    "s_f6f18e2ee1bede": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "45b6c144-ab6f-47f3-a276-074bbddcaa0f",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Florian BRUNIAUX <florian@bruniaux.com>"
+    }
+  }
+}
