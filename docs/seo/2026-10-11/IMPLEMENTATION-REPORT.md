@@ -51,7 +51,7 @@ Changement de CI : les tests qui lisent `dist/` sont dans `tests/built/` et tour
 
 ## Production
 
-Le run du push (`38167048069`) a fini en `startup_failure`, sans job lancé ; le mainteneur a relevé le budget GitHub Actions du compte, puis le run suivant a démarré. Le workflow a été relancé à la main (`workflow_dispatch`), vert sur `78fa030`.
+Le run du push (`38167048069`) a fini en `startup_failure`, sans job lancé. Le workflow a été relancé à la main (`workflow_dispatch`), vert sur `78fa030`. Tous les runs déclenchés automatiquement (`push`, `workflow_run`) échouent ainsi depuis le 11 octobre, y compris après la hausse du budget Actions ; seuls les lancements manuels passent. Cause inconnue, suivie dans #27.
 
 | Contrôle en production | Résultat |
 | --- | --- |
@@ -75,3 +75,4 @@ Le run du push (`38167048069`) a fini en `startup_failure`, sans job lancé ; le
 1. #15 : ouvrir Cmd+K sur `/`, `/fr/` et une page `/guide/` en production et obtenir des résultats.
 2. #23 et #24 : décisions du mainteneur.
 3. #25 depuis une session ouverte dans le dépôt landing, puis #26.
+4. #27 : rétablir le déploiement automatique ; d'ici là, lancer `gh workflow run static.yml -R FlorianBruniaux/claude-cowork-guide-landing --ref main` après chaque push.
