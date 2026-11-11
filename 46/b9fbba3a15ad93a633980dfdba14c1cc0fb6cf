@@ -1,0 +1,19 @@
+src/components/global/Footer.astro
+  s_c9cc500ce5763b::t_9eb22d29a7f326 53-57,111-112
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "46b9fbba3a15ad93a633980dfdba14c1cc0fb6cf",
+  "prompts": {},
+  "sessions": {
+    "s_c9cc500ce5763b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4511b4d7-9f36-4d08-a2a1-4f88ee391b69",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Florian BRUNIAUX <florian@bruniaux.com>"
+    }
+  }
+}
