@@ -16,6 +16,7 @@ export interface Whitepaper {
   audience: string   // FR
   audienceEn: string // EN
   pages: number
+  pagesEn?: number
   tags: string[]
   gated: boolean     // false = téléchargement direct, true = email requis
   badge?: string     // FR badge
@@ -36,15 +37,16 @@ export const WHITEPAPERS: Whitepaper[] = [
     subtitleEn: 'Workspace setup, CTOC framework, 5 golden rules — the starting point for every profile.',
     audience: 'Tous profils',
     audienceEn: 'All profiles',
-    pages: 24,
+    pages: 14,
+    pagesEn: 16,
     tags: ['démarrage', 'ctoc', 'workspace'],
     gated: false,
     badge: 'Gratuit',
     badgeEn: 'Free',
     slugFr: '00-de-zero-a-productif',
     slugEn: '00-from-zero-to-productive',
-    hashedFileFr: 'cowork/00-de-zero-a-productif.fr.v1.0.0.50815d34631f.pdf',
-    hashedFileEn: 'cowork/00-from-zero-to-productive.en.v1.0.0.0c181a419b2a.pdf',
+    hashedFileFr: 'cowork/00-de-zero-a-productif.fr.v1.0.1.e86431108ac3.pdf',
+    hashedFileEn: 'cowork/00-from-zero-to-productive.en.v1.0.1.3af1cc002f1f.pdf',
     datePublished: '2026-01-15',
   },
   {

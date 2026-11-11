@@ -28,7 +28,7 @@ const jsonLd = [
       url: 'https://cowork.bruniaux.com/whitepapers/',
       author: AUTHOR,
       datePublished: wp.datePublished,
-      numberOfPages: wp.pages,
+      numberOfPages: wp.pagesEn ?? wp.pages,
       audience: {
         '@type': 'Audience',
         audienceType: wp.audienceEn,
@@ -133,7 +133,7 @@ const profiles = [
             <p class="featured-sub">{wp.subtitleEn}</p>
             <div class="featured-meta">
               <span class="meta-pill">{wp.audienceEn}</span>
-              <span class="meta-pill">~{wp.pages}p</span>
+              <span class="meta-pill">~{wp.pagesEn ?? wp.pages}p</span>
             </div>
             <div class="featured-actions">
               <a
@@ -167,7 +167,7 @@ const profiles = [
                   </span>
                 )}
                 <span class="wp-audience">{wp.audienceEn}</span>
-                <span class="wp-pages">~{wp.pages}p</span>
+                <span class="wp-pages">~{wp.pagesEn ?? wp.pages}p</span>
               </div>
               <h3 class="wp-row-title">{wp.titleEn}</h3>
               <p class="wp-row-subtitle">{wp.subtitleEn}</p>
