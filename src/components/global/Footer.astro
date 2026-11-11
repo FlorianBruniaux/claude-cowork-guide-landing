@@ -50,6 +50,11 @@ function isExternal(url: string): boolean {
       </div>
     </div>
 
+    {Astro.url.pathname === (lang === 'fr' ? '/fr/' : '/') && <p class="footer-lead-links">
+      <a href={`https://www.florian.bruniaux.com${lang === 'fr' ? '/fr/offres/formation/' : '/services/training/'}?utm_source=cowork-guide&utm_medium=cta&utm_campaign=harness-training#cohort`}>{lang === 'fr' ? 'Recevoir les dates de formation Claude Code et Codex' : 'Get Claude Code and Codex training dates'}</a>
+      <a href={`https://www.florian.bruniaux.com${lang === 'fr' ? '/fr' : ''}/newsletter/?utm_source=cowork-guide&utm_medium=cta&utm_campaign=newsletter#newsletter`}>{lang === 'fr' ? 'S’inscrire à la newsletter de Florian' : 'Subscribe to Florian’s newsletter'}</a>
+    </p>}
+
     <div class="footer-grid">
       {s.footerSections.map((section) => (
         <div class="footer-section">
@@ -103,6 +108,8 @@ function isExternal(url: string): boolean {
 </footer>
 
 <style>
+  .footer-lead-links { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; margin-bottom: var(--space-lg, 1.5rem); }
+  .footer-lead-links a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: underline; text-underline-offset: .2em; }
   .footer {
     background: var(--bg-secondary);
     border-top: 1px solid var(--border-subtle);
