@@ -91,9 +91,9 @@ export const UI_STRINGS = {
     heroCtaSecondary: 'Browse Workflows',
 
     // What's New
-    whatsNewBadge: 'Oct 2026',
-    whatsNewTitle: 'Guide v1.14.0: Cowork in every conversation, Claude 5.5 models',
-    whatsNewText: 'Updated Oct 11, 2026 with Cowork available from any conversation, Claude Opus 5.5, Sonnet 5.5 and Haiku 5.5, Claude Design, Slides and Docs on every plan, Google Docs, Sheets and Slides connectors, and the move of Pro and Max Cowork tasks to the cloud. The guide also covers a bilingual workflow library, a verified product FAQ, security guidance, prompt templates, and reference material for each supported surface.',
+    whatsNewBadge: 'Nov 2026',
+    whatsNewTitle: 'Guide v1.15.0: Fable 5.2, Enterprise security, Ultra plan',
+    whatsNewText: 'Updated Nov 11, 2026 with Claude Fable 5.2 and Mythos 5.2, new Enterprise security controls (security center, inference hooks, EDR in the Cowork VM), the Max 20x plan renamed Ultra, unified Claude turned on by default for managed deployments on Nov 10, and new desktop Storage settings. The guide also covers a bilingual workflow library, a verified product FAQ, security guidance, prompt templates, and reference material for each supported surface.',
     whatsNewWarning: 'Product capabilities vary by plan and surface. Check the linked Anthropic documentation before relying on a feature for critical work.',
     whatsNewCta: 'View Capabilities →',
     whatsNewUrl: GUIDE_BASE + 'guide/02-capabilities.md#one-claude-cloud-execution-and-approvals',
@@ -416,9 +416,9 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
     heroCtaSecondary: 'Parcourir les Workflows',
 
     // What's New
-    whatsNewBadge: 'Oct 2026',
-    whatsNewTitle: 'Guide v1.14.0 : Cowork dans chaque conversation, modèles Claude 5.5',
-    whatsNewText: 'Mis à jour le 11 octobre 2026 avec Cowork accessible depuis n’importe quelle conversation, Claude Opus 5.5, Sonnet 5.5 et Haiku 5.5, Claude Design, Slides et Docs sur tous les plans, les connecteurs Google Docs, Sheets et Slides, et le passage des tâches Cowork Pro et Max dans le cloud. Le guide propose aussi une bibliothèque bilingue de workflows, une FAQ produit vérifiée, des pratiques de sécurité, des modèles de prompts et des références par surface.',
+    whatsNewBadge: 'Nov 2026',
+    whatsNewTitle: 'Guide v1.15.0 : Fable 5.2, sécurité Enterprise, plan Ultra',
+    whatsNewText: 'Mis à jour le 11 novembre 2026 avec Claude Fable 5.2 et Mythos 5.2, les nouveaux contrôles de sécurité Enterprise (security center, inference hooks, EDR dans la VM Cowork), le plan Max 20x renommé Ultra, Claude unifié activé par défaut le 10 novembre pour les déploiements administrés et le nouveau réglage Storage du desktop. Le guide propose aussi une bibliothèque bilingue de workflows, une FAQ produit vérifiée, des pratiques de sécurité, des modèles de prompts et des références par surface.',
     whatsNewWarning: 'Les capacités produit varient selon le plan et la surface. Vérifiez la documentation Anthropic liée avant de dépendre d’une fonction pour une tâche critique.',
     whatsNewCta: 'Voir les fonctionnalités →',
     whatsNewUrl: GUIDE_BASE + 'guide/02-capabilities.fr.md#un-seul-claude-exécution-cloud-et-approbations',

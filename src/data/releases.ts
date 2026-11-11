@@ -16,6 +16,27 @@ export interface BreakingChange {
 
 export const releases: Release[] = [
   {
+    version: 'v1.15.0',
+    date: 'Nov 11, 2026',
+    highlights: [
+      '⭐ <strong>Claude Fable 5.2 et Claude Mythos 5.2</strong> : nouveaux modèles phares, Fable inclus jusqu\'à 50 % des limites hebdomadaires sur Pro et Team standard, Mythos réservé à des organisations vérifiées',
+      '⭐ <strong>Sécurité et administration Enterprise</strong> : <strong>security center</strong> (bêta), <strong>inference hooks</strong> en disponibilité générale, console parent (bêta), EDR dans la VM Cowork (bêta), blocage des comptes personnels dans Claude Desktop',
+      '<strong>Max 20x devient Ultra</strong> : 200 $ par mois, 10x l\'usage Pro par semaine, 200 $ de crédits API. Max passe à 100 $',
+      'Enterprise : <strong>Smart reports</strong>, sondages in-app et budgets mutualisés par groupe en disponibilité générale, suivi des dépenses par code projet en bêta',
+      '⭐ <strong>Desktop</strong> : Settings &gt; Storage et <code>/storage</code>, « Open in new window » pour les chats, « Hand off to Claude Code » depuis le menu design, partage d\'un Claude Doc vers Canva',
+      'Tâches planifiées : web fetch limité aux URL nommées ou trouvées hors Auto et Skip all approvals, notification quand une exécution ne démarre pas',
+      'Prérequis Windows relevé : Windows 10 version 2004 (build 19041) minimum',
+    ],
+    breaking: [
+      'Unified Claude par défaut le 10 novembre 2026 pour les déploiements administrés : <code>desktopHome</code> non renseigné vaut <code>standard</code>, tâches Cowork supprimées selon <code>coworkSessionRetentionDays</code>',
+      'Reset App Data efface aussi les tâches Cowork sur les serveurs d\'Anthropic',
+    ],
+    latest: true,
+    initiallyVisible: true,
+    featured: true,
+    featuredLabel: '⭐ Fable 5.2 + sécurité Enterprise + Ultra',
+  },
+  {
     version: 'v1.14.0',
     date: 'Oct 11, 2026',
     highlights: [
@@ -33,7 +54,6 @@ export const releases: Release[] = [
       'Cowork passe dans le cloud pour Pro et Max (6 octobre 2026) : l\'option « Only on your computer » est supprimée, sans retour possible. Les dossiers restent sur l\'ordinateur',
       'Tâches planifiées créées par Claude en « Automatically approve » par défaut, quand l\'organisation l\'autorise',
     ],
-    latest: true,
     initiallyVisible: true,
     featured: true,
     featuredLabel: '⭐ Cowork unifié + Claude 5.5 + Design/Slides/Docs',

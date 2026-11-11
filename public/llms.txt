@@ -6,8 +6,8 @@
 
 - Canonical URL: https://cowork.bruniaux.com/
 - Source repository: https://github.com/FlorianBruniaux/claude-cowork-guide
-- Guide version: 1.14.0
-- Product facts last checked: 2026-10-11
+- Guide version: 1.15.0
+- Product facts last checked: 2026-11-10
 - License: CC BY-SA 4.0
 - Languages: English and French
 - Corpus: 29 bilingual workflows and 70 numbered prompts
