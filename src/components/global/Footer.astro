@@ -17,7 +17,7 @@ function isExternal(url: string): boolean {
 }
 
 // Ecosystem goes behind a disclosure, as "Explore the ecosystem" in the pilot footer.
-const isEcosystem = (section: { links: { url: string }[] }) =>
+const isEcosystem = (section: { links: readonly { url: string }[] }) =>
   section.links.some((link) => link.url.startsWith('https://ccboard.'))
 const gridSections = s.footerSections.filter((section) => !isEcosystem(section))
 const ecosystemSection = s.footerSections.find(isEcosystem)
