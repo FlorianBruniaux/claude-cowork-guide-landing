@@ -8,24 +8,28 @@ import Layout from '../layouts/Layout.astro'
   description="This page does not exist. Browse the Claude Cowork guide, workflows and prompts from the home page."
   noIndex
 >
-  <section class="not-found container">
-    <p class="not-found-code">404</p>
-    <h1>Page not found</h1>
-    <p>The page you asked for does not exist or has moved.</p>
-    <div class="not-found-links">
-      <a href="/" class="btn btn-primary">Back to the home page</a>
-      <a href="/guide/" class="btn btn-secondary">Read the guide</a>
-      <a href="/workflows/" class="btn btn-secondary">Workflows</a>
-      <a href="/prompts/" class="btn btn-secondary">Prompts</a>
+  <section class="band band-ink band-hero section-wallpaper not-found">
+    <div class="container">
+      <p class="not-found-code">404</p>
+      <h1>Page not found</h1>
+      <p class="not-found-text">The page you asked for does not exist or has moved.</p>
+      <div class="not-found-links">
+        <a href="/" class="btn btn-primary">Back to the home page</a>
+        <a href="/guide/" class="btn btn-secondary">Read the guide</a>
+        <a href="/workflows/" class="btn btn-secondary">Workflows</a>
+        <a href="/prompts/" class="btn btn-secondary">Prompts</a>
+      </div>
+      <p class="not-found-fr">Vous cherchez la version française ? <a href="/fr/">Aller au site en français</a>.</p>
     </div>
-    <p class="not-found-fr">Vous cherchez la version française ? <a href="/fr/">Aller au site en français</a>.</p>
   </section>
 </Layout>
 
 <style>
-  .not-found { padding: var(--space-3xl) 0; text-align: center; }
-  .not-found-code { font-size: 4rem; font-weight: 700; color: var(--accent); margin: 0; }
-  .not-found h1 { margin: var(--space-sm) 0; }
-  .not-found-links { display: flex; flex-wrap: wrap; gap: var(--space-sm); justify-content: center; margin: var(--space-xl) 0; }
-  .not-found-fr { color: var(--text-secondary); }
+  .not-found { padding: 4rem 0 var(--space-3xl); }
+  .not-found-code { font: 500 0.8rem/1.4 var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); margin: 0 0 var(--space-sm); }
+  .not-found h1 { margin: 0 0 var(--space-sm); font-size: clamp(2.5rem, 4.6vw, 3.75rem); line-height: 1.02; }
+  .not-found-text { color: var(--text-secondary); font-size: 1.1rem; margin: 0; }
+  .not-found-links { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin: var(--space-xl) 0; }
+  .not-found-links :global(.btn) { min-height: 44px; }
+  .not-found-fr { color: var(--text-secondary); margin: 0; }
 </style>

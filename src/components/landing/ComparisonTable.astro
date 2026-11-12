@@ -6,12 +6,12 @@ interface Props { lang: Lang }
 const s = t(Astro.props.lang)
 ---
 
-<section class="section" id="compare">
+<section class="section band band-base" id="compare">
   <div class="container">
     <h2 class="section-title">{s.comparisonTitle}</h2>
     <p class="section-subtitle">{s.comparisonSubtitle}</p>
 
-    <div class="comparison-table-wrapper">
+    <div class="comparison-table-wrapper brand-card">
       <table class="comparison-table">
         <thead>
           <tr>
@@ -33,7 +33,7 @@ const s = t(Astro.props.lang)
       </table>
     </div>
 
-    <div class="comparison-notes">
+    <div class="comparison-notes brand-card">
       <p set:html={s.comparisonNote} />
       <p class="footnote" set:html={s.comparisonFootnote} />
     </div>
@@ -46,6 +46,8 @@ const s = t(Astro.props.lang)
     margin-bottom: var(--space-lg);
   }
 
+  .comparison-table tbody tr:last-child td { border-bottom: 0; }
+
   .comparison-table {
     width: 100%;
     border-collapse: collapse;
@@ -54,21 +56,14 @@ const s = t(Astro.props.lang)
   }
 
   .comparison-table th {
-    background: var(--surface-elevated);
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
     padding: var(--space-md);
     text-align: left;
     font-weight: 700;
     font-size: 0.85rem;
     border-bottom: 2px solid var(--border);
     white-space: nowrap;
-  }
-
-  .comparison-table th:first-child {
-    border-top-left-radius: var(--border-radius);
-  }
-
-  .comparison-table th:last-child {
-    border-top-right-radius: var(--border-radius);
   }
 
   .comparison-table td {
@@ -88,9 +83,6 @@ const s = t(Astro.props.lang)
   .feature-partial { color: var(--status-warning); }
 
   .comparison-notes {
-    background: var(--surface-elevated);
-    border: 1px solid var(--border);
-    border-radius: var(--border-radius-lg);
     padding: var(--space-lg);
   }
 

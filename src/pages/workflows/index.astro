@@ -59,6 +59,7 @@ const workflowsJsonLd = [
     </div>
   </div>
 
+  <section class="band band-base workflows-band">
   <div class="container workflows-page">
     <div class="category-tabs" role="tablist" aria-label="Filter workflows by category">
       {categories.map((cat, i) => (
@@ -77,7 +78,7 @@ const workflowsJsonLd = [
       {workflows.map(workflow => (
         <a
           href={workflow.url}
-          class="workflow-card"
+          class="workflow-card brand-card brand-interactive-card"
           data-category={workflow.category}
         >
           <div class="workflow-card-header">
@@ -93,11 +94,17 @@ const workflowsJsonLd = [
       ))}
     </div>
 
-    <div class="workflows-cta">
+  </div>
+  </section>
+
+  <section class="band band-accent section-wallpaper workflows-cta-band">
+  <div class="container">
+    <div class="workflows-cta brand-card">
       <p>Looking for the full guide with detailed instructions for each workflow?</p>
       <a href="/guide/" class="btn btn-primary">Read the Guide →</a>
     </div>
   </div>
+  </section>
 </Layout>
 
 <script>
@@ -133,25 +140,13 @@ const workflowsJsonLd = [
 </script>
 
 <style>
-  .page-hero {
-    padding: var(--space-3xl) 0 var(--space-xl);
-    background: var(--bg-tint-cool, color-mix(in srgb, var(--accent) 5%, var(--bg-primary)));
-    border-bottom: 1px solid var(--border-subtle);
-  }
-  .page-hero h1 {
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
-    font-weight: 700;
-    color: var(--text-primary);
-    margin: var(--space-sm) 0;
-  }
   .back-link {
     font-size: 0.875rem;
     color: var(--accent);
     text-decoration: none;
-    opacity: 0.8;
-    transition: opacity 0.2s;
+    opacity: 1;
   }
-  .back-link:hover { opacity: 1; }
+  .back-link:hover, .back-link:focus-visible { text-decoration-thickness: 2px; }
   .hero-subtitle {
     color: var(--text-secondary);
     font-size: 1.1rem;
@@ -159,11 +154,12 @@ const workflowsJsonLd = [
   }
   .hero-note {
     font-size: 0.875rem;
-    color: var(--text-tertiary);
+    color: var(--text-muted);
     margin: 0;
   }
 
-  .workflows-page { padding: var(--space-2xl) 0 var(--space-3xl); }
+  .workflows-band { padding: clamp(3rem, 6vw, 4.5rem) 0; }
+  .workflows-cta-band { padding: clamp(3rem, 6vw, 4.5rem) 0; }
 
   .category-tabs {
     display: flex;
@@ -172,24 +168,28 @@ const workflowsJsonLd = [
     margin-bottom: var(--space-xl);
   }
   .tab-btn {
-    padding: 0.375rem 0.875rem;
-    border-radius: 999px;
-    border: 1px solid var(--border-subtle);
-    background: var(--bg-secondary);
-    color: var(--text-secondary);
+    min-height: 44px;
+    padding: 0.375rem 1rem;
+    border-radius: var(--radius-control);
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-primary);
     font-size: 0.875rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: all 0.15s;
+    transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
   }
   .tab-btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
+    border-color: var(--text-primary);
+    background: var(--bg-tertiary);
   }
   .tab-btn.active {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: #fff;
+    background: var(--text-primary);
+    border-color: var(--text-primary);
+    color: var(--bg-primary);
   }
+
+  .tab-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
   .workflows-grid {
     display: grid;
@@ -201,18 +201,17 @@ const workflowsJsonLd = [
     flex-direction: column;
     gap: var(--space-xs);
     padding: var(--space-lg);
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-lg, 12px);
-    text-decoration: none;
+    text-decoration: none !important;
     color: var(--text-primary);
-    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
   }
   .workflow-card:hover {
-    border-color: var(--accent);
-    box-shadow: 0 4px 16px color-mix(in srgb, var(--accent) 15%, transparent);
-    transform: translateY(-2px);
+    text-decoration: none !important;
   }
+  .workflow-card:hover .workflow-title,
+  .workflow-card:focus-visible .workflow-title { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.2em; }
+  .workflow-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .workflows-grid .workflow-card:hover .complexity-badge.complexity-badge { color: var(--text-primary); background: transparent; border: 1px solid currentColor; }
+
   .workflow-card-header {
     display: flex;
     align-items: center;
@@ -223,7 +222,7 @@ const workflowsJsonLd = [
     font-size: 0.7rem;
     font-weight: 600;
     padding: 0.2rem 0.5rem;
-    border-radius: 999px;
+    border-radius: var(--radius-control);
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
@@ -264,14 +263,12 @@ const workflowsJsonLd = [
   }
 
   .workflows-cta {
-    margin-top: var(--space-3xl);
     text-align: center;
     padding: var(--space-2xl);
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-lg, 12px);
   }
   .workflows-cta p {
+    color: var(--text-secondary);
+    max-width: none;
     color: var(--text-secondary);
     margin: 0 0 var(--space-md);
   }

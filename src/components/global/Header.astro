@@ -42,7 +42,7 @@ function isActiveLink(url: string): boolean {
 const isMoreActive = moreLinks.some((link) => isActiveLink(link.url))
 ---
 
-<header class="header">
+<header class="header site-header">
   <nav class="nav container">
     <a href={lang === 'fr' ? '/fr/' : '/'} class="logo">
       <span class="logo-icon">&gt;_</span>
@@ -83,6 +83,7 @@ const isMoreActive = moreLinks.some((link) => isActiveLink(link.url))
           </svg>
         </button>
         <div class="nav-more-menu" role="menu" aria-labelledby="more-btn">
+          <div class="more-panel-header" aria-hidden="true"><strong>{s.navMore}</strong></div>
           {moreLinks.map((link) => (
             <a
               href={link.url}
@@ -141,7 +142,7 @@ const isMoreActive = moreLinks.some((link) => isActiveLink(link.url))
         </svg>
       </a>
 
-      <a href="/guide/" class="btn btn-primary" data-astro-prefetch="false">{s.readGuide}</a>
+      <a href="/guide/" class="btn btn-secondary header-guide-link" data-astro-prefetch="false">{s.readGuide}</a>
     </div>
 
     <button class="menu-toggle" id="menu-toggle" aria-label={s.menuToggle} aria-expanded="false"
@@ -244,104 +245,148 @@ const isMoreActive = moreLinks.some((link) => isActiveLink(link.url))
 </script>
 
 <style>
+  /* Pilot header (claude-code-ultimate-guide-landing@6b2e3b5 Header.astro): mono brand
+     lockup in link colour, quiet secondary links with a 4px orange bar under the current
+     item, boxed search, ghost icons, secondary guide action, "More" as an intent panel
+     (charcoal strip, cards), mobile drawer from the right over a dimmed page. */
   .header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 100;
-    background: var(--header-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    box-shadow: var(--shadow-header);
+    background: color-mix(in srgb, var(--bg-primary) 94%, transparent);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
   }
 
   .nav {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: space-between;
     height: 3.5rem;
     gap: 1rem;
   }
 
-  .logo {
-    display: flex;
+  /* ── Brand ──────────────────────────────────────────────────────────────── */
+
+  .header .nav .logo {
+    display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    text-decoration: none;
-    color: var(--text-primary);
-    font-weight: 700;
-    font-size: 1rem;
+    align-self: center;
+    gap: 0.55rem;
+    min-height: 44px;
     flex-shrink: 0;
+    color: var(--accent);
+    font: 400 0.875rem/1 var(--font-mono);
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: opacity 160ms ease;
   }
 
-  .logo:hover { text-decoration: none; color: var(--text-primary); }
+  .header .nav .logo:hover {
+    opacity: 0.78;
+    color: var(--accent);
+    text-decoration: none;
+  }
 
   .logo-icon {
-    color: var(--accent);
-    font-family: var(--font-mono);
-    font-weight: 700;
+    color: var(--action);
+    font: 700 1rem/1 var(--font-mono);
   }
 
   /* ── Nav links ──────────────────────────────────────────────────────────── */
 
   .nav-links {
     display: flex;
-    align-items: center;
-    gap: 1.5rem;
+    align-items: stretch;
+    gap: clamp(0.05rem, 0.3vw, 0.3rem);
     flex: 1;
     justify-content: center;
   }
 
-  .nav-link {
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: color var(--transition-fast);
+  .nav .nav-links .nav-link,
+  .nav-more-trigger {
     position: relative;
-    padding-bottom: 2px;
+    isolation: isolate;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    padding: 0 clamp(0.45rem, 0.7vw, 0.7rem);
+    color: var(--text-secondary);
+    font: 600 0.84rem/1 var(--font-sans);
+    white-space: nowrap;
+    text-decoration: none;
+    transition: color 160ms ease;
   }
 
-  .nav-link:hover {
-    color: var(--accent);
+  /* Hover and open fill: a rounded 44px pad, the bar keeps the header line. */
+  .nav .nav-links .nav-link::before,
+  .nav-more-trigger::before {
+    content: '';
+    position: absolute;
+    inset: 0.375rem 0;
+    z-index: -1;
+    border-radius: 0.5rem;
+    background: transparent;
+    transition: background-color 160ms ease;
+  }
+
+  .nav .nav-links .nav-link:hover,
+  .nav-more-trigger:hover {
+    color: var(--text-primary);
     text-decoration: none;
   }
 
-  .nav-link.active {
+  .nav .nav-links .nav-link.active,
+  .nav-more-trigger.active {
     color: var(--accent);
-    border-bottom: 2px solid var(--accent);
   }
 
-  /* ── More dropdown ──────────────────────────────────────────────────────── */
+  .nav-link.active::after,
+  .nav-more-trigger.active::after {
+    content: '';
+    position: absolute;
+    left: 0.5rem;
+    right: 0.5rem;
+    bottom: 0;
+    height: 4px;
+    background: var(--action);
+  }
+
+  .nav-link:focus-visible,
+  .nav-more-trigger:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -6px;
+    border-radius: 0.5rem;
+  }
+
+  /* ── More: intent panel ─────────────────────────────────────────────────── */
 
   .nav-more {
     position: relative;
+    display: flex;
   }
 
   .nav-more-trigger {
     background: none;
     border: none;
     cursor: pointer;
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-    transition: color var(--transition-fast);
-    padding: 0;
-    font-family: inherit;
   }
 
-  .nav-more-trigger:hover,
-  .nav-more-trigger.active {
-    color: var(--accent);
+  .nav-more-trigger[aria-expanded="true"] {
+    color: var(--text-primary);
+  }
+
+  .nav-more-trigger[aria-expanded="true"]::before {
+    background: var(--bg-tertiary);
   }
 
   .more-chevron {
-    width: 12px;
-    height: 12px;
-    transition: transform 0.2s;
+    width: 0.9rem;
+    height: 0.9rem;
+    transition: transform 160ms ease;
   }
 
   .nav-more-trigger[aria-expanded="true"] .more-chevron {
@@ -350,175 +395,288 @@ const isMoreActive = moreLinks.some((link) => isActiveLink(link.url))
 
   .nav-more-menu {
     display: none;
-    position: absolute;
-    top: calc(100% + 0.5rem);
-    right: 0;
-    background: var(--surface-elevated);
-    border: 1px solid var(--border);
-    border-radius: var(--border-radius-lg);
-    padding: 0.5rem;
-    min-width: 160px;
-    box-shadow: var(--shadow-lg);
     z-index: 200;
   }
 
-  .nav-more-menu.open {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .nav-more-menu a {
-    padding: 0.5rem 0.75rem;
-    border-radius: var(--border-radius);
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-size: 0.875rem;
-    transition: background var(--transition-fast), color var(--transition-fast);
-  }
-
-  .nav-more-menu a:hover,
-  .nav-more-menu a.active {
-    background: var(--bg-tertiary);
-    color: var(--accent);
+  .more-panel-header {
+    display: none;
   }
 
   .more-menu-item {
     display: flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.5rem;
   }
 
-  .more-item-rss {
-    border-top: 1px solid var(--border-subtle);
-    margin-top: 0.25rem;
-    padding-top: 0.625rem !important;
-    color: #f97316;
+  .rss-icon {
+    flex-shrink: 0;
+    color: var(--accent);
   }
-  .more-item-rss:hover {
-    color: #f97316 !important;
-    background: color-mix(in srgb, #f97316 10%, transparent) !important;
+
+  @media (min-width: 901px) {
+    .nav-more-menu {
+      position: absolute;
+      top: calc(100% + 2px);
+      right: -1rem;
+      width: min(30rem, calc(100vw - 2rem));
+      padding: 1.25rem 1.5rem 1.4rem;
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--action);
+      border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
+      background: var(--bg-primary);
+      box-shadow: 0 12px 24px rgb(0 0 0 / 0.13);
+    }
+
+    .nav-more-menu.open {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    /* Charcoal strip at the top of the panel, as the pilot intent panels. */
+    .more-panel-header {
+      position: relative;
+      isolation: isolate;
+      display: flex;
+      grid-column: 1 / -1;
+      margin: -1.25rem -1.5rem 0.5rem;
+      padding: 0.95rem 1.5rem;
+      background: #191b1d;
+      color: #f5f0e6;
+      font-size: 1.05rem;
+    }
+
+    .more-panel-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background: url('/images/brand/section-hatching.svg') repeat;
+      background-size: 160px 160px;
+      opacity: 0.09;
+    }
+
+    /* Essentials: cards, inset line and 4px hard shadow on hover, no lift. */
+    .nav .nav-more-menu .more-menu-item {
+      min-height: 48px;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: var(--border-radius-lg);
+      background: var(--surface-elevated);
+      color: var(--text-primary);
+      font: 600 0.92rem/1.3 var(--font-sans);
+      text-decoration: none !important;
+      transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
+    }
+
+    .nav .nav-more-menu .more-menu-item:is(:hover, :focus-visible),
+    .nav .nav-more-menu .more-menu-item.active {
+      border-color: var(--accent);
+      background: var(--surface-elevated);
+      color: var(--text-primary);
+      box-shadow: inset 0 0 0 1px var(--accent), 4px 4px 0 var(--border);
+    }
+
+    :root:not([data-theme='dark']) .nav .nav-more-menu .more-menu-item:not(.more-item-rss):is(:hover, :focus-visible) {
+      border-color: #0a0a0a;
+      background: #f97316;
+      color: #0a0a0a;
+      box-shadow: inset 0 0 0 1px #0a0a0a, 4px 4px 0 #0a0a0a;
+    }
+
+    .nav .nav-more-menu .more-menu-item:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    /* Go further: the feed reads as a plain row under a rule. */
+    .nav .nav-more-menu .more-item-rss {
+      grid-column: 1 / -1;
+      min-height: 44px;
+      margin: 0.25rem -0.6rem 0;
+      padding: 0.55rem 0.6rem;
+      border: 0;
+      border-radius: var(--radius-control);
+      background: transparent;
+      box-shadow: 0 -1px 0 var(--border-light);
+      font-size: 0.84rem;
+    }
+
+    .nav .nav-more-menu .more-item-rss:is(:hover, :focus-visible) {
+      border: 0;
+      background: var(--bg-tertiary);
+      box-shadow: none;
+      text-decoration: underline !important;
+      text-decoration-thickness: 1px !important;
+      text-underline-offset: 0.22em;
+    }
   }
-  .rss-icon { flex-shrink: 0; }
 
   /* ── Nav actions ────────────────────────────────────────────────────────── */
 
   .nav-actions {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.375rem;
     flex-shrink: 0;
   }
 
+  /* Boxed search, as the portfolio header. */
   .search-trigger {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.4rem;
-    background: none;
-    border: 1px solid var(--border);
-    border-radius: var(--border-radius);
-    padding: 0.35rem 0.6rem;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0 0.65rem;
+    border: 1px solid color-mix(in srgb, var(--text-primary) 56%, var(--bg-primary));
+    border-radius: var(--radius-control);
+    background: transparent;
+    color: var(--text-primary);
     cursor: pointer;
-    color: var(--text-muted);
-    transition: border-color var(--transition-fast), color var(--transition-fast);
+    transition: color 160ms ease, border-color 160ms ease, background-color 160ms ease;
   }
 
-  .search-trigger:hover {
-    border-color: var(--accent);
-    color: var(--text-secondary);
+  .search-trigger:hover,
+  .search-trigger:focus-visible {
+    border-color: var(--border);
+    background: var(--bg-tertiary);
   }
 
   .search-kbd {
-    font-size: 0.7rem;
     padding: 0.1rem 0.35rem;
-    background: var(--bg-tertiary);
     border: 1px solid var(--border);
-    border-radius: 3px;
-    font-family: var(--font-mono);
+    border-radius: 0.3rem;
+    background: var(--bg-tertiary);
     color: var(--text-muted);
+    font: 400 0.7rem/1.3 var(--font-mono);
   }
 
   @media (max-width: 1024px) {
     .search-kbd { display: none; }
   }
 
-  .lang-switcher {
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    text-decoration: none;
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
-    transition: color var(--transition-fast);
-    white-space: nowrap;
-  }
-
-  .lang-switcher:hover {
-    color: var(--accent);
-    text-decoration: none;
-  }
-
-  .btn-icon {
+  /* Ghost controls: language and GitHub, framed only on hover. */
+  .nav .nav-actions .lang-switcher,
+  .nav .nav-actions .btn-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 2rem;
-    height: 2rem;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0 0.6rem;
+    border: 1px solid transparent;
+    border-radius: var(--border-radius);
+    background: transparent;
+    color: var(--text-secondary);
+    font: 600 0.85rem/1 var(--font-sans);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 160ms ease, border-color 160ms ease, background-color 160ms ease;
+  }
+
+  .nav .nav-actions .btn-icon {
+    width: 44px;
+    height: 44px;
     padding: 0;
+  }
+
+  .nav .nav-actions .lang-switcher:is(:hover, :focus-visible),
+  .nav .nav-actions .btn-icon:is(:hover, :focus-visible) {
+    border-color: var(--border);
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+
+  /* Guide action at the secondary level, as the pilot "All pages" button. */
+  .nav .nav-actions .header-guide-link {
+    min-height: 44px;
+    padding: 0 0.8rem;
+    font-size: 0.85rem;
   }
 
   /* ── Mobile toggle ──────────────────────────────────────────────────────── */
 
   .menu-toggle {
     display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
-    color: var(--text-primary);
-    min-height: 44px;
-    min-width: 44px;
+    align-self: center;
     align-items: center;
     justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0.65rem;
+    border: 1px solid transparent;
+    border-radius: var(--border-radius);
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: color 160ms ease, border-color 160ms ease, background-color 160ms ease;
+  }
+
+  .menu-toggle:hover,
+  .menu-toggle:focus-visible {
+    border-color: var(--border);
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
   }
 
   /* ── Drawer close button (hidden on desktop) ────────────────────────────── */
 
   .drawer-close {
     display: none;
-    background: none;
-    border: none;
+    flex: 0 0 auto;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
     cursor: pointer;
-    color: var(--text-secondary);
-    padding: 0.25rem;
-    border-radius: var(--border-radius);
-    align-self: flex-end;
-    min-height: 44px;
-    min-width: 44px;
-    align-items: center;
-    justify-content: center;
   }
 
-  .drawer-close:hover {
+  .drawer-close:hover,
+  .drawer-close:focus-visible {
+    border-color: var(--accent);
     color: var(--accent);
   }
 
   /* ── Responsive ─────────────────────────────────────────────────────────── */
 
   @media (max-width: 900px) {
+    /* backdrop-filter makes the header the containing block of the fixed drawer,
+       which then stays 56px tall: the mobile header is opaque instead. */
+    .header {
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      background: var(--bg-primary);
+    }
+
+    /* Drawer from the right, under the header, over a dimmed page. */
     .nav-links {
       display: none;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: stretch;
+      justify-content: flex-start;
       position: fixed;
-      top: 0;
-      left: 0;
+      top: 3.625rem;
       right: 0;
       bottom: 0;
+      left: auto;
+      width: min(24rem, calc(100vw - 1.25rem));
+      padding: 0 1rem max(1rem, env(safe-area-inset-bottom));
+      gap: 0;
+      border-left: 1px solid var(--border);
       background: var(--bg-primary);
-      border-bottom: 1px solid var(--border);
-      padding: var(--space-lg);
-      gap: 0.5rem;
-      z-index: 99;
+      box-shadow: -18px 0 48px rgb(0 0 0 / 0.26), 0 0 0 100vmax rgb(18 16 14 / 0.56);
+      clip-path: inset(0 0 -100vh -100vw);
       overflow-y: auto;
+      overscroll-behavior: contain;
+      z-index: 99;
     }
 
     .nav-links.active {
@@ -526,59 +684,96 @@ const isMoreActive = moreLinks.some((link) => isActiveLink(link.url))
     }
 
     .drawer-close {
-      display: flex;
+      display: inline-grid;
+      align-self: flex-end;
+      margin: 0.75rem 0;
     }
 
-    .nav-link {
-      font-size: 1rem;
-      padding: 0.5rem 0;
+    .nav .nav-links .nav-link,
+    .nav-more-trigger {
       width: 100%;
+      min-height: 44px;
+      padding: 0.65rem 0.25rem;
+      border-top: 1px solid var(--border-light);
+      font-size: 0.95rem;
+    }
+
+    .nav .nav-links .nav-link::before,
+    .nav-more-trigger::before,
+    .nav-link.active::after,
+    .nav-more-trigger.active::after {
+      display: none;
+    }
+
+    .nav .nav-links .nav-link:hover,
+    .nav-more-trigger:hover {
+      color: var(--accent);
     }
 
     .nav-more {
+      flex-direction: column;
       width: 100%;
     }
 
     .nav-more-trigger {
-      font-size: 1rem;
-      padding: 0.5rem 0;
-      width: 100%;
       justify-content: space-between;
     }
 
     .nav-more-menu {
       position: static;
-      box-shadow: none;
-      border: none;
-      border-radius: 0;
-      padding: 0 0 0 1rem;
-      min-width: unset;
-      background: transparent;
+      flex-direction: column;
+      padding: 0 0 0.75rem;
     }
 
     .nav-more-menu.open {
       display: flex;
     }
 
-    .nav-more-menu a {
-      font-size: 0.95rem;
-      padding: 0.4rem 0;
+    .nav .nav-more-menu .more-menu-item {
+      min-height: 44px;
+      padding: 0.55rem 0.65rem;
+      border-radius: 0.4rem;
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      font-weight: 550;
+      text-decoration: none;
+    }
+
+    .nav .nav-more-menu .more-menu-item:hover,
+    .nav .nav-more-menu .more-menu-item:focus-visible,
+    .nav .nav-more-menu .more-menu-item.active {
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+    }
+
+    .nav .nav-more-menu .more-menu-item.active {
+      box-shadow: inset 3px 0 0 var(--action);
     }
 
     .menu-toggle {
-      display: flex;
+      display: inline-flex;
     }
 
-    .lang-switcher { display: none; }
-
-    .nav-actions {
-      gap: 0.5rem;
-    }
+    .nav .nav-actions .lang-switcher { display: none; }
   }
 
   @media (max-width: 640px) {
-    .btn-icon { display: none; }
-    .nav-actions > .btn-primary { display: none; }
+    .nav .nav-actions .btn-icon,
+    .nav .nav-actions .header-guide-link { display: none; }
     .nav { gap: 0.5rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .header .nav .logo,
+    .nav-link,
+    .nav-link::before,
+    .nav-more-trigger,
+    .nav-more-trigger::before,
+    .more-chevron,
+    .search-trigger,
+    .menu-toggle,
+    .nav .nav-more-menu .more-menu-item {
+      transition: none;
+    }
   }
 </style>

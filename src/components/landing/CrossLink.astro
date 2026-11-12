@@ -6,7 +6,7 @@ interface Props { lang: Lang }
 const s = t(Astro.props.lang)
 ---
 
-<section class="section section--compact crosslink">
+<section class="section section--compact crosslink band band-accent section-wallpaper">
   <div class="container">
     <div class="crosslink-inner">
       <h2>{s.crosslinkTitle}</h2>
@@ -18,7 +18,7 @@ const s = t(Astro.props.lang)
         ))}
       </ul>
 
-      <div class="crosslink-card">
+      <div class="crosslink-card brand-card">
         <div class="crosslink-card-content">
           <h3>{s.crosslinkCardTitle}</h3>
           <p class="crosslink-stats">{s.crosslinkCardStats}</p>
@@ -32,12 +32,6 @@ const s = t(Astro.props.lang)
 </section>
 
 <style>
-  .crosslink {
-    background: var(--bg-secondary);
-    border-top: 2px solid var(--accent);
-    border-bottom: 2px solid var(--accent);
-  }
-
   .crosslink-inner {
     text-align: left;
   }
@@ -71,15 +65,12 @@ const s = t(Astro.props.lang)
   }
 
   .signal-check {
-    color: var(--status-success);
+    color: var(--text-primary);
     font-weight: 700;
     flex-shrink: 0;
   }
 
   .crosslink-card {
-    background: var(--surface-elevated);
-    border: 1px solid var(--border);
-    border-radius: var(--border-radius-lg);
     padding: var(--space-lg);
     display: flex;
     align-items: center;

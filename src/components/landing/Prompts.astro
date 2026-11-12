@@ -1,20 +1,21 @@
 ---
 import type { Lang } from '../../data/i18n'
 import { t } from '../../data/i18n'
+import ChapterLabel from '../global/ChapterLabel.astro'
 
 interface Props { lang: Lang }
 const s = t(Astro.props.lang)
 ---
 
-<section class="section" id="prompts">
+<section class="section band band-paper section-wallpaper" id="prompts">
   <div class="container">
-    <span class="section-badge">{s.promptsBadge}</span>
+    <ChapterLabel number="04" label={s.promptsBadge} />
     <h2 class="section-title">{s.promptsTitle}</h2>
     <p class="section-subtitle">{s.promptsSubtitle}</p>
 
     <div class="prompt-categories">
       {s.promptCategories.map((cat) => (
-        <a href={cat.url} target="_blank" rel="noopener" class="prompt-category-card">
+        <a href={cat.url} target="_blank" rel="noopener" class="prompt-category-card brand-card brand-interactive-card">
           <span class="prompt-cat-icon">{cat.icon}</span>
           <h3>{cat.title}</h3>
           <p>{cat.desc}</p>
@@ -23,7 +24,7 @@ const s = t(Astro.props.lang)
       ))}
     </div>
 
-    <div class="prompt-example">
+    <div class="prompt-example brand-card">
       <div class="prompt-example-header">
         <h3>{s.promptExampleTitle}</h3>
         <button class="btn-copy" data-copy-target="prompt-code" aria-label={s.promptExampleCopy}>
@@ -44,19 +45,13 @@ const s = t(Astro.props.lang)
   }
 
   .prompt-category-card {
-    background: var(--surface-elevated);
-    border: 1px solid var(--border);
-    border-radius: var(--border-radius-lg);
     padding: var(--space-lg);
-    text-decoration: none;
+    text-decoration: none !important;
     color: inherit;
-    transition: transform 0.2s, border-color 0.2s;
   }
 
-  .prompt-category-card:hover {
-    transform: translateY(-2px);
-    border-color: var(--accent);
-  }
+  .prompt-category-card:hover h3,
+  .prompt-category-card:focus-visible h3 { text-decoration: underline; }
 
   .prompt-cat-icon {
     font-size: 2rem;
@@ -82,9 +77,6 @@ const s = t(Astro.props.lang)
   }
 
   .prompt-example {
-    background: var(--surface-elevated);
-    border: 1px solid var(--border);
-    border-radius: var(--border-radius-lg);
     overflow: hidden;
   }
 
@@ -102,18 +94,24 @@ const s = t(Astro.props.lang)
   }
 
   .btn-copy {
-    background: var(--accent);
-    color: var(--bg-primary);
-    border: none;
-    border-radius: var(--border-radius);
-    padding: 0.3rem 0.8rem;
+    min-height: 44px;
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-control);
+    padding: 0.3rem 0.9rem;
     font-size: 0.8rem;
     font-weight: 600;
     cursor: pointer;
-    transition: opacity 0.2s;
+    transition: border-color 150ms ease;
   }
 
-  .btn-copy:hover { opacity: 0.85; }
+  .btn-copy:hover { border-color: var(--accent); }
+
+  .btn-copy:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
 
   .prompt-example pre {
     padding: var(--space-lg);

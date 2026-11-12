@@ -1,10 +1,13 @@
 ---
+import ChapterLabel from '../../components/global/ChapterLabel.astro'
 import Layout from '../../layouts/Layout.astro'
 import { t } from '../../data/i18n'
 import { PROMPT_CATEGORIES } from '../../data/prompts-data'
 
 const lang = 'en'
 const s = t(lang)
+
+const bandSurfaces = ['band-base', 'band-paper section-wallpaper', 'band-ink section-wallpaper', 'band-base']
 
 const allPrompts = PROMPT_CATEGORIES.flatMap(cat => cat.prompts)
 
@@ -49,9 +52,10 @@ const promptsJsonLd = [
     </div>
   </div>
 
-  <div class="container prompts-page">
-    {PROMPT_CATEGORIES.map(category => (
-      <section class="prompt-category" id={category.id}>
+    {PROMPT_CATEGORIES.map((category, i) => (
+      <section class={`prompt-category band ${bandSurfaces[i % bandSurfaces.length]}`} id={category.id}>
+        <div class="container">
+          <ChapterLabel number={String(i + 1).padStart(2, '0')} label={category.title} />
         <div class="category-header">
           <div class="category-title-row">
             <span class="category-icon">{category.icon}</span>
@@ -70,7 +74,7 @@ const promptsJsonLd = [
 
         <div class="prompts-list">
           {category.prompts.map(prompt => (
-            <div class="prompt-card" id={prompt.id}>
+            <div class="prompt-card brand-card" id={prompt.id}>
               <div class="prompt-card-header">
                 <h3 class="prompt-title">{prompt.title}</h3>
                 <button
@@ -91,10 +95,13 @@ const promptsJsonLd = [
             </div>
           ))}
         </div>
+        </div>
       </section>
     ))}
 
-    <div class="prompts-footer-cta">
+    <section class="band band-accent section-wallpaper prompts-cta-band">
+    <div class="container">
+    <div class="prompts-footer-cta brand-card">
       <p>These are featured examples from each category. The full guide contains all 70 prompts.</p>
       <a
         href="https://github.com/FlorianBruniaux/claude-cowork-guide/tree/main/prompts"
@@ -105,7 +112,8 @@ const promptsJsonLd = [
         View All Prompts on GitHub →
       </a>
     </div>
-  </div>
+    </div>
+    </section>
 </Layout>
 
 <script>
@@ -140,25 +148,13 @@ const promptsJsonLd = [
 </script>
 
 <style>
-  .page-hero {
-    padding: var(--space-3xl) 0 var(--space-xl);
-    background: var(--bg-tint-cool, color-mix(in srgb, var(--accent) 5%, var(--bg-primary)));
-    border-bottom: 1px solid var(--border-subtle);
-  }
-  .page-hero h1 {
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
-    font-weight: 700;
-    color: var(--text-primary);
-    margin: var(--space-sm) 0;
-  }
   .back-link {
     font-size: 0.875rem;
     color: var(--accent);
     text-decoration: none;
-    opacity: 0.8;
-    transition: opacity 0.2s;
+    opacity: 1;
   }
-  .back-link:hover { opacity: 1; }
+  .back-link:hover, .back-link:focus-visible { text-decoration-thickness: 2px; }
   .hero-subtitle {
     color: var(--text-secondary);
     font-size: 1.1rem;
@@ -166,18 +162,15 @@ const promptsJsonLd = [
   }
   .hero-note {
     font-size: 0.875rem;
-    color: var(--text-tertiary);
+    color: var(--text-muted);
     margin: 0;
   }
 
-  .prompts-page { padding: var(--space-2xl) 0 var(--space-3xl); }
+  .prompt-category, .prompts-cta-band { padding: clamp(3rem, 6vw, 4.5rem) 0; }
 
   .prompt-category {
-    margin-bottom: var(--space-3xl);
-    border-bottom: 1px solid var(--border-subtle);
-    padding-bottom: var(--space-2xl);
+    scroll-margin-top: 4rem;
   }
-  .prompt-category:last-of-type { border-bottom: none; }
 
   .category-header {
     display: flex;
@@ -216,7 +209,7 @@ const promptsJsonLd = [
   }
   .prompt-count {
     font-size: 0.8rem;
-    color: var(--text-tertiary);
+    color: var(--text-muted);
     background: var(--bg-secondary);
     border: 1px solid var(--border-subtle);
     padding: 0.25rem 0.625rem;
@@ -230,9 +223,6 @@ const promptsJsonLd = [
     gap: var(--space-md);
   }
   .prompt-card {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-lg, 12px);
     overflow: hidden;
   }
   .prompt-card-header {
@@ -253,25 +243,28 @@ const promptsJsonLd = [
     display: flex;
     align-items: center;
     gap: 0.375rem;
-    padding: 0.25rem 0.625rem;
+    min-height: 44px;
+    padding: 0.25rem 0.875rem;
     font-size: 0.8rem;
-    color: var(--text-secondary);
+    font-weight: 600;
+    color: var(--text-primary);
     background: transparent;
-    border: 1px solid var(--border-subtle);
-    border-radius: 6px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-control);
     cursor: pointer;
-    transition: all 0.15s;
+    transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
     white-space: nowrap;
   }
   .copy-btn:hover {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: #fff;
+    background: var(--bg-tertiary);
+    border-color: var(--text-primary);
+    color: var(--text-primary);
   }
+  .copy-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   .copy-btn.copied {
-    background: #22c55e;
-    border-color: #22c55e;
-    color: #fff;
+    background: var(--text-primary);
+    border-color: var(--text-primary);
+    color: var(--bg-primary);
   }
   .prompt-code {
     margin: 0;
@@ -283,18 +276,15 @@ const promptsJsonLd = [
     word-break: break-word;
     color: var(--text-primary);
     background: transparent;
-    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+    font-family: var(--font-mono);
   }
 
   .prompts-footer-cta {
-    margin-top: var(--space-2xl);
     text-align: center;
     padding: var(--space-2xl);
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-lg, 12px);
   }
   .prompts-footer-cta p {
+    max-width: none;
     color: var(--text-secondary);
     margin: 0 0 var(--space-md);
   }

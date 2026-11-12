@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro'
+import ChapterLabel from '../../components/global/ChapterLabel.astro'
 import { t } from '../../data/i18n'
 import { glossaryTerms, groupByLetter, categoryColors } from '../../data/glossary-data'
 
@@ -46,7 +47,9 @@ const jsonLd = [
     </div>
   </div>
 
-  <div class="container glossary-page">
+  <section class="band band-base glossary-band">
+  <div class="container">
+    <ChapterLabel number="01" label={`${totalTerms} terms`} />
     {letters.map(letter => {
       const terms = grouped.get(letter)!
       return (
@@ -55,7 +58,7 @@ const jsonLd = [
             <span class="letter-char">{letter}</span>
             <span class="letter-count">{terms.length}</span>
           </h2>
-          <div class="terms-list">
+          <div class="terms-list brand-card">
             {terms.map(term => (
               <div class="term-row" data-cat={term.category}>
                 <div class="term-left">
@@ -75,130 +78,86 @@ const jsonLd = [
       )
     })}
 
+  </div>
+  </section>
+
+  <section class="band band-ink section-wallpaper glossary-cta-band">
+  <div class="container">
     <div class="glossary-cta">
       <p>{s.glossaryContributeText} <a href="https://github.com/FlorianBruniaux/claude-cowork-guide/issues" target="_blank" rel="noopener noreferrer" class="cta-link">{s.glossaryContributeLink}</a></p>
     </div>
   </div>
+  </section>
 </Layout>
 
 <style>
-  .page-hero {
-    background: linear-gradient(135deg, var(--surface-elevated) 0%, var(--bg-primary) 100%);
-    border-bottom: 1px solid var(--border);
-    padding: calc(var(--space-3xl) + 3.5rem) var(--space-lg) var(--space-2xl);
-  }
+  .page-hero { padding: 4rem 0 3rem; }
+  .page-hero h1 { margin: var(--space-sm) 0; }
+  .back-link { display: inline-block; font-size: 0.9rem; color: var(--accent); margin-bottom: var(--space-md); }
+  .hero-subtitle { color: var(--text-secondary); font-size: 1.1rem; margin-bottom: var(--space-lg); }
 
-  .back-link {
-    display: inline-block;
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-size: 0.9rem;
-    margin-bottom: var(--space-md);
-    transition: color var(--transition-fast);
-  }
-  .back-link:hover { color: var(--accent); }
-
-  .page-hero h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    margin-bottom: var(--space-sm);
-  }
-
-  .hero-subtitle {
-    color: var(--text-secondary);
-    font-size: 1.1rem;
-    margin-bottom: var(--space-lg);
-  }
-
-  .glossary-meta {
-    display: flex;
-    align-items: center;
-    gap: var(--space-lg);
-    flex-wrap: wrap;
-  }
+  .glossary-meta { display: flex; align-items: center; gap: var(--space-lg); flex-wrap: wrap; }
 
   .glossary-count {
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    background: var(--bg-tertiary);
+    font: 500 0.8rem/1.4 var(--font-mono);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-primary);
     border: 1px solid var(--border);
     padding: 0.25rem 0.75rem;
-    border-radius: 99px;
+    border-radius: var(--radius-control);
     white-space: nowrap;
   }
 
-  .alpha-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.3rem;
-  }
-
-  .alpha-link {
+  .alpha-nav { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+  .page-hero .alpha-nav .alpha-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 2rem;
-    height: 2rem;
-    border-radius: 6px;
-    font-size: 0.8rem;
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: var(--radius-control);
+    font-size: 0.85rem;
     font-weight: 700;
-    color: var(--text-secondary);
+    color: var(--text-primary);
     border: 1px solid var(--border);
     text-decoration: none;
-    transition: color var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+    transition: color 120ms ease, border-color 120ms ease, background-color 120ms ease;
   }
-  .alpha-link:hover {
-    color: var(--accent);
-    border-color: var(--accent);
-    background: color-mix(in srgb, var(--accent) 10%, transparent);
+  .page-hero .alpha-nav .alpha-link:hover {
+    color: var(--bg-primary);
+    border-color: var(--text-primary);
+    background: var(--text-primary);
   }
+  .page-hero .alpha-nav .alpha-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
-  .glossary-page {
-    padding: var(--space-3xl) var(--space-lg) var(--space-4xl);
-  }
+  .glossary-band { padding: var(--space-3xl) 0 var(--space-4xl); }
 
-  .letter-group {
-    margin-bottom: var(--space-2xl);
-    scroll-margin-top: 5rem;
-  }
+  .letter-group { margin-bottom: var(--space-2xl); scroll-margin-top: 5rem; }
+  .letter-group:last-child { margin-bottom: 0; }
 
   .letter-heading {
     display: flex;
-    margin-top: 0;
-    font-size: inherit;
     align-items: center;
     gap: var(--space-sm);
-    margin-bottom: var(--space-sm);
+    margin: 0;
     padding: 0.5rem 0.9rem;
-    background: color-mix(in srgb, var(--accent) 8%, transparent);
-    border-left: 3px solid var(--accent);
-    border-radius: 0 6px 6px 0;
+    font-size: inherit;
+    background: var(--band-ink-background);
+    border-left: 3px solid var(--action);
+    border-radius: var(--radius-control) var(--radius-control) 0 0;
   }
-
-  .letter-char {
-    font-size: 1.1rem;
-    font-weight: 900;
-    color: var(--accent);
-    line-height: 1;
-  }
-
+  .letter-char { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: #f97316; line-height: 1; }
   .letter-count {
-    font-size: 0.7rem;
-    font-weight: 600;
-    color: var(--text-muted);
-    background: var(--bg-tertiary);
-    padding: 0.1rem 0.4rem;
-    border-radius: 99px;
+    font: 500 0.7rem/1.4 var(--font-mono);
+    color: #f5f0e6;
+    background: var(--band-ink-surface);
+    padding: 0.1rem 0.5rem;
+    border-radius: var(--radius-control);
     margin-left: auto;
   }
 
-  .terms-list {
-    border: 1px solid var(--border);
-    border-radius: var(--border-radius-lg);
-    overflow: hidden;
-  }
+  .terms-list { overflow: hidden; border-top-left-radius: 0; border-top-right-radius: 0; }
 
   .term-row {
     display: grid;
@@ -208,50 +167,31 @@ const jsonLd = [
     border-bottom: 1px solid var(--border);
     border-left: 3px solid transparent;
     align-items: start;
-    transition: background var(--transition-fast);
   }
   .term-row:last-child { border-bottom: none; }
-  .term-row:nth-child(even) { background: color-mix(in srgb, currentColor 3%, transparent); }
-  .term-row:hover { background: color-mix(in srgb, var(--accent) 6%, transparent); }
+  .term-row:hover { background: var(--bg-secondary); }
 
-  .term-row[data-cat="Cowork"]    { border-left-color: var(--accent); }
+  .term-row[data-cat="Cowork"]    { border-left-color: var(--action); }
   .term-row[data-cat="AI"]        { border-left-color: #a855f7; }
   .term-row[data-cat="Workflow"]  { border-left-color: #10b981; }
   .term-row[data-cat="Security"]  { border-left-color: #ef4444; }
   .term-row[data-cat="Ecosystem"] { border-left-color: #f59e0b; }
 
-  .term-left {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
-  }
+  .term-left { display: flex; flex-direction: column; gap: var(--space-xs); }
+  .term-name { font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin: 0; line-height: 1.35; font-family: inherit; }
 
-  .term-name {
-    font-size: 0.875rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin: 0;
-    line-height: 1.35;
-    font-family: inherit;
-  }
-
-  .term-link {
-    color: var(--accent);
-    text-decoration: none;
-  }
-  .term-link:hover { text-decoration: underline; }
+  .terms-list .term-link { color: var(--accent); }
 
   .badge {
     display: inline-block;
-    font-size: 0.62rem;
+    font-size: 0.65rem;
     font-weight: 600;
     letter-spacing: 0.03em;
     padding: 0.1rem 0.4rem;
-    border-radius: 4px;
+    border-radius: var(--radius-control);
     white-space: nowrap;
     width: fit-content;
   }
-
   .badge-cowork    { background: color-mix(in srgb, var(--accent) 15%, transparent); color: var(--accent); }
   .badge-ai        { background: #ede9fe; color: #5b21b6; }
   .badge-workflow  { background: #d1fae5; color: #065f46; }
@@ -263,37 +203,15 @@ const jsonLd = [
   :global([data-theme="dark"]) .badge-security  { background: rgba(127,29,29,0.4); color: #fca5a5; }
   :global([data-theme="dark"]) .badge-ecosystem { background: rgba(120,53,15,0.4); color: #fcd34d; }
 
-  .term-def {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    margin: 0;
-    line-height: 1.7;
-  }
+  .term-def { font-size: 0.9rem; color: var(--text-secondary); margin: 0; line-height: 1.7; }
 
-  .glossary-cta {
-    text-align: center;
-    padding: var(--space-xl) 0;
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    border-top: 1px solid var(--border);
-    margin-top: var(--space-xl);
-  }
-
-  .cta-link {
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: 600;
-  }
-  .cta-link:hover { text-decoration: underline; }
+  .glossary-cta-band { padding: var(--space-2xl) 0; }
+  .glossary-cta { text-align: center; color: var(--text-primary); font-size: 1rem; }
+  .glossary-cta p { margin: 0; }
+  .glossary-cta .cta-link { color: var(--accent); font-weight: 600; }
 
   @media (max-width: 640px) {
-    .term-row {
-      grid-template-columns: 1fr;
-      gap: var(--space-xs);
-    }
-    .glossary-meta {
-      flex-direction: column;
-      align-items: flex-start;
-    }
+    .term-row { grid-template-columns: 1fr; gap: var(--space-xs); }
+    .glossary-meta { flex-direction: column; align-items: flex-start; }
   }
 </style>

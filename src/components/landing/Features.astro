@@ -1,20 +1,21 @@
 ---
 import type { Lang } from '../../data/i18n'
 import { t } from '../../data/i18n'
+import ChapterLabel from '../global/ChapterLabel.astro'
 
 interface Props { lang: Lang }
 const s = t(Astro.props.lang)
 const features = s.features as readonly (typeof s.features[number] & { featured?: boolean; badge?: string })[]
 ---
 
-<section class="section" id="features">
+<section class="section band band-paper section-wallpaper" id="features">
   <div class="container">
-    <span class="section-badge">{s.featuresBadge}</span>
+    <ChapterLabel number="02" label={s.featuresBadge} />
     <h2 class="section-title">{s.featuresTitle}</h2>
     <p class="section-subtitle">{s.featuresSubtitle}</p>
     <div class="features-grid">
       {features.map((f) => (
-        <a href={f.url} target={f.url.startsWith('http') ? '_blank' : undefined} rel={f.url.startsWith('http') ? 'noopener' : undefined} class:list={['feature-card', { featured: f.featured }]}>
+        <a href={f.url} target={f.url.startsWith('http') ? '_blank' : undefined} rel={f.url.startsWith('http') ? 'noopener' : undefined} class:list={['feature-card', 'brand-card', 'brand-interactive-card', { featured: f.featured }]}>
           {f.badge && <span class="feature-badge">{f.badge}</span>}
           <span class="feature-icon">{f.icon}</span>
           <h3>{f.title}</h3>
@@ -34,36 +35,31 @@ const features = s.features as readonly (typeof s.features[number] & { featured?
   }
 
   .feature-card {
-    background: var(--surface-elevated);
-    border: 1px solid var(--border);
-    border-radius: var(--border-radius-lg);
     padding: var(--space-xl);
-    text-decoration: none;
+    text-decoration: none !important;
     color: inherit;
-    transition: transform 0.2s, border-color 0.2s;
     position: relative;
   }
 
-  .feature-card:hover {
-    transform: translateY(-2px);
-    border-color: var(--accent);
-  }
+  .feature-card:hover h3,
+  .feature-card:focus-visible h3 { text-decoration: underline; }
 
   .feature-card.featured {
     border-color: var(--accent);
-    background: var(--surface-elevated);
+    border-width: 2px;
   }
 
   .feature-badge {
     position: absolute;
     top: var(--space-sm);
     right: var(--space-sm);
-    background: var(--accent);
-    color: var(--bg-primary);
+    background: var(--action);
+    color: var(--action-ink);
+    font-family: var(--font-mono);
     font-size: 0.7rem;
     font-weight: 700;
     padding: 0.15rem 0.5rem;
-    border-radius: 12px;
+    border-radius: var(--radius-control);
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }

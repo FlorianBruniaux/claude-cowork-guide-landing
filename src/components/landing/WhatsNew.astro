@@ -6,13 +6,13 @@ interface Props { lang: Lang }
 const s = t(Astro.props.lang)
 ---
 
-<section class="section section--compact whats-new">
+<section class="section section--compact whats-new band band-paper section-wallpaper">
   <div class="container">
     <div class="whats-new-inner">
       <span class="section-badge">{s.whatsNewBadge}</span>
       <h2>{s.whatsNewTitle}</h2>
       <p>{s.whatsNewText} <strong>{s.whatsNewWarning}</strong></p>
-      <a href={s.whatsNewUrl} class="btn btn-secondary" target="_blank" rel="noopener" style="font-size: 0.9rem;">
+      <a href={s.whatsNewUrl} class="btn btn-secondary" target="_blank" rel="noopener">
         {s.whatsNewCta}
       </a>
     </div>
@@ -20,13 +20,11 @@ const s = t(Astro.props.lang)
 </section>
 
 <style>
-  .whats-new {
-    background: var(--bg-secondary);
-    border-top: 2px solid var(--accent);
-    border-bottom: 2px solid var(--accent);
-  }
-
-  .whats-new-inner {
+  .whats-new-inner .section-badge {
+    background: var(--action);
+    color: var(--action-ink);
+    font-family: var(--font-mono);
+    border-radius: var(--radius-control);
   }
 
   .whats-new-inner h2 {

@@ -128,9 +128,13 @@ export function initSearch(entries: SearchEntry[]): void {
   let activeIndex = -1
   let debounceTimer: ReturnType<typeof setTimeout>
   let currentResults: SearchEntry[] = []
+  // The control that opened the dialog gets the focus back when it closes.
+  let opener: HTMLElement | null = null
 
   // ── Modal lifecycle ─────────────────────────────────────────────────────────
   function openModal(): void {
+    const active = document.activeElement as HTMLElement | null
+    opener = active && active !== document.body && typeof active.focus === 'function' ? active : null
     modal!.removeAttribute('hidden')
     modal!.setAttribute('aria-hidden', 'false')
     input!.value = ''
@@ -146,6 +150,8 @@ export function initSearch(entries: SearchEntry[]): void {
     modal!.setAttribute('aria-hidden', 'true')
     document.body.style.overflow = ''
     activeIndex = -1
+    if (opener?.isConnected) opener.focus()
+    opener = null
   }
 
   // ── Active item management ──────────────────────────────────────────────────
@@ -257,6 +263,8 @@ export function initSearch(entries: SearchEntry[]): void {
 
   // ── Close on backdrop click ─────────────────────────────────────────────────
   backdrop?.addEventListener('click', closeModal)
+  // Visible close control in the modal header (portfolio search layout).
+  document.getElementById('search-close')?.addEventListener('click', closeModal)
 
   // ── Global keyboard shortcut ────────────────────────────────────────────────
   document.addEventListener('keydown', (e: KeyboardEvent) => {

@@ -12,7 +12,7 @@ interface Props {
 
 const { lang } = Astro.props
 
-const BANNER_ID = 'cowork-banner-whitepapers-2026-04b'
+const BANNER_ID = 'cowork-banner-new-identity-2026-11'
 const isFr = lang === 'fr'
 
 const links = isFr
@@ -32,6 +32,7 @@ const links = isFr
   <div class="ann-inner">
     <div class="ann-content">
       <span class="ann-badge">NEW</span>
+      <span class="ann-badge ann-badge--new">{isFr ? 'Nouvelle identité' : 'New identity'}</span>
       <span class="ann-text">
         {links.map((link, i) => (
           <>
@@ -66,18 +67,19 @@ const links = isFr
 </script>
 
 <style>
+/* Portfolio strip: ivory surface under the orange header line, mono badges,
+   underlined links. The date-like NEW badge drops under 640px, the identity badge stays. */
 .ann-banner {
   background: var(--bg-secondary);
-  border-bottom: 1px solid color-mix(in srgb, var(--accent) 40%, var(--border-subtle));
-  border-top: 2px solid var(--accent);
+  border-bottom: 1px solid var(--border);
   font-size: 0.875rem;
   line-height: 1.4;
 }
 
 .ann-inner {
-  max-width: var(--max-width, 1200px);
+  max-width: var(--max-width, 75rem);
   margin: 0 auto;
-  padding: 0.5rem 1.5rem;
+  padding: 0.25rem 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -87,7 +89,7 @@ const links = isFr
 .ann-content {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.6rem;
   flex: 1;
   min-width: 0;
 }
@@ -95,64 +97,85 @@ const links = isFr
 .ann-badge {
   flex-shrink: 0;
   display: inline-block;
-  padding: 0.15rem 0.5rem;
-  background: var(--accent);
-  color: #fff;
-  font-size: 0.7rem;
-  font-weight: 700;
-  font-family: var(--font-mono, 'SF Mono', monospace);
+  padding: 0.2rem 0.5rem;
+  background: #191b1d;
+  color: #f5f0e6;
+  font: 500 0.7rem/1.2 var(--font-mono);
   letter-spacing: 0.08em;
-  border-radius: 3px;
+  text-transform: uppercase;
+  border-radius: var(--radius-control);
+}
+
+/* Portfolio action fill: orange with ink text, distinct from the NEW badge. */
+.ann-badge--new {
+  background: var(--action);
+  color: var(--action-ink);
+  border: 1px solid #191b1d;
 }
 
 .ann-text {
   color: var(--text-secondary);
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.25rem 0.5rem;
   flex-wrap: wrap;
   overflow: hidden;
 }
 
-.ann-link {
+.ann-banner .ann-text .ann-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
   color: var(--accent);
-  font-weight: 500;
-  text-decoration: none;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
   white-space: nowrap;
 }
 
-.ann-link:hover {
-  text-decoration: underline;
+.ann-banner .ann-text .ann-link:hover {
+  text-decoration-thickness: 2px;
 }
 
 .ann-sep {
-  color: var(--border-subtle);
+  color: var(--text-muted);
   flex-shrink: 0;
   user-select: none;
 }
 
 .ann-close {
   flex-shrink: 0;
+  min-width: 44px;
+  min-height: 44px;
   background: none;
-  border: none;
+  border: 1px solid transparent;
   color: var(--text-secondary);
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   cursor: pointer;
-  padding: 0.25rem 0.375rem;
   line-height: 1;
-  border-radius: 3px;
-  opacity: 0.6;
-  transition: opacity 0.15s;
+  border-radius: var(--radius-control);
+  transition: background-color 0.15s, border-color 0.15s;
 }
 
 .ann-close:hover {
-  opacity: 1;
-  background: var(--bg-tertiary, color-mix(in srgb, var(--bg-secondary) 50%, var(--bg-primary)));
+  background: var(--bg-tertiary);
+  border-color: var(--border);
+  color: var(--text-primary);
 }
 
 @media (max-width: 640px) {
   .ann-inner {
-    padding: 0.5rem 1rem;
+    padding: 0.25rem 1rem;
   }
+
+  .ann-badge:not(.ann-badge--new) {
+    display: none;
+  }
+
+  .ann-content { align-items: flex-start; padding-block: 0.4rem; }
+  .ann-text { flex-direction: column; align-items: flex-start; gap: 0; }
+  .ann-sep { display: none; }
+  .ann-banner .ann-text .ann-link { white-space: normal; min-height: 32px; }
 }
 </style>

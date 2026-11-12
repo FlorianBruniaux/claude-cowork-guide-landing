@@ -6,7 +6,7 @@ interface Props { lang: Lang }
 const s = t(Astro.props.lang)
 ---
 
-<section class="section section--compact" id="tldr">
+<section class="section section--compact band band-base" id="tldr">
   <div class="container">
     <h2 class="section-title">{s.tldrTitle}</h2>
     <p class="section-subtitle">{s.tldrSubtitle}</p>
@@ -26,7 +26,12 @@ const s = t(Astro.props.lang)
 </section>
 
 <style>
-  .tldr-table-wrapper { overflow-x: auto; }
+  .tldr-table-wrapper {
+    overflow-x: auto;
+    background: var(--surface-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius-lg);
+  }
 
   .tldr-table {
     width: 100%;
@@ -38,6 +43,8 @@ const s = t(Astro.props.lang)
     padding: var(--space-sm) var(--space-md);
     border-bottom: 1px solid var(--border);
   }
+
+  .tldr-table tr:last-child td { border-bottom: 0; }
 
   .tldr-table td:first-child {
     font-weight: 600;

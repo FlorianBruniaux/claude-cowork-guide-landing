@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro'
+import ChapterLabel from '../../components/global/ChapterLabel.astro'
 import { t } from '../../data/i18n'
 
 const lang = 'en'
@@ -20,7 +21,8 @@ const s = t(lang)
     </div>
   </div>
 
-  <div class="container compare-page">
+  <section class="band band-base compare-band">
+  <div class="container">
     <div class="comparison-wrapper">
       <div class="table-scroll">
         <table class="comparison-table">
@@ -55,10 +57,16 @@ const s = t(lang)
       </div>
     </div>
 
+  </div>
+  </section>
+
+  <section class="band band-ink section-wallpaper compare-band">
+  <div class="container">
     <div class="use-cases">
+      <ChapterLabel number="01" label="When to choose each tool" />
       <h2>When to choose each tool</h2>
       <div class="use-cases-grid">
-        <div class="use-case-card use-case-cowork">
+        <div class="use-case-card brand-card use-case-cowork">
           <div class="use-case-header">
             <span class="use-case-icon">🖥️</span>
             <strong>Use Cowork when</strong>
@@ -71,7 +79,7 @@ const s = t(lang)
             <li>Building repeatable desktop workflows</li>
           </ul>
         </div>
-        <div class="use-case-card use-case-chat">
+        <div class="use-case-card brand-card use-case-chat">
           <div class="use-case-header">
             <span class="use-case-icon">💬</span>
             <strong>Use Claude Chat when</strong>
@@ -84,7 +92,7 @@ const s = t(lang)
             <li>Quick one-off questions</li>
           </ul>
         </div>
-        <div class="use-case-card use-case-code">
+        <div class="use-case-card brand-card use-case-code">
           <div class="use-case-header">
             <span class="use-case-icon">&gt;_</span>
             <strong>Use Claude Code when</strong>
@@ -97,7 +105,7 @@ const s = t(lang)
             <li>API integrations and scripting</li>
           </ul>
         </div>
-        <div class="use-case-card use-case-copilot">
+        <div class="use-case-card brand-card use-case-copilot">
           <div class="use-case-header">
             <span class="use-case-icon">📎</span>
             <strong>Use M365 Copilot when</strong>
@@ -112,178 +120,87 @@ const s = t(lang)
       </div>
     </div>
 
+  </div>
+  </section>
+
+  <section class="band band-accent section-wallpaper compare-band">
+  <div class="container">
     <div class="compare-cta">
       <p>Ready to get started with Cowork?</p>
       <a href="/guide/" class="btn btn-primary">Read the Guide →</a>
     </div>
   </div>
+  </section>
 </Layout>
 
 <style>
-  .page-hero {
-    padding: var(--space-3xl) 0 var(--space-xl);
-    background: var(--bg-tint-cool, color-mix(in srgb, var(--accent) 5%, var(--bg-primary)));
-    border-bottom: 1px solid var(--border-subtle);
-  }
-  .page-hero h1 {
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
-    font-weight: 700;
-    color: var(--text-primary);
-    margin: var(--space-sm) 0;
-  }
-  .back-link {
-    font-size: 0.875rem;
-    color: var(--accent);
-    text-decoration: none;
-    opacity: 0.8;
-    transition: opacity 0.2s;
-  }
-  .back-link:hover { opacity: 1; }
-  .hero-subtitle {
-    color: var(--text-secondary);
-    font-size: 1.1rem;
-    margin: 0 0 var(--space-sm);
-  }
-  .hero-note {
-    font-size: 0.875rem;
-    color: var(--text-tertiary);
-    margin: 0;
-  }
+  .page-hero { padding: 4rem 0 3rem; }
+  .page-hero h1 { margin: var(--space-sm) 0; }
+  .back-link { font-size: 0.875rem; color: var(--accent); }
+  .hero-subtitle { color: var(--text-secondary); font-size: 1.1rem; margin: 0 0 var(--space-sm); }
+  .hero-note { font-size: 0.875rem; color: var(--text-muted); margin: 0; }
 
-  .compare-page { padding: var(--space-2xl) 0 var(--space-3xl); }
+  .compare-band { padding: var(--space-3xl) 0; }
 
-  .comparison-wrapper { margin-bottom: var(--space-3xl); }
-
-  .table-scroll { overflow-x: auto; border-radius: var(--radius-lg, 12px); border: 1px solid var(--border-subtle); }
-
-  .comparison-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.9rem;
-  }
-  .comparison-table thead {
-    background: var(--bg-secondary);
-  }
+  .table-scroll { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--border-radius-lg); background: var(--surface-elevated); }
+  .comparison-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  .comparison-table thead { background: var(--bg-tertiary); }
   .comparison-table th {
     padding: var(--space-sm) var(--space-md);
     text-align: left;
     font-weight: 700;
     color: var(--text-primary);
-    border-bottom: 2px solid var(--border-subtle);
+    border-bottom: 2px solid var(--border);
     white-space: nowrap;
-    position: relative;
   }
-  .comparison-table th.col-highlight {
-    background: color-mix(in srgb, var(--accent) 8%, var(--bg-secondary));
-    color: var(--accent);
-  }
+  .comparison-table th.col-highlight { box-shadow: inset 0 3px 0 var(--action); }
   .highlight-badge {
     display: block;
-    font-size: 0.65rem;
-    font-weight: 600;
+    font: 500 0.7rem/1.4 var(--font-mono);
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
     color: var(--accent);
     margin-bottom: 0.2rem;
   }
-  .comparison-table th.col-feature {
-    min-width: 140px;
-  }
+  .comparison-table th.col-feature { min-width: 140px; }
   .comparison-table td {
     padding: var(--space-sm) var(--space-md);
-    border-bottom: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border);
     color: var(--text-secondary);
     vertical-align: middle;
   }
   .comparison-table tr:last-child td { border-bottom: none; }
-  .comparison-table td.col-highlight {
-    background: color-mix(in srgb, var(--accent) 4%, transparent);
-    font-weight: 500;
-    color: var(--text-primary);
-  }
-  .comparison-table tr:hover td { background: color-mix(in srgb, var(--accent) 3%, transparent); }
-  .comparison-table tr:hover td.col-highlight { background: color-mix(in srgb, var(--accent) 8%, transparent); }
-  .feature-label {
-    font-weight: 600;
-    color: var(--text-primary) !important;
-    white-space: nowrap;
-  }
+  .comparison-table td.col-highlight { background: var(--bg-secondary); font-weight: 500; color: var(--text-primary); }
+  .feature-label { font-weight: 600; color: var(--text-primary) !important; white-space: nowrap; }
   .feature-cell.feature-yes { color: #16a34a; }
   [data-theme="dark"] .feature-cell.feature-yes { color: #4ade80; }
-  .feature-cell.feature-no { color: var(--text-tertiary); opacity: 0.6; }
-  .feature-cell.feature-partial { color: #d97706; }
+  .feature-cell.feature-no { color: var(--text-muted); }
+  .feature-cell.feature-partial { color: #b45309; }
   [data-theme="dark"] .feature-cell.feature-partial { color: #fbbf24; }
 
   .comparison-notes {
     margin-top: var(--space-lg);
     padding: var(--space-md) var(--space-lg);
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-md, 8px);
+    border-left: 3px solid var(--action);
     font-size: 0.875rem;
   }
-  .comparison-notes p {
-    color: var(--text-secondary);
-    margin: 0;
-    line-height: 1.6;
-  }
+  .comparison-notes p { color: var(--text-secondary); margin: 0; line-height: 1.6; }
   .comparison-notes p + p { margin-top: var(--space-sm); }
 
-  .use-cases { margin-bottom: var(--space-3xl); }
-  .use-cases h2 {
-    font-size: 1.375rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin: 0 0 var(--space-xl);
-  }
-  .use-cases-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: var(--space-md);
-  }
-  .use-case-card {
-    padding: var(--space-lg);
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-lg, 12px);
-    border-top-width: 3px;
-  }
-  .use-case-cowork { border-top-color: var(--accent); }
+  .use-cases h2 { font-size: 1.375rem; color: var(--text-primary); margin: 0 0 var(--space-xl); }
+  .use-cases-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: var(--space-md); }
+  .use-case-card { padding: var(--space-lg); border-top-width: 3px; }
+  .use-case-cowork { border-top-color: var(--action); }
   .use-case-chat { border-top-color: #22c55e; }
   .use-case-code { border-top-color: #f59e0b; }
   .use-case-copilot { border-top-color: #3b82f6; }
-  .use-case-header {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    margin-bottom: var(--space-md);
-  }
+  .use-case-header { display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-md); }
   .use-case-icon { font-size: 1.25rem; }
-  .use-case-header strong {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: var(--text-primary);
-  }
-  .use-case-card ul {
-    margin: 0;
-    padding-left: 1.25rem;
-  }
-  .use-case-card li {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    line-height: 1.6;
-    margin-bottom: 0.25rem;
-  }
+  .use-case-header strong { font-size: 0.9rem; font-weight: 700; color: var(--text-primary); }
+  .use-case-card ul { margin: 0; padding-left: 1.25rem; }
+  .use-case-card li { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 0.25rem; }
 
-  .compare-cta {
-    text-align: center;
-    padding: var(--space-2xl);
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-lg, 12px);
-  }
-  .compare-cta p {
-    color: var(--text-secondary);
-    margin: 0 0 var(--space-md);
-  }
+  .compare-cta { text-align: center; }
+  .compare-cta p { color: var(--text-primary); font-size: 1.25rem; font-weight: 600; margin: 0 0 var(--space-md); }
+  .compare-cta :global(.btn) { min-height: 44px; }
 </style>

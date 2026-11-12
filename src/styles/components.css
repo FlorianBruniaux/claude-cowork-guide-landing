@@ -7,7 +7,8 @@
 .container {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 var(--space-lg);
+    /* Same gutter as the header shell (px-4), so page content lines up with the logo. */
+    padding: 0 1rem;
 }
 
 /* Typography */
@@ -17,15 +18,44 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-primary);
 }
 
-a {
+/* Portfolio heading treatment (florian-portfolio@376d69b7 brandbook.css) */
+h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.08;
+}
+
+h1 { text-wrap: balance; }
+h2, h3 { text-wrap: pretty; }
+
+a:not([class*="btn"]):not([class*="text-white"]) {
     color: var(--accent);
-    text-decoration: none;
     transition: color var(--transition-fast);
 }
 
-a:hover {
+/* Zero specificity: a component that underlines its own links (discreet action level) must win. */
+:where(a:not([class*="btn"]):not([class*="text-white"])) {
+    text-decoration: none;
+}
+
+a:not([class*="btn"]):not([class*="text-white"]):hover {
     color: var(--accent-hover);
     text-decoration: underline;
+}
+
+/* Links inside prose stay inline and underlined at rest; the stroke thickens on hover.
+   Navigation lists (menus, sidebars, tables of contents) are excluded. */
+/* Repeats the :not() chain of the rule above so prose links win on specificity.
+   Astro uses the class scoping strategy here, so a bare scoped link carries one astro-* class. */
+:where(p, li:not(nav li), dd, td, blockquote, figcaption) > a:is(:not([class]), [class^="astro-"]:not([class*=" "])):not([class*="btn"]):not([class*="text-white"]) {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+}
+
+:where(p, li:not(nav li), dd, td, blockquote, figcaption) > a:is(:not([class]), [class^="astro-"]:not([class*=" "])):not([class*="btn"]):not([class*="text-white"]):hover {
+    text-decoration-thickness: 2px;
 }
 
 code {
@@ -47,19 +77,30 @@ kbd {
 }
 
 /* ============================================
-   Buttons
+   Buttons: three action levels
+   Source: branding-florian@821ad55 (#ds-boutons) and
+   florian-portfolio@376d69b7 brandbook.css (.brand-button*).
+   - .btn-primary   principal: one per group, orange fill + ink text
+   - .btn-secondary secondaire: theme surface + visible border
+   - .btn-quiet     discret: underlined text, transparent
+   .btn-outline is kept as an alias of the secondary level for existing markup.
    ============================================ */
 .btn {
+    --control-border: color-mix(in srgb, var(--text-primary) 56%, var(--bg-primary));
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    font-weight: 500;
-    border-radius: var(--border-radius);
-    border: none;
+    gap: 0.5rem;
+    min-height: 44px;
+    max-width: 100%;
+    padding: 0.55rem 0.875rem;
+    font: 600 0.9375rem/1.35 var(--font-sans);
+    text-align: center;
+    overflow-wrap: anywhere;
+    border-radius: var(--radius-control);
+    border: 1px solid transparent;
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
     text-decoration: none;
 }
 
@@ -67,51 +108,88 @@ kbd {
     text-decoration: none;
 }
 
+.btn > svg { flex-shrink: 0; }
+
 .btn-primary {
-    background-color: var(--accent);
-    color: var(--btn-primary-color);
-    font-weight: 600;
-    padding: 0.875rem 1.75rem;
-    border: none;
-    transition: background-color 0.15s ease, transform 0.15s ease;
+    min-height: 48px;
+    padding-inline: 1.125rem;
+    background-color: var(--action);
+    border-color: color-mix(in srgb, var(--action-ink) 40%, var(--action));
+    color: var(--action-ink);
 }
 
-.btn-primary:hover {
-    background-color: var(--accent-hover);
-    color: var(--btn-primary-color);
-    transform: translateY(-1px);
+.btn-primary:hover,
+.btn-primary:focus-visible {
+    color: var(--action-ink);
 }
 
 .btn-primary:active {
-    transform: translateY(0);
+    background-color: color-mix(in srgb, var(--action-hover) 88%, var(--action-ink));
 }
 
-.btn-secondary {
-    background: transparent;
-    color: var(--text-primary);
-    border: 1px solid var(--border);
-    transition: border-color 0.15s ease, color 0.15s ease;
+/* On a block that is already orange, the principal action switches to ink. */
+.on-action .btn-primary {
+    background-color: var(--action-ink);
+    border-color: var(--action-ink);
+    color: #f3f0e9;
 }
 
-.btn-secondary:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-}
-
+.btn-secondary,
 .btn-outline {
-    background-color: transparent;
-    color: var(--accent);
-    border: 1px solid var(--accent);
+    background-color: var(--surface-elevated);
+    border-color: var(--control-border);
+    color: var(--text-primary);
 }
 
-.btn-outline:hover {
-    background-color: var(--accent);
-    color: var(--bg-primary);
+.btn-quiet {
+    min-height: 44px;
+    padding-inline: 0;
+    background: transparent;
+    border-color: transparent;
+    color: var(--accent);
+    justify-content: flex-start;
+    text-align: start;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.24em;
+}
+
+.btn:is(:disabled, [aria-disabled="true"]) {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+@media (hover: hover) {
+    .btn-primary:not(:disabled, [aria-disabled="true"]):hover {
+        background-color: var(--action-hover);
+    }
+
+    .on-action .btn-primary:not(:disabled, [aria-disabled="true"]):hover {
+        background-color: #292929;
+    }
+
+    :is(.btn-secondary, .btn-outline):not(:disabled, [aria-disabled="true"]):hover {
+        background-color: color-mix(in srgb, var(--surface-elevated) 88%, var(--accent));
+        border-color: var(--accent);
+        color: var(--text-primary);
+    }
+
+    .btn-quiet:not(:disabled, [aria-disabled="true"]):hover {
+        color: var(--accent-hover);
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+    }
 }
 
 .btn:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 3px;
+}
+
+.btn-quiet:focus-visible { outline-color: currentColor; }
+
+@media (prefers-reduced-motion: reduce) {
+    .btn { transition: none; }
 }
 
 /* ============================================
@@ -199,7 +277,7 @@ kbd {
     display: inline-block;
     padding: var(--space-xs) var(--space-md);
     background: var(--accent);
-    color: #ffffff;
+    color: var(--btn-primary-color);
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -495,8 +573,9 @@ kbd {
     border: 0;
 }
 
-/* Links hover enhancement */
-a:not(.btn):not(.feature-card-link):not(.levelup-card):not(.example-category):hover {
+/* Links hover enhancement. Low specificity: a component that colours its own links on hover
+   (menu rows, cards, footer) must win; this was (0,5,1) and overrode every scoped hover. */
+:where(a:not(.btn):not(.feature-card-link):not(.levelup-card):not(.example-category)):hover {
     color: var(--accent);
 }
 
@@ -527,10 +606,11 @@ a:not(.btn):not(.feature-card-link):not(.levelup-card):not(.example-category):ho
     position: relative;
     width: 100%;
     max-width: 560px;
-    background: var(--bg-secondary);
+    background: var(--bg-primary);
     border: 1px solid var(--border);
-    border-radius: 12px;
-    box-shadow: 0 16px 70px rgba(0, 0, 0, 0.5);
+    border-top: 3px solid var(--action);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 24px 48px rgb(0 0 0 / 0.28);
     overflow: hidden;
 }
 
@@ -576,21 +656,27 @@ a:not(.btn):not(.feature-card-link):not(.levelup-card):not(.example-category):ho
     align-items: center;
     gap: 0.75rem;
     padding: 0.75rem 1rem;
-    border-radius: 8px;
+    border-radius: var(--radius-control);
     cursor: pointer;
     min-height: 48px;
     transition: background-color 0.15s ease;
 }
 
-.search-result-item:hover,
+.search-result-item:hover {
+    background: var(--bg-tertiary);
+}
+
 .search-result-item[aria-selected="true"] {
-    background: var(--bg-primary);
+    background: var(--bg-tertiary);
+    box-shadow: inset 0 0 0 2px var(--accent);
 }
 
 .search-result-type {
     font-size: 0.7rem;
     text-transform: uppercase;
-    color: var(--text-secondary);
+    color: var(--accent);
+    font-family: var(--font-mono);
+    letter-spacing: 0.06em;
     min-width: 80px;
     flex-shrink: 0;
 }
@@ -607,9 +693,10 @@ a:not(.btn):not(.feature-card-link):not(.levelup-card):not(.example-category):ho
     margin-left: auto;
     font-size: 0.75rem;
     color: var(--text-secondary);
-    background: var(--bg-primary);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
     padding: 0.2rem 0.5rem;
-    border-radius: 4px;
+    border-radius: var(--radius-control);
 }
 
 .search-no-results {
@@ -626,7 +713,7 @@ a:not(.btn):not(.feature-card-link):not(.levelup-card):not(.example-category):ho
     padding: 0.4rem 0.75rem;
     background: var(--bg-secondary);
     border: 1px solid var(--border);
-    border-radius: 6px;
+    border-radius: var(--radius-control);
     color: var(--text-secondary);
     cursor: pointer;
     transition: border-color 0.2s ease, color 0.2s ease;
@@ -650,7 +737,7 @@ a:not(.btn):not(.feature-card-link):not(.levelup-card):not(.example-category):ho
     background: var(--bg-primary);
     border: 1px solid var(--border);
     border-radius: 4px;
-    font-family: inherit;
+    font-family: var(--font-mono);
 }
 
 /* ============================================
@@ -705,26 +792,24 @@ a:not(.btn):not(.feature-card-link):not(.levelup-card):not(.example-category):ho
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    background: var(--accent);
-    color: white;
+    min-height: 44px;
+    background: var(--action);
+    color: var(--action-ink);
     text-decoration: none;
-    padding: 0.75rem 1.25rem;
-    border-radius: 50px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--action-ink);
+    border-radius: var(--radius-control);
+    font: 600 0.9rem/1.2 var(--font-sans);
+    box-shadow: 3px 3px 0 var(--action-ink);
     z-index: 90;
-    transition: all 0.2s ease;
+    cursor: pointer;
+    transition: background-color 150ms ease;
 }
 
+/* Portfolio action: colour change only, no lift. */
 .feedback-fab:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
-    color: white;
-}
-
-.feedback-fab:active {
-    transform: translateY(0);
+    background: var(--action-hover);
+    color: var(--action-ink);
 }
 
 /* ============================================
@@ -823,7 +908,6 @@ details[open] > *:not(summary) {
     }
     .feedback-fab {
         padding: 0.75rem;
-        border-radius: 50%;
         font-size: 1.2rem;
     }
 }
@@ -835,7 +919,7 @@ details[open] > *:not(summary) {
     display: inline-flex;
     align-items: center;
     gap: 0;
-    border-radius: 4px;
+    border-radius: var(--radius-control);
     overflow: hidden;
     font-family: var(--font-mono);
     font-size: 0.75rem;
@@ -847,19 +931,19 @@ details[open] > *:not(summary) {
 
 .badge-shield .badge-label {
     padding: 0.25rem 0.5rem;
-    background: var(--bg-secondary);
-    color: var(--text-secondary);
-    border: 1px solid var(--border-color);
+    background: #191b1d;
+    color: #f5f0e6;
+    border: 1px solid #191b1d;
     border-right: none;
-    border-radius: 4px 0 0 4px;
+    border-radius: var(--radius-control) 0 0 var(--radius-control);
 }
 
 .badge-shield .badge-value {
     padding: 0.25rem 0.5rem;
-    background: var(--accent);
-    color: white;
-    border: 1px solid var(--accent);
-    border-radius: 0 4px 4px 0;
+    background: var(--action);
+    color: var(--action-ink);
+    border: 1px solid #191b1d;
+    border-radius: 0 var(--radius-control) var(--radius-control) 0;
 }
 
 /* ============================================
@@ -885,10 +969,11 @@ details[open] > *:not(summary) {
     right: 0;
     background: var(--surface-elevated);
     border: 1px solid var(--border);
-    border-radius: 12px;
+    border-top: 3px solid var(--action);
+    border-radius: var(--border-radius-lg);
     padding: 0.375rem;
-    min-width: 200px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    min-width: 220px;
+    box-shadow: 4px 4px 0 var(--border);
     display: flex;
     flex-direction: column;
     gap: 0.125rem;
@@ -909,18 +994,21 @@ details[open] > *:not(summary) {
     align-items: center;
     gap: 0.625rem;
     padding: 0.625rem 0.875rem;
-    border-radius: 8px;
+    min-height: 44px;
+    border-radius: var(--radius-control);
     text-decoration: none;
     font-size: 0.875rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-primary);
     transition: background 0.15s ease, color 0.15s ease;
     white-space: nowrap;
 }
 
-.feedback-menu-item:hover {
-    background: var(--accent-tertiary);
-    color: var(--accent);
+.feedback-menu-item:hover,
+.feedback-menu-item:focus-visible {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    text-decoration: underline;
 }
 
 .feedback-menu-icon {

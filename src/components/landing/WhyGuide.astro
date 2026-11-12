@@ -6,12 +6,12 @@ interface Props { lang: Lang }
 const s = t(Astro.props.lang)
 ---
 
-<section class="section">
+<section class="section band band-base">
   <div class="container">
     <h2 class="section-title">{s.whyTitle}</h2>
     <p class="section-subtitle">{s.whySubtitle}</p>
     <div class="comparison-cards">
-      <div class="comparison-card comparison-without">
+      <div class="comparison-card brand-card comparison-without">
         <div class="comparison-header">
           <span class="comparison-icon">{s.withoutIcon}</span>
           <h3>{s.withoutTitle}</h3>
@@ -22,7 +22,7 @@ const s = t(Astro.props.lang)
           ))}
         </ul>
       </div>
-      <div class="comparison-card comparison-with">
+      <div class="comparison-card brand-card comparison-with">
         <div class="comparison-header">
           <span class="comparison-icon">{s.withIcon}</span>
           <h3>{s.withTitle}</h3>
@@ -45,9 +45,6 @@ const s = t(Astro.props.lang)
   }
 
   .comparison-card {
-    background: var(--surface-elevated);
-    border: 1px solid var(--border);
-    border-radius: var(--border-radius-lg);
     padding: var(--space-xl);
   }
 

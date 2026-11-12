@@ -23,6 +23,15 @@ const indexUrl = `/search-index/${lang}.json`
 >
   <div id="search-backdrop" class="search-modal-backdrop" aria-hidden="true"></div>
   <div class="search-modal-content" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-owns="search-results">
+    <div class="search-modal-header">
+      <div>
+        <p class="search-modal-eyebrow" aria-hidden="true">⌘K</p>
+        <p class="search-modal-title">{s.searchLabel}</p>
+      </div>
+      <button id="search-close" class="search-modal-close" type="button" aria-label={lang === 'fr' ? 'Fermer la recherche' : 'Close search'}>
+        <kbd>Esc</kbd>
+      </button>
+    </div>
     <div class="search-input-wrapper">
       <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <circle cx="11" cy="11" r="8" />
@@ -111,6 +120,11 @@ const indexUrl = `/search-index/${lang}.json`
 </script>
 
 <style>
+  /* The header strip carries the Esc button; the in-field hint would repeat it. */
+  .search-input-wrapper .search-kbd { display: none; }
+
+  .search-modal-close kbd { font: inherit; }
+
   .search-footer {
     display: flex;
     gap: 1.25rem;
@@ -127,6 +141,6 @@ const indexUrl = `/search-index/${lang}.json`
     border: 1px solid var(--border);
     border-radius: 3px;
     margin-right: 2px;
-    font-family: inherit;
+    font-family: var(--font-mono);
   }
 </style>

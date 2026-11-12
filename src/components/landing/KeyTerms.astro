@@ -1,20 +1,21 @@
 ---
 import type { Lang } from '../../data/i18n'
 import { t } from '../../data/i18n'
+import ChapterLabel from '../global/ChapterLabel.astro'
 
 interface Props { lang: Lang }
 const s = t(Astro.props.lang)
 ---
 
-<section class="section section--compact" id="terms">
+<section class="section section--compact band band-paper section-wallpaper" id="terms">
   <div class="container">
-    <span class="section-badge">{s.termsBadge}</span>
+    <ChapterLabel number="05" label={s.termsBadge} />
     <h2 class="section-title">{s.termsTitle}</h2>
     <p class="section-subtitle">{s.termsSubtitle}</p>
 
     <div class="terms-grid">
       {s.terms.map((term) => (
-        <div class="term-card">
+        <div class="term-card brand-card">
           <h3>{term.title}</h3>
           <p>{term.definition}</p>
         </div>
@@ -34,9 +35,6 @@ const s = t(Astro.props.lang)
   }
 
   .term-card {
-    background: var(--surface-elevated);
-    border: 1px solid var(--border);
-    border-radius: var(--border-radius-lg);
     padding: var(--space-lg);
   }
 

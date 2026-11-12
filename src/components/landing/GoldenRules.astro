@@ -6,14 +6,14 @@ interface Props { lang: Lang }
 const s = t(Astro.props.lang)
 ---
 
-<section class="section" id="rules">
+<section class="section band band-ink section-wallpaper" id="rules">
   <div class="container">
     <h2 class="section-title">{s.rulesTitle}</h2>
     <p class="section-subtitle">{s.rulesSubtitle}</p>
 
     <div class="rules-grid">
       {s.rules.map((rule, i) => (
-        <div class="rule-card">
+        <div class="rule-card brand-card">
           <span class="rule-number">{i + 1}</span>
           <h3>{rule.title}</h3>
           <p set:html={rule.desc} />
@@ -31,9 +31,6 @@ const s = t(Astro.props.lang)
   }
 
   .rule-card {
-    background: var(--surface-elevated);
-    border: 1px solid var(--border);
-    border-radius: var(--border-radius-lg);
     padding: var(--space-xl);
     position: relative;
   }
@@ -44,11 +41,12 @@ const s = t(Astro.props.lang)
     justify-content: center;
     width: 2rem;
     height: 2rem;
-    background: var(--accent);
-    color: var(--bg-primary);
+    background: var(--action);
+    color: var(--action-ink);
+    font-family: var(--font-mono);
     font-weight: 700;
     font-size: 0.9rem;
-    border-radius: 50%;
+    border-radius: var(--radius-control);
     margin-bottom: var(--space-sm);
   }
 
@@ -66,7 +64,7 @@ const s = t(Astro.props.lang)
   .rule-card :global(code) {
     background: var(--bg-secondary);
     padding: 0.1rem 0.3rem;
-    border-radius: 3px;
+    border-radius: var(--radius-control);
     font-size: 0.8rem;
   }
 </style>

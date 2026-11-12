@@ -6,13 +6,13 @@ interface Props { lang: Lang }
 const s = t(Astro.props.lang)
 ---
 
-<section class="section section--compact">
+<section class="section section--compact band band-paper section-wallpaper">
   <div class="container">
     <h2 class="section-title">{s.relatedTitle}</h2>
 
     <div class="related-grid">
       {s.relatedProjects.map((project) => (
-        <a href={project.url} target="_blank" rel="noopener" class="related-card">
+        <a href={project.url} target="_blank" rel="noopener" class="related-card brand-card brand-interactive-card">
           {'badge' in project && project.badge && (
             <span class="related-badge">{project.badge}</span>
           )}
@@ -33,20 +33,14 @@ const s = t(Astro.props.lang)
   }
 
   .related-card {
-    background: var(--surface-elevated);
-    border: 1px solid var(--border);
-    border-radius: var(--border-radius-lg);
     padding: var(--space-lg);
-    text-decoration: none;
+    text-decoration: none !important;
     color: inherit;
-    transition: transform 0.2s, border-color 0.2s;
     position: relative;
   }
 
-  .related-card:hover {
-    transform: translateY(-2px);
-    border-color: var(--accent);
-  }
+  .related-card:hover h3,
+  .related-card:focus-visible h3 { text-decoration: underline; }
 
   .related-badge {
     position: absolute;
@@ -55,9 +49,9 @@ const s = t(Astro.props.lang)
     font-size: 0.7rem;
     font-weight: 600;
     padding: 0.15rem 0.5rem;
-    background: var(--accent);
-    color: white;
-    border-radius: 999px;
+    background: var(--action);
+    color: var(--action-ink);
+    border-radius: var(--radius-control);
     text-transform: uppercase;
     letter-spacing: 0.04em;
   }

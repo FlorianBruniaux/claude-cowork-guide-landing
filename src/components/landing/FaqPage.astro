@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro'
+import ChapterLabel from '../global/ChapterLabel.astro'
 import type { Lang } from '../../data/i18n'
 import { FAQ_UPDATED, answerText, faqByLang } from '../../data/faq-data'
 
@@ -23,18 +24,30 @@ const jsonLd = [
     <p class="tagline">{description}</p>
     <p class="verified">{isFr ? 'Informations produit vérifiées' : 'Product information verified'}: <time datetime={FAQ_UPDATED}>{FAQ_UPDATED}</time></p>
   </div></header>
-  <div class="container faq-page">{sections.map(section => (
-    <section class="faq-section"><h2 class="faq-section-title">{section.title}</h2><div class="faq-list">{section.items.map(item => (
-      <details class="faq-item"><summary>{item.question}</summary><p set:html={item.answerHtml} /></details>
-    ))}</div></section>
-  ))}</div>
+  {sections.map((section, i) => (
+    <section class:list={['band', 'faq-band', ['band-base', 'band-ink section-wallpaper', 'band-paper section-wallpaper'][i % 3]]}>
+      <div class="container faq-page">
+        <ChapterLabel number={String(i + 1).padStart(2, '0')} label={section.title} />
+        <h2 class="faq-section-title">{section.title}</h2>
+        <div class="faq-list">{section.items.map(item => (
+          <details class="faq-item brand-card"><summary>{item.question}</summary><p set:html={item.answerHtml} /></details>
+        ))}</div>
+      </div>
+    </section>
+  ))}
   <style>
-    .page-hero{background:linear-gradient(135deg,var(--surface-elevated) 0%,var(--bg-primary) 100%);border-bottom:1px solid var(--border);padding:calc(var(--space-3xl) + 3.5rem) var(--space-lg) var(--space-2xl)}
-    .back-link{display:inline-block;color:var(--text-secondary);text-decoration:none;font-size:.875rem;margin-bottom:var(--space-md)}.back-link:hover,.faq-item a{color:var(--accent)}
-    .page-hero h1{font-size:clamp(1.75rem,4vw,2.5rem);font-weight:700;margin-bottom:var(--space-md)}.tagline{color:var(--text-secondary);font-size:1.1rem;max-width:720px}.verified{color:var(--text-secondary);font-size:.875rem;margin-top:var(--space-sm)}
-    .faq-page{padding:var(--space-xl) var(--space-lg)}.faq-section{margin-bottom:var(--space-2xl)}.faq-section-title{font-size:1.25rem;font-weight:600;color:var(--accent);margin-bottom:var(--space-lg);padding-bottom:var(--space-sm);border-bottom:2px solid var(--border)}
-    .faq-item{background-color:var(--surface-elevated);border:1px solid var(--border);border-radius:var(--border-radius);margin-bottom:var(--space-md);overflow:hidden;box-shadow:var(--shadow-sm)}.faq-item[open]{box-shadow:var(--shadow-md);border-color:var(--accent)}
-    .faq-item summary{padding:var(--space-lg);cursor:pointer;font-weight:500;list-style:none;display:flex;justify-content:space-between;align-items:center}.faq-item summary::-webkit-details-marker{display:none}.faq-item summary::after{content:'+';font-size:1.5rem;color:var(--text-secondary);flex-shrink:0}.faq-item[open] summary::after{content:'−'}.faq-item[open] summary{border-bottom:1px solid var(--border)}
-    .faq-item p{padding:var(--space-lg);color:var(--text-secondary);margin:0;line-height:1.7}.faq-item a{text-decoration:underline}
+    .page-hero{padding:4rem 0 3rem}
+    .back-link{display:inline-block;color:var(--accent);font-size:.875rem;margin-bottom:var(--space-md)}
+    .page-hero h1{margin-bottom:var(--space-md)}.tagline{color:var(--text-secondary);font-size:1.1rem;max-width:720px}.verified{color:var(--text-secondary);font-size:.875rem;margin-top:var(--space-sm)}
+    .faq-band{padding:var(--space-3xl) 0}
+    .faq-list{max-width:56rem}.faq-section-title{font-size:1.5rem;color:var(--text-primary);margin:0 0 var(--space-lg)}
+    .faq-item{margin-bottom:var(--space-md);overflow:hidden;transition:border-color 150ms ease,box-shadow 150ms ease}
+    .faq-item:hover{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+    .faq-item[open]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent),4px 4px 0 var(--border)}
+    .faq-item summary{padding:var(--space-lg);cursor:pointer;font-weight:500;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:var(--space-md);min-height:44px}
+    .faq-item summary:focus-visible{outline:2px solid var(--accent);outline-offset:-3px}
+    .faq-item summary::-webkit-details-marker{display:none}.faq-item summary::after{content:'+';font-size:1.5rem;color:var(--text-secondary);flex-shrink:0}.faq-item[open] summary::after{content:'−'}.faq-item[open] summary{border-bottom:1px solid var(--border)}
+    .faq-item p{padding:var(--space-lg);color:var(--text-secondary);margin:0;line-height:1.7}
+    @media (prefers-reduced-motion:reduce){.faq-item{transition:none}}
   </style>
 </Layout>

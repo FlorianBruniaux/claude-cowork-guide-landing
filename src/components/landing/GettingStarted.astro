@@ -1,28 +1,29 @@
 ---
 import type { Lang } from '../../data/i18n'
 import { t } from '../../data/i18n'
+import ChapterLabel from '../global/ChapterLabel.astro'
 
 interface Props { lang: Lang }
 const s = t(Astro.props.lang)
 ---
 
-<section class="section getting-started">
+<section class="section getting-started band band-ink section-wallpaper">
   <div class="container">
-    <div class="getting-started-badge">{s.gettingStartedBadge}</div>
+    <ChapterLabel number="01" label={s.gettingStartedBadge} />
     <h2 class="section-title">{s.gettingStartedTitle}</h2>
     <p class="section-subtitle">{s.gettingStartedSubtitle}</p>
     <div class="setup-steps">
-      <div class="setup-step">
+      <div class="setup-step brand-card">
         <span class="step-num">1</span>
         <h3>{s.step1Title}</h3>
         <p set:html={s.step1Text} />
       </div>
-      <div class="setup-step">
+      <div class="setup-step brand-card">
         <span class="step-num">2</span>
         <h3>{s.step2Title}</h3>
         <p set:html={s.step2Text} />
       </div>
-      <div class="setup-step">
+      <div class="setup-step brand-card">
         <span class="step-num">3</span>
         <h3>{s.step3Title}</h3>
         <p set:html={s.step3Text} />
@@ -32,19 +33,6 @@ const s = t(Astro.props.lang)
 </section>
 
 <style>
-  .getting-started-badge {
-    display: inline-block;
-    padding: var(--space-xs) var(--space-md);
-    background: var(--accent);
-    color: var(--bg-primary);
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-radius: 20px;
-    margin-bottom: var(--space-md);
-  }
-
   .setup-steps {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -52,9 +40,6 @@ const s = t(Astro.props.lang)
   }
 
   .setup-step {
-    background: var(--surface-elevated);
-    border: 1px solid var(--border);
-    border-radius: var(--border-radius-lg);
     padding: var(--space-xl);
     position: relative;
   }
@@ -65,11 +50,12 @@ const s = t(Astro.props.lang)
     justify-content: center;
     width: 2.5rem;
     height: 2.5rem;
-    background: var(--accent);
-    color: var(--bg-primary);
+    background: var(--action);
+    color: var(--action-ink);
+    font-family: var(--font-mono);
     font-weight: 700;
     font-size: 1.1rem;
-    border-radius: 50%;
+    border-radius: var(--radius-control);
     margin-bottom: var(--space-md);
   }
 

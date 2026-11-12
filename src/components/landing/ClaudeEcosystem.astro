@@ -1,5 +1,5 @@
 <!-- Claude Ecosystem: Which tool for you? -->
-<section class="section ecosystem" id="which-tool">
+<section class="section ecosystem band band-base" id="which-tool">
     <div class="container">
         <div class="section-header">
             <h2 class="section-title">Three Claude surfaces, different scopes</h2>
@@ -8,7 +8,7 @@
 
         <div class="ecosystem-grid">
             <!-- Claude AI -->
-            <div class="eco-card">
+            <div class="eco-card brand-card">
                 <div class="eco-header eco-header--ai">
                     <div class="eco-icon" aria-hidden="true">✏️</div>
                     <div>
@@ -40,7 +40,7 @@
             </div>
 
             <!-- Claude Cowork — THIS GUIDE -->
-            <div class="eco-card eco-card--featured">
+            <div class="eco-card eco-card--featured brand-card">
                 <div class="eco-badge">This guide</div>
                 <div class="eco-header eco-header--cowork">
                     <div class="eco-icon" aria-hidden="true">📁</div>
@@ -73,7 +73,7 @@
             </div>
 
             <!-- Claude Code -->
-            <div class="eco-card">
+            <div class="eco-card brand-card">
                 <div class="eco-header eco-header--code">
                     <div class="eco-icon" aria-hidden="true">⌨️</div>
                     <div>
@@ -113,10 +113,6 @@
 </section>
 
 <style>
-.ecosystem {
-    background-color: var(--bg-secondary);
-}
-
 .section-header {
     text-align: center;
     margin-bottom: var(--space-3xl);
@@ -132,20 +128,10 @@
 /* Card base */
 .eco-card {
     position: relative;
-    background-color: var(--surface-elevated);
-    border: 1px solid var(--border);
-    border-radius: var(--border-radius-lg);
     padding: var(--space-xl);
     display: flex;
     flex-direction: column;
     gap: var(--space-lg);
-    box-shadow: var(--shadow-sm);
-    transition: all var(--transition-normal);
-}
-
-.eco-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-card-hover);
 }
 
 .eco-card--featured {
@@ -159,11 +145,12 @@
     left: 50%;
     transform: translateX(-50%);
     background-color: var(--accent-secondary);
-    color: white;
+    color: #171512;
+    font-family: var(--font-mono);
     font-size: 0.75rem;
     font-weight: 700;
     padding: 3px 12px;
-    border-radius: 20px;
+    border-radius: var(--radius-control);
     white-space: nowrap;
     letter-spacing: 0.03em;
     text-transform: uppercase;
@@ -204,14 +191,14 @@
 
 .eco-header--ai     .eco-title { color: var(--accent-tertiary); }
 .eco-header--code   .eco-title { color: var(--accent); }
-.eco-header--cowork .eco-title { color: var(--accent-secondary); }
+.eco-header--cowork .eco-title { color: var(--accent-secondary-hover); }
 
 .eco-title-link {
     color: inherit;
-    text-decoration: none;
+    text-decoration: underline;
 }
 .eco-title-link:hover {
-    text-decoration: underline;
+    text-decoration-thickness: 2px;
 }
 
 /* Tagline + definition */
@@ -250,7 +237,7 @@
     gap: 6px;
     padding: var(--space-md);
     background-color: var(--bg-tertiary);
-    border-radius: var(--border-radius);
+    border-radius: var(--radius-control);
 }
 
 .eco-pro,

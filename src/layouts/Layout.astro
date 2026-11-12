@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css'
 import '../styles/components.css'
+import '../styles/portfolio-system.css'
 import Header from '../components/global/Header.astro'
 import Footer from '../components/global/Footer.astro'
 import SearchModal from '../components/global/SearchModal.astro'
@@ -126,11 +127,11 @@ const speakableSelectors = [
          TLS handshake to a host that was never contacted). -->
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
 
-    <!-- Anti-FOUC: dark mode default -->
+    <!-- Anti-FOUC: light by default, as in the portfolio preset; a stored choice wins -->
     <script is:inline>
       (function() {
         var stored = localStorage.getItem('theme');
-        var theme = stored || 'dark';
+        var theme = stored || 'light';
         document.documentElement.setAttribute('data-theme', theme);
       })();
     </script>
@@ -185,8 +186,9 @@ const speakableSelectors = [
     <div class="scroll-progress" aria-hidden="true"></div>
 
     <Header lang={lang} />
-    <AnnouncementBanner lang={lang} />
     <main id="main-content" class="pt-14">
+      <!-- Inside main, as on the pilot: before main it sat under the fixed header and never showed. -->
+      <AnnouncementBanner lang={lang} />
       <slot />
     </main>
     <Footer lang={lang} />

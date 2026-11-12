@@ -15,6 +15,32 @@ function block(css, selector) {
   return css.slice(open + 1, close)
 }
 
+// Split a selector list on top-level commas only (`:not(a, b)` stays whole).
+function splitSelectors(list) {
+  const parts = []
+  let depth = 0
+  let current = ''
+  for (const ch of list) {
+    if (ch === '(') depth++
+    if (ch === ')') depth--
+    if (ch === ',' && depth === 0) { parts.push(current); current = '' } else current += ch
+  }
+  parts.push(current)
+  return parts
+}
+
+// Declarations of every rule whose comma-separated selector list contains `selector`,
+// in source order (later rules win), at any nesting level (media queries included).
+function rule(css, selector) {
+  const out = {}
+  for (const m of css.matchAll(/([^{}]+)\{([^{}]*)\}/g)) {
+    const selectors = splitSelectors(m[1]).map(x => x.trim().replace(/\s+/g, ' '))
+    if (selectors.includes(selector)) Object.assign(out, declarations(m[2]))
+  }
+  if (!Object.keys(out).length) throw new Error(`selector not found: ${selector}`)
+  return out
+}
+
 function declarations(body) {
   const out = {}
   for (const m of body.matchAll(/([\w-]+)\s*:\s*([^;]+);/g)) out[m[1]] = m[2].trim()
@@ -53,7 +79,12 @@ export function themeVars() {
 function primaryButtonRules() {
   const css = readFileSync(new URL('components.css', root), 'utf8')
   const base = declarations(block(css, '.btn-primary'))
-  const hover = { ...base, ...declarations(block(css, '.btn-primary:hover')) }
+  // Three action levels (components.css): text colour on :hover, fill in the (hover: hover) query.
+  const hover = {
+    ...base,
+    ...rule(css, '.btn-primary:hover'),
+    ...rule(css, '.btn-primary:not(:disabled, [aria-disabled="true"]):hover'),
+  }
   return { base, hover }
 }
 
