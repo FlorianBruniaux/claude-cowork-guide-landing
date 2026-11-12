@@ -1,0 +1,186 @@
+src/styles/portfolio-system.css
+  s_d23ac4a724f0e1::t_bfe8069f5c55f7 1-516
+src/styles/starlight-overrides.css
+  s_d23ac4a724f0e1::t_ceb54c92ffea8b 5,14-16,19-22,24-26,29-30,40-41,47-49,51-58,110-117,119,124,156,212,242-270,294-296,300,304-308,312-318,324-337,359-702,704-709,757
+  s_d23ac4a724f0e1::t_16370837a49b39 761
+  s_d23ac4a724f0e1::t_e3e356d3145fb9 710,748-754,767
+  s_d23ac4a724f0e1::t_4c9142d2ee1ac3 63-76,78,161-163,167-169
+  s_d23ac4a724f0e1::t_6b4d15c5ea1d14 711-735,740-746,760,766
+  s_d23ac4a724f0e1::t_91375787c61fb5 703,736-739
+  s_d23ac4a724f0e1::t_fe6e88d22baaf2 747,755-756,758-759,762-765
+docs/design-system-cowork-2026-11-12/outils/hdr-after.cjs
+  s_d23ac4a724f0e1::t_e51fd34a5807a2 1-19,21,23-24,26-45
+  s_d23ac4a724f0e1::t_38af257acc6866 20,22,25
+src/pages/glossary/index.astro
+  s_d23ac4a724f0e1::t_3b0e4a738afc20 3,50-52,61,81-85,90,94-97,99,102-105,108,112-113,117-120,122,125,127-130,132,134,136-137,143,145-148,150,152-156,160,172,174,180-181,183,187,191,206,208-211,214-215
+src/styles/brand-foundation.css
+  s_d23ac4a724f0e1::t_bfe8069f5c55f7 1-20
+src/components/landing/GettingStarted.astro
+  s_d23ac4a724f0e1::t_ce2ae8493ecf98 4,10,12,16,21,26,53-55,58
+public/fonts/brand/OFL-Barlow.txt
+  s_d23ac4a724f0e1::t_bfe8069f5c55f7 1-93
+docs/design-system-cowork-2026-11-12/outils/probe-nav.cjs
+  s_d23ac4a724f0e1::t_4c9142d2ee1ac3 1-19
+src/pages/fr/glossary/index.astro
+  s_d23ac4a724f0e1::t_3b0e4a738afc20 3,51-53,62,82-86,91,95-98,100,103-106,109,113-114,118-121,123,126,128-131,133,135,137-138,144,146-149,151,153-157,161,173,175,181-182,184,188,192,207,209-212,215-216
+src/pages/prompts/index.astro
+  s_d23ac4a724f0e1::t_1da0feee410c7c 2,10-11,55-58,77,98,102-104,115-116,155,157,165,169,172,212,246-247,249-250,252-253,255,259-261,263,265-267,279,287
+scripts/check-contrast.mjs
+  s_d23ac4a724f0e1::t_67ca0a1de1e7d0 18-37,39,42,87
+  s_d23ac4a724f0e1::t_85c94a23682d48 38,40-41,43,82-86
+src/pages/fr/compare/index.astro
+  s_d23ac4a724f0e1::t_bb1e74d7e540e7 3,24-25,60-64,66,69,82,95,108,123-127,133,137-141,143,145-147,153,156,159,161,165,168,173-174,177-178,184,187,190-193,197,199-201,203-205
+src/components/landing/Prompts.astro
+  s_d23ac4a724f0e1::t_4c9142d2ee1ac3 4,10,12,18,27,49,53-54,97-102,106,109-114
+src/components/global/AnnouncementBanner.astro
+  s_d23ac4a724f0e1::t_80e83a62b5d8ff 15,35,70-71,74,80,82,92,100-103,105-113,120,126-128,130-133,138,142,149-150,152,154,157-158,162-164,169-173,175
+  s_d23ac4a724f0e1::t_89e517ce25981b 125,137
+  s_d23ac4a724f0e1::t_7beea6c05f11bc 176-179
+docs/design-system-cowork-2026-11-12/outils/hdr-compare.cjs
+  s_d23ac4a724f0e1::t_4f12406303d4a8 1-27
+docs/design-system-cowork-2026-11-12/outils/probe-eco.cjs
+  s_d23ac4a724f0e1::t_40f978182a3570 1-9,11-12
+  s_d23ac4a724f0e1::t_0777d65a61b7c7 10
+src/pages/404.astro
+  s_d23ac4a724f0e1::t_5008b1fa367e94 11-22,28-34
+docs/design-system-cowork-2026-11-12/outils/full.cjs
+  s_d23ac4a724f0e1::t_e11ca3b1d9098c 21
+  s_d23ac4a724f0e1::t_7a28abe6c66de3 1-16,24-31
+  s_d23ac4a724f0e1::t_e74f5671a0a02c 17-20,22-23
+docs/design-system-cowork-2026-11-12/outils/card-focus.cjs
+  s_d23ac4a724f0e1::t_9d44b86b873fc7 1-27
+src/components/landing/Workflows.astro
+  s_d23ac4a724f0e1::t_4c9142d2ee1ac3 4,22,24,43,66-67,69,72,74,77-78,80,82-87,98,102-103,120-121
+astro.config.mjs
+  s_d23ac4a724f0e1::t_0a06d21c7c1f82 43,56
+src/pages/fr/whitepapers/index.astro
+  s_d23ac4a724f0e1::t_5c340652bc4db9 356,359,366,369-370,377-383,386-387,390-396,400-407,413,425,427,429-431,440-447,450-456,463,472-473,475-476,480-484,488-490,492-493,495,497,500-502,537,541-545,547,550-558,579
+  s_d23ac4a724f0e1::t_6b0059fbfb123b 2,121-123,128,154,158-160,231,235-237,242,261,265-267,291
+  s_d23ac4a724f0e1::t_3d04d43f49d807 300,303-304,309,313,318-320,323,326,328
+src/pages/fr/prompts/index.astro
+  s_d23ac4a724f0e1::t_1da0feee410c7c 2,10-11,55-58,77,98,102-104,115-116,154,156,164,168,171,211,245-246,248-249,251-252,254,258-260,262,264-266,278,286
+src/pages/fr/index.astro
+  s_d23ac4a724f0e1::t_24bbfce0280d77 20-35
+src/components/landing/FaqPage.astro
+  s_d23ac4a724f0e1::t_5008b1fa367e94 3,27-37,39-51
+tests/search-focus.test.mjs
+  s_d23ac4a724f0e1::t_74ee9093e88491 1-68
+docs/design-system-cowork-2026-11-12/outils/views.cjs
+  s_d23ac4a724f0e1::t_6ce18624ae94bd 1-25
+docs/design-system-cowork-2026-11-12/outils/sweep.cjs
+  s_d23ac4a724f0e1::t_8a83100083630b 1,3-6,8,10-12,14-63,66-72
+  s_d23ac4a724f0e1::t_644537b600f44b 64-65
+  s_d23ac4a724f0e1::t_cc180c8f34841b 2,7,9,13
+src/styles/components.css
+  s_d23ac4a724f0e1::t_750bc9499ff8f9 10-11,21-32,37-42,47-60,80-86,89,93-101,103,111-112,114-118,121-123,127,130-140,144-148,150-154,157-159,162-181,189-194,280
+  s_d23ac4a724f0e1::t_89f31ce31a2cad 576-578
+  s_d23ac4a724f0e1::t_22c8de6813918a 609,611-613,659,665-668,670-671,677-679,696-697,699,716,740,795-797,799-803,805-806,809,811-812,922,934-936,938,943-946,972-973,975-976,997-998,1001,1007-1011
+src/components/landing/HeroBanner.astro
+  s_d23ac4a724f0e1::t_24bbfce0280d77 13,87,91-94,100,106,109,116-119,121-122,124-125,128-129,133,140-143,146-149,166,173-174,178,183-184,186
+src/components/landing/RelatedProjects.astro
+  s_d23ac4a724f0e1::t_4c9142d2ee1ac3 9,15,37,42-43,52-54
+docs/design-system-cowork-2026-11-12/.gitignore
+  s_d23ac4a724f0e1::t_665c0bcb87d95b 1-3
+src/pages/whitepapers/index.astro
+  s_d23ac4a724f0e1::t_6b0059fbfb123b 2,121-123,128,154,158-160,231,235-237,242,261,265-267,291
+  s_d23ac4a724f0e1::t_3d04d43f49d807 300,303-304,309,313,318-320,323,326,328
+  s_d23ac4a724f0e1::t_5c340652bc4db9 365-371,378-385,389-393,397-404,415-417,425-433,442,444-447,451,454-458,466,468,477-478,481,486-490,493-496,498,502-503,506-508,528-533,540,544-548,550,553-560,579
+public/fonts/brand/OFL-IBM-Plex-Sans.txt
+  s_d23ac4a724f0e1::t_bfe8069f5c55f7 1-93
+src/components/landing/ComparisonTable.astro
+  s_d23ac4a724f0e1::t_4c9142d2ee1ac3 9,14,36,49-50,59-60
+src/components/landing/ClaudeEcosystem.astro
+  s_d23ac4a724f0e1::t_54003853f62c2b 194
+  s_d23ac4a724f0e1::t_f92af0b087962d 2,11,43,76,148-149,153,198,201,240
+src/components/global/Footer.astro
+  s_d23ac4a724f0e1::t_174d50eda4178a 26,145,218-219,221,236-237,239,248,250,267,287,291,300,309,319
+  s_d23ac4a724f0e1::t_07b998c7d29b1c 242-244,249
+  s_d23ac4a724f0e1::t_89e517ce25981b 296
+  s_d23ac4a724f0e1::t_4262f22a647502 140-143,146,149,151-153,157-159,162,164-165,169-170,175,178-182,185-187,189-215,217,223-224,228-229,234-235,238,245-247,253-266,268-279,285-286,294,301,304-308,310,312-314,316,318,322-325,330,333-334
+  s_d23ac4a724f0e1::t_98422819ff4cb7 18-23,65-72,90-105,133
+src/pages/compare/index.astro
+  s_d23ac4a724f0e1::t_bb1e74d7e540e7 3,24-25,60-64,66,69,82,95,108,123-127,133,137-141,143,145-147,153,156,159,161,165,168,173-174,177-178,184,187,190-193,197,199-201,203-205
+src/components/global/Header.astro
+  s_d23ac4a724f0e1::t_a0446821805319 248-251,258-260,271-272,274,276-278,280-285,288-291,295-296,304,312,315-316,318-319,321,324-334,342-343,351-352,361-365,379-382,387-389,401-402,408,411-413,415-428,430-513,521,525,529,531,533-534,536-537,539,542-544,551-552,554,561-563,566-567,570-572,574,577,580,586-590,594-595,597-598,608-623,630-638,642-644,659,666,669-671,673,675-676,678-679,687-689,695-698,701-710,724-725,733-739,746,749-751,753-754,761-762,765-778
+  s_d23ac4a724f0e1::t_18cd600f7a7635 86,145
+  s_d23ac4a724f0e1::t_7beea6c05f11bc 757
+  s_d23ac4a724f0e1::t_89f31ce31a2cad 651-658
+  s_d23ac4a724f0e1::t_dcf62b189023c5 45,265,292,303,310,313-314,337-338,347-350,353-360,369,378,383,429,532,535,545,564-565,568-569,581-585,596,605,663-664,672,693,699-700,714,745
+  s_d23ac4a724f0e1::t_89e517ce25981b 273,309,336,692,732,742-744
+  s_d23ac4a724f0e1::t_861800a972ad36 311,335,756
+src/layouts/Layout.astro
+  s_d23ac4a724f0e1::t_29bc2f91c4adf0 190-191
+  s_d23ac4a724f0e1::t_0a06d21c7c1f82 4,134
+  s_d23ac4a724f0e1::t_a4b068e0ea179f 130
+src/pages/index.astro
+  s_d23ac4a724f0e1::t_24bbfce0280d77 20-35
+src/pages/fr/releases/index.astro
+  s_d23ac4a724f0e1::t_64ac018ab2b0b7 90,173
+  s_d23ac4a724f0e1::t_c33d45f3c25ada 3,24-30,83-88,91,113-115,126-129,151-153,155,157,160-163,166,169,171-172,180,189-191,193,199-201,203,205,208,219-220,222,231,238,248,251,253-254,257
+src/components/landing/WhyGuide.astro
+  s_d23ac4a724f0e1::t_4c9142d2ee1ac3 9,14,25
+src/components/landing/TldrSection.astro
+  s_d23ac4a724f0e1::t_ce2ae8493ecf98 9,29-34,47
+  s_d23ac4a724f0e1::t_fa713563db9237 48
+docs/design-system-cowork-2026-11-12/outils/content-diff.cjs
+  s_d23ac4a724f0e1::t_ab5733abf71388 1-49
+src/components/landing/GoldenRules.astro
+  s_d23ac4a724f0e1::t_4c9142d2ee1ac3 9,16,44-46,49,67
+docs/design-system-cowork-2026-11-12/CONTRACT.md
+  s_d23ac4a724f0e1::t_eabeebd77df703 1-79
+public/fonts/brand/OFL-IBM-Plex-Mono.txt
+  s_d23ac4a724f0e1::t_bfe8069f5c55f7 1-93
+src/styles/global.css
+  s_d23ac4a724f0e1::t_bfe8069f5c55f7 1-2,10-13,15-20,32-33,36,39,43,46-55,68-70,79-80,82,89-99,111-112,114,117,120,124-125,127-128,180
+src/scripts/search.ts
+  s_d23ac4a724f0e1::t_99c465de483798 131-132,136-137,153-154,266-267
+src/components/landing/KeyTerms.astro
+  s_d23ac4a724f0e1::t_4c9142d2ee1ac3 4,10,12,18
+docs/design-system-cowork-2026-11-12/outils/menu.cjs
+  s_d23ac4a724f0e1::t_471174f4031468 42-44
+  s_d23ac4a724f0e1::t_9bcb48be2a3d66 1-41,45-50
+src/pages/releases/index.astro
+  s_d23ac4a724f0e1::t_64ac018ab2b0b7 89,167
+  s_d23ac4a724f0e1::t_c33d45f3c25ada 3,23-29,82-87,90,112-114,120-123,145-147,149,151,154-157,160,163,165-166,174,183-185,187,193-195,197,199,202,213-214,216,225,232,242,245,247-248,251
+src/components/landing/Features.astro
+  s_d23ac4a724f0e1::t_4c9142d2ee1ac3 4,11,13,18,39,44-45,49,56-58,62
+src/components/global/ChapterLabel.astro
+  s_d23ac4a724f0e1::t_bfe8069f5c55f7 1-9
+docs/design-system-cowork-2026-11-12/outils/probe.cjs
+  s_d23ac4a724f0e1::t_f968c4d983d7bc 1-21
+docs/design-system-cowork-2026-11-12/README.md
+  s_d23ac4a724f0e1::t_518c9537c1ea40 59-65
+  s_d23ac4a724f0e1::t_0f3aca3e50b8e4 1-58,66-82
+src/components/landing/CrossLink.astro
+  s_d23ac4a724f0e1::t_4c9142d2ee1ac3 9,21,68
+src/components/global/SearchModal.astro
+  s_d23ac4a724f0e1::t_99c465de483798 26-34
+  s_d23ac4a724f0e1::t_6bf9819f812c53 123-127,144
+src/components/landing/WhatsNew.astro
+  s_d23ac4a724f0e1::t_54003853f62c2b 23-27
+  s_d23ac4a724f0e1::t_ce2ae8493ecf98 9,15
+public/fonts/brand/LICENSES.txt
+  s_d23ac4a724f0e1::t_bfe8069f5c55f7 1-24
+public/images/brand/section-hatching.svg
+  s_d23ac4a724f0e1::t_bfe8069f5c55f7 1-8
+src/pages/fr/workflows/index.astro
+  s_d23ac4a724f0e1::t_430cbca23a582e 62,81,97-102,107,147,149,157,161-162,171-176,178,180,183-184,187-189,192-193,204,208,210-214,225,270-271
+src/pages/workflows/index.astro
+  s_d23ac4a724f0e1::t_cee135066423bc 62,81,97-102,107,147,149,157,161-162,171-176,178,180,183-184,187-189,192-193,204,208,210-214,225,270-271
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b483a42830fd85eda3cb62b705cd963fa8f8a4c4",
+  "prompts": {},
+  "sessions": {
+    "s_d23ac4a724f0e1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b000f05a-0a10-47b7-b7fc-5df92eed239c",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Florian BRUNIAUX <florian@bruniaux.com>"
+    }
+  }
+}
