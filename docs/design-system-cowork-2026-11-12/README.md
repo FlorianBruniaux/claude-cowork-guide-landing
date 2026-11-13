@@ -69,9 +69,9 @@ Serveur de dev local (`127.0.0.1:4393`), Google Chrome de la machine et WebKit P
 - Spécificité : Astro scope les styles en `:where(.astro-*)`, donc une classe scopée ne bat pas la règle globale des liens (0,2,1). Le header, le footer et le bandeau qualifient leurs sélecteurs par deux ancêtres ; le contrat le documente pour les agents.
 - Workflows : la seule bande charcoal hors intro est le footer (page à un seul chapitre, grille puis appel orange). Choix de l'agent conservé.
 
-## Encore en indigo
+## Favicon et image OG (13 novembre)
 
-`#6366f1` reste dans `src/pages/og-image.png.ts` (lignes 102 et 148, titre et chiffres de l'image OG) et `public/favicon.svg` (ligne 5, dégradé). Non modifié : image OG et favicon sont des métadonnées, hors du périmètre visuel de la page. Le repli indigo de `HeroBanner.astro` a disparu avec la refonte du hero.
+Plus aucun indigo. `public/favicon.svg` reprend le glyphe `>_` du header, orange `#f97316` sur charbon `#141414`, dessiné en tracés pour ne dépendre d'aucune police ; `public/favicon.ico` est régénéré par `node scripts/build-favicon.mjs`. `src/pages/og-image.png.ts` reprend une bande charbon hachurée à filet orange, le kicker mono, le titre en Barlow Condensed et les compteurs en cartes à ombre décalée. Textes et compteurs inchangés. Les polices TTF viennent de `florian-portfolio@376d69b7` (`src/assets/og-fonts/`), car satori ne lit pas le WOFF2. `tests/d-design-system.test.mjs` n'accepte plus d'exception indigo.
 
 ## Non vérifié
 

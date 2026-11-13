@@ -12,9 +12,6 @@ const sourceFiles = (dir) => readdirSync(join(root, dir), { recursive: true })
   .filter((f) => /\.(astro|css|ts|mjs)$/.test(f))
   .map((f) => join(dir, f))
 
-// Known leftovers of the old indigo identity, to migrate in a dedicated task.
-const INDIGO_EXCEPTIONS = new Set(['src/pages/og-image.png.ts'])
-
 test('light theme declares the portfolio tokens', () => {
   const css = read('src/styles/global.css')
   const light = css.slice(0, css.indexOf('[data-theme="dark"]'))
@@ -25,9 +22,7 @@ test('light theme declares the portfolio tokens', () => {
 })
 
 test('no source file brings back the old indigo accent', () => {
-  const offenders = ['src/components', 'src/layouts', 'src/pages', 'src/styles']
-    .flatMap(sourceFiles)
-    .filter((f) => !INDIGO_EXCEPTIONS.has(f))
+  const offenders = [...['src/components', 'src/layouts', 'src/pages', 'src/styles'].flatMap(sourceFiles), 'public/favicon.svg']
     .filter((f) => /#6366f1|#4f46e5|#818cf8|\bindigo\b/i.test(read(f)))
   assert.deepEqual(offenders, [])
 })

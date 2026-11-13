@@ -7,7 +7,7 @@
 - ✅ Header et footer alignés sur le pilote : panneau More en cartes, tiroir mobile à droite, lien Guide en secondaire, colonne marque, colonne Écosystème repliable
 - ✅ Starlight `/guide/` habillé par `starlight-overrides.css`
 - 📄 Contrat et vérifications : `docs/design-system-cowork-2026-11-12/` (CONTRACT.md, README.md, `outils/`)
-- ⚠️ Restent en indigo : `public/favicon.svg` et l'image OG (`src/pages/og-image.png.ts`, police Inter). À migrer dans une tâche dédiée
+- ✅ Favicon (`>_` orange sur charbon, en tracés) et image OG (bande charbon hachurée, Barlow Condensed + IBM Plex) migrés le 13 novembre. Polices TTF de l'image OG : `src/assets/og-fonts/`
 
 **Avril 2026 - Shell parity + SEO + Pages structurelles**
 - ✅ Shell refonte complet (Header, Footer, ThemeToggle, FeedbackFab, Layout)
@@ -17,7 +17,7 @@
 - ✅ FeedbackFab : extrait de Layout, menu expandable 3 items (bug, content, feedback → GitHub issues)
 - ✅ Hero : double CTA Guide+GitHub, 3 badges shields (28 WORKFLOWS, 70 PROMPTS, 7 GOLDEN RULES), cross-sell déplacé dans RelatedProjects
 - ✅ SEO : robots.txt GEO (12 AI crawlers), llms.txt statique
-- ✅ OG image : stats corrigées (couleur indigo d'origine, pas encore migrée)
+- ✅ OG image : stats corrigées
 - ✅ Pages structurelles : `/releases` EN+FR (12 versions, toggle older)
 - ✅ Nettoyage : 12 fichiers `.legacy` supprimés
 - ⚠️ TODO `/glossary` : bloqué — créer `reference/glossary.en.md` + `reference/glossary.md` dans le guide principal d'abord
