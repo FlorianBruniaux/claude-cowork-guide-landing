@@ -1,0 +1,33 @@
+public/favicon.svg
+  s_d23ac4a724f0e1::t_9d86302a32eaed 1-5
+CLAUDE.md
+  s_d23ac4a724f0e1::t_2f03ca6b997042 10,20
+tests/d-design-system.test.mjs
+  s_d23ac4a724f0e1::t_2f03ca6b997042 25
+src/assets/og-fonts/README.md
+  s_d23ac4a724f0e1::t_cabc2c132a7b3d 1-4,6-7
+  s_d23ac4a724f0e1::t_17885da85ad72b 5
+docs/design-system-cowork-2026-11-12/README.md
+  s_d23ac4a724f0e1::t_3739f21c4efec2 72,74
+src/pages/og-image.png.ts
+  s_d23ac4a724f0e1::t_b8be990c97b9fb 8,23,25-26
+  s_d23ac4a724f0e1::t_213154bcd593c6 22,24,28-40,49,53,55,58,68-71,75-80,84-94,101,106,113,124,128,132,137-140,144,151,158,167,174,180-181,191-195
+  s_d23ac4a724f0e1::t_cd68a46d51572e 145
+  s_d23ac4a724f0e1::t_a32a5d7d70cc1f 27
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "f9355344e6f8368c9d0c29b94f171a7dbadef618",
+  "prompts": {},
+  "sessions": {
+    "s_d23ac4a724f0e1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b000f05a-0a10-47b7-b7fc-5df92eed239c",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Florian BRUNIAUX <florian@bruniaux.com>"
+    }
+  }
+}
