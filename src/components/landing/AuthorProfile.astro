@@ -1,0 +1,149 @@
+---
+import type { Lang } from '../../data/i18n'
+import { t } from '../../data/i18n'
+interface Props { lang: Lang }
+const { lang } = Astro.props
+const s = t(lang)
+const authorProfile = {
+  name: 'Florian BRUNIAUX',
+  aboutUrl: `https://www.florian.bruniaux.com/${lang === 'fr' ? 'fr/' : ''}about/`,
+  thumbnailUrl: '/author-88.webp',
+  ambassadorUrl: 'https://clauders.com/leaders/florian-bruniaux/',
+  blogUrl: `https://www.florian.bruniaux.com/${lang === 'fr' ? 'fr/' : ''}blog/`,
+  projectsUrl: `https://www.florian.bruniaux.com/${lang === 'fr' ? 'fr/' : ''}projects/`,
+}
+---
+
+<aside class="author-profile" aria-label={s.authorAboutLabel}>
+  <img
+    src={authorProfile.thumbnailUrl}
+    alt="Florian Bruniaux"
+    class="author-photo"
+    width="44"
+    height="44"
+    loading="lazy"
+    decoding="async"
+  >
+
+  <div class="author-content">
+    <p class="author-identity">
+      <a class="author-name" href={authorProfile.aboutUrl} target="_blank" rel="noopener noreferrer">{authorProfile.name}</a>
+      <span class="author-line">{s.authorRole}</span>
+    </p>
+    <a class="author-ambassador" href={authorProfile.ambassadorUrl} target="_blank" rel="noopener noreferrer" translate="no">
+      <span>{s.heroAmbassador}</span><span aria-hidden="true">↗</span>
+    </a>
+    <p class="author-volunteer">{s.authorVolunteer}</p>
+    <p class="author-meta">
+      <span class="author-line">{s.authorExperience}</span>
+      <span class="author-links">
+        <a href={authorProfile.blogUrl} target="_blank" rel="noopener noreferrer">{s.authorBlog} ↗</a>
+        <span aria-hidden="true">&middot;</span>
+        <a href={authorProfile.projectsUrl} target="_blank" rel="noopener noreferrer">{s.authorProjects} ↗</a>
+      </span>
+    </p>
+  </div>
+</aside>
+
+<style>
+.author-profile {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-top: var(--space-md);
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.author-photo {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+}
+
+.author-content {
+  min-width: 0;
+}
+
+.author-identity,
+.author-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Each item takes its own line: a wrapped "·" used to dangle at a line end. */
+.author-line {
+  flex-basis: 100%;
+}
+
+.author-links {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  white-space: nowrap;
+}
+
+.author-identity {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.author-name {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.author-meta {
+  margin-top: 0.15rem;
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+}
+
+.author-profile a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--accent);
+  text-decoration: none;
+  text-underline-offset: 2px;
+}
+
+.author-profile a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+.author-volunteer { margin: 0; color: var(--text-muted); font-size: 0.75rem; line-height: 1.5; }
+
+.author-profile .author-ambassador {
+  gap: 0.4rem;
+  max-width: 100%;
+  margin-block: 0.25rem;
+  padding: 0.35rem 0.6rem;
+  border-left: 2px solid var(--accent);
+  font: 600 0.75rem/1.5 var(--font-mono);
+  text-decoration: underline;
+}
+.author-ambassador > span:last-child { flex-shrink: 0; }
+.author-profile a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+@media (max-width: 440px) {
+  .author-profile {
+    align-items: flex-start;
+    gap: 0.65rem;
+  }
+
+  .author-photo {
+    width: 40px;
+    height: 40px;
+  }
+}
+</style>

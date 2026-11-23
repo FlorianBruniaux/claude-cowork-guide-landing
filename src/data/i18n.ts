@@ -80,7 +80,18 @@ export const UI_STRINGS = {
 
     // Hero
     heroTitle: 'Master Claude Cowork',
-    heroAuthor: 'By Florian Bruniaux',
+    heroKicker: 'Free, open source, and built from real workflows',
+    heroQuickNavigation: 'Quick navigation',
+    heroQuickLabel: 'Already know what you need?',
+    heroGlossary: 'Glossary',
+    heroHighlights: 'Guide highlights',
+    authorAboutLabel: 'About the author',
+    authorVolunteer: 'Volunteer community role',
+    authorRole: 'Hands-on Fractional Chief AI Officer (CAIO)',
+    authorExperience: 'Around 15 years in software, including 8 to 10 in technical leadership',
+    authorBlog: 'Blog',
+    authorProjects: 'Projects',
+
     heroAmbassador: 'Official Claude Community Ambassador · Paris',
     heroTagline: 'The complete guide to Claude Cowork across desktop, web, and mobile',
     heroBadgeLabelWorkflows: 'workflows',
@@ -407,7 +418,18 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
 
     // Hero
     heroTitle: 'Maîtrisez Claude Cowork',
-    heroAuthor: 'Par Florian Bruniaux',
+    heroKicker: 'Gratuit, open source et issu de pratiques de terrain',
+    heroQuickNavigation: 'Navigation rapide',
+    heroQuickLabel: 'Vous savez déjà ce qu’il vous faut ?',
+    heroGlossary: 'Glossaire',
+    heroHighlights: 'Le guide en chiffres',
+    authorAboutLabel: 'À propos de l’auteur',
+    authorVolunteer: 'Rôle communautaire bénévole',
+    authorRole: 'Chief AI Officer à temps partagé, de la stratégie au code',
+    authorExperience: 'Environ 15 ans dans le logiciel, dont 8 à 10 en direction technique',
+    authorBlog: 'Blog',
+    authorProjects: 'Projets',
+
     heroAmbassador: 'Official Claude Community Ambassador · Paris',
     heroTagline: 'Le guide complet de Claude Cowork sur desktop, web et mobile',
     heroBadgeLabelWorkflows: 'workflows',

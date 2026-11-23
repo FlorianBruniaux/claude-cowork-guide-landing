@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Changed
+
+- Align the homepage hero with the Claude Code guide: content and actions on the left, guide highlights and a localized author profile with the official Ambassador mention on the right. Keep the GitHub stars loader emitted in the page so the relocated counter updates in the browser.
+
 ### Added
 
 - Author and Official Claude Community Ambassador · Paris links in the English and French homepage hero, synchronized with the guide READMEs.

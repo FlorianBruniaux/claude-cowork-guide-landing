@@ -1,4 +1,5 @@
 ---
+import AuthorProfile from './AuthorProfile.astro'
 import type { Lang } from '../../data/i18n'
 import { t } from '../../data/i18n'
 
@@ -10,64 +11,52 @@ const ghUrl = 'https://github.com/FlorianBruniaux/claude-cowork-guide'
 const isEn = lang === 'en'
 ---
 
-<section class="hero band band-ink band-hero section-wallpaper">
-  <div class="container hero-content">
-    <h1 class="hero-title">{s.heroTitle}</h1>
-    <p class="hero-tagline">{s.heroTagline}</p>
-
-    <div class="hero-author">
-      <a href="https://www.florian.bruniaux.com/about/">{s.heroAuthor}</a>
-      <a class="hero-ambassador" href="https://clauders.com/leaders/florian-bruniaux/" translate="no">{s.heroAmbassador} <span aria-hidden="true">↗</span></a>
+<section class="hero band band-ink band-hero section-wallpaper" aria-labelledby="hero-title">
+  <div class="container">
+    <div class="hero-copy">
+      <p class="hero-kicker">{s.heroKicker}</p>
+      <div class="hero-heading">
+        <h1 id="hero-title" class="hero-title">{s.heroTitle}</h1>
+      </div>
+      <div class="hero-body">
+        <p class="hero-tagline">{s.heroTagline}</p>
+        <div class="hero-actions hero-ctas">
+          <a href="/guide/" class="btn btn-primary" data-astro-prefetch="false">{s.heroCta}</a>
+          <a href={isEn ? '/workflows/' : '/fr/workflows/'} class="btn btn-secondary">{s.heroCtaSecondary}</a>
+        </div>
+        <nav class="hero-beyond hero-quick-nav" aria-label={s.heroQuickNavigation}>
+          <p class="hero-beyond-label quick-nav-label">{s.heroQuickLabel}</p>
+          <ul>
+            <li><a href={isEn ? '/workflows/' : '/fr/workflows/'}>29 Workflows</a></li>
+            <li><a href={isEn ? '/prompts/' : '/fr/prompts/'}>70 Prompts</a></li>
+            <li><a href={isEn ? '/glossary/' : '/fr/glossary/'}>{s.heroGlossary}</a></li>
+            <li><a href={isEn ? '/faq/' : '/fr/faq/'}>FAQ</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="hero-evidence">
+        <div class="proof-strip hero-badges" aria-label={s.heroHighlights}>
+          <a href={ghUrl} target="_blank" rel="noopener" class="proof-item proof-stars">
+            <span aria-hidden="true">★</span><strong id="hero-stars">—</strong><span>GitHub stars</span>
+          </a>
+          <a href={isEn ? '/workflows/' : '/fr/workflows/'} class="proof-item"><strong>{s.heroBadgeWorkflows}</strong><span>{s.heroBadgeLabelWorkflows}</span></a>
+          <a href={isEn ? '/prompts/' : '/fr/prompts/'} class="proof-item"><strong>{s.heroBadgePrompts}</strong><span>{s.heroBadgeLabelPrompts}</span></a>
+          <span class="proof-item"><strong>{s.heroBadgeRules}</strong><span>{s.heroBadgeLabelRules}</span></span>
+          <a href={ghUrl} target="_blank" rel="noopener" class="proof-item proof-license">CC BY-SA 4.0</a>
+        </div>
+        <AuthorProfile lang={lang} />
+      </div>
     </div>
-
-    <div class="hero-badges">
-      <a href={ghUrl} target="_blank" rel="noopener" class="badge badge-stars">
-        <span class="badge-label">★ stars</span>
-        <span class="badge-value" id="hero-stars">—</span>
-      </a>
-      <a href={isEn ? '/workflows/' : '/fr/workflows/'} class="badge badge-workflows">
-        <span class="badge-label">{s.heroBadgeLabelWorkflows}</span>
-        <span class="badge-value">{s.heroBadgeWorkflows}</span>
-      </a>
-      <a href={isEn ? '/prompts/' : '/fr/prompts/'} class="badge badge-prompts">
-        <span class="badge-label">{s.heroBadgeLabelPrompts}</span>
-        <span class="badge-value">{s.heroBadgePrompts}</span>
-      </a>
-      <span class="badge badge-rules">
-        <span class="badge-label">{s.heroBadgeLabelRules}</span>
-        <span class="badge-value">{s.heroBadgeRules}</span>
-      </span>
-      <a href={ghUrl} target="_blank" rel="noopener" class="badge badge-opensource">
-        <span class="badge-label">license</span>
-        <span class="badge-value">CC BY-SA 4.0</span>
-      </a>
-    </div>
-
-    <div class="hero-ctas">
-      <a href="/guide/" class="btn btn-primary" data-astro-prefetch="false">{s.heroCta}</a>
-      <a href={isEn ? '/workflows/' : '/fr/workflows/'} class="btn btn-secondary">{s.heroCtaSecondary}</a>
-    </div>
-
-    <nav class="hero-quick-nav" aria-label={isEn ? 'Quick navigation' : 'Navigation rapide'}>
-      <span class="quick-nav-label">{isEn ? 'Already know what you need?' : 'Déjà savoir ce qu\'il vous faut ?'}</span>
-      <a href={isEn ? '/workflows/' : '/fr/workflows/'}>29 Workflows</a>
-      <span class="quick-nav-sep" aria-hidden="true">|</span>
-      <a href={isEn ? '/prompts/' : '/fr/prompts/'}>{isEn ? '70 Prompts' : '70 Prompts'}</a>
-      <span class="quick-nav-sep" aria-hidden="true">|</span>
-      <a href={isEn ? '/glossary/' : '/fr/glossary/'}>{isEn ? 'Glossary' : 'Glossaire'}</a>
-      <span class="quick-nav-sep" aria-hidden="true">|</span>
-      <a href={isEn ? '/faq/' : '/fr/faq/'}>FAQ</a>
-    </nav>
   </div>
 </section>
 
-<script>
+<script is:inline>
   async function loadStars() {
     try {
       const res = await fetch('https://api.github.com/repos/FlorianBruniaux/claude-cowork-guide')
       if (res.ok) {
         const data = await res.json()
-        const stars = data.stargazers_count as number
+        const stars = Number(data.stargazers_count)
         const el = document.getElementById('hero-stars')
         if (el && stars) {
           el.textContent = stars >= 1000
@@ -92,129 +81,176 @@ const isEn = lang === 'en'
     padding: clamp(3.5rem, 7vw, 5.5rem) 0 clamp(3rem, 6vw, 4.5rem);
   }
 
-  .hero-title {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
+  .hero .container { max-width: var(--max-width); }
+
+  .hero-copy {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(320px, 0.8fr);
+    grid-template-areas:
+      "kicker kicker"
+      "heading heading"
+      "body evidence";
+    column-gap: clamp(2.5rem, 6vw, 6rem);
+  }
+
+  .hero-kicker {
+    grid-area: kicker;
+    margin: 0 0 0.85rem;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
     font-weight: 700;
+    letter-spacing: 0.055em;
+    text-transform: uppercase;
+  }
+
+  .hero-heading {
+    grid-area: heading;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+
+  h1 {
+    margin: 0;
+    font-size: clamp(2.8rem, 6.6vw, 5.4rem);
+    font-weight: 700;
+    line-height: 0.98;
     letter-spacing: -0.015em;
-    line-height: 1;
-    margin-bottom: var(--space-md);
-    color: var(--text-primary);
+  }
+
+  .hero-body {
+    grid-area: body;
+    min-width: 0;
   }
 
   .hero-tagline {
-    max-width: 44rem;
-    font-size: 1.25rem;
-    color: var(--text-secondary);
-    margin-bottom: var(--space-xl);
+    max-width: 780px;
+    margin: 1.5rem 0 0;
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.15;
+    text-wrap: balance;
   }
 
-  .hero-author {
+
+  .hero-actions {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 0.5rem 1rem;
-    margin-bottom: var(--space-lg);
-    font-size: 0.875rem;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
   }
-  .hero-author a {
+
+  .hero-beyond {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .hero-beyond-label {
+    margin: 0;
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.055em;
+    text-transform: uppercase;
+  }
+
+  .hero-beyond ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    column-gap: 1.1rem;
+  }
+
+  .hero-beyond a {
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
     min-height: 44px;
-    color: var(--accent);
+    font-size: 0.95rem;
+    text-decoration: none;
+  }
+
+  .hero-beyond a:hover,
+  .hero-beyond a:focus-visible {
     text-decoration: underline;
-    text-underline-offset: 3px;
+    text-underline-offset: 0.2em;
   }
-  .hero-author .hero-ambassador {
-    padding: 0.4rem 0.65rem;
-    border-left: 3px solid var(--accent);
-    font: 600 0.8125rem/1.5 var(--font-mono);
-  }
-  .hero-author a:focus-visible {
+
+  .hero-beyond a:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 3px;
   }
 
-  /* Badges: flat chips readable on charcoal, no lift on hover. */
-  .hero-badges {
-    display: flex;
+  .proof-strip {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.5rem;
-    flex-wrap: wrap;
-    margin-bottom: var(--space-xl);
   }
 
-  .badge {
+  .hero-evidence {
+    grid-area: evidence;
+    align-self: end;
+    min-width: 0;
+    margin-top: 1.5rem;
+  }
+
+  .proof-item {
     display: inline-flex;
-    align-items: stretch;
-    min-height: 32px;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 700;
+    align-items: center;
+    gap: 0.35rem;
+    min-height: 44px;
+    padding: 0.45rem 0.7rem;
+    color: var(--text-secondary) !important;
+    background: color-mix(in srgb, var(--surface-elevated) 72%, transparent);
     border: 1px solid var(--border);
     border-radius: var(--radius-control);
-    overflow: hidden;
+    font-size: 0.825rem;
+    line-height: 1;
     text-decoration: none !important;
-    transition: border-color 150ms ease;
-    cursor: default;
-  }
-  a.badge { cursor: pointer; }
-  a.badge:hover { border-color: var(--accent); }
-
-  .badge-label,
-  .badge-value {
-    padding: 0 0.6rem;
-    display: flex;
-    align-items: center;
-    white-space: nowrap;
   }
 
-  .badge-label {
-    background: var(--bg-tertiary);
-    color: var(--text-secondary);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-
-  .badge-value {
-    background: var(--surface-elevated);
+  .proof-item strong {
     color: var(--text-primary);
+    font-family: var(--font-mono);
   }
 
-  .hero-ctas {
-    display: flex;
-    gap: var(--space-md);
-    flex-wrap: wrap;
-    margin-bottom: var(--space-lg);
+  .proof-item:hover { border-color: var(--accent); }
+
+  @media (max-width: 1100px) {
+    .hero-copy {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-areas:
+        "kicker"
+        "heading"
+        "body"
+        "evidence";
+    }
+
+    .hero-evidence { max-width: 900px; }
+
+    .proof-strip {
+      display: flex;
+      flex-wrap: wrap;
+    }
   }
 
-  .hero-quick-nav {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    flex-wrap: wrap;
+  @media (max-width: 640px) {
+    .hero { padding: 2.75rem 0 1.5rem; }
+    .hero-heading { align-items: flex-start; gap: 0.65rem; }
+    h1 { font-size: clamp(2.2rem, 12vw, 3.25rem); }
+    .hero-tagline { margin-top: 1.1rem; }
+    .hero-actions { align-items: stretch; }
+    .hero-actions .btn { flex: 1 1 100%; }
+    .proof-strip { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .proof-item { justify-content: center; }
   }
-  .quick-nav-label {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-  }
-  .hero-quick-nav a {
-    font-size: 0.8rem;
-    color: var(--accent);
-    text-decoration: none;
-  }
-  .hero-quick-nav a:hover,
-  .hero-quick-nav a:focus-visible {
-    text-decoration: underline;
-  }
-  .quick-nav-sep {
-    color: var(--border);
-    font-size: 0.75rem;
-  }
-
-  @media (max-width: 768px) {
-    .hero { padding: 2.75rem 0 2rem; }
-    .hero-title { font-size: clamp(2.2rem, 11vw, 3rem); }
-    .hero-tagline { font-size: 1.1rem; }
-    .hero-ctas .btn { flex: 1 1 100%; }
-  }
+  .proof-license { grid-column: 1 / -1; }
 </style>
