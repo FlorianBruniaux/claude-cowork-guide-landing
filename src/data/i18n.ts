@@ -80,6 +80,8 @@ export const UI_STRINGS = {
 
     // Hero
     heroTitle: 'Master Claude Cowork',
+    heroAuthor: 'By Florian Bruniaux',
+    heroAmbassador: 'Official Claude Community Ambassador · Paris',
     heroTagline: 'The complete guide to Claude Cowork across desktop, web, and mobile',
     heroBadgeLabelWorkflows: 'workflows',
     heroBadgeWorkflows: '29',
@@ -405,6 +407,8 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
 
     // Hero
     heroTitle: 'Maîtrisez Claude Cowork',
+    heroAuthor: 'Par Florian Bruniaux',
+    heroAmbassador: 'Official Claude Community Ambassador · Paris',
     heroTagline: 'Le guide complet de Claude Cowork sur desktop, web et mobile',
     heroBadgeLabelWorkflows: 'workflows',
     heroBadgeWorkflows: '29',

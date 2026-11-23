@@ -15,6 +15,11 @@ const isEn = lang === 'en'
     <h1 class="hero-title">{s.heroTitle}</h1>
     <p class="hero-tagline">{s.heroTagline}</p>
 
+    <div class="hero-author">
+      <a href="https://www.florian.bruniaux.com/about/">{s.heroAuthor}</a>
+      <a class="hero-ambassador" href="https://clauders.com/leaders/florian-bruniaux/" translate="no">{s.heroAmbassador} <span aria-hidden="true">↗</span></a>
+    </div>
+
     <div class="hero-badges">
       <a href={ghUrl} target="_blank" rel="noopener" class="badge badge-stars">
         <span class="badge-label">★ stars</span>
@@ -101,6 +106,33 @@ const isEn = lang === 'en'
     font-size: 1.25rem;
     color: var(--text-secondary);
     margin-bottom: var(--space-xl);
+  }
+
+  .hero-author {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    margin-bottom: var(--space-lg);
+    font-size: 0.875rem;
+  }
+  .hero-author a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 44px;
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .hero-author .hero-ambassador {
+    padding: 0.4rem 0.65rem;
+    border-left: 3px solid var(--accent);
+    font: 600 0.8125rem/1.5 var(--font-mono);
+  }
+  .hero-author a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
   }
 
   /* Badges: flat chips readable on charcoal, no lift on hover. */

@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added
+
+- Author and Official Claude Community Ambassador · Paris links in the English and French homepage hero, synchronized with the guide READMEs.
+
 ## [1.3.2] - 2026-02-04
 
 ### Changed
