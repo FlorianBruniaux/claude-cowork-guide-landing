@@ -23,6 +23,7 @@ const isEn = lang === 'en'
         <div class="hero-actions hero-ctas">
           <a href="/guide/" class="btn btn-primary" data-astro-prefetch="false">{s.heroCta}</a>
           <a href={isEn ? '/workflows/' : '/fr/workflows/'} class="btn btn-secondary">{s.heroCtaSecondary}</a>
+          <a href="/downloads/claude-cowork-guide.pdf" class="btn btn-secondary" download>{s.heroCtaPdf}</a>
         </div>
         <nav class="hero-beyond hero-quick-nav" aria-label={s.heroQuickNavigation}>
           <p class="hero-beyond-label quick-nav-label">{s.heroQuickLabel}</p>

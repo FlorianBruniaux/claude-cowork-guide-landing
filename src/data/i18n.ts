@@ -102,6 +102,7 @@ export const UI_STRINGS = {
     heroBadgeRules: '7',
     heroCta: 'Read the Guide',
     heroCtaSecondary: 'Browse Workflows',
+    heroCtaPdf: 'Download PDF',
 
     // What's New
     whatsNewBadge: 'Nov 2026',
@@ -440,6 +441,7 @@ Create an Excel file at ~/Cowork-Workspace/output/expenses.xlsx with:
     heroBadgeRules: '7',
     heroCta: 'Lire le Guide',
     heroCtaSecondary: 'Parcourir les Workflows',
+    heroCtaPdf: 'Télécharger le PDF (en anglais)',
 
     // What's New
     whatsNewBadge: 'Nov 2026',

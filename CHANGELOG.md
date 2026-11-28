@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- English PDF edition of the guide (198 pages, `public/downloads/claude-cowork-guide.pdf`), linked from the English and French homepage hero. Built from the guide repository at `799a058` with `scripts/build-pdf.py`; it is committed here and does not rebuild on deploy.
 - Author and Official Claude Community Ambassador · Paris links in the English and French homepage hero, synchronized with the guide READMEs.
 
 ## [1.3.2] - 2026-02-04
